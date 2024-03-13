@@ -6,6 +6,7 @@
 
 - [jekyll-theme-yat](https://github.com/jeffreytse/jekyll-theme-yat)
 - 将即开即用
+- 丢弃掉原本无用的文件，直接`fork`大佬的仓库
 
 ```yml
 ```
