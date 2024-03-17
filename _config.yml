@@ -156,8 +156,8 @@ header_pages:
   - archives.html
   - categories.html
   - tags.html
-  - about.md
-  - tools.md
+  - about.html
+  - tools.html
 
 # Page default value
 # defaults:
