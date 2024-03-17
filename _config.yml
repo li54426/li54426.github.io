@@ -151,6 +151,7 @@ permalink: /:categories/:year/:title.html
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
+# 怀疑必须是 html格式
 header_pages:
   - index.html
   - archives.html
