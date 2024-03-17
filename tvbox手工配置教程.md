@@ -2,7 +2,7 @@
 
 分享个**热心网友制作的本地包的使用教程**吧！
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/ZYFrO3twnyhZN2eBbmQeoo0tLGH2CZ27rBfrkm2FkoZONiatzVEzb7GniaIm50x7K4yIQ5eYQN5GicUermPe8DiaOw/?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](assets/1)
 
 **关于本地包 (Zip 格式) 在本机解压操作及使用方法：**
 
