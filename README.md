@@ -1,3 +1,11 @@
+---
+ignore: true
+---
+
+
+
+
+
 ## 修改 V3 20240313
 
 
@@ -87,11 +95,11 @@ This is an example to show how to pin an article at top.
 
 #### 问题1 ---编译失败
 
-最新的 2.0 版本似乎打破了 `{{` 在模板中的使用，不再类似以前的版本，在 2.0 版本使用 `{{` 会出现以下问题：
+最新的 2.0 版本似乎打破了 `{ {` 在模板中的使用，不再类似以前的版本，在 2.0 版本使用 `{ {` 会出现以下问题：
 
 解决方案
 
-- 两个 `{{`中间加`空格`=>`{ {`
+- 两个 `{ {`中间加`空格`=>`{ {`
 
 ```bash
 '{{' was not properly terminated with regexp: /\}\}/  (Liquid::SyntaxError)
