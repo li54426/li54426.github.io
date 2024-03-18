@@ -1,7 +1,11 @@
 ---
-layout: page
+layout: post
 title: tools
 permalink: /tools
+top: 1
+banner:
+  image: https://bit.ly/3xTmdUP
+  background: "#E0F2F1"
 ---
 
  用来存放我的项目以及一些好的项目
@@ -40,6 +44,7 @@ permalink: /tools
 
 ### 网页工具
 
+- [Z-Library – 世界上最大的电子图书馆。自由访问知识和文化。](https://zh.z-library.se/)
 - [PDF在线 工具 - 100％免费 - PDF24 Tools](https://tools.pdf24.org/zh/all-tools)
 - [批量网页转pdf](https://www.aconvert.com/webpage/)
 - [云盘搜索](https://yiso.eu.org/)
