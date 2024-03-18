@@ -3,8 +3,7 @@ layout: post
 title: tools
 permalink: /tools
 top: 1
-banner:
-  image: https://bit.ly/3xTmdUP
+banner: 
   background: "#E0F2F1"
 ---
 
