@@ -153,7 +153,7 @@ permalink: /:categories/:year/:title.html
 # this and add the path to the pages in order as they should show up
 # 怀疑必须是 html格式
 header_pages:
-#  - index.html
+  - index.html
   - archives.html
   - categories.html
   - tags.html
@@ -161,11 +161,11 @@ header_pages:
   - tools.md
 
 # Page default value
-# defaults:
-#   home:
-#     heading: "test Your awesome heading"
-#     subheading: "Your awesome subheading"
-#     banner: "Your image url"
+defaults:
+   home:
+     heading: "test Your awesome heading"
+     subheading: "Your awesome subheading"
+     banner: "Your image url"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
