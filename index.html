@@ -1,0 +1,8645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Home | li54426 blog</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="Home">
+<meta name="author" content="li54426">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<link rel="canonical" href="/jekyll-theme-yat/">
+<meta property="og:url" content="/jekyll-theme-yat/">
+<meta property="og:site_name" content="li54426 blog">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Home">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"li54426"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Home","name":"li54426 blog","url":"/jekyll-theme-yat/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="/assets/my/favicon.ico">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/jekyll-theme-yat/assets/css/main.css">
+  <script src="/jekyll-theme-yat/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="/jekyll-theme-yat/feed.xml" title="li54426  blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header site-header-transparent" role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/jekyll-theme-yat/">
+  <img class="site-favicon" title="li54426  blog" src="/assets/my/favicon.ico" onerror="this.style.display='none'">
+  li54426  blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/jekyll-theme-yat/">HOME</a><a class="page-link" href="/jekyll-theme-yat/archives">ARCHIVES</a><a class="page-link" href="/jekyll-theme-yat/categories">CATEGORIES</a><a class="page-link" href="/jekyll-theme-yat/tags">TAGS</a><a class="page-link" href="/jekyll-theme-yat/about">ABOUT</a><a class="page-link" href="/jekyll-theme-yat/tools">TOOLS</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-banner">
+    <div class="page-banner-img">
+<div style="background-image: url(/jekyll-theme-yat/assets/images/banners/home.jpeg)"></div>
+        <img class="img-placeholder" src="/jekyll-theme-yat/assets/images/banners/home.jpeg">
+</div>
+    <div class="wrapper">
+      <div class="page-banner-inner"><div class="page-banner-default">
+            <h1 class="page-banner-heading">
+              记录我的生活
+            </h1>
+            <h2 class="page-banner-subheading">
+              A awesome static site generator.
+            </h2>
+          </div></div>
+    </div>
+  </section><script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('auto' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="articles">
+  
+
+  
+
+
+  
+
+
+
+
+<div class="pagination">
+  <!-- Post list links -->
+  <ul class="post-list z-image-style">
+    <!-- Top list item --><!-- Normal list item -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2024/md_plus_tuchuang.html">
+      图床<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Mar 05, 2024</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2024/md_plus_tuchuang.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2024/md_plus_tuchuang.html">
+      <p>
+  什么是node . js
+
+
+xlzy520/picgo-plugin-bilibili: 为 PicGo 开发的一款插件，新增了B站图床 图床。 使用用户动态的图片上传API。填写SESSDATA即可，获取方式在下面。 (github.com)
+
+
+  找cookie中的 SESSDATA 还有 bli_jct 复制即可
+
+
+
+
+什么是node . js
+
+Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时，用于构建快速、可扩展的网络应用。它允许开发者使用 JavaScript 来编写服务器端的代码，而不仅仅局限于浏览器端的脚本。Node.js 的特点包括：
+
+
+  事件驱动: Node.js 使用基于事件驱动的非阻塞 I/O 模型，这意味着它... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#API_software">#API_software</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/download-xiaohongshu.html">
+      如何批量下载小红书的图片<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Nov 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/download-xiaohongshu.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/download-xiaohongshu.html">
+      <p>
+  如何批量下载小红书的图片
+  脚本使用
+
+如何批量下载小红书的图片
+
+
+  首先下载油猴插件
+  其次安装该脚本Picviewer CE+ (greasyfork.org)
+  使用脚本下载图片
+
+
+脚本使用
+
+
+  打开连接
+  按住g
+  右上角命令-下载当前所有
+
+
+快捷键
+
+
+  打开图库（加功能键为全局）9
+  打开大图a
+  打开当前图片C
+  打开放大镜观察m
+  下载d
+
+
+
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#API_software">#API_software</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/.html">
+      第场周赛<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Oct 20, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/.html">
+      <p> <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#leetcode_week">#leetcode_week</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/default/2023/.network.html">
+      网络知识点<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Oct 16, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/default/2023/.network.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/default/2023/.network.html">
+      <p>
+  考试内容
+  上午考试方法
+  下午考试注意事项
+  OSI模型
+  数据链路层
+  网络层
+  传输层
+  表示层
+
+
+考试内容
+
+
+  上午考试的内容是计算机与网络知识，考试时间为150分钟，笔试，选择题，而且全部是单项选择题，其中含5分的英文题。上午考试总共75道题，共计75分，按60%计，45分算过关。
+  下午考试的内容是网络系统设计与管理，考试时间为150分钟，笔试，问答题。一般为5道大题，每道大题15分，有若千个小问，总计75分，按60%计，45分算过关。
+
+
+上午考试方法
+
+
+  记得带2B以上的铅笔和一块比较好的橡皮。上午考试答题采用填涂答题卡的形式，阅卷是由机器阅卷的，所以需要使用2B以上的铅笔；带好一点的橡皮是为了修改选项时擦得比较千净。
+  注意把握考试时... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#default">#default</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#%E5%85%AB%E8%82%A1">#八股</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/acm-input.html">
+      ACM输入输出总结<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Oct 05, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 6 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/acm-input.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/acm-input.html">
+      <p>
+  1 基础    
+      1.1 不知道具体行数,直到文件末尾( EOF )
+      1.2 有具体行数
+    
+  
+  2 string    
+      2.1 多组数据, 空格分隔每个字符串
+      2.2 输入一行为一个字符串
+      2.3 多组数据, 一行为一个字符串
+      2.4 输入一行字符串, 从中查找数字
+    
+  
+  3 进阶—stringstream 的使用    
+      3.1 输入方式为每行一个数组
+      3.2 输入方式为每行一个数组, 数字之间用逗号分隔
+      string流类基础
+    
+  
+
+
+1 基础
+
+1.1 不知道具体行数,直到文件末尾( EOF )
+
+
+  输入样例:
+
+   1 ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/gpt-prompt.html">
+      GPT 提示词<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Sep 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/gpt-prompt.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/gpt-prompt.html">
+      <p>
+  论文降重
+  prompt_论文润色    
+      写研究进展
+    
+  
+  论文润色
+
+
+论文降重
+
+
+  你是一个期刊收录系统,你熟练使用文本相似度算法如余弦相似度,Jaccard,曼哈顿距离等,来判断原文与相似内容之间的相似度接下来,我将给你原文与相似内容.你需要给我两者的相似度结果,然后,你需要对原文进行改写,使相似度降低到-1,然后重新计算原文与相似内容的相似度最终,你会把修改后的原文给我以及他与相似内容的想似度
+
+  原文内容: 智能车辆的任务并不是都可以卸载的，车辆任务按照其关键程度分为三类：关键任务（Crucial Tasks，CTs）、高优先级应用程序（High-Priority Tasks，HPTs）和低优先级应用程序（Low-Priority T... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#API_software">#API_software</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/web/2023/websocket.html">
+      Websocket<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Sep 27, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/web/2023/websocket.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/web/2023/websocket.html">
+      <p>
+  websocket 协议
+
+
+websocket 协议
+
+
+  WebSocket 是一种用于在 Web 浏览器和服务器之间进行双向通信的协议。它提供了实时性、高效性和可靠性，使得服务器可以主动推送数据给客户端，客户端也可以向服务器发送数据，实现了全双工通信。
+  当我们使用 HTTP协议时, 因为 http使用了 cs架构, 因此, 我们没有办法让服务器主动向客户推送消息, 如果我们想要主动推送消息, 只能通过更低层次 tcp 来进行双向的通信
+
+
+特点
+
+
+  双向通信
+  建立在 TCP 协议之上，服务器端的实现比较容易。
+  与 HTTP 协议有着良好的兼容性。默认端口也是 80 和 443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#web">#web</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#protocol">#protocol</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/string-match.html">
+      字符串匹配<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Sep 23, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/string-match.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/string-match.html">
+      <p>
+10. 正则表达式匹配
+
+
+  给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+
+  
+    '.' 匹配任意单个字符
+    '*' 匹配零个或多个前面的那一个元素
+  
+
+  所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+
+  输入：s = "aa", p = "a"
+输出：false
+解释："a" 无法匹配 "aa" 整个字符串。
+  
+
+
+
+  首先, 我们要明白这两个字符的作用是什么
+    
+      .匹配任意一个字符
+      *有两个作用, 一个是擦除前面的字符(匹配零个前面的那一个元素), 或者是 多个前面的字符
+    
+  
+  能匹配 s[i] == p[j] || p[j] == '.... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/basic-problems.html">
+      C++的一些基础问题<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Sep 22, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 6 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/basic-problems.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/basic-problems.html">
+      <p>
+  数值类型的问题    
+      整型与浮点型
+      整型与大整形
+      整型与参数模板
+      数位补足
+    
+  
+  string 与 char *    
+      char *赋值
+    
+  
+  作用域    
+      变量的作用域
+    
+  
+
+
+数值类型的问题
+
+整型与浮点型
+
+
+  在 C++ 中，当一个浮点数和一个整数进行乘法运算时，整数会被隐式地转换成与浮点数相同的类型，然后进行乘法运算。
+
+
+void test1(){
+    float f=3.5; 
+    int m =6; 
+    long k=21;
+    cout&lt;&lt; "k/2="&lt;&lt; k/2&lt;&lt; endl;
+    ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/resume.html">
+      简历制作教训<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Sep 10, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/resume.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/resume.html">
+      <p>
+  1 简历原则：
+  2 基本信息
+  3 项目/ 实习经历
+  4 职业技能  (专业技能)
+  5 其他模块
+
+
+模板推荐
+
+
+  Chinese English resume template 中英双语简历模板 - Overleaf, Online LaTeX Editor
+  中文简历模板（Chinese Resume Template） - Overleaf, Online LaTeX Editor
+
+
+推荐使用以上两个简历, 知乎推荐的简历字体太大了, 不推荐使用
+
+1 简历原则：
+
+
+  简历模板要清晰、简洁！别用花里胡哨的格式, 双栏简历达咩
+  简历不超过一页纸
+  错别字和语病不要有、字体统一
+  不同岗位，不同要求，不同简历
+
+
+2 基本信息
+
+
+  证件照:... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#API_software">#API_software</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#latex">#latex</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#resume">#resume</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#job">#job</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/zero-copy.html">
+      Go_深入浅出零拷贝及应用<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 24, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/zero-copy.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/zero-copy.html">
+      <p>
+  零拷贝的实现方式
+
+深入浅出零拷贝及应用
+
+当我们读取文件时
+
+磁盘读取数据====&gt;内核=====&gt;应用程序
+
+这还伴随着 用户态 和 内核态 的转换, (数字越小, 权限越高)
+
+当从磁盘读取到, socket时
+
+
+  磁盘读取数据====&gt;内核=====&gt;应用程序
+  应用程序====&gt;内核=====&gt;网卡
+
+
+零拷贝的实现方式
+
+DMA 传输
+
+
+  直接内存访问（DMA）允许设备直接访问内存，绕过 CPU。
+  避免了 CPU 的介入，提高了数据传输速度。
+
+
+文件描述符传递
+
+
+  文件描述符传递是 UNIX 系统中实现零拷贝的方式之一。
+  sendfile 和 splice 系统调用是典型的例子。
+
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/unique-not-auto.html">
+      函数模板与 auto 关键字<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 23, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/unique-not-auto.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/unique-not-auto.html">
+      <p>
+  函数模板不能使用 auto
+  lambda表达式 使用 auto
+
+
+函数模板不能使用 auto
+
+bool cmp(pair&lt;int, int&gt;  &amp;a, pair&lt;int, int&gt;  &amp;b){
+    if( a.first == b.first){
+        a.second = b.second;
+        return 1;
+    }
+    return 0;
+}
+
+class Solution {
+public:
+
+    vector&lt;int&gt; smallestSubarrays(vector&lt;int&gt;&amp; nums) {
+        // 找一个最短的子数组, 使得 | ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/hole.html">
+      漏洞<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 18, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/hole.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/hole.html">
+      <p>
+  服务端漏洞    
+      安全事件
+      SQL注入
+      命令执行
+      越权漏洞
+      SSRF
+      文件上传漏洞
+    
+  
+  客户端漏洞    
+      开放重定向
+      XSS
+      CSRF
+    
+  
+
+
+服务端漏洞
+
+安全事件
+
+
+  数据泄漏
+  服务瘫痪
+  成果失窃
+  系统劫持
+
+
+SQL注入
+
+SQL语句静态模板和动态数据部分没有严格区分,如果在数据项中加入了某些SOL语句关键字(比如说SELECT、DROP等等),这些SQL语句就很可以在数据库写入或读取数据时得到执行.
+
+防护方式:
+
+
+  1.尽量不要基于DB的Raw方法拼接构造SQL语句,而应该使用预编译、ORM框架
+  2.使用OR... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/test.html">
+      Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 17, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/test.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/test.html">
+      <p>
+  三、测试
+  assert
+  基本概念
+  gc 算法
+  追踪垃圾分类
+  分代 gc
+  引用计数
+
+三、测试
+
+测试是避免事物的最后一道屏障。
+
+
+  回归测试
+  集成测试
+  单元测试
+
+
+从上到下，覆盖率逐层变大，成本却逐层降低
+
+Go 语言内置有对单元测试的支持，主要通过 testing 包实现。
+
+
+  所有测试文件以_test.go结尾
+  func TestXxx(t *testing.T)
+  初始化逻辑放到TestMain中
+
+
+func Add(a int, b int) int{
+  return a+b
+}
+
+func TestAdd(t *testing.T) {
+  output:=Add(1, 2)
+  expectOutput:=3
+  i... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/mult-thread.html">
+      Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 17, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 7 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/mult-thread.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/mult-thread.html">
+      <p>
+  携程
+  通信 / channel
+  实例/ 生产者消费者模型
+  互斥锁
+
+
+携程
+
+Go 语言中的 goroutine 就是这样一种机制，goroutine 的概念类似于线程，但 goroutine 是由 Go 的运行时（runtime）调度和管理的。Go 程序会智能地将 goroutine 中的任务合理地分配给每个 CPU。Go 语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。
+
+在 Go 语言编程中你不需要去自己写进程、线程、协程，你的技能包里只有一个技能–goroutine，当你需要让某个任务并发执行的时候，你只需要把这个任务包装成一个函数，开启一个 goroutine 去执行这个函数就可以了，就是这么简单粗暴。
+
+协程:用户态... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/package.html">
+      Go_常用框架/中间件<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 17, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 52 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/package.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/package.html">
+      <p>
+  实现函数对象
+  test    
+      go test参数
+    
+  
+  log
+  OS
+  IO    
+      1、Reader
+      2、Writer
+      3、Closer
+      4、Seeker
+    
+  
+  bufio
+  string
+  GORM    
+      demo
+      定义数据类型
+      连接/ 关闭数据库
+      创建
+      简单查询
+      select 语句
+      返回多条记录
+      更新
+      不存在则创建
+    
+  
+  net/ http    
+      客户端方法
+      客户端参数  net/url
+      post方法
+     ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/1024-code.html">
+      1024 code 使用说明<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 15, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/1024-code.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/1024-code.html">
+      <p>
+  1024 相关/ 项目    
+      1 简介
+      2 github 联动
+      3 创建团队
+      4 1024 创建代码空间
+      5 1024 的问题
+      6 环境问题
+      7 go 如何设置 数据库
+    
+  
+
+1024 相关/ 项目
+
+1 简介
+
+拿到邀请码以后再去注册
+
+主要功能
+
+
+  在线多人协作, 包括代码
+  code 在线分享: 类似于 kaggle
+  助手: gpt
+  Git版本管理: Git Commit,管理你的代码版本
+  数据库: 云端数据库
+
+
+建议 创建 github仓库
+
+‌‌‌⁢⁤﻿‍⁣‍‌‬‌‌﻿﻿﻿⁡⁣⁤‌⁡﻿⁣⁤‬⁣‬﻿﻿‍⁡⁢⁡⁣‬⁣⁡⁡⁤⁡‌1024Code 组队协作编程流... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#API_software">#API_software</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/confuse.html">
+      c++中那些奇怪的事情<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 14, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/confuse.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/confuse.html">
+      <p>
+  引用来实现多态
+  不涉及多态时, 删除对象会发生什么
+
+
+引用来实现多态
+
+#include&lt;iostream&gt;
+using namespace std;
+
+class Base {
+public:
+    virtual void print() {
+        cout &lt;&lt; "This is Base class." &lt;&lt; endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void print() {
+        cout &lt;&lt; "This is Derived class." &lt;&lt; endl;
+    }
+};
+
+int main() {... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/project.html">
+      Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 12, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 12 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/project.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/project.html">
+      <p>
+  我的工作—发布视频    
+      简介
+      队友的接口
+      使用了接口之后的伪代码
+    
+  
+  user
+  项目分析    
+      service/ message.go
+      API / 路由/ 基于 HTTP 协议
+      返回类型
+    
+  
+  GORM 使用
+  其他库    
+      抽取图片
+      sync.Map
+    
+  
+
+
+我的工作—发布视频
+
+简介
+
+我的工作为发布视频, 将这个任务分解为几个小任务, 先看哪些任务能够自己独立完成,先完成这些任务, 之后再根据小组成员的接口, 实现完整的功能
+
+环境
+
+
+  需要提前安装ffmpeg
+
+
+发布视频的流程
+
+
+  鉴权 —– 使用别人的接口
+ ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/xiao_xi_dui_lie.html">
+      Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 11, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/xiao_xi_dui_lie.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/xiao_xi_dui_lie.html">
+      <p>
+  四个场景,如何解决?
+  常见的消息队列
+  使用 kafka流程
+  基本概念
+
+
+四个场景,如何解决?
+
+
+  系统奔溃——-消息队列, 解耦
+  服务处理能力有限——削峰, 消息队列
+  链路耗时长尾——-异步, 消息队列
+  日志如何处理——
+
+
+常见的消息队列
+
+
+  Kafka:分布式的、分区的、多副本的日志提交服务,在高吞吐场景下发挥较为出色
+  RocketMQ:低延迟、强一致、高性能、高可靠、万亿级容量和灵活的可扩展性,在一些实时场景中运用较广
+  Pulsar:是下一代云原生分布式消息流平台,集消息、存储、轻量化函数式计算为一体、采用存算分离的架构设计
+  BMQ:和Pulsar架构类似, 存算分离, 初期定位是承接高吞吐的离线业务场景, 逐步替换掉对应的Ka... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/dui_xiang_cun_chu.html">
+      Go_对象存储<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 10, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/dui_xiang_cun_chu.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/dui_xiang_cun_chu.html">
+      <p>
+  什么是对象存储
+  虾仁猪心
+  业务场景：
+
+
+什么是对象存储
+
+对象存储（Object Storage）是一种用于存储和管理非结构化数据的技术和架构。与传统的文件系统或块存储相比，对象存储更适用于大规模数据的存储和访问。
+
+在对象存储中，数据以对象（Object）的形式进行存储。一个对象通常由数据本身、唯一的标识符（称为键或对象名）和相关的元数据（Metadata）组成。对象存储将这些对象分布在一个分布式的存储集群中，并提供了可靠性、可扩展性和高性能的数据存储解决方案。
+
+对象存储的特点和优势包括：
+
+
+  无限扩展性：对象存储具有无限的存储容量，并可以轻松地扩展以适应不断增长的数据需求。
+  高可靠性：对象存储使用冗余数据备份机制，确保数据的持久性和可靠性。数据在存储集群中... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/redis.html">
+      Go_Redis<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 08, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/redis.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/redis.html">
+      <p>
+  基础知识    
+      1 什么是 Redis
+      2 安装 Redis
+      3 什么是 QPS
+      redis基本工作原理
+    
+  
+  应用场景    
+      连续签到
+      消息通知
+      排行榜
+      限流
+      分布式锁
+      pipeline
+      2.2 list
+    
+  
+  问题    
+      大 key
+      热Key的定义
+      慢查询
+      缓存穿透、缓存雪崩
+    
+  
+
+
+基础知识
+
+1 什么是 Redis
+
+
+  redis是内存数据库、key-value 数据库、以及 数据结构数据库
+  Redis 单线程指的是「接收客户端请求 -&amp;gt... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/summary/2023/2023-m.html">
+      2023 年中总结<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 08, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/summary/2023/2023-m.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/summary/2023/2023-m.html">
+      <p>
+1 力扣刷题量终于达到了 300
+
+
+
+2 终于拿到了一直没有考出来的教师资格证
+
+3 终于开始了在linux下编程, 完成了一个项目webserver
+
+4 终于学会了使用 GDB
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#summary">#summary</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/lib_linux/2023/xiangmuhuizong.html">
+      Xiangmuhuizong<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 05, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/lib_linux/2023/xiangmuhuizong.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/lib_linux/2023/xiangmuhuizong.html">
+      <p>
+其他项目
+
+
+  衍生项目, 剖析muduo源码(未做)
+  设计模式
+  STL笔记
+  http web server
+  c内存管理
+
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#lib_linux">#lib_linux</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/go-7-database.html">
+      Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 05, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/go-7-database.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/go-7-database.html">
+      <p>[TOC]
+
+数据库
+
+特点
+
+
+  作为后端软件的底座, 性能敏感 ( 没有数据还有服务? )
+  存储系统软件架构, 容易受硬件影响  (别人发明了快十倍的硬件, 但是需要从头写, 你用不)
+  存储系统代码,既”简单”又”复杂”
+
+
+设计程序原则
+
+
+  「缓存」很重要,贯穿整个存储体系
+  「拷贝」很昂贵,应该尽量减少
+  硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件
+
+
+高速数据库的设计应该归为操作系统这一级别
+
+
+  必不可少, 所有的计算机必须存储数据
+  缓存的数据必须由程序员控制, 而不是操作系统的某个算法来控制
+    
+      例如, 用户查找了 A表的数据, 下一个行为必须是查询B表, 算法计算出来的是缓存C表, 那缓存还... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/lib_linux/2023/httpserver.html">
+      Httpserver<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 02, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 14 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/lib_linux/2023/httpserver.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/lib_linux/2023/httpserver.html">
+      <p>
+  0 写在开头
+  1 HttpRequest
+  2 HttpContext    
+      2.1 主要的功能:
+      2.2 http报文格式
+      2.3 核心函数bool parseRequCest(Buffer* buf, Timestamp receivetime);
+      2.4处理请求行
+    
+  
+  3 httpResponse
+  4 HttpServer
+
+
+0 写在开头
+
+“如无必要，勿增实体”———威廉
+
+这就是著名的奥卡姆剃刀原则, 他说的是, 小就是美, 今天在写处理http的网络库时, 深有感触
+
+http协议位于传输层上方, 但是不一定是最高的层次, 他就像操作系统对于硬件和用户的关系一样, 既要支持用户直接用, 也要... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#lib_linux">#lib_linux</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/lib_linux/2023/muduo.html">
+      Muduo<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 02, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/lib_linux/2023/muduo.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/lib_linux/2023/muduo.html">
+      <p>
+  muduo库的优点
+  安装muduo库
+  编译测试
+
+
+muduo库的优点
+
+
+  高性能：muduo 是一个基于事件驱动的网络库，具有高度可扩展性和高性能。它采用了 Reactor 模式和非阻塞 IO 技术，能够处理大量并发连接和高负载的网络请求，提供出色的性能表现。
+  轻量级：muduo 库设计简洁，代码量相对较小，不依赖于外部库和框架。这使得集成和使用该库非常方便，并且能够快速构建高性能的网络应用程序。
+
+
+安装muduo库
+
+
+  mirrors / chenshuo / muduo · GitCode
+
+
+# 0.1 在下载路径下解压
+unzip muduo-master.zip
+
+# 0.2 如果没有安装 cmake
+sudo apt-get install c... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#lib_linux">#lib_linux</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/baidu-jingsai.html">
+      百度之星考试<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 02, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/baidu-jingsai.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/baidu-jingsai.html">
+      <p>
+  百度之星
+  比赛简述
+  报名相关
+  oj相关
+  练习赛（模拟考试）
+
+
+百度之星
+
+比赛简述
+
+
+  三场初赛，参赛选手可以参加任意一场或多场, 三场初赛 / 省赛日期依次为 2023 年 8 月 6 日（周日）、8 月 13 日（周日）和 9 月 24 日（周日），均为线上。决赛将在线下举办，时间地点另行通知。14:00-17:00
+  
+  比赛可以带纸质资料,
+  ：初赛和决赛均为算法设计类题型。每场初赛时长 3 小时、8 道题；决赛时长 5 小时、12 道题。
+  选手使用程序设计语言包括 C，C++，Python 及 Java 等语言解决挑战性算法问题。程序完成之后提交运行，系统自动判定程序为正确或错误并将运行的结果反馈给参赛者，根据答题准确率和耗时进行排名晋级... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/go-5-arp-nat.html">
+      Go_5_网络编程<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 01, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/go-5-arp-nat.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/go-5-arp-nat.html">
+      <p>
+  环境
+  ARP协议
+  免费 ARP
+  NAT
+  TCP
+  https的加密过程
+  网络提速
+  故障排查
+  课后作业1
+  课后作业2
+  第六次课程    
+      域名系统的问题
+      DNS 解析的一般步骤：
+      4层负载均衡特点
+      什么是 nginx
+    
+  
+
+
+环境
+
+
+  Linux/操作系统
+  Wireshark件
+  Socket 网络编程开发环境
+
+
+ARP协议
+
+
+  逻辑同网段才能发送ARP
+  ARP请求广播, ARP应答单播
+
+
+免费 ARP
+
+ARP（地址解析协议）是一种用于将 IP 地址映射到 MAC 地址的协议。它在局域网中起作用，允许网络设备通过发送 ARP 请求来查找目标设备的 MAC 地址。... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/jekyll.html">
+      jekyll进阶设置<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/jekyll.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/jekyll.html">
+      <p>
+  1简介    
+      1.1 Jekyll 究竟是什么？
+      1.2 目录结构
+    
+  
+  2 头部信息(设置信息)    
+      2.1 头信息
+      2.2 格式
+      2.3 默认值
+      2.4 路径的组织方式
+    
+  
+  3 其他    
+      3.1 github 某些 样式
+      3.2 引用图片和其它资源
+    
+  
+
+
+1简介
+
+1.1 Jekyll 究竟是什么？
+
+Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过一个转换器（如 Markdown）和我们的 Liquid 渲染器转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#API_software">#API_software</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/go-4-http-rpc.html">
+      Go_4_HTTP_RPC_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/go-4-http-rpc.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/go-4-http-rpc.html">
+      <p>[TOC]
+
+ctrl + /打开专注模式
+
+
+
+HTTp 框架
+
+超文本传输协议
+
+
+  请求行/状态行
+    
+      方法名
+      URL
+      协议版本
+    
+  
+  请求头/响应头
+  请求体/响应体
+
+
+POST /sis HTTP/1.1
+Who: Alex 
+Content-Type: text/plain 
+Host: 127.0.0.1:8888
+Content-Length: 28
+Let's watch a movie together
+
+
+问题与展望
+
+
+  HTTP1 队头阻塞, 传输效率低, 明文传输不安全  (头部太大)
+  HTTP2 多路复用, 头部压缩, 二进制协议
+  QUIC 基于 UDP 实现, 解决队头阻塞加, 密减... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/basic-3-banzi.html">
+      basic_3_算法模板<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 18 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/basic-3-banzi.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/basic-3-banzi.html">
+      <p>
+  三. 进阶_ 算法模板    
+      1 数值处理        
+          1.1 数值处理—–反转数字
+          1.2 数值处理——最大公因子
+          位运算
+          1.3 数值处理——求幂
+          1.4 数值处理——求模运算
+          1.5 数值处理——-模幂运算
+          字符串数值处理
+          排序技巧
+        
+      
+      2 回溯 = (先根)DFS + 剪枝        
+          BFS
+        
+      
+      3 单调栈
+      双指针
+      图论        
+          4.1 图的... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/dates/">
+      Dates<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/dates/" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/dates/">
+      <p>
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/categories/">
+      Categories<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/categories/" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/categories/">
+      <p>
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/about">
+      About<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/about" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/about">
+      <p>Hello World
+
+感谢大佬, 开箱即用,  博客使用 Jekyll 搭建托管在GitHub目前使用主题后期 Not Pure Poole.
+
+使用语言
+
+
+  
+    
+      C++
+      go
+    
+  
+
+
+Not Pure Poole is a simple, beautiful, and powerful Jekyll theme for blogs. It is built on Poole and Pure.
+
+For more information about Not Pure Poole, please browse the README file.
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/problem-string.html">
+      一些字符串的问题<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 7 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/problem-string.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/problem-string.html">
+      <p>
+  leetCode 344 反转字符串    
+      思路
+      解法
+    
+  
+  leetCode 541 反转字符串 II    
+      思路
+      解法
+    
+  
+  剑指Offer 05 替换空格    
+      解法
+    
+  
+  leetCode 151 反转字符串中的单词    
+      解法
+    
+  
+  剑指Offer58-II.左旋转字符串    
+      解法
+    
+  
+  leetCode 459 重复的子字符串    
+      思路
+      解法
+    
+  
+
+
+字符串相关的算法题目
+
+leetCode 344 反转字符串
+
+编写一个函数，其作用是将输入的字符串反转过来。输入字... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#leetcode">#leetcode</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#problem">#problem</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/problem-array.html">
+      经典的数组的题目<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 27 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/problem-array.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/problem-array.html">
+      <p>
+  二分查找    
+      leetCode 704 二分查找        
+          思路
+          解法
+        
+      
+      leetCode 35 搜索插入位置        
+          思路
+          解法
+        
+      
+      leetCode 34 在排序数组中查找元素的第一个和最后一个位置        
+          思路
+          解法
+        
+      
+      leetCode 69 x 的平方根        
+          思路
+          解法
+        
+      
+      leetCode 367 有效... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#array">#array</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#leetcode">#leetcode</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/yingshe.html">
+      数组和映射<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/yingshe.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/yingshe.html">
+      <p>
+  1 映射的定义
+  2 数组
+  3 折半( 二分 )查找 可以在 某些映射上进行
+
+
+1 映射的定义
+
+​	两个非空集合A与B间存在着对应关系 f，而且对于A中的每一个元素 a，B中总有唯一的一个元素 b 与它对应，就这种对应为从 A 到 B 的映射，记作 f : A -&gt; B。
+
+​	其中，b称为元素a在映射f下的像，记作：b=f（a）。a称为b关于映射的原像。集合A中所有元泰的像的集合称为映射的值域，记作fA）。
+
+2 数组
+
+数组在 物理实现 上是一块连续的存储空间
+
+但是在逻辑上 是一个映射 f 从 i -&gt; nums[i], 只不过这个 i 的集合是有限制的, 每个元素都是实数
+
+3 折半( 二分 )查找 可以在 某些映射上进行
+
+折半查找的条件 :
+
+
+... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/slide-window.html">
+      滑动窗口算法<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/slide-window.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/slide-window.html">
+      <p>
+  滑动窗口
+  满足题目条件—循环内更新
+  不满足题目条件—循环外更新
+
+
+滑动窗口
+
+O(n) 时间内解决 子串, 子数组问题
+
+
+  right 表示待处理的节点
+  窗口其实就是 [left, right), 窗口大小是 left- right
+  right 向右寻找可行解，left 向右寻找最优解
+  等价于枚举左端点
+
+
+#-----------------V1----------------
+while right &lt; s.size():
+    # 处理s[right]
+    ++right;
+    
+    while( shirink &amp;&amp; l&lt;r ):
+        # 满足 题目 条件的在这里更新
+        upda... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">#滑动窗口</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/commit-style.html">
+      commit 规范<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/commit-style.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/commit-style.html">
+      <p>
+  规范
+
+
+规范
+
+&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+&lt;BLANK LINE&gt;
+&lt;body&gt;
+&lt;BLANK LINE&gt;
+&lt;footer&gt;
+
+
+
+  type: 必填 commit 类型，有业内常用的字段，也可以根据需要自己定义
+    
+      feat 增加新功能
+      fix 修复问题 / BUG
+      style 代码风格相关无影响运行结果的
+      perf 优化 / 性能提升
+      refactor 重构
+      revert 撤销修改
+      test 测试相关
+      docs 文档 / 注释
+      chore 依赖更新 ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#standard">#standard</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/cpp_style.html">
+      代码风格<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/cpp_style.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/cpp_style.html">
+      <p>
+  0 代码风格    
+      1. 命名规则
+      2 注释风格
+    
+  
+
+
+0 代码风格
+
+  C++ 风格指南
+  Cpplint 是一个 Python 脚本，作为一款开源免费的代码静态检测工具，Google 也使用它作为自己的 C++ 代码检测工具，也就是说，只要你想代码遵从 Google C++ 代码规范，那么 Cpplint 将会提供很好的代码静态检测支持。
+
+
+1. 命名规则
+
+
+  文件名要全部小写, 可以包含下划线 (_) 或连字符 (-), 依照项目的约定. 如果没有约定, 那么“_”更好.
+  内联函数必须放在 .h 文件中. 如果内联函数比较短, 就直接放在 .h 中.
+  
+  类名称的每个单词首字母均大写, 不包含下划线: 形如MyEx... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/auto-find-answer.html">
+      自动化查题<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 9 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/auto-find-answer.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/auto-find-answer.html">
+      <p>
+  1 读取查询列表
+  2 读取题库
+  3 进行查题
+  4 总体代码
+
+
+
+  问题文件 question.txt
+  题库文件 diction.xlsx
+  输出为查询结果.xlsx
+
+
+1 读取查询列表
+
+##########-读取查询列-#########
+
+
+# 文本预处理
+
+filepath = "./auto/question.txt"
+
+with open(filepath, 'r', encoding='utf-8') as f:
+    text = f.read()
+
+text_new = text.replace('（', '(')
+text_new = text_new.replace('）', ')')
+
+with open(filepath, 'w'... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#API_software">#API_software</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#python">#python</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#auto">#auto</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/use-gdb-cmake.html">
+      cmake &amp;&amp; GDB的使用方法<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/use-gdb-cmake.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/use-gdb-cmake.html">
+      <p>
+  Cmake    
+      cmake 教程
+    
+  
+  GDB    
+      gdb官方文档
+      gdb 调试过程
+      常用命令
+    
+  
+
+
+Cmake
+
+cmake 教程
+
+
+  编写 CMakeLists.txt 文件。
+  创建一个 build 目录，用来存放 cmake 生成的文件。（这一步非必须）
+  cd 进入 build 目录下，执行 cmake .. 命令，将 CMakeLists.txt 文件转化为 make 所需的 makefile 文件，其中路径 .. 表示 CMakeLists.txt 所在目录（路径可以根据自己 CMakeLists.txt 所在目录更改）。
+  在 build 目录下，执行 make 命令，生... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/generate-blog.html">
+      如何基于github快速建立博客站点<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/generate-blog.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/generate-blog.html">
+      <p>
+  修改    
+      设置说明
+      使用说明
+      颜色说明
+      自动提交脚本
+      自动生成 markdown
+    
+  
+
+
+修改
+
+
+  从原作者项目地址进行 clone 原作者项目地址在这里
+  进行修改
+  上传
+
+
+设置说明
+
+
+  修改_config.yml 的 links 为您的菜单
+  修改_config.yml 的 paginate 为您的按照多少页分页
+  修改自己的网图标\style\favicons\favicon.ico
+  修改自己的网标志\style\favicons\logo-liberxue.png
+  在_layouts\blog.html中, 将 本文由 &lt;a href="/"&gt;liberxu... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#blog">#blog</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#API_software">#API_software</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/356.html">
+      第356场周赛<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 14 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/356.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/356.html">
+      <p>
+  6900. 统计完全子数组的数目 - 力扣（LeetCode）
+  2801. 统计范围内的步进数字数目 - 力扣（LeetCode）
+  2800. 包含三个字符串的最短字符串 - 力扣（LeetCode）
+
+
+6900. 统计完全子数组的数目 - 力扣（LeetCode）
+
+
+  给你一个由 正 整数组成的数组 nums 。
+
+  如果数组中的某个子数组满足下述条件，则称之为 完全子数组 ：
+
+  
+    子数组中 不同 元素的数目等于整个数组不同元素的数目。
+  
+
+  返回数组中 完全子数组 的数目。
+
+  子数组 是数组中的一个连续非空序列。
+
+  输入：nums = [1,3,1,2,2]
+输出：4
+解释：完全子数组有：[1,3,1,2]、[1,3,1,2,2]、[... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#leetcode_week">#leetcode_week</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/dp-01bag.html">
+      动态规划_01背包<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/dp-01bag.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/dp-01bag.html">
+      <p>
+  动态规划的三个步骤:
+  三个 tips:
+  输入格式
+  输出格式
+  数据范围
+
+
+algorithm_DynamicProgram_1_01背包问题
+
+
+题目链接: 2. 01背包问题 - AcWing题库
+
+
+  有 N 件物品和一个容量是 V的背包。每件物品只能使用一次。
+
+  第 i 件物品的重量是 w[i]，价值是 v[i]。
+
+  求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。
+输出最大价值。
+
+
+动态规划的三个步骤:
+
+
+  确立dp数组的意义
+  确立递推公式
+  确定遍历顺序( 多维 )
+  处理边界情况
+
+
+三个 tips:
+
+
+  当递推式包含min时，可以把初值设置的尽可能大，毕竟是求最小。
+  当递推式需要比较很多项时，... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#DP">#DP</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/go-2-godemo.html">
+      Go_2_小DEMO<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 30, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/go-2-godemo.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/go-2-godemo.html">
+      <p>
+  随机数
+  在线词典
+  代理服务器
+  携程——–处理上万并发
+
+
+随机数
+
+
+  需要设计随机数种子
+  一般使用 时间戳 来设置
+
+
+在线词典
+
+词典地址
+
+
+  右键—检查—-开发者工具
+  输入一个单词
+  开发者工具中找到 Network,
+  右键点击左边的菜单``dict`——- 复制为 curl (bash)
+
+
+
+https://api.interpreter.caiyunai.com/v1/dict
+
+代码生成的网址
+curlconverter.com
+
+oktools.net/json2go
+
+
+代理服务器
+
+
+  Socket 5（Socks5）是一种网络协议，用于在客户端和服务器之间进行代理连接。Socks5 协议定义了客户端如何与代理服务器进行通信，... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/github.html">
+      Github使用指南<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 29, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 13 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/github.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/github.html">
+      <p>
+  1 相关概念与快速开始    
+      1.1 GitHub 基本概念
+      1.2 git 目录结构
+      1.3 密钥生成/ 设置用户名/ 缩写
+      1.3.pull &amp;push/ 快速开始
+      1,5 git 的三种状态
+      1.6 objects
+    
+  
+  2 远端仓库/ remote    
+      2.1 http 和 git 协议有什么区别
+      2.2 链接远程仓库
+      1.4 我当前在 dev分支, 运行 git push main会发生什么
+      git fetch origin dev:main是什么意思
+      查看文件内容
+    
+  
+  3 分支操作    
+  ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#github">#github</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#git">#git</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/latex.html">
+      latex使用指南<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 29, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/latex.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/latex.html">
+      <p>
+  论文技巧Latex使用简介:    
+      latex摘要—-快速入门
+      0 安装        
+          1.3 公式引用
+          1.4 特殊的公式—-规划
+          1.5 多行公式   公式编号在中间
+          2.1 单个标题
+          2. 并排插入多张图片并公用一个caption
+        
+      
+      3.引用 (参考文献)        
+          Bib 参考文献一键复制
+          3.1 IEEE模板
+          3.2 其他模板
+        
+      
+      4.表格
+      5 算法
+      6 字体大小
+    
+... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#software">#software</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#latex">#latex</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/go-1.html">
+      Go_1_简介<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 28, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 33 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/go-1.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/go-1.html">
+      <p>
+  简介    
+      1 特性
+      2 用 Go 的公司
+      3 why go
+      go 有多简单
+      OOP 与 Go
+      学习平台
+      如何组织代码
+      hellow world
+      编译与运行
+    
+  
+  语法    
+      类型与变量
+      byte
+      const
+      type 定义类型
+      25 个关键字
+      switch
+      切片— 长度可变的数组
+      字典/ 哈希
+      new 和 make
+      控制流 for
+      函数
+      指针
+      nil
+      结构体
+      结构体方法
+   ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/0_overview.html">
+      字节后端训练营<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 26, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/byte_tech/2023/0_overview.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/byte_tech/2023/0_overview.html">
+      <p>
+  概要    
+      课表 进阶班:直播+录播
+      要求
+      组队要求
+      笔记要求
+    
+  
+  1024 相关/ 项目    
+      1024 code/ 代码
+      github 联动
+      创建团队
+      1024 创建代码空间
+      1024 的问题
+      APP 接口
+    
+  
+
+
+概要
+
+1课表,2 结营要求,笔记, 打卡,项目, 沸点, 3 1024如何使用,如何团队协作, 出现问题怎么处理, app如何下载运行
+
+‬⁢﻿⁣⁤⁣﻿‍‍⁡⁣‌﻿⁤⁡﻿⁢‌‍‌⁡‬⁡‌⁢⁤﻿﻿‌‍⁢‌⁣⁣‍‍⁢‬第六届字节跳动青训营-后端方向开营班会 - 飞书云文档 (feishu.cn)
+
+课表 进阶班:直播... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/cpp_STL_1_allocator.html">
+      cpp_STL_1_alloctor<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 25, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 17 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/cpp_STL_1_allocator.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/cpp_STL_1_allocator.html">
+      <p>
+  1 allocator( 配置器 )    
+      1.1 代码分布
+      1.2 defalloc.h
+      1.3  stl_alloc.h   __malloc_alloc_template
+      1.4 stl_alloc.h   __default_alloc_template
+    
+  
+
+
+1 allocator( 配置器 )
+
+1.1 代码分布
+
+
+  
+     定义了全局函数construct()和destroy()，负责对象的构造和析构。
+
+  
+  
+     定义了一二级配置器，配置器统称为alloc而非allocator！
+
+  
+  
+     定义了一些全局函数，用来填充(fill)或者复制(copy)大块内存数据，也隶... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#STL">#STL</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/cpp_STL_0_basic.html">
+      cpp_STL_O_basic<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 25, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/cpp_STL_0_basic.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/cpp_STL_0_basic.html">
+      <p>
+  类内成员    
+      1.1 类内的静态变量 static
+      1.2 静态成员函数
+      1.3 操作符 重载
+    
+  
+  3 模板    
+      3.1 模板简介
+      3.2  函数模板
+      3.3 类模板
+      3.4 类模板的使用
+      3.5 类模板  做 函数参数
+      3.6 类内的 模板对象
+      3.7 特化
+    
+  
+
+
+类内成员
+
+1.1 类内的静态变量 static
+
+优点:
+
+
+  static的名字在类的作用域内, 是类的一部分, 而不是对象的一部分
+  static成员可以是私有成员
+  所有对象共享同一份数据
+  类内声明，类外初始化
+  在编译阶段分配内存
+
+
+1.... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#STL">#STL</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/tianruo_OCR_use_simpletex_API.html">
+      天若ocr调用simpletex<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 25, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 8 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/tianruo_OCR_use_simpletex_API.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/tianruo_OCR_use_simpletex_API.html">
+      <p>
+  1 什么是天若 OCR
+  2 作者暴露出的部分接口
+  3 天若开源版本的代码
+  4 simpletex API 的python调用
+  5 如何输出错误
+  6 协议 post 的数据格式
+  7 完整代码如下
+  记录一下用的接口
+
+
+天若 OCR调用 simpletex API
+
+记录一次使用别人的接口
+
+1 什么是天若 OCR
+
+
+  图片转文字准确率超高的办公利器
+  可以截图
+  可以翻译
+  可以识别公式
+
+
+2 作者暴露出的部分接口
+
+//image：要识别的图片
+public static string OCR_Custom(Image image)
+{
+    //string url = "";
+    //string poststr ="";
+   ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#software">#software</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#API">#API</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/basic-1.html">
+      basic_1_算法基础知识<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 24, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 7 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/basic-1.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/basic-1.html">
+      <p>
+  基础知识    
+      代码风格
+      ACM模式
+      leetcode模式/ 核心代码模式
+      究竟什么是时间复杂度
+      什么是大o什么是大 O
+      抓主要矛盾
+      O (nlogn) 和 O (n)
+    
+  
+  2 一些技巧    
+      1.0 如何判断你的代码能不能在规定时间内通过:
+      1.1 概念辨析
+      1.2 各种初始化
+      1.3 巧用 引用ref
+      1.4 数组的中位数
+      1.6 类型上下界
+      1.5 模板 访问类内部成员
+    
+  
+
+
+基础知识
+
+代码风格
+
+class Solution {
+public:
+    void move... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/api_software/2023/love_markdown.html">
+      永远热爱markdown<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 23, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/api_software/2023/love_markdown.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/api_software/2023/love_markdown.html">
+      <p>
+  一 简介    
+      1 什么是markdown
+      2 为什么我们需要markdown
+      3 markdown 工具( 软件 )
+      4 markdown 插件
+    
+  
+  二 markdown 语法    
+      1 标题 ‘#’ 号—-生成文章的结构
+      2 无序列表
+      3 网址
+      4 图片
+      5 代码
+      6 引用
+    
+  
+  三 markdown插件使用说明    
+      1 markdown here——将markdown上传为 html 格式
+      2 将网页下载为markdown
+    
+  
+
+
+
+xlzy520/picgo-plugin-bili... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#software">#software</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#markdown">#markdown</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/355.html">
+      第355场周赛<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 23, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 4 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/algorithm/2023/355.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/algorithm/2023/355.html">
+      <p>
+  2788. 按分隔符拆分字符串 - 力扣（LeetCode）
+  2790. 长度递增组的最大数目 - 力扣（LeetCode）
+
+
+2788. 按分隔符拆分字符串 - 力扣（LeetCode）
+
+
+  给你一个字符串数组 words 和一个字符 separator ，请你按 separator 拆分 words 中的每个字符串。
+
+  返回一个由拆分后的新字符串组成的字符串数组，不包括空字符串 。
+
+  注意
+
+  
+    separator 用于决定拆分发生的位置，但它不包含在结果字符串中。
+    拆分可能形成两个以上的字符串。
+    结果字符串必须保持初始相同的先后顺序。
+  
+
+  输入：words = ["one.two.three","four.five","s... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#algorithm">#algorithm</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#leetcode_week">#leetcode_week</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/cpp/2023/cpp-others-ptr.html">
+      c++感想之指针1<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 03, 2023</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/cpp/2023/cpp-others-ptr.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/cpp/2023/cpp-others-ptr.html">
+      <p>
+  cpp感想(1)—指针    
+      1 第一版本感想
+      2 第二版感想        
+          2.1 void指针
+          2.2 malloc 函数
+          2.3 链表—来自数据结构
+          2.4 obj—来自SGIGCC2.9
+          2.5 short和int—来自编程范式(视频)
+        
+      
+    
+  
+
+
+cpp感想(1)—指针
+
+版本号: V1.2
+
+1 第一版本感想
+
+一开始认为只是一个存储地址的变量, 但是发现有些片面了
+
+2 第二版感想
+
+想了很久发现, 没有一个词能够很好的形容指针, 感觉协议还靠边一点
+
+协议, 协议就是一些特殊的规则集合
+
+指针 是我... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#cpp">#cpp</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#ptr">#ptr</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/2020/testing-mathjax.html">
+      Testing MathJax<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Oct 02, 2020</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/2020/testing-mathjax.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/2020/testing-mathjax.html">
+      <p>Not Pure Poole supports MathJax. You can enable it on a page by setting math: true in the front matter.
+
+An inline math: \(E=mc^2\).
+
+A display math:
+
+$$
+i\hbar \frac{\partial \Psi}{\partial t} = -\frac{\hbar^2}{2m}
+\frac{\partial^2 \Psi}{\partial x^2} + V \Psi
+$$
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/jekyll-theme-yat/tags.html#mathjax">#mathjax</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/2020/releasing-not-pure-poole-v0-1-0.html">
+      Releasing Not Pure Poole v0.1.0<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Oct 01, 2020</span><span class="post-author left-vsplit"><i class="fa fa-pencil"></i> Songzi Vong</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/2020/releasing-not-pure-poole-v0-1-0.html" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/2020/releasing-not-pure-poole-v0-1-0.html">
+      <p>The Jekyll theme Not Pure Poole v0.1.0 was released!
+
+Not Pure Poole is a simple, beautiful, and powerful Jekyll theme for blogs. It is built on Poole and Pure.
+
+For more information about this theme, you can read the README file.
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#jekyll%20theme">#jekyll theme</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#jekyll">#jekyll</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/toup/">
+      Toup<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2020</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/toup/" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/toup/">
+      <p>置顶
+
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/tags/">
+      Tags<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2020</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/tags/" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/tags/">
+      <p>
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/jekyll-theme-yat/others">
+      欢迎来到我的主页<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 31, 2020</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/jekyll-theme-yat/others" style="flex: 0 1 38.2%">
+      <div style="background-image: url(/jekyll-theme-yat/assets/images/default-image.jpeg); height: 160px"></div>
+    </a><a class="post-text" href="/jekyll-theme-yat/others">
+      <p>墩墩墩asdfadf
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"></div>
+</li>
+</ul>
+
+  <!-- Pagination links -->
+</div>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="common-list">
+  <ul>
+    <li>
+      <a href="/jekyll-theme-yat/index.html">
+        All<span>63</span>
+      </a>
+    </li>
+
+    
+      <li>
+        <a href="/jekyll-theme-yat/categories.html#h-API_software">
+          API_software <span>12</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/jekyll-theme-yat/categories.html#h-algorithm">
+          algorithm <span>12</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/jekyll-theme-yat/categories.html#h-byte_tech">
+          byte_tech <span>15</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/jekyll-theme-yat/categories.html#h-cpp">
+          cpp <span>10</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/jekyll-theme-yat/categories.html#h-default">
+          default <span>1</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/jekyll-theme-yat/categories.html#h-lib_linux">
+          lib_linux <span>3</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/jekyll-theme-yat/categories.html#h-summary">
+          summary <span>1</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/jekyll-theme-yat/categories.html#h-web">
+          web <span>1</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/jekyll-theme-yat/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2024 li54426</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/jekyll-theme-yat/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

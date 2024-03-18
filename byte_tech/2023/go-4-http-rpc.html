@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Go_4HTTP_RPC | li54426 blog</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="Go_4HTTP_RPC">
+<meta name="author" content="li54426">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="[TOC]">
+<meta property="og:description" content="[TOC]">
+<link rel="canonical" href="/jekyll-theme-yat/byte_tech/2023/go-4-http-rpc.html">
+<meta property="og:url" content="/jekyll-theme-yat/byte_tech/2023/go-4-http-rpc.html">
+<meta property="og:site_name" content="li54426 blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2023-07-31T11:02:06+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Go_4HTTP_RPC">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"li54426"},"dateModified":"2023-07-31T11:02:06+00:00","datePublished":"2023-07-31T11:02:06+00:00","description":"[TOC]","headline":"Go_4HTTP_RPC","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll-theme-yat/byte_tech/2023/go-4-http-rpc.html"},"url":"/jekyll-theme-yat/byte_tech/2023/go-4-http-rpc.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="/assets/my/favicon.ico">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/jekyll-theme-yat/assets/css/main.css">
+  <script src="/jekyll-theme-yat/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="/jekyll-theme-yat/feed.xml" title="li54426  blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/jekyll-theme-yat/">
+  <img class="site-favicon" title="li54426  blog" src="/assets/my/favicon.ico" onerror="this.style.display='none'">
+  li54426  blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/jekyll-theme-yat/">HOME</a><a class="page-link" href="/jekyll-theme-yat/archives">ARCHIVES</a><a class="page-link" href="/jekyll-theme-yat/categories">CATEGORIES</a><a class="page-link" href="/jekyll-theme-yat/tags">TAGS</a><a class="page-link" href="/jekyll-theme-yat/about">ABOUT</a><a class="page-link" href="/jekyll-theme-yat/tools">TOOLS</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('auto' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Go_4_HTTP_RPC_</h1>
+  <h2 class="post-subtitle"></h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2023-07-31T11:02:06+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Jul 31, 2023
+    </time>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
+  </div>
+<div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <p>[TOC]</p>
+
+<p><code class="language-plaintext highlighter-rouge">ctrl</code> + <code class="language-plaintext highlighter-rouge">/</code>打开专注模式</p>
+
+<p><img src="assets/image-20230731154712540.png" alt="image-20230731154712540"></p>
+
+<h3 id="http-框架">HTTp 框架</h3>
+
+<h4 id="超文本传输协议">超文本传输协议</h4>
+
+<ul>
+  <li>请求行/状态行
+    <ul>
+      <li>方法名</li>
+      <li>URL</li>
+      <li>协议版本</li>
+    </ul>
+  </li>
+  <li>
+<strong>请求头</strong>/响应头</li>
+  <li>请求体/响应体</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /sis HTTP/1.1
+Who: Alex 
+Content-Type: text/plain 
+Host: 127.0.0.1:8888
+Content-Length: 28
+Let's watch a movie together
+</code></pre></div></div>
+
+<h4 id="问题与展望">问题与展望</h4>
+
+<ul>
+  <li>HTTP1 队头阻塞, 传输效率低, 明文传输不安全  (头部太大)</li>
+  <li>HTTP2 多路复用, 头部压缩, 二进制协议</li>
+  <li>QUIC 基于 <strong>UDP</strong> 实现, 解决队头阻塞加, 密减少握手次数, 支持快速启动</li>
+</ul>
+
+<h4 id="盖尔定律">盖尔定律</h4>
+
+<p>一个切实可行的复杂系统势必是从一个切实可行的<strong>简单系统</strong>发展而来的。从头开始设计的复杂系统根本不切实可行，无法修修补补让它切实可行。你必须由一个切实可行的简单系统重新开始。</p>
+
+<p>先 <code class="language-plaintext highlighter-rouge">run</code>起来, 再考虑复用, 使用<strong>迭代</strong>的方式进行</p>
+
+<h4 id="合理的-api">合理的 API</h4>
+
+<p>不要试图在文档中说明,很多用户不看文档, 这也是在说: <strong>代码的自注释性</strong></p>
+
+<ul>
+  <li>可理解性:如ctx.Body(),ctx.GetBody(),不要用ctx. BodyA()</li>
+  <li>简单性:如<code class="language-plaintext highlighter-rouge">ctx.Request. Header.Peek(key)</code>
+  /ctx. GetHeader(key)</li>
+  <li>冗余性</li>
+  <li>兼容性</li>
+  <li>可测性</li>
+  <li>可见性</li>
+</ul>
+
+<h4 id="什么是框架和中间件">什么是框架和中间件</h4>
+
+<p>在计算机编程和软件开发中，框架中间件（Framework Middleware）是指位于<strong>应用程序和底层框架</strong>之间的软件组件或功能模块。它提供了一种可插拔的方式，用于增强、定制或修改框架的行为，以满足特定的需求。</p>
+
+<p>框架中间件在应用程序和底层框架之间充当了一个抽象层，用于处理和转换请求、响应以及其他相关的操作。它可以介入整个请求 - 响应周期，对数据进行预处理、后处理或者执行其他的附加操作。</p>
+
+<p>框架中间件的主要作用有：</p>
+
+<ol>
+  <li>路由和请求处理：中间件可以通过路由机制将请求分发给不同的处理程序，并执行相应的操作。它可以处理 URL 解析、参数提取、权限验证等任务。</li>
+  <li>数据转换和格式化：中间件可以对请求和响应的数据进行转换、验证和格式化。例如，可以将请求数据解析为特定的格式（如 JSON、XML），或者将响应数据转换为适合客户端的格式。</li>
+  <li>认证和授权：中间件可以处理用户身份认证和访问控制的任务。例如，它可以检查用户凭据、验证权限，决定是否允许用户继续执行操作。</li>
+  <li>缓存和性能优化：中间件可以在请求到达框架之前或之后，进行数据缓存、结果缓存以及其他的性能优化操作。它可以减少对底层资源的访问，提高应用程序的响应速度和性能。</li>
+  <li>日志记录和错误处理：中间件可以记录应用程序的运行日志，并处理异常情况和错误。它可以捕获和处理异常，记录错误信息，使得问题排查和故障修复更加方便有效。</li>
+</ol>
+
+<p>框架中间件的设计目标是提供灵活性和可扩展性，以满足不同应用程序的需求。通过使用框架中间件，开发人员可以以模块化的方式定制和增强框架的功能，使得应用程序的开发和维护更加容易和高效。</p>
+
+<h4 id="洋葱模型">洋葱模型</h4>
+
+<p>适用场景:</p>
+
+<ul>
+  <li>日志记录</li>
+  <li>性能统计</li>
+  <li>安全控制</li>
+  <li>事务处理</li>
+  <li>异常处理</li>
+</ul>
+
+<h4 id="什么是-handler">什么是 Handler</h4>
+
+<p>在计算机编程和软件开发中，Handler（处理器）是指用于处理特定事件或请求的代码块、函数或对象。它充当了一个中间人，接收来自外部系统或其它组件的事件或请求，并对其进行适当的处理和响应。</p>
+
+<p>Handler 的主要任务是根据接收到的事件或请求的类型，执行相应的逻辑。它可以包括各种操作，如数据处理、错误处理、用户界面更新、网络通信、数据库查询等。</p>
+
+<p>Handler 可以存在于不同的上下文中。例如，对于图形用户界面（GUI），一个按钮点击事件的处理者就是一个 Handler；在服务端开发中，一个 HTTP 请求的处理者也可以被称为 Handler。它们根据特定的事件或请求类型，执行相应的操作以满足需求。</p>
+
+<p>在许多框架和库中，一般会有一套明确定义的规则和接口来定义和使用 Handler。这些规则和接口可以使开发人员更方便地定义和注册 Handler，并将其与相应的事件或请求关联起来。</p>
+
+<p>总之，Handler 是用于处理特定事件或请求的代码块、函数或对象，它负责执行相关的逻辑以满足需求。通过合理的使用和组织 Handler，可以有效地管理和处理系统中的各种事件和请求。</p>
+
+<p>框架路由实际上就是为URL匹配对应的处理函数(Handlers)</p>
+
+<ul>
+  <li>静态路由:/a/b/c./a/b/d</li>
+  <li>参数路 :/a/:id/c(/a/b/c,/a/d/c)./*all</li>
+  <li>路由修复:
+    <ul>
+      <li>如果只注册了 /a/b，但是访问的 URI 是 /a/b/，那可以提供自动重定向到 /a/b 能力；同样，如果只注册了 /a/b/，但是访问的 URI 是 /a/b，那可以提供自动重定向到 /a/b/ 能力</li>
+    </ul>
+  </li>
+  <li>冲突路由以及优先级
+    <ul>
+      <li>同时注册 /a/b 和 /:id/b，并设定优先级。比如：当请求 URI 为 /a/b 时，优先匹配静态路由 /a/b</li>
+    </ul>
+  </li>
+  <li>匹配HTTP方法</li>
+  <li>多处理函数:方便添加中间件</li>
+</ul>
+
+<p>如何匹配HTTP方法</p>
+
+<h4 id="开发流程">开发流程</h4>
+
+<ul>
+  <li>1.明确需求:考虑清楚要解决什么问题,有哪些需求</li>
+  <li>2.业界调研:业界都有哪些解决方案可供参考</li>
+  <li>3.方案权衡:思考不同方案的取舍</li>
+  <li>4.方案评审:相关同学对不同方案做评审</li>
+  <li>5.确定开发:确定最合适的方案进行开发</li>
+</ul>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">Server</span> <span class="k">interface</span><span class="p">{</span>
+	<span class="n">Serve</span><span class="p">(</span><span class="n">c</span> <span class="n">context</span><span class="o">.</span> <span class="n">Context</span><span class="p">,</span> <span class="n">conn</span> <span class="n">network</span><span class="o">.</span><span class="n">Conn</span><span class="p">)</span> <span class="kt">error</span>
+<span class="p">}</span>
+
+
+<span class="k">type</span> <span class="n">Conn</span> <span class="k">interface</span> <span class="p">{</span>
+    <span class="n">Read</span><span class="p">(</span><span class="n">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)(</span><span class="n">n</span> <span class="kt">int</span><span class="p">,</span> <span class="n">err</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="n">Write</span><span class="p">(</span><span class="n">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)(</span><span class="n">n</span> <span class="kt">int</span><span class="p">,</span> <span class="n">err</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/cloudwego/netpoll">字节内部网络模型</a></p>
+
+<h4 id="总结">总结</h4>
+
+<ul>
+  <li>API设计:可理解性、简单性</li>
+  <li>中间件设计: 洋葱模型</li>
+  <li>路由设计:前缀匹配树</li>
+  <li>协议层设计:抽象出合适的接口</li>
+  <li>网络层设计: 网络模型</li>
+</ul>
+
+<h4 id="设计点">设计点</h4>
+
+<ul>
+  <li>存下全部Header</li>
+  <li>减少系统调用次数</li>
+  <li>能够复用内存</li>
+  <li>能够多次读</li>
+</ul>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">Reader</span> <span class="k">interface</span> <span class="p">{</span>
+    <span class="c">// 开始读的位置</span>
+    <span class="n">Peek</span><span class="p">(</span><span class="n">n</span> <span class="kt">int</span><span class="p">)([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="n">Discard</span><span class="p">(</span><span class="n">n</span> <span class="kt">int</span><span class="p">)(</span><span class="n">discarded</span> <span class="kt">int</span><span class="p">,</span> <span class="n">err</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="n">Release</span><span class="p">()</span> <span class="kt">error</span> 
+    <span class="n">Size</span><span class="p">()</span> <span class="kt">int</span> 
+    <span class="n">Read</span><span class="p">(</span><span class="n">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)(</span><span class="n">l</span> <span class="kt">int</span><span class="p">,</span> <span class="n">err</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="网络库比较">网络库比较</h4>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">go net </code>  流式友好, 小包性能高</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">netpoll</code> 中大包性能高, 时延低</li>
+</ul>
+
+<h4 id="针对协议的优化">针对协议的优化</h4>
+
+<ul>
+  <li>找到Header Line边界:<code class="language-plaintext highlighter-rouge">\r\n</code>, 先找到<code class="language-plaintext highlighter-rouge">\n</code>再看它前一个是不是<code class="language-plaintext highlighter-rouge">\r</code>
+</li>
+  <li>热点资源<strong>池化</strong>
+</li>
+</ul>
+
+<p>针对协议相关的Headers</p>
+
+<ul>
+  <li>1.通过 Header key 首字母快速筛除掉完全<strong>不可能</strong>的 key</li>
+  <li>2.解析对应 value到独立字段</li>
+  <li>3.使用 byte slice 管理对应 header 存储,方便复用请求体中同样处理的Key:
+  User-Agent、 Content-Type、 Content-Length、 Connection、 Transfer-Encoding</li>
+</ul>
+
+<p><a href="https:/github.com/bytedance/sonic">开源 json 库</a></p>
+
+<h4 id="simd技术">SIMD技术</h4>
+
+<p>SIMD（Single Instruction, Multiple Data）是一种<strong>并行计算</strong>的技术，它在同一时间执行相同的指令来处理多个数据元素。它是在计算机体系结构中用于向量化操作的一种方式。</p>
+
+<p>传统的计算机指令集架构（ISA）以标量方式执行指令，即每次执行一个指令处理一个数据元素。而 SIMD 架构通过引入特殊的寄存器和指令集，能够同时处理多个数据元素，加速并行计算。</p>
+
+<p>SIMD 技术适用于那些可以<strong>被划分为多个独立任务</strong>的数据，并且这些任务可以并行地进行相同的计算。它可以提高多媒体处理、图形渲染、信号处理、科学计算等应用的性能。</p>
+
+<p>SIMD 指令集提供了一系列的指令，用于在单个时钟周期内同时对多个数据进行相同的操作。这些指令可以一次性处理多个数据元素，例如同时对四个浮点数执行加法操作。</p>
+
+<p>常见的 SIMD 指令集包括 Intel 的 SSE（Streaming SIMD Extensions）、AMD 的 3DNow!、ARM 的 NEON 等。这些指令集通常有不同的版本，支持不同的宽度（如 128 位、256 位）和数据类型（如整数、浮点数）。</p>
+
+<p>使用 SIMD 技术可以显著提高计算性能，但需要合理的程序设计和优化以充分利用 SIMD 指令集的并行计算能力。许多编程语言和编译器提供了对 SIMD 的支持，使得开发者能够方便地利用 SIMD 技术来加速计算。</p>
+
+<h4 id="性能不是全部">性能不是全部</h4>
+
+<ul>
+  <li>追求性</li>
+  <li>追求易用, 减少误用</li>
+  <li>打通内部生态</li>
+  <li>文档建设、用户群建设,</li>
+</ul>
+
+<h4 id="websocket">websocket</h4>
+
+<p>我们知道 TCP 连接的两端，<strong>同一时间里</strong>，<strong>双方</strong>都可以<strong>主动</strong>向对方发送数据。这就是所谓的<strong>全双工</strong>。而现在使用最广泛的 <code class="language-plaintext highlighter-rouge">HTTP/1.1</code>，也是基于 TCP 协议的，<strong>同一时间里</strong>，客户端和服务器<strong>只能有一方主动</strong>发数据，这就是所谓的<strong>半双工</strong>。</p>
+
+<p>这是由于 HTTP 协议设计之初，考虑的是看看网页文本的场景，能做到<strong>客户端发起请求再由服务器响应</strong>，就够了，根本就没考虑网页游戏这种，客户端和服务器之间都要互相主动发大量数据的场景。</p>
+
+<p>所以，为了更好的支持这样的场景，我们需要另外一个<strong>基于 TCP 的新协议</strong>。</p>
+
+<p>于是新的应用层协议 <strong>WebSocket</strong> 就被设计出来了。</p>
+
+<p>我们平时刷网页，一般都是在浏览器上刷的，一会刷刷图文，这时候用的是 <strong>HTTP 协议</strong>，一会打开网页游戏，这时候就得切换成我们新介绍的 <strong>WebSocket 协议</strong>。</p>
+
+<p>为了兼容这些使用场景。浏览器在 <strong>TCP 三次握手</strong>建立连接之后，都<strong>统一使用 HTTP 协议</strong>先进行一次通信。</p>
+
+<ul>
+  <li>如果此时是<strong>普通的 HTTP 请求</strong>，那后续双方就还是老样子继续用普通 HTTP 协议进行交互，这点没啥疑问。</li>
+  <li>如果这时候是<strong>想建立 WebSocket 连接</strong>，就会在 HTTP 请求里带上一些<strong>特殊的 header 头</strong>，如下：</li>
+</ul>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">Connection: Upgrade
+Upgrade: WebSocket
+Sec-WebSocket-Key: T2a6wZlAwhgQNqruZ2YUyg==\r\n
+</span></code></pre></div></div>
+
+<p>这些 header 头的意思是，浏览器想<strong>升级协议（Connection: Upgrade）</strong>，并且<strong>想升级成 WebSocket 协议（Upgrade: WebSocket）</strong>。同时带上一段<strong>随机生成的 base64 码（Sec-WebSocket-Key）</strong>，发给服务器。</p>
+
+<p>如果服务器正好支持升级成 WebSocket 协议。就会走 WebSocket 握手流程，同时根据客户端生成的 base64 码，用某个<strong>公开的</strong>算法变成另一段字符串，放在 HTTP 响应的 <code class="language-plaintext highlighter-rouge">Sec-WebSocket-Accept</code> 头里，同时带上 <code class="language-plaintext highlighter-rouge">101状态码</code>，发回给浏览器。HTTP 的响应如下：</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">101</span> <span class="ne">Switching Protocols\r\n</span>
+<span class="na">Sec-WebSocket-Accept</span><span class="p">:</span> <span class="s">iBJKv/ALIW2DobfoA4dmr3JHBCY=\r\n</span>
+<span class="na">Upgrade</span><span class="p">:</span> <span class="s">WebSocket\r\n</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">Upgrade\r\n</span>
+</code></pre></div></div>
+
+<h3 id="rpc框架">RPC框架</h3>
+
+<h4 id="什么是-rpc">什么是 RPC</h4>
+
+<p>RPC（Remote Procedure Call）是一种用于实现<strong>分布式</strong>系统通信的协议和机制。它允许一个进程（客户端）调用另一个运行在不同地址空间的进程（服务器）中的函数或方法，就像调用本地函数一样。</p>
+
+<p>RPC 的工作原理如下：</p>
+
+<ol>
+  <li>客户端通过本地调用的方式调用远程服务器的函数或方法。</li>
+  <li>客户端的 RPC stub（存根）将调用信息打包成网络可传输的消息，并发送给远程服务器。</li>
+  <li>服务器的 RPC stub 接收到消息后，解包调用信息并调用对应的函数或方法。</li>
+  <li>函数或方法执行完毕后，将结果打包成响应消息，并发送给客户端。</li>
+  <li>客户端的 RPC stub 接收到响应消息后，解包结果并返回给本地调用方。</li>
+</ol>
+
+<p>通过 RPC，开发人员可以轻松地在分布式系统中调用远程服务，而无需关心底层的网络通信细节。它隐藏了网络通信的复杂性，使得分布式系统开发更加方便和高效。</p>
+
+<p>RPC 的优势包括：</p>
+
+<ol>
+  <li>简化分布式系统开发：RPC 提供了一种简单而直观的方法来调用远程服务，使得分布式系统开发更加容易和高效。</li>
+  <li>高效的网络通信：RPC 可以使用高效的序列化和网络传输协议，以最小的开销在分布式系统间传递数据。</li>
+  <li>抽象底层细节：RPC 抽象了底层的网络通信细节，使得开发人员可以更专注于业务逻辑的实现，而不用关心底层通信协议和传输细节。</li>
+</ol>
+
+<p>常见的 RPC 框架包括 gRPC、Apache Thrift、Spring Cloud、Dubbo 等。这些框架提供了丰富的功能和工具，使得分布式系统的开发、部署和管理更加便捷和可靠。</p>
+
+<p>和 <code class="language-plaintext highlighter-rouge">HTTP</code> 对比起来</p>
+
+<ul>
+  <li>HTTP 信息非常的冗余,</li>
+  <li>而 RPC，因为它定制化程度更高，因此性能也会更好一些，这也是在公司<strong>内部微服务</strong>中抛弃 HTTP，选择使用 RPC 的最主要原因。</li>
+  <li>当然上面说的 HTTP，其实<strong>特指的是现在主流使用的 HTTP/1.1</strong>，<code class="language-plaintext highlighter-rouge">HTTP/2</code> 在前者的基础上做了很多改进，所以<strong>性能可能比很多 RPC 协议还要好</strong>，甚至连 <code class="language-plaintext highlighter-rouge">gRPC</code> 底层都直接用的 <code class="language-plaintext highlighter-rouge">HTTP/2</code>。那么问题又来了，为什么既然有了 HTTP/2，还要有 RPC 协议？这个是由于 HTTP/2 是 2015 年出来的。那时候很多公司内部的 RPC 协议都已经跑了好些年了，基于<strong>历史原因</strong>，一般也没必要去换了</li>
+</ul>
+
+<p>RPC需要解决的问题</p>
+
+<ul>
+  <li>1 函数<strong>映射</strong>
+</li>
+  <li>2.数据<strong>转换</strong>成字节流</li>
+  <li>3.网络传输</li>
+</ul>
+
+<p>RPC 的概念模型：</p>
+
+<ul>
+  <li>User、</li>
+  <li>User-Stub、</li>
+  <li>RPC-Runtime、</li>
+  <li>Server-Stub、</li>
+  <li>Server</li>
+</ul>
+
+<h4 id="优缺点">优缺点</h4>
+
+<p>优点</p>
+
+<ul>
+  <li>单一职责,有利于分工协作和运维开发</li>
+  <li>可扩展性强, 资源使用率更优</li>
+  <li>故障隔离, 服务的整体可靠性更高</li>
+</ul>
+
+<p>坏处</p>
+
+<ul>
+  <li>1.服务宕机,对方应该如何处理?</li>
+  <li>2.在调用过程中发生网络异常,如何保证消息的可达性?</li>
+  <li>3.请求量突增导致服务无法及时处理, 有哪些应对措施?</li>
+</ul>
+
+<h4 id="分层设计">分层设计</h4>
+
+<ul>
+  <li>编解码层 包括生成代码</li>
+  <li>协议层</li>
+  <li>
+    <p>网络层</p>
+  </li>
+  <li>语言特定的格式
+    <ul>
+      <li>许多编程语言都内建了将内存对象编码为字节序列的支持,例如Java有java.io.Serializable</li>
+    </ul>
+  </li>
+  <li>文本格式JSON、XML、CSV等文本格式,具有人类可读性</li>
+  <li>二进制编码, 具备跨语言和高性能等优点,常见有Thrift的 BinaryProtocol, Protobuf</li>
+</ul>
+
+<p>TLV编码</p>
+
+<ul>
+  <li>Tag:标签,可以理解为类型</li>
+  <li>Lenght:长度</li>
+  <li>Value:值,Value也可以是个TLV结构</li>
+</ul>
+
+<p>增加了冗余信息</p>
+
+<h4 id="编码层如何选">编码层如何选</h4>
+
+<ul>
+  <li>兼容性, 支持自动增加新的字段,而不影响老的服务,这将提高系统的灵活度</li>
+  <li>通用性支持跨平台、跨语言</li>
+  <li>性能从空间和时间两个维度来考虑,也就是编码后<strong>数据大小</strong>和<strong>编码耗费时长</strong>
+</li>
+</ul>
+
+<h3 id="微服务">微服务</h3>
+
+<p>微服务架构是当前大多数互联网公司的<strong>标准架构</strong>.</p>
+
+<h4 id="软件架构定义">软件架构定义</h4>
+
+<p>​     软件架构是构建应用系统所需要的一组结构，包括软件元素、<strong>元素之间的关系</strong>以及两者的属性。其中如何分解软件元素以及这些元素之间的关系，变得非常重要。一个好的软件架构具备两个特点:</p>
+
+<ul>
+  <li>合理调配生产关系与生产力，让具备不同专业知识与技术栈的的人士都参与到软件系统开发中来， 高效地协同工作；</li>
+  <li>能让各个软件元素有清晰的定义与职责，并有一套良好、高效的交互机制.</li>
+</ul>
+
+<p>为什么系统架构需要演进?</p>
+
+<ul>
+  <li>互联网的爆炸性发展</li>
+  <li>硬件设施的快速发展</li>
+  <li>需求复杂性的多样化开发人员的急剧增加</li>
+  <li>计算机理论及技术的发展</li>
+</ul>
+
+<h4 id="单体模式">单体模式</h4>
+
+<p>all in one process</p>
+
+<p>优势</p>
+
+<ul>
+  <li>1.性能最高</li>
+  <li>2冗余小</li>
+</ul>
+
+<p>劣势:</p>
+
+<p>1.debug
+2.模块相互影响
+3.模块分工、开发流程</p>
+
+<h4 id="分布式架构">分布式架构</h4>
+
+<p>抽出业务无关的公共模块, 服务层</p>
+
+<p>优势:
+1.业务无关的独立服务</p>
+
+<p>劣势:</p>
+
+<ul>
+  <li>1.服务模块bug可导致全站瘫痪</li>
+  <li>2.调用关系复杂</li>
+  <li>3.不同服务冗余</li>
+</ul>
+
+<h4 id="微服务架构">微服务架构</h4>
+
+<p>在讲述微服务架构之前一定要讲下经典的扩展立方体理论，扩展立方体定义了三种不同的扩展应用程序的方法：</p>
+
+<ul>
+  <li>X 轴扩展在多个相同实例之间实现请求的负载均衡；</li>
+  <li>Y 轴扩展根据功能将应用程序拆分为服务；</li>
+  <li>
+    <p>Z 轴扩展根据请求的属性路由请求.</p>
+  </li>
+  <li>X扩展,称为水平复制,通过克隆实例的方式发展</li>
+  <li>Y轴扩展,又称为功能性分解,通过不同</li>
+  <li>Z轴扩展,又称为数据分区,通过类似客户ID的方式,把相同的数据分区进行扩展</li>
+</ul>
+
+<p>微服务架构其实可以理解为” 模块化设计 “的扩展延伸，只是这些” 功能模块 “ 以单独的部署包的方式运行在各自的进程中。这样每个服务之间都是相互独立的，并且有自己的<strong>私有数据库</strong>，两者之间仅能通过 <strong>API</strong> 的方式进行通信。</p>
+
+<p>从单体架构到微服务架构的演进也带来了以下好处:</p>
+
+<ul>
+  <li>从代码管理来看，每个服务较小，大部分由于十几个接口或服务方法组成，非常容易<strong>维护</strong>；</li>
+  <li>从运维管理来看，每个服务都可以独立部署，非常易于<strong>扩展</strong>；</li>
+  <li>从团队管理来看，可以更好地划分职责范围；</li>
+  <li>从软件开发总体来看，可以使软件系统可持续性交付部署.</li>
+</ul>
+
+<p>彻底的服务化优势:</p>
+
+<ul>
+  <li>1.开发效率</li>
+  <li>2.业务独立设计</li>
+  <li>3.自下而上</li>
+  <li>4.故障隔离</li>
+</ul>
+
+<p>劣势:</p>
+
+<ul>
+  <li>1.治理、运维难度</li>
+  <li>2.观测挑战</li>
+  <li>3.安全性</li>
+  <li>4.分布式系统</li>
+</ul>
+
+<p>微服务架构概览</p>
+
+<ul>
+  <li>网关</li>
+  <li>服务配置和治理</li>
+  <li>链路追踪和监控</li>
+</ul>
+
+<h4 id="微服务架构的三大要素">微服务架构的三大要素</h4>
+
+<ul>
+  <li>服务治理（本课程内容）
+    <ul>
+      <li>服务注册</li>
+      <li>服务发现</li>
+      <li>负载均衡</li>
+      <li>扩缩容</li>
+      <li>流量治理</li>
+      <li>稳定性治理</li>
+    </ul>
+  </li>
+  <li>可观测性
+    <ul>
+      <li>日志采集</li>
+      <li>日志分析</li>
+      <li>监控打点</li>
+      <li>监控大盘</li>
+      <li>异常报警</li>
+      <li>链路追踪</li>
+    </ul>
+  </li>
+  <li>安全
+    <ul>
+      <li>身份验证</li>
+      <li>认证授权</li>
+      <li>访问令牌</li>
+      <li>审计</li>
+      <li>传输加密</li>
+      <li>黑产攻击</li>
+    </ul>
+  </li>
+</ul>
+
+<p>服务service</p>
+
+<ul>
+  <li>一组具有<strong>相同逻辑</strong> (同一份代码) 的运行实体.</li>
+</ul>
+
+<p>实例与进程的关系</p>
+
+<ul>
+  <li>实例与进程之间没有必然对应关系,可以一个实例可以对应一个或多个进程(反之不常见).</li>
+</ul>
+
+<p>常见的实例承载形式</p>
+
+<ul>
+  <li>进程、VM、k8spod…</li>
+</ul>
+
+<p>有状态/无状态服务</p>
+
+<ul>
+  <li>服务的实例是否存储了可持久化的数据(例如磁盘文件).</li>
+</ul>
+
+<p>服务间通信</p>
+
+<ul>
+  <li>对于单体服务,不同模块通信只是简单的函数调用</li>
+  <li>对于微服务,服务间通信意味着<strong>网络传输</strong>
+</li>
+</ul>
+
+<p>使用微服务架构的应用程序是分布式系统，进程间通信是重要组成部分，有以下几种通信模式:</p>
+
+<ul>
+  <li>通信风格：使用哪一种的进程间通信机制；</li>
+  <li>服务发现：客户端如何获得具体实例的真实 IP 地址；</li>
+  <li>可靠性：在服务不可用的情况下，如何确保服务之间的可靠通信；</li>
+  <li>事务性消息：如何将消息发送、事件发布、更新业务数据的数据库事务集成；</li>
+  <li>外部 API: 应用客户端如何与服务通信.</li>
+</ul>
+
+<p>问题</p>
+
+<p>在代码层面,如何指定调用一个目标服务的地址(ip:port)</p>
+
+<ul>
+  <li>地址会变</li>
+  <li>有多个地址</li>
+</ul>
+
+<p>使用 DNS 解决</p>
+
+<ul>
+  <li>本地DNS存在缓存,导致延时.</li>
+  <li>负载均衡问题. 大部分会只访问第一个</li>
+  <li>不支持服务实例的探活检查.</li>
+  <li>域名无法配置端口. 必须约定端口</li>
+</ul>
+
+<p>解决思路:新增一个统一的<strong>服务注册</strong>中心, 用于存储服务名到服务实例的映射.</p>
+
+<h4 id="服务发布">服务发布</h4>
+
+<p>问题</p>
+
+<ul>
+  <li>服务不可用</li>
+  <li>服务抖动</li>
+  <li>服务回滚</li>
+</ul>
+
+<p>方法</p>
+
+<ul>
+  <li>蓝绿部署—简单,稳定但需要两倍资源</li>
+  <li>灰度发布—一点一点替换, 回滚操作比较难</li>
+</ul>
+
+<p>防止链路重试链路层面的防重试风暴的核心是限制每层都发生重试,理想情况下只有最下一层发生重试.
+可以返回特殊的status表明”请求失败,但别重试”.</p>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/jekyll-theme-yat/algorithm/2023/basic-3-banzi.html" title="basic_3_算法模板">basic_3_算法模板</a><a class="next" href="/jekyll-theme-yat/api_software/2023/jekyll.html" title="jekyll进阶设置">jekyll进阶设置</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li class="">
+          <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/go-1.html" title="Go_1_简介">
+            Go_1_简介<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/test.html" title="Go_">
+            Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/problem-array.html" title="经典的数组的题目">
+            经典的数组的题目<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/others" title="欢迎来到我的主页">
+            欢迎来到我的主页<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/jekyll-theme-yat/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2024 li54426</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/jekyll-theme-yat/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

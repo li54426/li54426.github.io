@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/jekyll-theme-yat/feed.xml" rel="self" type="application/atom+xml" /><link href="/jekyll-theme-yat/" rel="alternate" type="text/html" /><updated>2024-03-18T15:55:02+00:00</updated><id>/jekyll-theme-yat/feed.xml</id><title type="html">li54426  blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>li54426</name></author><entry><title type="html">图床</title><link href="/jekyll-theme-yat/api_software/2024/md_plus_tuchuang.html" rel="alternate" type="text/html" title="图床" /><published>2024-03-05T14:48:37+00:00</published><updated>2024-03-05T14:48:37+00:00</updated><id>/jekyll-theme-yat/api_software/2024/md_plus_tuchuang</id><content type="html" xml:base="/jekyll-theme-yat/api_software/2024/md_plus_tuchuang.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#什么是node--js" id="markdown-toc-什么是node--js">什么是node . js</a></li>
+</ul>
+
+<p><a href="https://github.com/xlzy520/picgo-plugin-bilibili">xlzy520/picgo-plugin-bilibili: 为 PicGo 开发的一款插件，新增了B站图床 图床。 使用用户动态的图片上传API。填写SESSDATA即可，获取方式在下面。 (github.com)</a></p>
+
+<ul>
+  <li>找<code class="language-plaintext highlighter-rouge">cookie</code>中的 <code class="language-plaintext highlighter-rouge">SESSDATA</code> 还有 <code class="language-plaintext highlighter-rouge">bli_jct</code> 复制即可</li>
+</ul>
+
+<p><img src="https://i0.hdslb.com/bfs/article/be203733ece44d65d871fa2e780aed31327645612.png" alt="" /></p>
+
+<h4 id="什么是node--js">什么是node . js</h4>
+
+<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时，用于构建快速、可扩展的网络应用。它<strong>允许开发者使用 JavaScript 来编写服务器端的代码</strong>，而不仅仅局限于浏览器端的脚本。Node.js 的特点包括：</p>
+
+<ol>
+  <li><strong>事件驱动</strong>: Node.js 使用基于事件驱动的非阻塞 I/O 模型，这意味着它可以处理大量并发连接而不需要为每个连接创建新的线程，从而提高了性能和扩展性。</li>
+  <li><strong>跨平台</strong>: Node.js 可以在多种操作系统上运行，包括 Windows、macOS 和各种 Linux 发行版。</li>
+  <li><strong>轻量和高效</strong>: Node.js 采用了 Chrome V8 引擎，具有快速的代码执行速度，同时也是相对较轻量的运行时环境。</li>
+  <li><strong>丰富的模块库</strong>: Node.js 提供了大量的内置模块和第三方模块，使得开发者可以方便地构建各种类型的应用程序，包括 Web 服务器、RESTful API、实时通讯应用等。</li>
+</ol>
+
+<p>总之，Node.js 提供了一种高效、灵活的方式来构建服务器端的应用程序，使得开发者可以利用 JavaScript 的优势来开发各种类型的后端应用。</p>]]></content><author><name>li54426</name></author><category term="API_software" /><category term="API_software" /></entry><entry><title type="html">如何批量下载小红书的图片</title><link href="/jekyll-theme-yat/api_software/2023/download-xiaohongshu.html" rel="alternate" type="text/html" title="如何批量下载小红书的图片" /><published>2023-11-30T14:58:22+00:00</published><updated>2023-11-30T14:58:22+00:00</updated><id>/jekyll-theme-yat/api_software/2023/download-xiaohongshu</id><content type="html" xml:base="/jekyll-theme-yat/api_software/2023/download-xiaohongshu.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#如何批量下载小红书的图片" id="markdown-toc-如何批量下载小红书的图片">如何批量下载小红书的图片</a></li>
+  <li><a href="#脚本使用" id="markdown-toc-脚本使用">脚本使用</a></li>
+</ul>
+<h3 id="如何批量下载小红书的图片">如何批量下载小红书的图片</h3>
+
+<ul>
+  <li>首先下载油猴插件</li>
+  <li>其次安装该脚本<a href="https://greasyfork.org/zh-CN/scripts/24204-picviewer-ce">Picviewer CE+ (greasyfork.org)</a></li>
+  <li>使用脚本下载图片</li>
+</ul>
+
+<h3 id="脚本使用">脚本使用</h3>
+
+<ul>
+  <li>打开连接</li>
+  <li>按住<code class="language-plaintext highlighter-rouge">g</code></li>
+  <li>右上角<code class="language-plaintext highlighter-rouge">命令</code>-<code class="language-plaintext highlighter-rouge">下载当前所有</code></li>
+</ul>
+
+<p>快捷键</p>
+
+<ul>
+  <li>打开图库（加功能键为全局）9</li>
+  <li>打开大图<code class="language-plaintext highlighter-rouge">a</code></li>
+  <li>打开当前图片<code class="language-plaintext highlighter-rouge">C</code></li>
+  <li>打开放大镜观察<code class="language-plaintext highlighter-rouge">m</code></li>
+  <li>下载<code class="language-plaintext highlighter-rouge">d</code></li>
+</ul>
+
+<p><img src="assets/image-20231130210427811.png" alt="image-20231130210427811" /></p>]]></content><author><name>li54426</name></author><category term="API_software" /><category term="API_software" /><summary type="html"><![CDATA[如何批量下载小红书的图片 如何批量下载小红书的图片]]></summary></entry><entry><title type="html">第场周赛</title><link href="/jekyll-theme-yat/algorithm/2023/.html" rel="alternate" type="text/html" title="第场周赛" /><published>2023-10-20T15:52:13+00:00</published><updated>2023-10-20T15:52:13+00:00</updated><id>/jekyll-theme-yat/algorithm/2023/</id><content type="html" xml:base="/jekyll-theme-yat/algorithm/2023/.html"><![CDATA[]]></content><author><name>li54426</name></author><category term="algorithm" /><category term="algorithm" /><category term="leetcode_week" /></entry><entry><title type="html">网络知识点</title><link href="/jekyll-theme-yat/default/2023/.network.html" rel="alternate" type="text/html" title="网络知识点" /><published>2023-10-16T11:09:25+00:00</published><updated>2023-10-16T11:09:25+00:00</updated><id>/jekyll-theme-yat/default/2023/.network</id><content type="html" xml:base="/jekyll-theme-yat/default/2023/.network.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#考试内容" id="markdown-toc-考试内容">考试内容</a></li>
+  <li><a href="#上午考试方法" id="markdown-toc-上午考试方法">上午考试方法</a></li>
+  <li><a href="#下午考试注意事项" id="markdown-toc-下午考试注意事项">下午考试注意事项</a></li>
+  <li><a href="#osi模型" id="markdown-toc-osi模型">OSI模型</a></li>
+  <li><a href="#数据链路层" id="markdown-toc-数据链路层">数据链路层</a></li>
+  <li><a href="#网络层" id="markdown-toc-网络层">网络层</a></li>
+  <li><a href="#传输层" id="markdown-toc-传输层">传输层</a></li>
+  <li><a href="#表示层" id="markdown-toc-表示层">表示层</a></li>
+</ul>
+
+<h3 id="考试内容">考试内容</h3>
+
+<ul>
+  <li>上午考试的内容是计算机与网络知识，考试时间为150分钟，笔试，选择题，而且全部是<strong>单项选择题</strong>，其中含5分的英文题。上午考试总共75道题，共计75分，按60%计，<strong>45分算过关</strong>。</li>
+  <li>下午考试的内容是网络系统设计与管理，考试时间为150分钟，笔试，问答题。一般为<strong>5道大题</strong>，每道大题15分，有若千个小问，总计75分，按60%计，<strong>45分算过关</strong>。</li>
+</ul>
+
+<h3 id="上午考试方法">上午考试方法</h3>
+
+<ul>
+  <li>记得带2B以上的铅笔和一块比较好的橡皮。上午考试答题采用填涂答题卡的形式，阅卷是由机器阅卷的，所以需要使用2B以上的铅笔；带好一点的橡皮是为了修改选项时擦得比较千净。</li>
+  <li>注意把握考试时间，虽然上午考试时间有150分钟，但是题量还是比较大的，一共75道题，做一道题还不到2分钟，因为还要留出10分钟左右来填涂答题卡和检查核对。笔者的考试经验是做20道左右的试题就在答题卡上填涂完这20道题，这样不会悦张，也不会明显地影响进度。</li>
+  <li>（3）做题先易后难。上午考试一般前面的试题会容易一点，大多是知识点性质的题目，但也会有一些计算题，有些题还会有一定的难度，个别试题还会出现新概念题（即在教材中找不到答案，平时工作也可能很少接触），这些题常出现在60～70题之间。考试时建议先将容易做的和自己会的做完，其他的先跳过去，在后续的时间中再集中精力做难题</li>
+</ul>
+
+<h3 id="下午考试注意事项">下午考试注意事项</h3>
+
+<ul>
+  <li>下午考试答题采用的是专用答题纸，既有选择题，也有填空题。下午考试答题要注意以下事项：</li>
+  <li>（1）先易后难。先大致浏览一下5道考题，考试往往既会有知识点问答题，也会有计算题，同样先将自己最为熟悉和最有把握的题先完成，再重点攻关难题。
+  （2）问答题最好以要点形式回答。阅卷时多以要点给分，不一定要与参考答案一模一样，但常以关键词语或语句意思表达相同或接近为判断是否给分或给多少分的标准。因此答题时要点要多写一些，以涵盖到参考答案中的要点。比如，如果题目中某问题给的是5分，则极可能是5个要点，一个要点1分，回答时最好能写出7个左右的要点。
+  （3）配置题分数一定要拿住。网络工程师的配置题分值大、形式固定、内容变化也不大，热悉基本和常见的配置命令和配置流程就能拿高分</li>
+</ul>
+
+<h3 id="osi模型">OSI模型</h3>
+
+<p>开放系统互连参考模型分七层，从低到高分别是</p>
+
+<ul>
+  <li>物理层、数据链路层、网络层、传输层、</li>
+  <li>会话层、表示层  以及  应用层。</li>
+</ul>
+
+<h3 id="数据链路层">数据链路层</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MAC</code>帧</li>
+  <li>差错检测 恢复</li>
+  <li>链路标识、流量/拥塞控制</li>
+</ul>
+
+<h3 id="网络层">网络层</h3>
+
+<ul>
+  <li>IP数据包</li>
+  <li>路由选择</li>
+  <li></li>
+</ul>
+
+<h3 id="传输层">传输层</h3>
+
+<ul>
+  <li>端到端的数据传输</li>
+  <li>会分段</li>
+</ul>
+
+<h3 id="表示层">表示层</h3>
+
+<ul>
+  <li>数据加密和解密、数据压缩和解压。</li>
+</ul>]]></content><author><name>li54426</name></author><category term="default" /><category term="default" /><category term="八股" /></entry><entry><title type="html">ACM输入输出总结</title><link href="/jekyll-theme-yat/cpp/2023/acm-input.html" rel="alternate" type="text/html" title="ACM输入输出总结" /><published>2023-10-05T16:29:20+00:00</published><updated>2023-10-05T16:29:20+00:00</updated><id>/jekyll-theme-yat/cpp/2023/acm-input</id><content type="html" xml:base="/jekyll-theme-yat/cpp/2023/acm-input.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#1-基础" id="markdown-toc-1-基础">1 基础</a>    <ul>
+      <li><a href="#11-不知道具体行数直到文件末尾-eof-" id="markdown-toc-11-不知道具体行数直到文件末尾-eof-">1.1 不知道具体行数,直到文件末尾( EOF )</a></li>
+      <li><a href="#12-有具体行数" id="markdown-toc-12-有具体行数">1.2 有具体行数</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-string" id="markdown-toc-2-string">2 string</a>    <ul>
+      <li><a href="#21-多组数据-空格分隔每个字符串" id="markdown-toc-21-多组数据-空格分隔每个字符串">2.1 多组数据, 空格分隔每个字符串</a></li>
+      <li><a href="#22-输入一行为一个字符串" id="markdown-toc-22-输入一行为一个字符串">2.2 输入一行为一个字符串</a></li>
+      <li><a href="#23-多组数据-一行为一个字符串" id="markdown-toc-23-多组数据-一行为一个字符串">2.3 多组数据, 一行为一个字符串</a></li>
+      <li><a href="#24-输入一行字符串-从中查找数字" id="markdown-toc-24-输入一行字符串-从中查找数字">2.4 输入一行字符串, 从中查找数字</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-进阶stringstream-的使用" id="markdown-toc-3-进阶stringstream-的使用">3 进阶—stringstream 的使用</a>    <ul>
+      <li><a href="#31-输入方式为每行一个数组" id="markdown-toc-31-输入方式为每行一个数组">3.1 输入方式为每行一个数组</a></li>
+      <li><a href="#32-输入方式为每行一个数组-数字之间用逗号分隔" id="markdown-toc-32-输入方式为每行一个数组-数字之间用逗号分隔">3.2 输入方式为每行一个数组, 数字之间用逗号分隔</a></li>
+      <li><a href="#string流类基础" id="markdown-toc-string流类基础">string流类基础</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="1-基础">1 基础</h3>
+
+<h4 id="11-不知道具体行数直到文件末尾-eof-">1.1 不知道具体行数,直到文件末尾( EOF )</h4>
+
+<blockquote>
+  <p>输入样例:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1 2
+ 3 4
+ 5 6
+</code></pre></div>  </div>
+</blockquote>
+
+<p>输入代码</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="12-有具体行数">1.2 有具体行数</h4>
+
+<blockquote>
+  <p>输入样例:</p>
+
+  <ul>
+    <li>输入 n+1 行</li>
+    <li>第一行为n</li>
+    <li>接下来 n 行代表….</li>
+  </ul>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5
+1 2 3 4 5
+</code></pre></div>  </div>
+</blockquote>
+
+<p>代码</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 输入 n+1 行</span>
+<span class="c1">// 第一行为xxx</span>
+<span class="c1">// 第二行为 xxx</span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="2-string">2 string</h3>
+
+<h4 id="21-多组数据-空格分隔每个字符串">2.1 多组数据, 空格分隔每个字符串</h4>
+
+<blockquote>
+  <p>输入样例</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aaa bbb ccc
+aaa bbb ccc
+</code></pre></div>  </div>
+
+</blockquote>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">string</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s1</span> <span class="o">&gt;&gt;</span> <span class="n">s2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//...</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="22-输入一行为一个字符串">2.2 输入一行为一个字符串</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">operator &gt;&gt; </code>有个问题, 遇到<strong>空格</strong>就停止</li>
+</ul>
+
+<blockquote>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my name is li54426
+</code></pre></div>  </div>
+
+</blockquote>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span><span class="cpf">&lt;sstream&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;string&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">{</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="c1">// 获取一整行数组</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h4 id="23-多组数据-一行为一个字符串">2.3 多组数据, 一行为一个字符串</h4>
+
+<blockquote>
+  <p>数据格式为</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>asd  ddd ddd
+adsfa ddsf  dfasd
+</code></pre></div>  </div>
+
+</blockquote>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="p">{</span>  <span class="c1">//依靠geline读入一行</span>
+      <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">s</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="24-输入一行字符串-从中查找数字">2.4 输入一行字符串, 从中查找数字</h4>
+
+<blockquote>
+  <p>输入格式</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"type:directReductionCoupon,price:50,isStackable:false"
+</code></pre></div>  </div>
+
+</blockquote>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// "type:directReductionCoupon,price:50,isStackable:false"</span>
+<span class="c1">// 需要分离出来数字等 </span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+    
+    <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="n">ss</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"price"</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="n">ss</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">","</span><span class="p">,</span> <span class="n">base</span><span class="p">);</span>
+    <span class="n">string</span> <span class="n">numstr</span> <span class="o">=</span> <span class="n">ss</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">base</span><span class="o">+</span><span class="mi">6</span> <span class="p">,</span> <span class="n">end</span><span class="o">-</span> <span class="n">base</span><span class="o">-</span><span class="mi">6</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">price</span> <span class="o">=</span> <span class="n">stod</span><span class="p">(</span><span class="n">numstr</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="3-进阶stringstream-的使用">3 进阶—stringstream 的使用</h3>
+
+<h4 id="31-输入方式为每行一个数组">3.1 输入方式为每行一个数组</h4>
+
+<blockquote>
+  <p>输入样例</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 2 3       
+4 5
+0 0 0 0 0
+</code></pre></div>  </div>
+</blockquote>
+
+<p>代码:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span><span class="cpf">&lt;sstream&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;string&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;vector&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">tree</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="p">{</span>  <span class="c1">//依靠geline读入一行</span>
+       <span class="n">stringstream</span> <span class="n">ss</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>    <span class="c1">//每行先读入字符串，然后再区分每个数字</span>
+        <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">;</span>
+        <span class="n">nums</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">){</span>
+            <span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">tree</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+        
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h4 id="32-输入方式为每行一个数组-数字之间用逗号分隔">3.2 输入方式为每行一个数组, 数字之间用逗号分隔</h4>
+
+<blockquote>
+  <p>输入样例</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1,2,3
+4,5,6
+</code></pre></div>  </div>
+</blockquote>
+
+<p>代码:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1,2,3</span>
+<span class="c1">// sum = 6</span>
+<span class="cp">#include</span><span class="cpf">&lt;sstream&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;string&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;vector&gt;</span><span class="cp">
+#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>  <span class="c1">//依靠geline读入一行</span>
+       <span class="n">stringstream</span> <span class="n">ss</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>    <span class="c1">//每行先读入字符串，然后再区分每个数字</span>
+        <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  
+        <span class="k">while</span><span class="p">(</span><span class="n">ss</span><span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">){</span>
+            <span class="c1">// 将逗号输出出去</span>
+            <span class="n">ss</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="p">;</span> 
+        <span class="p">}</span>
+             <span class="c1">//计算总和</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"sum = "</span><span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="string流类基础">string流类基础</h4>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 输入流</span>
+<span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
+<span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">"GodFishhh"</span><span class="p">;</span>
+
+<span class="c1">// 输出为字符串形式</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+<span class="c1">// 偷看下一个字符, 流内还有字符</span>
+<span class="c1">// "asdfasdf", 哪怕运行一万次, 也是输出 a</span>
+<span class="kt">int</span> <span class="nf">peek</span><span class="p">();</span>
+
+
+<span class="c1">// 获取字符</span>
+<span class="kt">int</span> <span class="nf">get</span><span class="p">();</span>
+
+
+<span class="n">ostringstream</span> <span class="n">oss</span><span class="p">;</span>
+<span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="s">"GodFishhh and AFish"</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="mi">20030331</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// 成员函数str()的无参数形式</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+ 
+<span class="c1">// 成员函数str()的有参数形式</span>
+<span class="c1">// oss.str("with parameter");</span>
+<span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">(</span><span class="s">"after "</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+<span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">"AFish"</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
+
+<span class="c1">// 清空</span>
+<span class="n">ss</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+
+
+
+</code></pre></div></div>]]></content><author><name>li54426</name></author><category term="cpp" /><category term="cpp" /></entry><entry><title type="html">GPT 提示词</title><link href="/jekyll-theme-yat/api_software/2023/gpt-prompt.html" rel="alternate" type="text/html" title="GPT 提示词" /><published>2023-09-30T14:10:07+00:00</published><updated>2023-09-30T14:10:07+00:00</updated><id>/jekyll-theme-yat/api_software/2023/gpt-prompt</id><content type="html" xml:base="/jekyll-theme-yat/api_software/2023/gpt-prompt.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#论文降重" id="markdown-toc-论文降重">论文降重</a></li>
+  <li><a href="#prompt_论文润色" id="markdown-toc-prompt_论文润色">prompt_论文润色</a>    <ul>
+      <li><a href="#写研究进展" id="markdown-toc-写研究进展">写研究进展</a></li>
+    </ul>
+  </li>
+  <li><a href="#论文润色" id="markdown-toc-论文润色">论文润色</a></li>
+</ul>
+
+<h4 id="论文降重">论文降重</h4>
+
+<blockquote>
+  <p>你是一个期刊收录系统,你熟练使用文本相似度算法如余弦相似度,Jaccard,曼哈顿距离等,来判断原文与相似内容之间的相似度接下来,我将给你原文与相似内容.你需要给我两者的相似度结果,然后,你需要对原文进行改写,使相似度降低到-1,然后重新计算原文与相似内容的相似度最终,你会把修改后的原文给我以及他与相似内容的想似度</p>
+
+  <p>原文内容: 智能车辆的任务并不是都可以卸载的，车辆任务按照其关键程度分为三类：关键任务（Crucial Tasks，CTs）、高优先级应用程序（High-Priority Tasks，HPTs）和低优先级应用程序（Low-Priority Tasks，LPTs）。</p>
+
+  <p>CTs是和车辆安全相关的应用，是保证车辆和乘客安全的关键应用程序，如车辆控制、系统监控和事故预防等。由于CTs和安全紧密相关，因此享有最高的优先级，必须保留充足的计算资源给它，不能因为HPTs和LPTs的存在而影响CTs的正常运行，因此这类任务也不允许卸载，只允许在本地执行，不属于计算任务卸载的范畴。该类任务的实例是：车辆控制、碰撞预警、红绿灯警告、网上车辆诊断、道路湿滑检测等。</p>
+
+  <p>HPTs包括与驾驶相关的应用和可选的安全增强应用，这类应用程序对车辆而言是重要但不是必须的，拥有较高的执行优先级，例如实时路径规划和路况提醒等。这类应用允许出现延迟或卸载失败的情况，但不能影响CTs。该类任务的实例是：地图导航、平视显示器、视野增强、车辆传感等。</p>
+
+  <p>LPTs是一类为用户提供影音娱乐服务的应用程序，它的优先级较低，例如语音识别，它允许驾驶员发出各种声音命令，通过语音识别命令计算机做一些响应，而不会使驾驶员分心。该类任务的实例是：虚拟现实、语音识别、视频处理、在线游戏等。</p>
+
+  <p>HPTs和IPTs已经被部署到越来越多的车辆上，由于HPTs和LPTs不会涉及到安全，因此可以将其进行卸载，来提高资源的利用率。</p>
+</blockquote>
+
+<h3 id="prompt_论文润色">prompt_论文润色</h3>
+
+<blockquote>
+  <p>充当论文润色者（拿摘要部分举例）</p>
+
+  <blockquote>
+    <p>请你充当一名论文编辑专家，在论文评审的角度去修改以下论文，使其更加流畅，优美。下面是具体要求：</p>
+  </blockquote>
+
+  <ol>
+    <li>能让读者快速获得文章的要点或精髓，让文章引人入胜；能让读者了解全文中的重要信息、分析和论点；帮助读者记住论文的要点</li>
+    <li>字数限制在 300 字以下</li>
+    <li>请你在摘要中明确指出您的模型和方法的创新点，强调您的贡献。</li>
+    <li>用简洁、明了的语言描述您的方法和结果，以便评审更容易理解论文</li>
+  </ol>
+
+  <blockquote>
+    <p>下文是论文的摘要部分，请你修改它：</p>
+  </blockquote>
+</blockquote>
+
+<p>充当论文润色者（拿摘要部分举例）</p>
+
+<blockquote>
+  <p>请你充当一名论文编辑专家，在论文评审的角度去修改以下论文，使其更加流畅，优美。下面是具体要求：</p>
+</blockquote>
+
+<ol>
+  <li>能让读者快速获得文章的要点或精髓，让文章引人入胜；能让读者了解全文中的重要信息、分析和论点；帮助读者记住论文的要点</li>
+  <li>字数限制在 300 字以下</li>
+  <li>请你在摘要中明确指出您的模型和方法的创新点，强调您的贡献。</li>
+  <li>用简洁、明了的语言描述您的方法和结果，以便评审更容易理解论文</li>
+</ol>
+
+<h4 id="写研究进展">写研究进展</h4>
+
+<p>参考北大核心期刊,总结《车联网中的任务卸载算法》,写一篇5000字左右的专业学术论文,要求引用文献有中文和英文,不少于20篇.</p>
+
+<h3 id="论文润色">论文润色</h3>
+
+<p>润色指标：</p>
+
+<p>1 删除不必要的内容
+2 加强段落之间的过渡
+3 修正拼写和语法错误
+4 优化段落结构
+5 替换过时的词汇或短语
+6 增加更多的细节和具体内容
+7 澄清表达意思
+8 调整字母大小写规范
+9 提高段落可读性
+10 替换文章中的垃圾词语</p>
+
+<p>通过模仿下面的的内容进行修改：</p>]]></content><author><name>li54426</name></author><category term="API_software" /><category term="API_software" /></entry><entry><title type="html">Websocket</title><link href="/jekyll-theme-yat/web/2023/websocket.html" rel="alternate" type="text/html" title="Websocket" /><published>2023-09-27T09:53:31+00:00</published><updated>2023-09-27T09:53:31+00:00</updated><id>/jekyll-theme-yat/web/2023/websocket</id><content type="html" xml:base="/jekyll-theme-yat/web/2023/websocket.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#websocket-协议" id="markdown-toc-websocket-协议">websocket 协议</a></li>
+</ul>
+
+<h4 id="websocket-协议">websocket 协议</h4>
+
+<ul>
+  <li>WebSocket 是一种用于在 Web 浏览器和服务器之间进行<strong>双向通信</strong>的协议。它提供了实时性、高效性和可靠性，使得服务器可以主动推送数据给客户端，客户端也可以向服务器发送数据，实现了全双工通信。</li>
+  <li>当我们使用 <code class="language-plaintext highlighter-rouge">HTTP</code>协议时, 因为 http使用了 cs架构, 因此, 我们没有办法让服务器主动向客户推送消息, 如果我们想要主动推送消息, 只能通过更低层次 <code class="language-plaintext highlighter-rouge">tcp</code> 来进行双向的通信</li>
+</ul>
+
+<p>特点</p>
+
+<ul>
+  <li>双向通信</li>
+  <li>建立在<code class="language-plaintext highlighter-rouge"> TCP 协议</code>之上，服务器端的实现比较容易。</li>
+  <li>与 <code class="language-plaintext highlighter-rouge">HTTP 协议</code>有着良好的兼容性。默认端口<strong>也是</strong> 80 和 443，并且<code class="language-plaintext highlighter-rouge">握手阶段</code>采用 HTTP 协议，因此握手时不容易屏蔽，<code class="language-plaintext highlighter-rouge">能通过各种 HTTP 代理服务器</code>。</li>
+</ul>]]></content><author><name>li54426</name></author><category term="web" /><category term="web" /><category term="protocol" /></entry><entry><title type="html">字符串匹配</title><link href="/jekyll-theme-yat/algorithm/2023/string-match.html" rel="alternate" type="text/html" title="字符串匹配" /><published>2023-09-23T15:01:50+00:00</published><updated>2023-09-23T15:01:50+00:00</updated><id>/jekyll-theme-yat/algorithm/2023/string-match</id><content type="html" xml:base="/jekyll-theme-yat/algorithm/2023/string-match.html"><![CDATA[<p><a href="https://leetcode.cn/problems/regular-expression-matching/">10. 正则表达式匹配</a></p>
+
+<blockquote>
+  <p>给你一个字符串 <code class="language-plaintext highlighter-rouge">s</code> 和一个字符规律 <code class="language-plaintext highlighter-rouge">p</code>，请你来实现一个支持 <code class="language-plaintext highlighter-rouge">'.'</code> 和 <code class="language-plaintext highlighter-rouge">'*'</code> 的正则表达式匹配。</p>
+
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">'.'</code> 匹配任意单个字符</li>
+    <li><code class="language-plaintext highlighter-rouge">'*'</code> 匹配零个或多个前面的那一个元素</li>
+  </ul>
+
+  <p>所谓匹配，是要涵盖 <strong>整个</strong> 字符串 <code class="language-plaintext highlighter-rouge">s</code>的，而不是部分字符串。</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输入：s = "aa", p = "a"
+输出：false
+解释："a" 无法匹配 "aa" 整个字符串。
+</code></pre></div>  </div>
+</blockquote>
+
+<ul>
+  <li>首先, 我们要明白这两个字符的作用是什么
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">.</code>匹配任意一个字符</li>
+      <li><code class="language-plaintext highlighter-rouge">*</code>有两个作用, 一个是<strong>擦除</strong>前面的字符(匹配零个前面的那一个元素), 或者是 <strong>多个</strong>前面的字符</li>
+    </ul>
+  </li>
+  <li>能匹配 <code class="language-plaintext highlighter-rouge">s[i] == p[j] || p[j] == '.'</code> 看后面的字符是否为<code class="language-plaintext highlighter-rouge">*</code>,,
+    <ul>
+      <li>后面的字符是否为<code class="language-plaintext highlighter-rouge">*</code> 那么就会有两种情况,一种是擦除前面的字符, 另一种是多个字符</li>
+      <li>后面的字符不为<code class="language-plaintext highlighter-rouge">*</code> 那么, 就直接<code class="language-plaintext highlighter-rouge"> dp(s, i+1, p, j+1);</code></li>
+    </ul>
+  </li>
+  <li>不能匹配的话,
+    <ul>
+      <li>后面的字符为为<code class="language-plaintext highlighter-rouge">*</code>, <code class="language-plaintext highlighter-rouge">*</code>发挥擦除的作用</li>
+      <li>否则返回 <code class="language-plaintext highlighter-rouge">0</code></li>
+    </ul>
+  </li>
+  <li>当匹配完毕后, 如果 p 有多余的字符, 看看是否能够<strong>擦除</strong>字符</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">bool</span> <span class="n">isMatch</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">string</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// s is long , p is short</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="nf">dp</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">){</span>
+        <span class="c1">// * 的作用可以复制, 也可以擦除</span>
+        <span class="kt">int</span> <span class="n">len1</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">len2</span><span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span> <span class="n">len1</span> <span class="o">&amp;&amp;</span> <span class="n">j</span><span class="o">&lt;</span> <span class="n">len2</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">||</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'.'</span><span class="p">){</span>
+                <span class="c1">// 特殊情况</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span> <span class="n">len2</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'*'</span><span class="p">){</span>
+                    <span class="c1">// cout&lt;&lt; "s[i] == p[j] || p[j] == '.' &amp;&amp; p[j+1] == '*' "&lt;&lt; "i="&lt;&lt; i&lt;&lt; "\tj="&lt;&lt;j &lt;&lt; endl;</span>
+                    <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">||</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+                <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                    <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span> <span class="n">len2</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span><span class="sc">'*'</span><span class="p">){</span>
+                    <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+                <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">len1</span><span class="p">){</span>
+            <span class="k">while</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span> <span class="n">len2</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'*'</span><span class="p">){</span>
+                <span class="n">j</span><span class="o">+=</span><span class="mi">2</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">j</span> <span class="o">==</span> <span class="n">len2</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>]]></content><author><name>li54426</name></author><category term="algorithm" /><category term="algorithm" /></entry><entry><title type="html">C++的一些基础问题</title><link href="/jekyll-theme-yat/cpp/2023/basic-problems.html" rel="alternate" type="text/html" title="C++的一些基础问题" /><published>2023-09-22T21:08:05+00:00</published><updated>2023-09-22T21:08:05+00:00</updated><id>/jekyll-theme-yat/cpp/2023/basic-problems</id><content type="html" xml:base="/jekyll-theme-yat/cpp/2023/basic-problems.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#数值类型的问题" id="markdown-toc-数值类型的问题">数值类型的问题</a>    <ul>
+      <li><a href="#整型与浮点型" id="markdown-toc-整型与浮点型">整型与浮点型</a></li>
+      <li><a href="#整型与大整形" id="markdown-toc-整型与大整形">整型与大整形</a></li>
+      <li><a href="#整型与参数模板" id="markdown-toc-整型与参数模板">整型与参数模板</a></li>
+      <li><a href="#数位补足" id="markdown-toc-数位补足">数位补足</a></li>
+    </ul>
+  </li>
+  <li><a href="#string-与-char-" id="markdown-toc-string-与-char-">string 与 char *</a>    <ul>
+      <li><a href="#char-赋值" id="markdown-toc-char-赋值"><code class="language-plaintext highlighter-rouge">char *</code>赋值</a></li>
+    </ul>
+  </li>
+  <li><a href="#作用域" id="markdown-toc-作用域">作用域</a>    <ul>
+      <li><a href="#变量的作用域" id="markdown-toc-变量的作用域">变量的作用域</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="数值类型的问题">数值类型的问题</h3>
+
+<h4 id="整型与浮点型">整型与浮点型</h4>
+
+<ul>
+  <li>在 C++ 中，当一个浮点数和一个整数进行乘法运算时，整数会被隐式地转换成与<strong>浮点数相同</strong>的类型，然后进行乘法运算。</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">test1</span><span class="p">(){</span>
+    <span class="kt">float</span> <span class="n">f</span><span class="o">=</span><span class="mf">3.5</span><span class="p">;</span> 
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span><span class="mi">6</span><span class="p">;</span> 
+    <span class="kt">long</span> <span class="n">k</span><span class="o">=</span><span class="mi">21</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"k/2="</span><span class="o">&lt;&lt;</span> <span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">ss</span><span class="o">=</span><span class="n">f</span> <span class="o">*</span>  <span class="n">m</span> <span class="o">+</span> <span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"ss="</span><span class="o">&lt;&lt;</span>  <span class="n">ss</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"m * f ="</span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="o">*</span> <span class="n">f</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+<span class="p">}</span>
+
+<span class="c1">// 输出结果如下</span>
+<span class="c1">// k/2=10</span>
+<span class="c1">// ss=31</span>
+<span class="c1">// m * f =21</span>
+<span class="c1">// sizeof a = 12</span>
+</code></pre></div></div>
+
+<h4 id="整型与大整形">整型与大整形</h4>
+
+<p>在 C++ 中，当一个表达式中同时包含 int 和 long long 类型时，会发生类型转换的情况如下：</p>
+
+<ol>
+  <li>若参与运算量的类型不同，则先转换成同一类型，然后进行运算。</li>
+  <li>转换按数据长度增加的方向进行，以保证精度不降低。如 int 型和 long 型运算时，先把 int 量转成 long 型后再进行运算</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">test1</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span><span class="mi">6</span><span class="p">;</span> 
+    <span class="kt">long</span> <span class="n">k</span><span class="o">=</span><span class="mi">21</span><span class="p">;</span>
+
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"sizeof(int) = "</span><span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"sizeof= int + long= "</span><span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"sizeof = long + int= "</span><span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">m</span><span class="p">)</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+<span class="p">}</span>
+
+<span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">sizeof</span><span class="o">=</span> <span class="kt">int</span> <span class="o">+</span> <span class="kt">long</span><span class="o">=</span> <span class="mi">8</span>
+<span class="k">sizeof</span> <span class="o">=</span> <span class="kt">long</span> <span class="o">+</span> <span class="kt">int</span><span class="o">=</span> <span class="mi">8</span>
+</code></pre></div></div>
+
+<h4 id="整型与参数模板">整型与参数模板</h4>
+
+<ul>
+  <li>如果在使用模板函数时, 可以设置初值为 <code class="language-plaintext highlighter-rouge">long long</code>类型 例如 <code class="language-plaintext highlighter-rouge">0LL</code></li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">accumulate</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">0LL</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="数位补足">数位补足</h4>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">test2</span><span class="p">(){</span>
+    <span class="k">union</span><span class="p">{</span>
+        <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="p">}</span><span class="n">a</span><span class="p">;</span>
+    
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"sizeof a = "</span><span class="o">&lt;&lt;</span> <span class="k">sizeof</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="k">sizeof</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// sizeof a = 12</span>
+<span class="c1">// sizeof int = 4</span>
+</code></pre></div></div>
+
+<h3 id="string-与-char-">string 与 char *</h3>
+
+<h4 id="char-赋值"><code class="language-plaintext highlighter-rouge">char *</code>赋值</h4>
+
+<ul>
+  <li>当你尝试将一个字符串字面值（例如：”test”）赋值给一个字符数组时，会发生<strong>错误</strong>。这是因为字符串字面值在 C++ 中被视为一个常量字符数组，并且具有固定的大小，无法直接赋值给一个已经定义的字符数组。</li>
+  <li><code class="language-plaintext highlighter-rouge">a = 'c'</code> 也是错误的, 必须是 <code class="language-plaintext highlighter-rouge">a[0] = 'c';</code></li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">test_string_char</span><span class="p">(){</span>
+    <span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> 
+    
+    <span class="c1">// 错误示例</span>
+    <span class="n">a</span> <span class="o">=</span><span class="s">"test"</span><span class="p">;</span>
+    <span class="c1">// 正确示例</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">"test"</span><span class="p">);</span>
+    
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"success"</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="作用域">作用域</h3>
+
+<h4 id="变量的作用域">变量的作用域</h4>
+
+<ul>
+  <li>不同作用域内可以重复定义</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"全局n="</span><span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">n</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"函数内n="</span><span class="o">&lt;&lt;</span> <span class="n">n</span><span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">"括号内n="</span><span class="o">&lt;&lt;</span> <span class="n">n</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="c1">// 全局n=0</span>
+<span class="c1">// 函数内 n=1</span>
+<span class="c1">// 括号内 n=2</span>
+
+</code></pre></div></div>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">bool</span> <span class="n">isMatch</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">string</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// s is long , p is short</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+
+    <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="nf">dp</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">){</span>
+        <span class="c1">// * 的作用可以复制, 也可以擦除</span>
+        <span class="kt">int</span> <span class="n">len1</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">len2</span><span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span> <span class="n">len1</span> <span class="o">&amp;&amp;</span> <span class="n">j</span><span class="o">&lt;</span> <span class="n">len2</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">||</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'.'</span><span class="p">){</span>
+                <span class="c1">// 特赦情况</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span> <span class="n">len2</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'*'</span><span class="p">){</span>
+                    <span class="c1">// cout&lt;&lt; "s[i] == p[j] || p[j] == '.' &amp;&amp; p[j+1] == '*' "&lt;&lt; "i="&lt;&lt; i&lt;&lt; "\tj="&lt;&lt;j &lt;&lt; endl;</span>
+                    <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">||</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+                <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+
+                    <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span> <span class="n">len2</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span><span class="sc">'*'</span><span class="p">){</span>
+                    <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+                <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">len1</span><span class="p">){</span>
+            <span class="k">while</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span> <span class="n">len2</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'*'</span><span class="p">){</span>
+                <span class="n">j</span><span class="o">+=</span><span class="mi">2</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">j</span> <span class="o">==</span> <span class="n">len2</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>]]></content><author><name>li54426</name></author><category term="cpp" /><category term="cpp" /></entry><entry><title type="html">简历制作教训</title><link href="/jekyll-theme-yat/api_software/2023/resume.html" rel="alternate" type="text/html" title="简历制作教训" /><published>2023-09-10T19:19:59+00:00</published><updated>2023-09-10T19:19:59+00:00</updated><id>/jekyll-theme-yat/api_software/2023/resume</id><content type="html" xml:base="/jekyll-theme-yat/api_software/2023/resume.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#1-简历原则" id="markdown-toc-1-简历原则">1 简历原则：</a></li>
+  <li><a href="#2-基本信息" id="markdown-toc-2-基本信息">2 基本信息</a></li>
+  <li><a href="#3-项目-实习经历" id="markdown-toc-3-项目-实习经历">3 项目/ 实习经历</a></li>
+  <li><a href="#4-职业技能--专业技能" id="markdown-toc-4-职业技能--专业技能">4 职业技能  (专业技能)</a></li>
+  <li><a href="#5-其他模块" id="markdown-toc-5-其他模块">5 其他模块</a></li>
+</ul>
+
+<p>模板推荐</p>
+
+<ul>
+  <li><a href="https://www.overleaf.com/latex/templates/chinese-english-resume-template-zhong-ying-shuang-yu-jian-li-mo-ban/nmwszfjntkyr">Chinese English resume template 中英双语简历模板 - Overleaf, Online LaTeX Editor</a></li>
+  <li><a href="https://www.overleaf.com/latex/templates/zhong-wen-jian-li-mo-ban-chinese-resume-template/jgdzmymxmpfc">中文简历模板（Chinese Resume Template） - Overleaf, Online LaTeX Editor</a></li>
+</ul>
+
+<p>推荐使用以上两个简历, 知乎推荐的简历字体<strong>太大</strong>了, <strong>不推荐使用</strong></p>
+
+<h3 id="1-简历原则">1 简历原则：</h3>
+
+<ul>
+  <li>简历<strong>模板</strong>要清晰、简洁！别用花里胡哨的<strong>格式</strong>, 双栏简历达咩</li>
+  <li>简历不超过<strong>一页纸</strong></li>
+  <li><strong>错别字和语病</strong>不要有、<strong>字体统一</strong></li>
+  <li>不同岗位，不同要求，<strong>不同</strong>简历</li>
+</ul>
+
+<h3 id="2-基本信息">2 基本信息</h3>
+
+<ul>
+  <li>证件照: 最好用<strong>白底</strong>、灰底、蓝底的职业照/证件照，这样一来既不会让你的照片在简历上显得很突兀，同时会让HR更加有印象。</li>
+  <li>个人基本情况, 姓名, 性别, 年龄, 联系方式</li>
+  <li>学历, 学位, 专业</li>
+  <li>教育背景要有, 格式可以像
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">大学, 专业, 时间</code>,</li>
+      <li><code class="language-plaintext highlighter-rouge">主修课程</code>: 核心课程就可</li>
+    </ul>
+  </li>
+  <li>信息要全, 电话, 邮箱, 籍贯等等</li>
+</ul>
+
+<h3 id="3-项目-实习经历">3 项目/ 实习经历</h3>
+
+<p>【建议】 项目经历是简历中非常重要的一部分，它能够展示你在实际工作中的能力和经验。如果你还没有项目经历，建议你尽快参与一些项目，可以是学校的实践课程、实习或者自己的个人项目。通过参与项目，你可以锻炼自己的团队合作能力、问题解决能力和项目管理能力，同时也能够丰富你的简历内容，提高竞争力。</p>
+
+<p>【示例】 以下是我简历中的项目经历：</p>
+
+<blockquote>
+  <p>项目名称：在线商城网站开发</p>
+
+  <ul>
+    <li>项目描述：负责开发一个在线商城网站，包括用户注册登录、商品浏览购买、订单管理等功能。 - 职责：担任前端开发工程师，负责网站的页面设计和前端代码编写。</li>
+    <li>工作成果：成功完成网站的前端开发工作，实现了用户友好的界面和良好的用户体验。网站上线后，用户访问量增加了xx%，销售额提升了xx%。</li>
+  </ul>
+
+  <ol>
+    <li>项目名称：智能家居系统设计 - 项目描述：参与设计一个智能家居系统，包括家庭安防、智能控制等功能。 - 职责：担任软件工程师，负责系统的需求分析、系统设计和代码编写。 - 工作成果：成功完成系统的设计和开发工作，实现了远程监控、智能控制等功能。系统上线后，用户满意度提高了xx%，故障率降低了xx%。 3. 项目名称：数据分析与挖掘 - 项目描述：参与一个数据分析与挖掘项目，对大量的数据进行分析和挖掘，提取有价值的信息。 - 职责：担任数据分析师，负责数据清洗、特征提取和模型建立。 - 工作成果：成功完成数据分析和挖掘工作，提取出了关键指标和规律，并提供了有针对性的决策建议。项目完成后，公司的利润增长了xx%。 以上是我在简历中的项目经历，通过这些项目，我不仅提升了自己的技能和经验，也取得了一定的成绩和成就。</li>
+  </ol>
+</blockquote>
+
+<h3 id="4-职业技能--专业技能">4 职业技能  (专业技能)</h3>
+
+<p>【建议】 职业技能是简历中非常重要的一部分，它能够展示你的专业能力和技术水平。对于已有的职业技能，建议你在描述时要更加具体和有针对性，可以提供一些相关项目经验或成果，以突出你的实际应用能力。另外，可以考虑添加一些与职位要求相关的技能，以提高简历的匹配度。</p>
+
+<ul>
+  <li>计算机二级….</li>
+</ul>
+
+<h3 id="5-其他模块">5 其他模块</h3>
+
+<ul>
+  <li>语言能力 六级等</li>
+  <li>获奖经历</li>
+  <li>自我评价</li>
+  <li>兴趣爱好</li>
+</ul>
+
+<p>所有的模板你都可以放心用，按你的经验，简历要尽量保证在一页以内。目前的简历内容比较少，有大量的留白，非常容易被pass，要补充内容尽可能将简历达到一页。如果当前的模块无法达到1页，想下有没有其他经历适合放到简历上。</p>]]></content><author><name>li54426</name></author><category term="API_software" /><category term="API_software" /><category term="latex" /><category term="resume" /><category term="job" /></entry></feed>

@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Go_ | li54426 blog</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="Go_">
+<meta name="author" content="li54426">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<link rel="canonical" href="/jekyll-theme-yat/byte_tech/2023/project.html">
+<meta property="og:url" content="/jekyll-theme-yat/byte_tech/2023/project.html">
+<meta property="og:site_name" content="li54426 blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2023-08-12T21:34:04+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Go_">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"li54426"},"dateModified":"2023-08-12T21:34:04+00:00","datePublished":"2023-08-12T21:34:04+00:00","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Go_","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll-theme-yat/byte_tech/2023/project.html"},"url":"/jekyll-theme-yat/byte_tech/2023/project.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="/assets/my/favicon.ico">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/jekyll-theme-yat/assets/css/main.css">
+  <script src="/jekyll-theme-yat/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="/jekyll-theme-yat/feed.xml" title="li54426  blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/jekyll-theme-yat/">
+  <img class="site-favicon" title="li54426  blog" src="/assets/my/favicon.ico" onerror="this.style.display='none'">
+  li54426  blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/jekyll-theme-yat/">HOME</a><a class="page-link" href="/jekyll-theme-yat/archives">ARCHIVES</a><a class="page-link" href="/jekyll-theme-yat/categories">CATEGORIES</a><a class="page-link" href="/jekyll-theme-yat/tags">TAGS</a><a class="page-link" href="/jekyll-theme-yat/about">ABOUT</a><a class="page-link" href="/jekyll-theme-yat/tools">TOOLS</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('auto' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Go_</h1>
+  <h2 class="post-subtitle"></h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2023-08-12T21:34:04+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Aug 12, 2023
+    </time>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 12 mins</span>
+  </div>
+<div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <ul id="markdown-toc">
+  <li>
+<a href="#%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8F%91%E5%B8%83%E8%A7%86%E9%A2%91" id="markdown-toc-我的工作发布视频">我的工作—发布视频</a>    <ul>
+      <li><a href="#%E7%AE%80%E4%BB%8B" id="markdown-toc-简介">简介</a></li>
+      <li><a href="#%E9%98%9F%E5%8F%8B%E7%9A%84%E6%8E%A5%E5%8F%A3" id="markdown-toc-队友的接口">队友的接口</a></li>
+      <li><a href="#%E4%BD%BF%E7%94%A8%E4%BA%86%E6%8E%A5%E5%8F%A3%E4%B9%8B%E5%90%8E%E7%9A%84%E4%BC%AA%E4%BB%A3%E7%A0%81" id="markdown-toc-使用了接口之后的伪代码">使用了接口之后的伪代码</a></li>
+    </ul>
+  </li>
+  <li><a href="#user" id="markdown-toc-user">user</a></li>
+  <li>
+<a href="#%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90" id="markdown-toc-项目分析">项目分析</a>    <ul>
+      <li><a href="#service-messagego" id="markdown-toc-service-messagego">service/ message.go</a></li>
+      <li><a href="#api--%E8%B7%AF%E7%94%B1-%E5%9F%BA%E4%BA%8E-http-%E5%8D%8F%E8%AE%AE" id="markdown-toc-api--路由-基于-http-协议">API / 路由/ 基于 HTTP 协议</a></li>
+      <li><a href="#%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" id="markdown-toc-返回类型">返回类型</a></li>
+    </ul>
+  </li>
+  <li><a href="#gorm-%E4%BD%BF%E7%94%A8" id="markdown-toc-gorm-使用">GORM 使用</a></li>
+  <li>
+<a href="#%E5%85%B6%E4%BB%96%E5%BA%93" id="markdown-toc-其他库">其他库</a>    <ul>
+      <li><a href="#%E6%8A%BD%E5%8F%96%E5%9B%BE%E7%89%87" id="markdown-toc-抽取图片">抽取图片</a></li>
+      <li><a href="#syncmap" id="markdown-toc-syncmap">sync.Map</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="我的工作发布视频">我的工作—发布视频</h3>
+
+<h4 id="简介">简介</h4>
+
+<p>我的工作为发布视频, 将这个任务分解为几个小任务, 先看哪些任务能够自己独立完成,先完成这些任务, 之后再根据小组成员的接口, 实现完整的功能</p>
+
+<p>环境</p>
+
+<ul>
+  <li>需要提前安装<code class="language-plaintext highlighter-rouge">ffmpeg</code>
+</li>
+</ul>
+
+<p>发布视频的流程</p>
+
+<ul>
+  <li>鉴权 —– 使用别人的接口</li>
+  <li>存储视频   —- (  demo中 有 )</li>
+  <li>抽取封面并存储</li>
+  <li>视频 和 封面 上传到 <code class="language-plaintext highlighter-rouge">cdn</code> (  没有, 因此没有做 )</li>
+  <li>将收到的视频信息( 视频名称, 用户名, 播放地址, 封面的地址 )存储到数据库中   —- 使用数据库的接口</li>
+  <li>返回消息 ( 发布成功)</li>
+</ul>
+
+<p>因此最先做的工作就是</p>
+
+<ul>
+  <li>确定资源<strong>存储的位置</strong>, 通过查找<strong>路由</strong>得知, 有这样一个映射<code class="language-plaintext highlighter-rouge">r.Static("/static", "./public")</code>, 我们访问静态资源的时候, 网址为<code class="language-plaintext highlighter-rouge">xxx/static/fileName.txt</code>, 通过<code class="language-plaintext highlighter-rouge"> c.Request.Host</code>字段, 来获得域名 : <code class="language-plaintext highlighter-rouge">2f781ee3592dd7a9ff0bbd0007fe40ce-app.1024paas.com</code>, 加头(协议)加尾(路径 + 文件名), 进行字符串拼接</li>
+  <li>使用<code class="language-plaintext highlighter-rouge">ffmpeg</code>来抽取某一帧来做封面, 需要设置 其 <strong>环境</strong>
+</li>
+</ul>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// controller/ publish.go</span>
+<span class="c">// 没有其他合作者的提供的接口</span>
+<span class="k">func</span> <span class="n">Publish</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span><span class="n">gin</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c">// token, 鉴权</span>
+ 	
+    <span class="c">// 存储</span>
+    <span class="n">err</span> <span class="o">:=</span> <span class="n">c</span><span class="o">.</span><span class="n">SaveUploadedFile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">saveFile</span><span class="p">);</span>
+    
+    <span class="c">// 抽取并存储图片</span>
+    <span class="n">Vedio2Jpeg</span><span class="p">(</span><span class="n">saveFile</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+    
+    <span class="c">// 拼接网址</span>
+    <span class="n">vedio_url</span> <span class="o">:=</span> <span class="s">"https://"</span><span class="o">+</span> <span class="n">domain</span> <span class="o">+</span> <span class="s">"/static/"</span><span class="o">+</span> <span class="n">finalName</span>
+    
+    <span class="c">// 放入数据库</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">creat</span><span class="p">()</span><span class="o">.....</span>
+    
+<span class="p">}</span>
+
+
+
+</code></pre></div></div>
+
+<p>抽取图片 demo</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">//  将视频抽取一帧, 转化为流</span>
+<span class="k">package</span> <span class="n">examples</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"bytes"</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"io"</span>
+	<span class="s">"os"</span>
+
+	<span class="n">ffmpeg</span> <span class="s">"github.com/u2takey/ffmpeg-go"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">ExampleReadFrameAsJpeg</span><span class="p">(</span><span class="n">inFileName</span> <span class="kt">string</span><span class="p">,</span> <span class="n">frameNum</span> <span class="kt">int</span><span class="p">)</span> <span class="n">io</span><span class="o">.</span><span class="n">Reader</span> <span class="p">{</span>
+	<span class="n">buf</span> <span class="o">:=</span> <span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">(</span><span class="no">nil</span><span class="p">)</span>
+	<span class="n">err</span> <span class="o">:=</span> <span class="n">ffmpeg</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">inFileName</span><span class="p">)</span><span class="o">.</span>
+		<span class="n">Filter</span><span class="p">(</span><span class="s">"select"</span><span class="p">,</span> <span class="n">ffmpeg</span><span class="o">.</span><span class="n">Args</span><span class="p">{</span><span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"gte(n,%d)"</span><span class="p">,</span> <span class="n">frameNum</span><span class="p">)})</span><span class="o">.</span>
+		<span class="n">Output</span><span class="p">(</span><span class="s">"pipe:"</span><span class="p">,</span> <span class="n">ffmpeg</span><span class="o">.</span><span class="n">KwArgs</span><span class="p">{</span><span class="s">"vframes"</span><span class="o">:</span> <span class="m">1</span><span class="p">,</span> <span class="s">"format"</span><span class="o">:</span> <span class="s">"image2"</span><span class="p">,</span> <span class="s">"vcodec"</span><span class="o">:</span> <span class="s">"mjpeg"</span><span class="p">})</span><span class="o">.</span>
+		<span class="n">WithOutput</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">Stdout</span><span class="p">)</span><span class="o">.</span>
+		<span class="n">Run</span><span class="p">()</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">buf</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="队友的接口">队友的接口</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// 鉴权接口</span>
+<span class="c">// 参数: token, 返回: username</span>
+<span class="k">func</span> <span class="n">ParseToken</span><span class="p">(</span><span class="n">token</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+
+
+<span class="c">// 数据库接口---用户</span>
+<span class="k">func</span> <span class="p">(</span><span class="o">*</span><span class="n">UserDao</span><span class="p">)</span> <span class="n">FindUserByName</span><span class="p">(</span><span class="n">username</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="n">User</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="k">func</span> <span class="p">(</span><span class="n">d</span> <span class="o">*</span><span class="n">UserDao</span><span class="p">)</span> <span class="n">FindUserById</span><span class="p">(</span><span class="n">id</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="n">User</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> 
+<span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">NewUserDaoInstance</span><span class="p">()</span><span class="o">.</span><span class="n">FindUserByName</span><span class="p">(</span><span class="s">"qong"</span><span class="p">);</span>
+
+<span class="c">// 数据库接口--- 视频</span>
+<span class="k">func</span> <span class="p">(</span><span class="o">*</span><span class="n">VideoDao</span><span class="p">)</span> <span class="n">CreateVideo</span><span class="p">(</span><span class="n">video</span> <span class="o">*</span><span class="n">Video</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="n">Video</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> 
+
+</code></pre></div></div>
+
+<h4 id="使用了接口之后的伪代码">使用了接口之后的伪代码</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">Publish</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span><span class="n">gin</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c">// token, 鉴权</span>
+ 	<span class="n">token</span> <span class="o">:=</span> <span class="n">c</span><span class="o">.</span><span class="n">PostForm</span><span class="p">(</span><span class="s">"token"</span><span class="p">)</span>
+    <span class="n">user_name</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">ParseToken</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
+    <span class="n">user</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">NewUserDaoInstance</span><span class="p">()</span><span class="o">.</span><span class="n">FindUserByName</span><span class="p">(</span><span class="n">user_name</span><span class="p">)</span>
+    <span class="k">var</span> <span class="n">user_id</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">UserId</span>
+    
+    <span class="c">// 存储</span>
+    <span class="n">err</span> <span class="o">:=</span> <span class="n">c</span><span class="o">.</span><span class="n">SaveUploadedFile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">saveFile</span><span class="p">);</span>
+    
+    <span class="c">// 抽取并存储图片</span>
+    <span class="n">Vedio2Jpeg</span><span class="p">(</span><span class="n">saveFile</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+    
+    <span class="c">// 拼接网址</span>
+    <span class="n">vedio_url</span> <span class="o">:=</span> <span class="s">"https://"</span><span class="o">+</span> <span class="n">domain</span> <span class="o">+</span> <span class="s">"/static/"</span><span class="o">+</span> <span class="n">finalName</span>
+    
+    <span class="c">// 放入数据库</span>
+    <span class="n">video1</span> <span class="o">:=</span> <span class="n">models</span><span class="o">.</span><span class="n">Video</span><span class="p">{</span><span class="n">UserId</span> <span class="o">:</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">PlayUrl</span> <span class="o">:</span> <span class="n">vedio_url</span><span class="p">,</span> <span class="n">CoverUrl</span> <span class="o">:</span> <span class="n">img_url</span> <span class="p">,</span> <span class="p">}</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">NewVideoDaoInstance</span><span class="p">()</span><span class="o">.</span><span class="n">CreateVideo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">video1</span><span class="p">)</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>主题</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>计算机基础</td>
+      <td>数据结构、算法/ 计算机组成原理、计算机网络、操作系统、编译原理</td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>linux基础操作、unix环境编程、网络编程</td>
+    </tr>
+    <tr>
+      <td>数据库</td>
+      <td>基础理论ACID、MySQL、NoSQL</td>
+    </tr>
+    <tr>
+      <td>编程语言</td>
+      <td>Java、Go、C/C++、Rust</td>
+    </tr>
+    <tr>
+      <td>设计模式</td>
+      <td>23种设计模式</td>
+    </tr>
+    <tr>
+      <td>中间件</td>
+      <td>API网关、Web/RPC框架、消息队列、缓存、定时调度、数据库中间件ORM、日志系统、配置中型</td>
+    </tr>
+    <tr>
+      <td>分布式</td>
+      <td>一致性/CAP、事务、等、微服务、拓展性</td>
+    </tr>
+    <tr>
+      <td>高并发、高性能、高可用</td>
+      <td>C10k、进程、线程、线程、异步、池化、缓存、CDN、集群、负载均衡、限流、容灾、多活</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>linux 命令</p>
+
+<ul>
+  <li>查看目录</li>
+  <li>打开文件</li>
+  <li>两个命令 awk,  sed</li>
+</ul>
+
+<p>SOA(Service-Oriented Architecture)
+1.将应用的不同功能单元抽象为服务
+2.定义服务之间的通信标准微服务架构:SOA的去中心化演进方向</p>
+
+<h3 id="user">user</h3>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">type</span> <span class="n">Response</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">StatusCode</span> <span class="kt">int32</span>  <span class="s">`json:"status_code"`</span>
+	<span class="n">StatusMsg</span>  <span class="kt">string</span> <span class="s">`json:"status_msg,omitempty"`</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="项目分析">项目分析</h3>
+
+<h4 id="service-messagego">service/ message.go</h4>
+
+<ul>
+  <li>tcp 客户端,</li>
+</ul>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">service</span>
+
+<span class="k">import</span> <span class="o">.....</span>
+
+<span class="c">// 并发安全的 映射类型</span>
+<span class="c">// event.UserId_event.ToUserId</span>
+<span class="k">var</span> <span class="n">chatConnMap</span> <span class="o">=</span> <span class="n">sync</span><span class="o">.</span><span class="n">Map</span><span class="p">{}</span>
+
+<span class="k">func</span> <span class="n">RunMessageServer</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">listen</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">net</span><span class="o">.</span><span class="n">Listen</span><span class="p">(</span><span class="s">"tcp"</span><span class="p">,</span> <span class="s">"127.0.0.1:9090"</span><span class="p">)</span>
+
+
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="n">conn</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">listen</span><span class="o">.</span><span class="n">Accept</span><span class="p">()</span>
+		<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+			<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Accept conn failed: %v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+			<span class="k">continue</span>
+		<span class="p">}</span>
+
+		<span class="k">go</span> <span class="n">process</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">process</span><span class="p">(</span><span class="n">conn</span> <span class="n">net</span><span class="o">.</span><span class="n">Conn</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="n">conn</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+
+	<span class="k">var</span> <span class="n">buf</span> <span class="p">[</span><span class="m">256</span><span class="p">]</span><span class="kt">byte</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="n">n</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">conn</span><span class="o">.</span><span class="n">Read</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="o">:</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="n">io</span><span class="o">.</span><span class="n">EOF</span> <span class="p">{</span>
+				<span class="k">break</span>
+			<span class="p">}</span>
+			<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Read message failed: %v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+			<span class="k">continue</span>
+		<span class="p">}</span>
+		
+        <span class="c">// 在 common.go #L39</span>
+        <span class="c">// 请求事件是什么</span>
+		<span class="k">var</span> <span class="n">event</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">MessageSendEvent</span><span class="p">{}</span>
+		<span class="n">_</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">Unmarshal</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="o">:</span><span class="n">n</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">event</span><span class="p">)</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Receive Message：%+v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+
+		<span class="n">fromChatKey</span> <span class="o">:=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"%d_%d"</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">UserId</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">ToUserId</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">MsgContent</span><span class="p">)</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+			<span class="n">chatConnMap</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="n">fromChatKey</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+			<span class="k">continue</span>
+		<span class="p">}</span>
+
+		<span class="n">toChatKey</span> <span class="o">:=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"%d_%d"</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">ToUserId</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">UserId</span><span class="p">)</span>
+		<span class="n">writeConn</span><span class="p">,</span> <span class="n">exist</span> <span class="o">:=</span> <span class="n">chatConnMap</span><span class="o">.</span><span class="n">Load</span><span class="p">(</span><span class="n">toChatKey</span><span class="p">)</span>
+		<span class="k">if</span> <span class="o">!</span><span class="n">exist</span> <span class="p">{</span>
+			<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"User %d offline</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">ToUserId</span><span class="p">)</span>
+			<span class="k">continue</span>
+		<span class="p">}</span>
+
+		<span class="n">pushEvent</span> <span class="o">:=</span> <span class="n">controller</span><span class="o">.</span><span class="n">MessagePushEvent</span><span class="p">{</span>
+			<span class="n">FromUserId</span><span class="o">:</span> <span class="n">event</span><span class="o">.</span><span class="n">UserId</span><span class="p">,</span>
+			<span class="n">MsgContent</span><span class="o">:</span> <span class="n">event</span><span class="o">.</span><span class="n">MsgContent</span><span class="p">,</span>
+		<span class="p">}</span>
+        <span class="c">// 转化为 json 字符串</span>
+		<span class="n">pushData</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">pushEvent</span><span class="p">)</span>
+		<span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">writeConn</span><span class="o">.</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">Conn</span><span class="p">)</span><span class="o">.</span><span class="n">Write</span><span class="p">(</span><span class="n">pushData</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+			<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Push message failed: %v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h4 id="api--路由-基于-http-协议">API / 路由/ 基于 HTTP 协议</h4>
+
+<p>做的事情有</p>
+
+<ul>
+  <li>通过调用 <code class="language-plaintext highlighter-rouge">r.Static("/static", "./public")</code> 将 “/static” 路径<strong>映射</strong>到 “./public” 目录，用于提供静态资源文件。</li>
+  <li>接下来，通过调用 <code class="language-plaintext highlighter-rouge">r.LoadHTMLGlob("templates/*")</code> 加载了所有位于 “templates” 目录下的 HTML 模板文件。</li>
+  <li>
+    <p>之后，定义了一个处理根路径 (“/”) 的 GET 请求的<strong>路由</strong>。</p>
+  </li>
+  <li>当GET 的路径为<code class="language-plaintext highlighter-rouge">douyin/feed/</code>时, 调用<code class="language-plaintext highlighter-rouge">controller.Feed</code>, 其他也一样</li>
+  <li>注意: Gin 默认情况下会返回 404 错误</li>
+</ul>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">initRouter</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span><span class="n">gin</span><span class="o">.</span><span class="n">Engine</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c">// public directory is used to serve static resources</span>
+  <span class="n">r</span><span class="o">.</span><span class="n">Static</span><span class="p">(</span><span class="s">"/static"</span><span class="p">,</span> <span class="s">"./public"</span><span class="p">)</span>
+  <span class="n">r</span><span class="o">.</span><span class="n">LoadHTMLGlob</span><span class="p">(</span><span class="s">"templates/*"</span><span class="p">)</span>
+
+  <span class="c">// home page</span>
+  <span class="n">r</span><span class="o">.</span><span class="n">GET</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="k">func</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span><span class="n">gin</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">StatusOK</span><span class="p">,</span> <span class="s">"index.html"</span><span class="p">,</span> <span class="n">gin</span><span class="o">.</span><span class="n">H</span><span class="p">{</span>
+			<span class="s">"title"</span><span class="o">:</span> <span class="s">"Main website"</span><span class="p">,</span>
+		<span class="p">})</span>
+  <span class="p">})</span>
+  
+  <span class="n">apiRouter</span> <span class="o">:=</span> <span class="n">r</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="s">"/douyin"</span><span class="p">)</span>
+
+  <span class="c">// basic apis</span>
+  <span class="n">apiRouter</span><span class="o">.</span><span class="n">GET</span><span class="p">(</span><span class="s">"/feed/"</span><span class="p">,</span> <span class="n">controller</span><span class="o">.</span><span class="n">Feed</span><span class="p">)</span>
+  <span class="n">apiRouter</span><span class="o">.</span><span class="n">GET</span><span class="p">(</span><span class="s">"/user/"</span><span class="p">,</span> <span class="n">controller</span><span class="o">.</span><span class="n">UserInfo</span><span class="p">)</span>
+  <span class="n">apiRouter</span><span class="o">.</span><span class="n">POST</span><span class="p">(</span><span class="s">"/user/register/"</span><span class="p">,</span> <span class="n">controller</span><span class="o">.</span><span class="n">Register</span><span class="p">)</span>
+  <span class="n">apiRouter</span><span class="o">.</span><span class="n">POST</span><span class="p">(</span><span class="s">"/user/login/"</span><span class="p">,</span> <span class="n">controller</span><span class="o">.</span><span class="n">Login</span><span class="p">)</span>
+    <span class="c">// -------我的工作在这里----------</span>
+  <span class="n">apiRouter</span><span class="o">.</span><span class="n">POST</span><span class="p">(</span><span class="s">"/publish/action/"</span><span class="p">,</span> <span class="n">controller</span><span class="o">.</span><span class="n">Publish</span><span class="p">)</span>
+  <span class="n">apiRouter</span><span class="o">.</span><span class="n">GET</span><span class="p">(</span><span class="s">"/publish/list/"</span><span class="p">,</span> <span class="n">controller</span><span class="o">.</span><span class="n">PublishList</span><span class="p">)</span>
+
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="返回类型">返回类型</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">DemoVideos</span> <span class="o">=</span> <span class="p">[]</span><span class="n">Video</span><span class="p">{</span>
+	<span class="p">{</span>
+		<span class="n">Id</span><span class="o">:</span>            <span class="m">1</span><span class="p">,</span>
+		<span class="n">Author</span><span class="o">:</span>        <span class="n">DemoUser</span><span class="p">,</span>
+        <span class="c">// 静态资源 https://49e48d523a1b2e3ac60f4f7e9aec3628-app.1024paas.com/static/2_mmexport1692111641344.mp4</span>
+		<span class="n">PlayUrl</span><span class="o">:</span>       <span class="s">"https://www.w3schools.com/html/movie.mp4"</span><span class="p">,</span>
+		<span class="n">CoverUrl</span><span class="o">:</span>      <span class="s">"https://cdn.pixabay.com/photo/2016/03/27/18/10/bear-1283347_1280.jpg"</span><span class="p">,</span>
+		<span class="n">FavoriteCount</span><span class="o">:</span> <span class="m">0</span><span class="p">,</span>
+		<span class="n">CommentCount</span><span class="o">:</span>  <span class="m">0</span><span class="p">,</span>
+		<span class="n">IsFavorite</span><span class="o">:</span>    <span class="no">false</span><span class="p">,</span>
+	<span class="p">},</span>
+
+<span class="p">}</span>
+
+
+<span class="k">type</span> <span class="n">Response</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">StatusCode</span> <span class="kt">int32</span>  <span class="s">`json:"status_code"`</span>
+	<span class="n">StatusMsg</span>  <span class="kt">string</span> <span class="s">`json:"status_msg,omitempty"`</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// 存储</span>
+<span class="k">func</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span><span class="n">gin</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="n">SaveUploadedFile</span><span class="p">(</span><span class="n">file</span> <span class="o">*</span><span class="n">multipart</span><span class="o">.</span><span class="n">FileHeader</span><span class="p">,</span> <span class="n">dst</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span><span class="n">gin</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="n">JSON</span><span class="p">(</span><span class="n">code</span> <span class="kt">int</span><span class="p">,</span> <span class="n">obj</span> <span class="k">interface</span><span class="p">{})</span>
+</code></pre></div></div>
+
+<h3 id="gorm-使用">GORM 使用</h3>
+
+<p><a href="https://blog.csdn.net/yoyogu/article/details/109318626">go 语言 gorm 基本使用_go gorm_含光君～的博客 - CSDN 博客</a></p>
+
+<h3 id="其他库">其他库</h3>
+
+<h4 id="抽取图片">抽取图片</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">//  将视频抽取一帧, 转化为流</span>
+<span class="k">package</span> <span class="n">examples</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"bytes"</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"io"</span>
+	<span class="s">"os"</span>
+
+	<span class="n">ffmpeg</span> <span class="s">"github.com/u2takey/ffmpeg-go"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">ExampleReadFrameAsJpeg</span><span class="p">(</span><span class="n">inFileName</span> <span class="kt">string</span><span class="p">,</span> <span class="n">frameNum</span> <span class="kt">int</span><span class="p">)</span> <span class="n">io</span><span class="o">.</span><span class="n">Reader</span> <span class="p">{</span>
+	<span class="n">buf</span> <span class="o">:=</span> <span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">(</span><span class="no">nil</span><span class="p">)</span>
+	<span class="n">err</span> <span class="o">:=</span> <span class="n">ffmpeg</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">inFileName</span><span class="p">)</span><span class="o">.</span>
+		<span class="n">Filter</span><span class="p">(</span><span class="s">"select"</span><span class="p">,</span> <span class="n">ffmpeg</span><span class="o">.</span><span class="n">Args</span><span class="p">{</span><span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"gte(n,%d)"</span><span class="p">,</span> <span class="n">frameNum</span><span class="p">)})</span><span class="o">.</span>
+		<span class="n">Output</span><span class="p">(</span><span class="s">"pipe:"</span><span class="p">,</span> <span class="n">ffmpeg</span><span class="o">.</span><span class="n">KwArgs</span><span class="p">{</span><span class="s">"vframes"</span><span class="o">:</span> <span class="m">1</span><span class="p">,</span> <span class="s">"format"</span><span class="o">:</span> <span class="s">"image2"</span><span class="p">,</span> <span class="s">"vcodec"</span><span class="o">:</span> <span class="s">"mjpeg"</span><span class="p">})</span><span class="o">.</span>
+		<span class="n">WithOutput</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">Stdout</span><span class="p">)</span><span class="o">.</span>
+		<span class="n">Run</span><span class="p">()</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">buf</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"strings"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">inFileName</span> <span class="o">:=</span> <span class="s">"path/to/video.mp4"</span>
+
+	<span class="n">index</span> <span class="o">:=</span> <span class="n">strings</span><span class="o">.</span><span class="n">LastIndex</span><span class="p">(</span><span class="n">inFileName</span><span class="p">,</span> <span class="s">"."</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">index</span> <span class="o">!=</span> <span class="o">-</span><span class="m">1</span> <span class="p">{</span>
+		<span class="n">outFileName</span> <span class="o">:=</span> <span class="n">strings</span><span class="o">.</span><span class="n">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="n">inFileName</span><span class="p">[</span><span class="o">:</span><span class="n">index</span><span class="o">+</span><span class="m">1</span><span class="p">],</span> <span class="s">"jpeg"</span><span class="p">},</span> <span class="s">""</span><span class="p">)</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">outFileName</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Invalid file name"</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="syncmap">sync.Map</h4>
+
+<p><code class="language-plaintext highlighter-rouge">sync.Map</code> 是 Go 语言提供的一种并发安全的映射（Map）结构。它可以在多个 goroutine 并发访问时保证数据的安全性，而不需要额外的加锁操作。</p>
+
+<p><code class="language-plaintext highlighter-rouge">sync.Map</code> 的主要特点如下：</p>
+
+<ol>
+  <li>无需显式初始化，可以直接声明并使用。</li>
+  <li>支持并发的读取和写入操作，可以在多个 goroutine 中同时访问。</li>
+  <li>内部自动进行了并发安全的处理，不需要额外的锁机制。</li>
+  <li>提供了几个常用的方法来对映射进行操作，如 Store、Load、Delete 等。</li>
+</ol>
+
+<p>需要注意的是，<code class="language-plaintext highlighter-rouge">sync.Map</code> 相对于普通的 <code class="language-plaintext highlighter-rouge">map</code> 有一些限制：</p>
+
+<ol>
+  <li>不允许使用 <code class="language-plaintext highlighter-rouge">nil</code> 作为键值。</li>
+  <li>对于存储的值类型没有约束，可以是任意类型。</li>
+  <li>没有提供获取映射长度的方法。</li>
+</ol>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/jekyll-theme-yat/byte_tech/2023/xiao_xi_dui_lie.html" title="Go_">Go_</a><a class="next" href="/jekyll-theme-yat/cpp/2023/confuse.html" title="c++中那些奇怪的事情">c++中那些奇怪的事情</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li class="">
+          <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/dui_xiang_cun_chu.html" title="Go_对象存储">
+            Go_对象存储<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/cpp/2023/unique-not-auto.html" title="函数模板与 auto 关键字">
+            函数模板与 auto 关键字<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/cpp/2023/cpp_STL_1_allocator.html" title="cpp_STL_1_alloctor">
+            cpp_STL_1_alloctor<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/2020/testing-mathjax.html" title="Testing MathJax">
+            Testing MathJax<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/jekyll-theme-yat/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2024 li54426</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/jekyll-theme-yat/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
