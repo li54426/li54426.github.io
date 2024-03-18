@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Tools
-permalink: /tools.html
+title: tools
+permalink: /tools
 ---
 
  用来存放我的项目以及一些好的项目
