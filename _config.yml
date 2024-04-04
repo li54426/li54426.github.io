@@ -159,6 +159,7 @@ header_pages:
   - tags.html
   - about.html
   - tools.md
+  - software.md
 
 # Page default value
 defaults:
