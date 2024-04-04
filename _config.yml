@@ -164,7 +164,7 @@ header_pages:
 defaults:
    home:
      heading: "记录我的生活"
-     subheading: ""
+     subheading: "  "
      banner: "Your image url"
 
 # Banner default settings
