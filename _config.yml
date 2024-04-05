@@ -64,6 +64,7 @@ permalink: /:categories/:year/:title.html
 # debug: false
 
 # If you don't want transparent header, you can set false
+# 如果不需要透明标头,可以设置为false
 # header_transparent: true
 
 # If you want to change the content width, you can set to another value
@@ -74,7 +75,8 @@ permalink: /:categories/:year/:title.html
 # enableDNT: "false"
 
 # If you want to generate website sitemap, you can set true
-# sitemap: false
+# 如果你想生成网站地图，你可以设置 true
+sitemap: true
 
 # If you want to change site language, you can set lang option
 # lang: "en"  # default lang is en
@@ -106,13 +108,22 @@ permalink: /:categories/:year/:title.html
 #     img: https://cdn.countryflags.com/thumbs/russia/flag-400.png
 #     text: Russian
 
+
+
 # You can choose a theme color
 # Default theme colors as below:
+#您可以选择主题颜色
+#默认主题颜色如下：
+#酷黑：#090a0b
+#太空灰：#3353535
+#白雪公主：#ffffff
 # coolblack: #090a0b
 # spacegrey: #353535
 # snowwhite: #ffffff
 #
 # theme_color: snowwhite
+theme_color: #cce8cf
+
 #
 # Custom color as below:
 # theme_color: "#882250"
