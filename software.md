@@ -65,7 +65,7 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 
 
-#### 1.1 edge 设置
+#### 1.2 edge 设置
 
 名称：`微软 Edge 配置百科`
 
@@ -80,17 +80,28 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 
 
+设置内容
+
+关闭以下三项
+
+- 启动增强
+- 在MicrosoftEdge关闭后继续运行后台扩展和应用
+- 使用硬件加速
+    
 
 
 
+#### 1.3 浏览器下载------NDM
 
-#### 1.2 浏览器下载------NDM
+- **免费，多系统支持**：macOS， Windows
 
-- **多系统支持**：macOS， Windows
 - **暂停/恢复**功能，**高速**下载文件
+
 - 具有**浏览器**[扩展](https://microsoftedge.microsoft.com/addons/detail/neatdownloadmanager-exten/pbghcbaeehloijjcebiflemhcebmlnke)，可以向其发送下载链接并帮助您从任何网站下载视频/音频
+
 - **嗅探资源**
-- **免费**
+
+    
 
 
 
@@ -122,7 +133,25 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 
 
-#### 1.3 浏览器插件
+#### 1.4 浏览器插件
+
+- 安装时搜索并下载到`crx`格式的文件，并放在一个你之后不会不小心删掉的文件夹，因为安装之后扩展被删掉会**错误失效**
+- 可以用火绒的「**弹窗拦截**」功能来解决每次启动Chrome时，浏览器右上角会弹出「**请停用以开发者模式运行的扩展程序**」
+- Chrome **占用高**的原因在于它**会给每个扩展和标签页单独开一个进程**
+
+
+
+火狐安装组件提示 “此附加组件无法安装，因为他有可能已经**损坏**” 解决方法
+
+ 解决方案：
+
+1. 火狐地址栏输入 “about:config”, 回车会提示可能失去质保，点击 “ 我保证会小心”；
+2. 搜索 “xpinstall.signatures.required”，双击 “true” 自动改为”false“; 
+3. 将组件拖入浏览器安装，并检查是否安装成功。
+
+
+
+
 
 | 插件名称                                                     | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -149,19 +178,47 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 
 
-火狐安装组件提示 “此附加组件无法安装，因为他有可能已经**损坏**” 解决方法
-
- 解决方案：
-
-1. 火狐地址栏输入 “about:config”, 回车会提示可能失去质保，点击 “ 我保证会小心”；
-2. 搜索 “xpinstall.signatures.required”，双击 “true” 自动改为”false“; 
-3. 将组件拖入浏览器安装，并检查是否安装成功。
 
 
+| 功能         | 名称                     | 介绍                                                         |
+| :----------- | :----------------------- | :----------------------------------------------------------- |
+| 脚本管理     | ViolentMonkey            | 让你的Chrome可以使用油猴脚本（相比 Tampermonkey、GreaseMonkey 更为简洁方便） |
+| 下载管理     | Chrono                   | 最好用的Chrome第三方下载管理器，支持资源嗅探                 |
+| 恢复关闭标签 | SimpleUndoClose          | 给Chrome添加一个「恢复刚刚关闭的网页」的按钮                 |
+| 广告屏蔽     | uBlock Origin            | 优秀的网页广告屏蔽扩展，支持手动选择网页元素进行屏蔽         |
+| 视频下载     | CocoCut                  | 除了支持视频嗅探，对于一些能播放但无法下载的视频，提供录屏下载模式，支持把网页挂在后台录屏！ |
+| 图片批量下载 | Fatkun                   | 可以嗅探、分析网页图片、图片筛选、批量下载等功能             |
+| 手势操作     | crxMouse                 | 让Chrome可使用自定义的鼠标手势（比如左滑为后退，下滑为刷新）提高工作效率 |
+| 搜索切换     | 地址栏搜索切换器         | 一键切换Chrome的搜索引擎（支持自定义）                       |
+| B站功能增强  | bilibili哔哩哔哩下载助手 | 帮你下载B站版权受限（能看不能缓存）的 番剧                   |
+| 查词工具     | 沙拉查词                 | 大概是目前 Chrome 划词翻译扩展中体验最好的                   |
+| 翻译工具     | 彩云小译                 | 一键实现网页「中英文对照翻译」的工具                         |
+| 以图搜图     | 二箱                     | 聚合以图搜图                                                 |
+| 网页截图     | FireShot                 | 一键滚动截屏整个网页                                         |
+| 视频加速     | Video Speed Controller   | 让html5视频支持倍速播放，最快可达16倍                        |
+| 二维码       | 轻松二维码               | 点击扩展即可生成当前网址的二维码，同时可以主动输入网址生成二维码 |
+| 剪贴板同步   | Bark                     | 一键把网页上的文本、网址、剪贴板内容推送到iPhone剪贴板（需要安装Bark手机端） |
 
 
 
-#### 6 油猴脚本
+
+
+##### 二管家
+
+- 一个**完全免费开源**且颇具好评的 Chrome 扩展管理工具了——**二管家**
+- 二管家最核心的功能是：**根据规则自动开关扩展**，比如「B站下载助手」这个扩展，其实我们只需要它在B站上运行，利用二管家即可做到：**平时这个扩展关闭，只有当你打开B站时，才自动帮你开启它**
+- 设置这样一个规则的方法也很**简单**，在二管家的**自动管理**页面参照下图添加规则即可
+- 二管家中点击查看一个扩展的详细信息，里面可以轻松把这个扩展的CRX文件提取出来
+
+
+
+
+
+
+
+
+
+#### 1.5 油猴脚本
 
 | 脚本名称                                                     | 说明                                     |
 | ------------------------------------------------------------ | ---------------------------------------- |
@@ -205,13 +262,63 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 
 
+#### 1.6 验证码
+
+我的解决方案是
+
+- [万能验证码输入-自动版](https://greasyfork.org/zh-CN/scripts/418942)来解决**验证码**问题
+-  [YesCaptcha](https://chrome.google.com/webstore/detail/yescap-assistant/jiofmdifioeejeilfkpegipdjiopiekl?hl=zh-CN)解决谷歌的点**谷歌认证**
 
 
 
+
+
+- **I'm not robot captcha clicker**这个扩展算是阿虚测试半天后发现**最简单易用**的谷歌 ReCAPTCHA 验证码自动验证扩展了，**完全免费且安装后无需任何设置**，在遇到谷歌的 ReCAPTCHA 验证时会自动帮你进行人机验证（甚至不会弹出验证内容）
+
+- NopeCHA 是 Chrome 扩展商店中一款**超10W人安装的免费扩展**，官网：https://nopecha.com/
+
+- `Buster` 是 Chrome 扩展商店另一款免费的自动过人机验证扩展，**可以和上述 2 款扩展搭配使用，不会相互冲突**，其他扩展不起作用的话可以换 Buster 手动来解决！
+
+    
+
+
+
+- `AutoVerify `是 Chrome 扩展里面一款良心的完全免费**数字、字母、中文验证码**自动识别扩展，需要**手动操作**
+-  [YesCaptcha](https://chrome.google.com/webstore/detail/yescap-assistant/jiofmdifioeejeilfkpegipdjiopiekl?hl=zh-CN)是 Chrome 扩展商店里面一款**付费**的人机验证码助手扩展，推荐它的一大原因是在这类服务中鲜有的**支持国内付费方式＋价格实惠**，现在注册即可获得1500积分`（需联系客服获取）`，然后10元就可以买10200积分，解1次验证码消耗10点左右，**平均下来差不多于1分钱1次**——视个人使用情况10块钱基本够用几个月了，多数网站可以自动识别填写，如果不支持，可以自行**右键验证码图片「标记验证码」**，另外如果验证码没有自动填写，可以右键验证码输入框，**手动选择「输入验证码」**
+
+
+
+写这篇推荐阿虚尝试过大量扩展和脚本，如果你还想寻找另外的扩展，帮大家避个坑，以下这些扩展你就不用去测试了，都不能用：
+
+> - **True Captcha**：识别有效，但不提供验证码输入服务
+> - **CaptchaLess**：仅限识别中科大网站验证码
+> - **Moodle Captcha**：算数类验证码
+> - **AutoCAPTCHA**：配置复杂，无法适配多个网站
+> - **Captcha Cracker**：失效
+> - **Rumola**：收费
+> - **reCAPTCHA Autoclicker**：失效
+> - **ReCaptcha Solver**：需要购买2captcha、DeathByCaptcha、ImageTyperz、Anti-Catcha、BestCaptchaSsolver 和 EndCaptcha之一的 API 密钥才可使用
+> - **RegChula Captcha Solver**：失效
+> - **hCaptcha Solver**：失效
+> - **Captcha Solver**：需要购买 2captcha 的 API 密钥才可使用
+> - **Easy AliExpress Captcha Solver**：仅适用于 AliExpress.com
+> - **Captcha Recognizer**：仅适用于台湾的一些网站
+> - **Auto CAPTCHA Solver**：付费且价格不菲
+> - **AZcaptcha automatic captcha solver**：需购买 AZcaptcha 的API Key 之后才可使用
+> - **Vtop Captcha Solver：**仅适用于 VIT 一系列网站
+> - **reCAPTCHA Solver**：需购买 API Key 之后才可使用
+> - **SYSU CAS Captcha Autofill**：仅适用于中山大学相关网站
+> - **MB_Solver**：需注册购买 API Key 之后才可使用
 
 
 
 ### 2 开机必备-------全部在使用
+
+> 链接:https://caiyun.139.com/m/i?105Cf0HYVVQnk
+> 提取码:XEOG
+> 复制内容打开移动云盘PC客户端，操作更方便哦
+
+
 
 | 软件名称                                                     | 说明                                              |
 | ------------------------------------------------------------ | ------------------------------------------------- |
@@ -258,7 +365,7 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 
 
-- 主程序是`无言仰慕不起`, `其他文件`是`伪Pandownload`
+- 主程序是`无言仰慕不起`, `其他文件`是来自`伪Pandownload`
 
 > 链接:https://caiyun.139.com/m/i?105Cq3h5souEi
 > 提取码:43fN
@@ -296,7 +403,7 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 
 
-### 2 文本处理
+### 3 文本处理
 
 adobe reader :pdf高级阅读
 fish :百度文库下载
@@ -304,6 +411,64 @@ notpad++ :文本
 textpro  : 全角半角符号转换
 wps Pro
 天若段落排版
+
+
+
+
+
+- [wmjordan/PDFPatcher: PDF补丁丁——PDF工具箱，可以编辑书签、剪裁旋转页面、解除限制、提取或合并文档，探查文档结构，提取图片、转成图片等等 (github.com)](https://github.com/wmjordan/PDFPatcher)
+
+#### 1.1 pdf 目录添加
+
+软件是 pdf patcher
+
+有目录列表的话，复制粘贴到书签栏，保存文档就行啦。
+
+复制目录列表：
+[![image](assets/254448629-26b3b65d-d176-49f2-9c52-d8c677590d87.png)](https://user-images.githubusercontent.com/12182730/254448629-26b3b65d-d176-49f2-9c52-d8c677590d87.png)
+
+打开 PDF 文档，按粘贴按钮，将列表粘贴到书签栏：
+[![image](assets/254448537-0594e514-cba4-4179-a5ca-e3908874f1ca.png)](https://user-images.githubusercontent.com/12182730/254448537-0594e514-cba4-4179-a5ca-e3908874f1ca.png)
+
+
+
+
+
+
+
+[pdfdir](https://github.com/chroming/pdfdir)
+
+[获取pdf目录的网站](http://search.china-pub.com/)
+
+[ririv/QuickOutline: 给PDF添加大纲、目录。Add outline to PDF (github.com)](https://github.com/ririv/QuickOutline)
+
+
+
+
+
+
+
+#### 1.2 pdf 补丁丁
+
+[软件地址](https://github.com/wmjordan/PDFPatcher)
+
+[使用说明](https://post.smzdm.com/p/anx09ww3/)
+
+
+
+#### 1.3 pdf 复制
+
+https://github.com/wangfreexx/PDFCopyPasteNew/releases/tag/V1.0
+
+
+
+
+
+#### 1.4 pdf patcher 去除密码
+
+[pdf去除密码_百度搜索 (github.com)](https://github.com/wmjordan/PDFPatcher)
+
+文件---文档属性----设置PDF文件的修改方式(左下角)---压缩清理
 
 
 
@@ -407,64 +572,6 @@ The Best Software to Use
 
 
 
-
-
-
-### 1 PDF软件
-
-- [wmjordan/PDFPatcher: PDF补丁丁——PDF工具箱，可以编辑书签、剪裁旋转页面、解除限制、提取或合并文档，探查文档结构，提取图片、转成图片等等 (github.com)](https://github.com/wmjordan/PDFPatcher)
-
-#### 1.1 pdf 目录添加
-
-软件是 pdf patcher
-
-有目录列表的话，复制粘贴到书签栏，保存文档就行啦。
-
-复制目录列表：
-[![image](assets/254448629-26b3b65d-d176-49f2-9c52-d8c677590d87.png)](https://user-images.githubusercontent.com/12182730/254448629-26b3b65d-d176-49f2-9c52-d8c677590d87.png)
-
-打开 PDF 文档，按粘贴按钮，将列表粘贴到书签栏：
-[![image](assets/254448537-0594e514-cba4-4179-a5ca-e3908874f1ca.png)](https://user-images.githubusercontent.com/12182730/254448537-0594e514-cba4-4179-a5ca-e3908874f1ca.png)
-
-
-
-
-
-
-
-[pdfdir](https://github.com/chroming/pdfdir)
-
-[获取pdf目录的网站](http://search.china-pub.com/)
-
-[ririv/QuickOutline: 给PDF添加大纲、目录。Add outline to PDF (github.com)](https://github.com/ririv/QuickOutline)
-
-
-
-
-
-
-
-#### 1.2 pdf 补丁丁
-
-[软件地址](https://github.com/wmjordan/PDFPatcher)
-
-[使用说明](https://post.smzdm.com/p/anx09ww3/)
-
-
-
-#### 1.3 pdf 复制
-
-https://github.com/wangfreexx/PDFCopyPasteNew/releases/tag/V1.0
-
-
-
-
-
-#### 1.4 pdf patcher 去除密码
-
-[pdf去除密码_百度搜索 (github.com)](https://github.com/wmjordan/PDFPatcher)
-
-文件---文档属性----设置PDF文件的修改方式(左下角)---压缩清理
 
 
 

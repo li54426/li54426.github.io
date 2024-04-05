@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title: tools
 permalink: /tools
 top: 1
