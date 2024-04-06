@@ -1,3 +1,4 @@
+```yaml
 # Welcome to Jekyll!
 #
 # About Theme
@@ -122,7 +123,8 @@ sitemap: true
 # snowwhite: spacegrey   #ffffff
 #
 # theme_color: snowwhite
-theme_color: spacegrey 
+theme_color:      spacegrey  #cce8cf
+
 #
 # Custom color as below:
 # theme_color: "#882250"
@@ -235,3 +237,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-spaceship
+
+```
+

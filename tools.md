@@ -42,6 +42,24 @@ banner:
 
 ### 网页工具
 
+
+
+## 网址
+
+| 网址                                   | 作用             |
+| -------------------------------------- | ---------------- |
+| [帮小忙](https://tool.browser.qq.com/) | 在线**工具**平台 |
+| 酷家乐                                 | 室内设计, 装修   |
+|                                        |                  |
+
+
+
+
+
+
+
+
+
 - [Z-Library – 世界上最大的电子图书馆。自由访问知识和文化。](https://zh.z-library.se/)
 - [PDF在线 工具 - 100％免费 - PDF24 Tools](https://tools.pdf24.org/zh/all-tools)
 - [批量网页转pdf](https://www.aconvert.com/webpage/)
