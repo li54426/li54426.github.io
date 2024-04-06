@@ -1,6 +1,5 @@
 ---
 layout: post
-banana: true
 category: bash_automation
 title:  答案查找
 date:   2024-04-05 17:05:44

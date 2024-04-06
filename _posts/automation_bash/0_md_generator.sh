@@ -5,7 +5,6 @@ filename=$(date +"%Y-%m-%d-.md")
 cat > "$filename" << EOF
 ---
 layout: post
-banana: true
 category: bash_automation
 title:  
 date:   $(date +"%Y-%m-%d %H:%M:%S")
