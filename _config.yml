@@ -119,10 +119,10 @@ sitemap: true
 #白雪公主：#ffffff
 # coolblack: #090a0b
 # spacegrey: #353535
-# snowwhite: spacegrey  #ffffff
+# snowwhite: spacegrey   #ffffff
 #
 # theme_color: snowwhite
-theme_color:       #cce8cf
+theme_color:      spacegrey  #cce8cf
 
 #
 # Custom color as below:
@@ -130,11 +130,11 @@ theme_color:       #cce8cf
 
 # You can choose a brand color
 # Default brand colors as below:
-# orangered: #ff5100
-# greatgold: #f2cb05
-# greenblue: #389092
+# orangered: #ff5100    # 橙红色,默认
+# greatgold: #f2cb05    # 偏绿的黄色
+# greenblue: #389092   # 浅蓝色
 #
-# brand_color: orangered
+ brand_color: greenblue
 #
 # Custom color as below:
 # brand_color: "#1a8e42"

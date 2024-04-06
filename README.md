@@ -18,6 +18,8 @@ permalink: /readme/
 - [jekyll-theme-yat](https://github.com/jeffreytse/jekyll-theme-yat)
 - 将即开即用
 - 丢弃掉原本无用的文件，直接`fork`大佬的仓库
+- 增加一个`software`的页面, 其中为常用的软件, 以及 软件的使用方法
+- 增加一个`tools`页面, 
 
 ```yml
 ```
