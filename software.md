@@ -87,7 +87,7 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 - 启动增强
 - 在MicrosoftEdge关闭后继续运行后台扩展和应用
 - 使用硬件加速
-    
+  
 
 
 
@@ -220,6 +220,16 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 #### 1.5 油猴脚本
 
+首先介绍一个网站[油小猴 (youxiaohou.com)](https://www.youxiaohou.com/)
+
+他的介绍如下：
+
+- 一个汇聚了各种黑科技的小站
+
+
+
+
+
 | 脚本名称                                                     | 说明                                     |
 | ------------------------------------------------------------ | ---------------------------------------- |
 | [显示力扣周赛难度分](https://greasyfork.org/zh-CN/scripts/450890-leetcoderating-显示力扣周赛难度分) | 显示题目对应 **周赛**难度分 的浏览器插件 |
@@ -237,15 +247,15 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 
 
 
-[Youtube 工具 多合一本地下載 MP4、MP3 (greasyfork.org)](https://greasyfork.org/zh-CN/scripts/460680-youtube-tools-all-in-one-local-download-mp3-mp4-higt-quality-return-dislikes-and-more)
+##### [Youtube 工具 多合一本地下載 MP4、MP3 ](https://greasyfork.org/zh-CN/scripts/460680-youtube-tools-all-in-one-local-download-mp3-mp4-higt-quality-return-dislikes-and-more)
 
 
 
-[Picviewer CE+ (greasyfork.org)](https://greasyfork.org/zh-CN/scripts/24204-picviewer-ce)
+##### [Picviewer CE+ (greasyfork.org)](https://greasyfork.org/zh-CN/scripts/24204-picviewer-ce)
 
 
 
-[AC-baidu - 重定向优化百度搜狗谷歌必应搜索_favicon_双列](https://greasyfork.org/zh-CN/scripts/14178)
+##### [AC-baidu - 重定向优化百度搜狗谷歌必应搜索_favicon_双列](https://greasyfork.org/zh-CN/scripts/14178)
 
 - 去掉百度、搜狗、谷歌搜索结果的重定向，回归为网站的原始网址 --- 附带有去除百度的广告 包括百度顶部和底部的垃圾广告 - 百家号
 - 默认移除百度百家号的内容 -- 应广大群众的需求
@@ -259,6 +269,16 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 [本地 YouTube 下载器 (greasyfork.org)](https://greasyfork.org/zh-CN/scripts/481961-youtube-tools)
 
 安装以后，我们打开 You Tube 的视频，在视频下方就会有 “显示 / 隐藏链接” 的按钮，点开即可看到视频下载的链接。
+
+
+
+
+
+[网盘直链下载助手](https://greasyfork.org/zh-CN/scripts/436446)
+
+
+
+[网盘智能识别助手](https://greasyfork.org/zh-CN/scripts/422960)
 
 
 
@@ -396,6 +416,121 @@ Amarok 设置隐藏的文件和隐藏的应用。https://deltazefiro.github.io/A
 - 贴图功能：参考自伟大的 snipaste。贴图、取色、文本便签、可以编辑。
 
 - 录制 GIF 功能：好吧，前面的 gif 都是我的软件录制的。得益于 screentogif 的开源。
+
+
+
+
+
+### 3 云服务
+
+#### 1 图床
+
+图床（Image Hosting Service）是一种用于存储和分享图片的**在线服务**。它允许用户上传图片文件，并生成一个可访问的 URL 地址，用户可以通过该地址在网页上或其他平台上分享图片。图床通常提供免费和付费两种服务，用户可以根据需要选择合适的方案使用。
+
+图床的主要功能包括：
+
+1. 图片存储：用户可以将图片文件上传到图床服务器上进行存储，这些图片文件可以是网页中的配图、产品图片、个人照片等。
+2. 图片分享：图床为用户生成的图片 URL 地址可以方便地在网页、论坛、社交媒体等平台上分享图片内容，用户只需复制图片链接即可。
+3. 图片管理：图床通常提供图片管理功能，允许用户对上传的图片进行管理，包括查看、编辑、删除等操作。
+4. 图片处理：一些高级图床服务还提供图片处理功能，如裁剪、旋转、压缩等，使用户可以在图床上直接对图片进行编辑处理。
+
+使用图床的好处包括：
+
+- 节省空间：通过将图片上传到图床服务器，可以减轻自己网站或应用的服务器负担，节省存储空间。
+- 加快加载速度：使用图床存储图片可以加速网站或应用的加载速度，因为图床通常会使用 CDN（内容分发网络）技术，将图片文件分发到全球各地的服务器节点，使用户可以从距离更近的服务器获取图片，从而加快加载速度。
+- 方便分享：图床生成的图片 URL 地址可以方便地在各种平台上分享图片内容，无需担心图片被删除或地址失效的问题。
+
+总的来说，图床是一个方便的在线服务，可以帮助用户轻松存储、管理和分享图片。
+
+
+
+
+
+
+
+#### 2 picgo
+
+PicGo 是一个开源的**图片上传**工具，可以帮助用户快速**上传图片到图床**并**生成图片链接**。它提供了简洁友好的图形界面，支持多种图床服务，并且具有丰富的配置选项和插件扩展功能。
+
+适用于个人用户、开发者、博主等多种场景，可以帮助用户快速、便捷地上传和管理图片，并生成图片链接用于分享或嵌入网页。
+
+ PicGo 的主要特点和功能有：
+
+1. **支持多种图床服务**：PicGo 支持丰富的图床服务，包括但不限于 GitHub、七牛云、阿里云、腾讯云、Imgur 等。用户可以根据自己的需求选择合适的图床服务进行配置和使用。
+2. **多种上传方式**：PicGo 提供了多种上传方式，包括拖拽上传、剪贴板上传、截图上传等。用户可以根据自己的习惯和需求选择合适的上传方式。
+3. **支持快捷键操作**：PicGo 支持自定义快捷键，用户可以通过快捷键实现快速上传图片、截图等操作，提高工作效率。
+4. **自定义命名规则**：PicGo 支持用户自定义图片文件名的命名规则，包括时间格式、文件名格式等，使用户可以根据自己的需求对上传的图片进行命名。
+5. **图片处理功能**：PicGo 提供了一些简单的图片处理功能，如图片压缩、图片裁剪等，用户可以在上传图片之前对图片进行简单的处理。
+6. **丰富的插件扩展**：PicGo 支持插件扩展，用户可以根据自己的需求安装各种插件，扩展 PicGo 的功能和特性，例如支持更多图床服务、添加更多上传方式等。
+7. **跨平台支持**：PicGo 支持 Windows、macOS 和 Linux 等多个平台，用户可以在不同的操作系统上使用相同的工具和配置。
+8. **开源免费**：PicGo 是开源项目，用户可以自由获取、使用和修改源代码，完全免费。
+
+
+
+####  github 建立图片存储仓库
+
+- 建立 public 仓库
+- `设置` -> `开发者设置` -> `个人访问令牌`-> `生成新令牌`-> `设置有效期`
+- 申请的Token**只会显示一次**，当你第二次在打开该页面时就无法看到该Token了。如果忘记了Token，唯一的办法就是重新生成一个
+
+**注意如果上传的文件和仓库里的文件重名，会上传失败**
+
+```json
+//注意: "repo": "Github用户名/仓库名称",
+    "token": "之前你申请的Token",    
+
+{
+  "picBed": {
+    "current": "github",
+    "github": {
+      "repo": "xxx/xxx",
+      "branch": "main",
+      "token": "xxxxxxxxx",
+      "path": "images/",
+      "customUrl": ""
+    }
+  },
+  "picgoPlugins": {}
+}
+```
+
+
+
+
+
+
+
+#### 3 [B站图床picgo 插件](https://github.com/xlzy520/picgo-plugin-bilibili)
+
+插件在线安装
+
+- 打开 [PicGo](https://github.com/Molunerfinn/PicGo) 详细窗口，选择 **插件设置**，搜索 **bili** 安装，然后重启应用即可。
+
+使用方法
+
+- 找`cookie`中的 `SESSDATA` 还有 `bli_jct` 复制即可
+
+![](assets/be203733ece44d65d871fa2e780aed31327645612.png)
+
+实现原理
+
+- 将图片存在一个 B 站的**公共静态资源空间**。
+- 举例：所有人上传的图片都会放在这个空间里面，但是你不发布动态的话，那么这个资源与你就没有绑定关系，那么你自然是找不到的。你发布了的话，你的这条动态就会跟这个图片资源绑定关系，那么查看的时候，就知道这个动态绑定了哪些图片链接，就可以看到对应的图片了。
+
+
+
+
+
+
+
+#### 4 其他哔哩哔哩图床软件推荐
+
+
+
+- [浏览器插件 - Bilibili 图床](https://github.com/xlzy520/bilibili-img-uploader)
+- [Typora 插件 - Bilibili 图床](https://github.com/xlzy520/typora-plugin-bilibili)
+
+
 
 
 

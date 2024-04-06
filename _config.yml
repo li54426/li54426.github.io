@@ -119,10 +119,10 @@ sitemap: true
 #白雪公主：#ffffff
 # coolblack: #090a0b
 # spacegrey: #353535
-# snowwhite: #ffffff
+# snowwhite: spacegrey  #ffffff
 #
 # theme_color: snowwhite
-theme_color: #cce8cf
+theme_color:       #cce8cf
 
 #
 # Custom color as below:
