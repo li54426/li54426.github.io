@@ -129,9 +129,9 @@ theme_color: spacegrey
 
 # You can choose a brand color
 # Default brand colors as below:
-# orangered: #ff5100    # 橙红色,默认
-# greatgold: #f2cb05    # 偏绿的黄色
-# greenblue: #389092   # 浅蓝色
+# orangered: #ff5100    橙红色,默认
+# greatgold: #f2cb05    偏绿的黄色
+# greenblue: #389092   浅蓝色
 #
  brand_color: greenblue
 #
