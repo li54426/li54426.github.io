@@ -16,7 +16,7 @@ tags:
 
 * content
 {:toc}
-![image-20220906145334336](/assets/20230801md.png)
+![image-20220906145334336](/assets/blog/20230801md.png)
 
 
 
@@ -63,7 +63,7 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 - 一个是一级标题, 两个是二级标题, 依次类推, 越少代表优先级越高,
 - 被用来生成文章的结构, 我经常用###代表目录, ####代表子目录
 
-```
+```markdown
 ### 第一章
 #### 第一章第一节
 #### 第一章第二节
@@ -71,13 +71,13 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 
 #### 2 无序列表
 
-```
+```markdown
 使用- (注意后面有空格)
 ```
 
 #### 3 网址
 
-```
+```markdown
 [显示内容](网址)
 例如上文的
 [Typora 官方中文站](https://typoraio.cn/)
@@ -85,7 +85,7 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 
 #### 4 图片
 
-```
+```markdown
 ![图片名称]()
 ![image-20220906145334336](https://i0.hdslb.com/bfs/album/2f4f352c599fdd8c59177cd0aabd91db8c7dad15.png)
 ```
@@ -96,7 +96,7 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 
 #### 6 引用
 
-```
+```markdown
 > (小于号)
 ```
 
@@ -104,17 +104,23 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 
 #### 1 markdown here------将markdown上传为 html 格式
 
-```
+```markdown
 markdown here [Markdown Here](https://markdown-here.com/)
 ```
 
 **使用方法**    :   点击插件图标或者是, alt + ctrl + M (动画在下面)
 
-![GIF 2022-9-11 20-27-10](https://i0.hdslb.com/bfs/album/fdee3963b6834bfb16fc70114f6202ea19f5827a.gif)
+![GIF 2022-9-11 20-27-10](../../assets/gif/love_markdown_1.gif)
 
 设置格式  : 右键浏览器插件图标 -> 扩展选项-> 基本渲染CSS
 
-![image-20220911203043930](https://i0.hdslb.com/bfs/album/963686deae86fd0d6fb499b10337941859f1b3b9.png)
+```mark
+![](https://gitee.com/li54426/the_pictures/raw/master/img//202404082110183_love_markdown.png)
+```
+
+
+
+![image-20220911203043930](../../assets/blog/202404082110183_love_markdown.png)
 
 ```
 
@@ -126,10 +132,12 @@ markdown here [Markdown Here](https://markdown-here.com/)
 
 #### 2 将网页下载为markdown
 
-```
-markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/hajanaajapkhaabfcofdjgjnlgkdkknm)
+- 下载地址：[markdownload_微软商店下载](https://microsoftedge.microsoft.com/addons/detail/hajanaajapkhaabfcofdjgjnlgkdkknm)
+
+```markdown
+markdownload 
 ```
 
 **使用方法**:   点击图标 -> Download
 
-![GIF 2022-9-11 20-37-20](https://i0.hdslb.com/bfs/album/0d90a870ae85cc1425ad47f66814268cac12b16d.gif)
+![GIF 2022-9-11 20-37-20](assets/gif/202404082113824_love_markdown_gif_2.gif)

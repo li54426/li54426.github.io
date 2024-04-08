@@ -544,6 +544,28 @@ wps Pro
 
 
 
+#### pdf目录
+
+
+
+查找想要的目录
+
+1. 各大书评、卖书等网站，均能找到相应书的目录，这里推荐，**京东、豆瓣、淘宝**
+2. PDF 书籍中页面非图片（即文字可以选中）时，直接复制并粘贴到软件中 ★★★
+
+
+
+- 点击**选择文件**按钮选择要添加目录的 pdf 文件
+- 有的 pdf 为扫描版，所以目录中的页码（书籍页码）可能与 pdf 文件实际页码不同，目录中的页码与 pdf 文件实际页码之间的差值（实际页码 - 书籍页码）即为页码偏移量。
+
+
+
+- [ifnoelse/pdf-bookmark: pdf bookmark generator 目录 书签 大纲 (github.com)](https://github.com/ifnoelse/pdf-bookmark)
+- 依旧在维护的   [chroming/pdfdir: PDF 导航（大纲 / 目录）添加工具 (github.com)](https://github.com/chroming/pdfdir)
+- 依旧维护 比较大[ririv/QuickOutline: 给 PDF 添加大纲、目录。Add outline to PDF (github.com)](https://github.com/ririv/QuickOutline)
+
+
+
 
 
 - [wmjordan/PDFPatcher: PDF补丁丁——PDF工具箱，可以编辑书签、剪裁旋转页面、解除限制、提取或合并文档，探查文档结构，提取图片、转成图片等等 (github.com)](https://github.com/wmjordan/PDFPatcher)

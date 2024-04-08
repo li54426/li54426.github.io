@@ -26,43 +26,72 @@ top: 1
 
 
 
+#### 资源搜索
+
+- [ZLibrary 电子图书馆](https://zh.z-library.se/)
+- [云盘搜索_易搜](https://yiso.eu.org/)
+- [移动云盘资源搜索](https://www.91panta.cn/)
+
+
+
+#### 脚本_代码运行平台
+
+- [移动云盘自动签到工具](https://as.js.cool/)
+- [哔哩哔哩自动签到工具](https://bo.js.cool/)
+- 
+- [1024 code 使用说明](https://li54426.github.io/api_software/2023/1024-code.html)
+
+
+
+
+
 ### 3 工具使用
 
 - [Github使用指南](https://li54426.github.io/api_software/2023/github.html)
+- [ ChartGPT _web](https://github.com/binjie09/chatgpt-web)
 - [好软推荐](https://github.com/li54426/Best_Softwares)
 - [ ChartGPT _web](https://github.com/binjie09/chatgpt-web)
-- [1024 code 使用说明](https://li54426.github.io/api_software/2023/1024-code.html)
-- [云盘搜索](https://yiso.eu.org/)
-- [移动云盘资源搜索](https://www.91panta.cn/)
+- 
+- 
 - 
 
 
 
-### 网页工具
+[网络 API | AirScript 文档 (wps.cn)](https://airsheet.wps.cn/docs/api/advanced/HTTP.html)
 
 
 
-## 网址
+## 网页工具
 
-| 网址                                   | 作用             |
-| -------------------------------------- | ---------------- |
-| [帮小忙](https://tool.browser.qq.com/) | 在线**工具**平台 |
-| 酷家乐                                 | 室内设计, 装修   |
-|                                        |                  |
-
-
-
-
+| 网址                                                         | 作用             |
+| ------------------------------------------------------------ | ---------------- |
+| [帮小忙](https://tool.browser.qq.com/)                       | 在线**工具**平台 |
+| 酷家乐                                                       | 室内设计, 装修   |
+| [PDF在线 工具_PDF24 Tools](https://tools.pdf24.org/zh/all-tools) | pdf 在线工具     |
 
 
 
 
 
-- [Z-Library – 世界上最大的电子图书馆。自由访问知识和文化。](https://zh.z-library.se/)
-- [PDF在线 工具 - 100％免费 - PDF24 Tools](https://tools.pdf24.org/zh/all-tools)
-- [批量网页转pdf](https://www.aconvert.com/webpage/)
-- [云盘搜索](https://yiso.eu.org/)
-- [ ChartGPT _web](https://github.com/binjie09/chatgpt-web)
+#### PC 付费软件
+
+| 名称 | 价格 | 介绍                 |
+| ---- | ---- | -------------------- |
+| 简悦 | 19   | 浏览器插件，方便阅读 |
+|      |      |                      |
+|      |      |                      |
+
+
+
+
+
+#### APK 付费
+
+| 名称     | 价格 | 介绍     |
+| -------- | ---- | -------- |
+| 一木记账 | 79   | 自动记账 |
+|          |      |          |
+|          |      |          |
 
 
 
