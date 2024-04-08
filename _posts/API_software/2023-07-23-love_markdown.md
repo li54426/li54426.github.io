@@ -20,12 +20,6 @@ tags:
 
 
 
-[xlzy520/picgo-plugin-bilibili: 为 PicGo 开发的一款插件，新增了B站图床 图床。 使用用户动态的图片上传API。填写SESSDATA即可，获取方式在下面。 (github.com)](https://github.com/xlzy520/picgo-plugin-bilibili)
-
-- 找`cookie`中的 `SESSDATA` 还有 `bli_jct` 复制即可
-
-![test](https://i0.hdslb.com/bfs/article/be203733ece44d65d871fa2e780aed31327645612.png)
-
 ### 一 简介
 
 #### 1 什么是markdown
@@ -104,39 +98,37 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 
 #### 1 markdown here------将markdown上传为 html 格式
 
-```markdown
-markdown here [Markdown Here](https://markdown-here.com/)
-```
+下载地址：[Markdown Here微软商店下载地址](https://markdown-here.com/)
 
 **使用方法**    :   点击插件图标或者是, alt + ctrl + M (动画在下面)
+
+- [GIF 2022-9-11 20-27-10](../../assets/gif/love_markdown_1.gif)
 
 ![GIF 2022-9-11 20-27-10](../../assets/gif/love_markdown_1.gif)
 
 设置格式  : 右键浏览器插件图标 -> 扩展选项-> 基本渲染CSS
 
-```mark
-![](https://gitee.com/li54426/the_pictures/raw/master/img//202404082110183_love_markdown.png)
-```
+- ![](https://gitee.com/li54426/the_pictures/raw/master/img//202404082110183_love_markdown.png)
 
 
 
-![image-20220911203043930](../../assets/blog/202404082110183_love_markdown.png)
+![image-20220911203043930](assets/blog/202404082110183_love_markdown.png)
 
-```
 
-```
 
 还可以使用 latex公式使用$$包裹起来
 
-![image-20220911203928798](https://i0.hdslb.com/bfs/album/eb781ce80e9e1c58933aec422858372f048bbfc2.png)
+![image-20220911203928798](https://gitee.com/li54426/the_pictures/raw/master/img//202404082123891.png)
+
+![image-20220911203928798](../../assets/blog/202404082123891_love_markdown_3.png)
+
+----
+
+
 
 #### 2 将网页下载为markdown
 
 - 下载地址：[markdownload_微软商店下载](https://microsoftedge.microsoft.com/addons/detail/hajanaajapkhaabfcofdjgjnlgkdkknm)
-
-```markdown
-markdownload 
-```
 
 **使用方法**:   点击图标 -> Download
 
