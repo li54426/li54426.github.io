@@ -9,7 +9,8 @@ banana: true
 category: API_software
 title:  
 date:   $(date +"%Y-%m-%d %H:%M:%S")
-background: blue
+banner:
+  image: https://bit.ly/3xTmdUP
 tags:
 - API_software
 ---
