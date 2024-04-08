@@ -14,9 +14,24 @@ tags:
 
 [原作者地址](https://as.js.cool/demo/wps/)
 
-金山文档（WPS 云文档）使用详细教程
 
 
+
+
+### 已经实现功能
+
+- 云盘每日签到
+- 公众号每日签到
+- 公众号抽奖
+- 每日任务 - 上传文件
+- 每日任务 - 云笔记（任务已下线）
+- 果园
+- 邮箱每月任务（部分支持，剩下的还是需要手动）
+- 
+
+
+
+## 金山文档（WPS 云文档）使用详细教程
 
 ### 1 准备工作
 
@@ -96,6 +111,12 @@ tags:
 
 ![创建脚本](https://as.js.cool/_astro/create_air.BVVMBIX0_Td4WM.webp)
 
+
+
+![](assets/blog/202404082301604_airscript_jiaoben.png)
+
+![](https://gitee.com/li54426/the_pictures/raw/master/img//202404082301604_airscript_jiaoben.png)
+
 1.  点击头部菜单栏的 `效率`
 2.  选择`高级开发`
 3.  选择 `AirScript 脚本编辑器`
@@ -123,6 +144,14 @@ tags:
 
 这里就不放图了
 
+![](assets/blog/202404082259555_airscript_dingshi.png)
+
+![](https://gitee.com/li54426/the_pictures/raw/master/img//202404082259555_airscript_dingshi.png)
+
+
+
+
+
 1.  点击头部菜单栏的 `效率`
 2.  选择 `高级开发`
 3.  选择 `定时任务`
@@ -133,23 +162,7 @@ tags:
 
 恭喜你，你已经成功设置了定时任务。
 
-#### 新增脚本
 
-刚才举例了 `alipan` ，但还记得最初让你创建了三个单元格吗？现在我们就来补齐 `quark` 单元格
 
-鼠标左键单击 `quark` 单元格
 
-同样在 `A1` 填上你的 Cookie （如何获取不在本教程范围内，请自行完成）。每一行表示一个用户，故 `A2` 可以是你的第二个账号，`A3` 呢？以此类推。。。
 
-##### 创建脚本
-
-1.  点击头部菜单栏的 `效率`
-2.  选择`高级开发`
-3.  选择 `AirScript 脚本编辑器`
-4.  点击文档共享脚本后面的 `+` 加号
-5.  给脚本命名（如夸克网盘）
-6.  粘贴脚本代码（示例代码：[https://npmmirror.com/package/@asunajs/dist/files?version](https://npmmirror.com/package/@asunajs/dist/files?version) 点击后选择 `quark.wps.js`）
-7.  点击输入框上面的操作栏的第六个，一个六边形图标那个（鼠标放上去显示服务授权）
-8.  点击添加服务
-9.  添加 `网络API`，`邮箱API`
-10.  点击输入框上面的操作栏的第四个，一个三角形图标那个（鼠标放上去显示运行 F5）
