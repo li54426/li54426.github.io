@@ -96,7 +96,7 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 
 ### 三 markdown插件使用说明
 
-#### 1 markdown here------将markdown上传为 html 格式
+#### 3.1 markdown here------将markdown上传为 html 格式
 
 下载地址：[Markdown Here微软商店下载地址](https://markdown-here.com/)
 
@@ -110,8 +110,6 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 
 - ![](https://gitee.com/li54426/the_pictures/raw/master/img//202404082110183_love_markdown.png)
 
-
-
 ![image-20220911203043930](assets/blog/202404082110183_love_markdown.png)
 
 
@@ -120,16 +118,19 @@ markdownload [markdownload](https://microsoftedge.microsoft.com/addons/detail/ha
 
 ![image-20220911203928798](https://gitee.com/li54426/the_pictures/raw/master/img//202404082123891.png)
 
-![image-20220911203928798](../../assets/blog/202404082123891_love_markdown_3.png)
+![image-20220911203928798](assets/blog/202404082123891_love_markdown_3.png)
 
 ----
 
 
 
-#### 2 将网页下载为markdown
+#### 3.2 将网页下载为markdown
 
 - 下载地址：[markdownload_微软商店下载](https://microsoftedge.microsoft.com/addons/detail/hajanaajapkhaabfcofdjgjnlgkdkknm)
 
 **使用方法**:   点击图标 -> Download
 
-![GIF 2022-9-11 20-37-20](assets/gif/202404082113824_love_markdown_gif_2.gif)
+- ![](https://gitee.com/li54426/the_pictures/raw/master/img//202404082113824_love_markdown_gif_2.gif)
+
+![GIF 2022-9-11 20-37-20](assets/gif/love_markdown_2.gif)
+
