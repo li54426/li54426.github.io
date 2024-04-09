@@ -11,6 +11,22 @@ tags:
 
 * content
 {:toc}
+
+
+### 图片测试
+
+这是上传到gitee云的 png 文件
+
+![](https://gitee.com/li54426/the_pictures/raw/master/img/202404082301604_airscript_jiaoben.png)
+
+这是上传到gitee云的 webp 文件
+
+![](https://gitee.com/li54426/the_pictures/raw/master/img/202404091023578.webp)
+
+
+
+
+
 ### 如何批量下载小红书的图片
 
 - 首先下载油猴插件
