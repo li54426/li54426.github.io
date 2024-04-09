@@ -368,15 +368,79 @@ DIR /S > dirs.txt
 
 
 
+#### 自动提交脚本
+
+- 只是一个博客, 提交的信息就不重要了, 只提交一个 时间信息就好
+
+```bash
+@echo off
+
+setlocal enabledelayedexpansion
+
+REM 获取当前日期和时间
+for /f "tokens=1-4 delims=/ " %%i in ("%date%") do (
+    set year=%%l
+    set month=%%j
+    set day=%%k
+)
+
+for /f "tokens=1-3 delims=:." %%i in ("%time%") do (
+    set hour=%%i
+    set minute=%%j
+    set second=%%k
+)
+
+REM 构建提交信息
+set commit_message=%year%-%month%-%day% %hour%:%minute%:%second%
+
+REM 添加文件到暂存区
+git add .
+
+REM 提交代码，并包含日期和时间作为提交信息
+git commit -m "%commit_message%"
+
+REM 推送到远程仓库
+git push
+
+endlocal
+
+```
 
 
-## 亲爱的 诸法因缘生
 
-首先感谢您注册Crab工具箱！下面是您的账号信息
-您的识别授权码：**b773cd0b68a64bc88d9722310ab30a7e**，请将识别码填写到识别插件中![查看安装说明](https://like996.icu:1205/help.html)
-您的邀请码：**[6714c9a9db9844a6897655c7951d561c](https://like996.icu:1205/register.html?inviteKey=6714c9a9db9844a6897655c7951d561c)**(通过该码邀请他人注册成功并识别，每小时识别数+1)
-当您在使用本网站时，遵守当地法律法规。
-如果您有什么疑问可以联系管理员，Email: [1919360309@qq.com](mailto:1919360309@qq.com)
+#### 自动生成 markdown
+
+```markdown
+#!/bin/bash
+
+filename=$(date +"%Y-%m-%d-.md")
+
+cat > "$filename" << EOF
+---
+layout: blog
+banana: true
+category: default
+title:  
+date:   $(date +"%Y-%m-%d %H:%M:%S")
+background: green
+tags:
+- default
+- memcache
+---
+
+* content
+{:toc}
+EOF
+
+echo "文件已生成：$filename"
+
+```
+
+
+
+
+
+
 
 
 

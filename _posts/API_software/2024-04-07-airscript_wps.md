@@ -14,7 +14,7 @@ tags:
 
 [原作者地址](https://as.js.cool/demo/wps/)
 
-
+文档地址：[https://as.js.cool](https://as.js.cool/)
 
 
 
@@ -164,5 +164,9 @@ tags:
 
 
 
+### 5 附件
 
+[移动云盘签到模板](assets/office/caiyun签到模板.xlsx)
+
+[哔哩哔哩签到](assets/office/漫画签到-模板.xlsx)
 
