@@ -65,6 +65,7 @@ top: 1
 
 | 网址                                                         | 作用             |
 | ------------------------------------------------------------ | ---------------- |
+| [毛选](https://www.marxists.org/chinese/maozedong/index.htm) | 毛泽东选集       |
 | [帮小忙](https://tool.browser.qq.com/)                       | 在线**工具**平台 |
 | 酷家乐                                                       | 室内设计, 装修   |
 | [PDF在线 工具_PDF24 Tools](https://tools.pdf24.org/zh/all-tools) | pdf 在线工具     |
@@ -109,7 +110,7 @@ top: 1
 
 ```bash
 #百度 cookie
-BDUSS=nVsMXpIaWI5Mm9ZYVpUR00wWVF1aElVbmxoeXBZb3RoNTVSb1BxT05SRjV6ekJsRVFBQUFBJCQAAAAAAAAAAAEAAACEEZaQeWttNDQ5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHlCCWV5QgllR; STOKEN=b0bea08f434d4fe02a3f67c906655945d297c05c36ebd200bac5f847d55a62ba
+BDUSS=zVlMnNpfkdUWDJoR25TQWk3eGZzRTlHbEtnbTdlVldoaGZEVnFBOWhET05hTHhsRVFBQUFBJCQAAAAAAAAAAAEAAACx8vb4bmFub2NhbgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI3blGWN25Rla; STOKEN=828931eb8af667ddc20a1a7b03e6151ef5381f99f7c26eb82b2285d6178ff063
 ```
 
 ![image-20230919144456697](assets/blog/image-20230919144456697.png)

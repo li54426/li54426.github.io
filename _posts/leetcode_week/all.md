@@ -1,6 +1,124 @@
 
 
+### 20240407------392
 
+[3105. 最长的严格递增或递减子数组 - 力扣（LeetCode）](https://leetcode.cn/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/)
+
+```c++
+class Solution {
+public:
+    int longestMonotonicSubarray(vector<int>& nums) {
+        int len = nums.size();
+        
+        vector<int> n(nums.size(), 1);
+        
+        int plus = 1;
+        int res =1;
+        
+        for(int i = 1; i< len; ++i){
+            if(nums[i]> nums[i-1]){
+                n[i] = n[i-1]+1;
+                res = max(res, n[i]);
+            } 
+        }
+        
+        
+        vector<int> m(nums.size(), 1);
+        
+        for(int i = 1; i< len; ++i){
+            if(nums[i]< nums[i-1]){
+                m[i] = m[i-1]+1;
+                res = max(res, m[i]);
+            } 
+        }
+        return res;
+        
+    }
+};
+```
+
+
+
+[3106. 满足距离约束且字典序最小的字符串 - 力扣（LeetCode）](https://leetcode.cn/problems/lexicographically-smallest-string-after-operations-with-constraint/description/)
+
+```c++
+class Solution {
+public:
+    // 问题等价于，寻找一个字典序最小的，编辑距离d <= k的字符串
+    string getSmallestString(string s, int k) {
+        // 26个英文字母
+        vector<int> change(26, 0);
+        for(int i = 0; i< 13; ++i){
+            change[i] = i;
+        }
+        for(int i = 13; i<26; ++i){
+            change[i] = 26-i;
+        }
+        // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 12 11 10 9 8 7 6 5 4 3 2 1 
+        // for(auto n: change){
+        //     cout<< n<< ' ';
+        // }
+        
+        int len = s.size();
+        for(int i = 0; i< len; ++i){
+            if(k == 0){
+                break;
+            }
+            if(k >= change[s[i] - 'a']){
+                k -= change[s[i] - 'a'];
+                s[i] = 'a';
+            }else{
+                s[i] -=k;
+                k = 0;
+            }
+        }
+        
+        return s;
+        
+    }
+};
+```
+
+[3107. 使数组中位数等于 K 的最少操作数 - 力扣（LeetCode）](https://leetcode.cn/problems/minimum-operations-to-make-median-of-array-equal-to-k/description/)
+
+> 给你一个整数数组 `nums` 和一个 **非负** 整数 `k` 。一次操作中，你可以选择任一元素 加 `1` 或者减 `1` 。
+>
+> 请你返回将 `nums` **中位数** 变为 `k` 所需要的 **最少** 操作次数。
+>
+> 一个数组的中位数指的是数组按非递减顺序排序后最中间的元素。如果数组长度为偶数，我们选择中间两个数的较大值为中位数。
+>
+> **示例 1：**
+>
+> **输入：**nums = [2,5,6,8,5], k = 4
+>
+> **输出：**2
+>
+> **解释：**我们将 `nums[1]` 和 `nums[4]` 减 `1` 得到 `[2, 4, 6, 8, 4]` 。现在数组的中位数等于 `k` 。
+
+```c++
+class Solution {
+public:
+    long long minOperationsToMakeMedianK(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+
+        long long res = 0;
+
+        int len = nums.size();
+        int m = len/2;
+
+        if(nums[m] > k){
+            for(int i = m; i> -1 && nums[i] >k ; i--){
+                res += nums[i] - k;
+            }
+        }else{
+            for(int i =m ; i<len && nums[i] <k ; i++){
+                res += k - nums[i];
+            }
+        }
+        return res;
+    }
+};
+```
 
 
 
@@ -301,7 +419,7 @@ public:
 
 
 
-#### 316
+### 316
 
 [2447. 最大公因数等于 K 的子数组数目](https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/)
 

@@ -13,7 +13,56 @@ tags:
 {:toc}
 
 
-### 1简介
+### 0 jekyII + github pages 运行博客的问题
+
+我的`typora`中的图片设置为`复制到assets文件夹下`，因此`github page`生成博客的时候会发生图片加载失败的问题。
+
+- 这是上传到 gitee 云的 png 文件 加载失败
+
+- 这是上传到 gitee 云的 webp 文件  加载**成功**
+
+
+
+一共有两种解决方案
+
+- 图片转换为 webp 文件，上传
+- 存储到到固定目录下，如果你的图片存在根目录`assets`中`img`文件夹下，写相对位置`assets/img`，例如`![图片](assets/img/1.png)`
+- 使用`base64`编码
+
+
+
+- 在截屏快捷键截屏后直接复制 base64 编码到 Markdown 编辑器
+
+
+
+
+
+#### 3.2 引用图片和其它资源
+
+很多时候，你需要在文章中引用图片、下载或其它数字资源。尽管 Markdown 和 Textile 在链接这些资源时的语法并不一样，但你只需要关心在站点的哪些地方保存这些文件。
+
+由于 Jekyll 的灵活性，有很多方式可以解决这个问题。一种常用做法是在工程的**根目录下创建一个文件夹**，命名为　`assets` 或者 `downloads`，将图片文件，下载文件或者其它的资源放到这个文件夹下。然后在任何一篇文章中，它们都可以用站点的根目录来进行引用。这和你站点的域名 / 二级域名和目录的设置相关，下面有一些例子（**Markdown 格式**）来演示怎样利用 `site.url` 变量来解决这个问题。
+
+在文章中引用一个图片
+
+```
+… 从下面的截图可以看到：
+![有帮助的截图]({{ site.url }}/assets/screenshot.jpg)
+```
+
+链接一个读者可下载的 PDF 文件：
+
+```
+… 你可以直接 [下载 PDF]({{ site.url }}/assets/mydoc.pdf).
+```
+
+
+
+
+
+
+
+### 1 简介
 
 #### 1.1 Jekyll 究竟是什么？
 
@@ -204,27 +253,6 @@ permalink: /about/
 - [artemsheludko/bef: Bef is a responsive jekyll theme https://artemsheludko.github.io/bef/](https://github.com/artemsheludko/bef)
 - [leopardpan/leopardpan.github.io: 个人博客，看效果进入](https://github.com/leopardpan/leopardpan.github.io)
 - [再用 2023 依旧更新](https://github.com/jeffreytse/jekyll-theme-yat/tree/master)
-
-
-
-#### 3.2 引用图片和其它资源
-
-很多时候，你需要在文章中引用图片、下载或其它数字资源。尽管 Markdown 和 Textile 在链接这些资源时的语法并不一样，但你只需要关心在站点的哪些地方保存这些文件。
-
-由于 Jekyll 的灵活性，有很多方式可以解决这个问题。一种常用做法是在工程的**根目录下创建一个文件夹**，命名为　`assets` 或者 `downloads`，将图片文件，下载文件或者其它的资源放到这个文件夹下。然后在任何一篇文章中，它们都可以用站点的根目录来进行引用。这和你站点的域名 / 二级域名和目录的设置相关，下面有一些例子（**Markdown 格式**）来演示怎样利用 `site.url` 变量来解决这个问题。
-
-在文章中引用一个图片
-
-```
-… 从下面的截图可以看到：
-![有帮助的截图]({{ site.url }}/assets/screenshot.jpg)
-```
-
-链接一个读者可下载的 PDF 文件：
-
-```
-… 你可以直接 [下载 PDF]({{ site.url }}/assets/mydoc.pdf).
-```
 
 
 

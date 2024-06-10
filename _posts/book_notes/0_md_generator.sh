@@ -6,12 +6,12 @@ cat > "$filename" << EOF
 ---
 layout: blog
 banana: true
-category: summary
+category: book_notes
 title:  
 date:   $(date +"%Y-%m-%d %H:%M:%S")
 background-image: http://ot1cc1u9t.bkt.clouddn.com/17-8-1/24280498.jpg
 tags:
-- default
+- 读书笔记
 - memcache
 ---
 
