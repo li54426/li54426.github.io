@@ -123,6 +123,22 @@ print(res.text)
 
 
 
+```json
+{
+ "status": true/false, // 是否成功调用接口
+ "res": { // 调用结果
+     ...
+ },
+ "request_id": "tr_xxxxxxxxxx" // 请求ID
+}
+```
+
+
+
+
+
+
+
 #### 5 如何输出错误
 
 - 发现 **MessageBox.Show**()能输出信息, 就用它来**调试**

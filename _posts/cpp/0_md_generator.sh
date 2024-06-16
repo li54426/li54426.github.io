@@ -9,7 +9,7 @@ banana: true
 category: cpp
 title:  
 date:   $(date +"%Y-%m-%d %H:%M:%S")
-background: green
+background-image: http://ot1cc1u9t.bkt.clouddn.com/17-8-1/24280498.jpg
 tags:
 - cpp
 ---
