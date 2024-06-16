@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>天若ocr调用simpletex | li54426 blog</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="天若ocr调用simpletex">
+<meta name="author" content="li54426">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<link rel="canonical" href="/jekyll-theme-yat/api_software/2023/tianruo_OCR_use_simpletex_API.html">
+<meta property="og:url" content="/jekyll-theme-yat/api_software/2023/tianruo_OCR_use_simpletex_API.html">
+<meta property="og:site_name" content="li54426 blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2023-07-26T05:19:24+08:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="天若ocr调用simpletex">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"li54426"},"dateModified":"2023-07-26T05:19:24+08:00","datePublished":"2023-07-26T05:19:24+08:00","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"天若ocr调用simpletex","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll-theme-yat/api_software/2023/tianruo_OCR_use_simpletex_API.html"},"url":"/jekyll-theme-yat/api_software/2023/tianruo_OCR_use_simpletex_API.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="/assets/my/favicon.ico">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/jekyll-theme-yat/assets/css/main.css">
+  <script src="/jekyll-theme-yat/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="/jekyll-theme-yat/feed.xml" title="li54426  blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/jekyll-theme-yat/">
+  <img class="site-favicon" title="li54426  blog" src="/assets/my/favicon.ico" onerror="this.style.display='none'">
+  li54426  blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/jekyll-theme-yat/">HOME</a><a class="page-link" href="/jekyll-theme-yat/archives">ARCHIVES</a><a class="page-link" href="/jekyll-theme-yat/categories">CATEGORIES</a><a class="page-link" href="/jekyll-theme-yat/tags">TAGS</a><a class="page-link" href="/jekyll-theme-yat/about">ABOUT</a><a class="page-link" href="/jekyll-theme-yat/tools">TOOLS</a><a class="page-link" href="/jekyll-theme-yat/software">好软推荐</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('manual' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">天若ocr调用simpletex</h1>
+  <h2 class="post-subtitle"></h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2023-07-26T05:19:24+08:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Jul 26, 2023
+    </time>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 8 mins</span>
+  </div>
+<div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#software">#software</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#API">#API</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <ul id="markdown-toc">
+  <li><a href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A9%E8%8B%A5-ocr" id="markdown-toc-1-什么是天若-ocr">1 什么是天若 OCR</a></li>
+  <li><a href="#2-%E4%BD%9C%E8%80%85%E6%9A%B4%E9%9C%B2%E5%87%BA%E7%9A%84%E9%83%A8%E5%88%86%E6%8E%A5%E5%8F%A3" id="markdown-toc-2-作者暴露出的部分接口">2 作者暴露出的部分接口</a></li>
+  <li><a href="#3-%E5%A4%A9%E8%8B%A5%E5%BC%80%E6%BA%90%E7%89%88%E6%9C%AC%E7%9A%84%E4%BB%A3%E7%A0%81" id="markdown-toc-3-天若开源版本的代码">3 天若开源版本的代码</a></li>
+  <li><a href="#4-simpletex-api-%E7%9A%84python%E8%B0%83%E7%94%A8" id="markdown-toc-4-simpletex-api-的python调用">4 simpletex API 的python调用</a></li>
+  <li><a href="#5-%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E9%94%99%E8%AF%AF" id="markdown-toc-5-如何输出错误">5 如何输出错误</a></li>
+  <li><a href="#6-%E5%8D%8F%E8%AE%AE-post-%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F" id="markdown-toc-6-协议-post-的数据格式">6 协议 post 的数据格式</a></li>
+  <li><a href="#7-%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B" id="markdown-toc-7-完整代码如下">7 完整代码如下</a></li>
+  <li><a href="#%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E7%94%A8%E7%9A%84%E6%8E%A5%E5%8F%A3" id="markdown-toc-记录一下用的接口">记录一下用的接口</a></li>
+</ul>
+
+<p>天若 OCR调用 simpletex API</p>
+
+<p>记录一次使用别人的接口</p>
+
+<h4 id="1-什么是天若-ocr">1 什么是天若 OCR</h4>
+
+<ul>
+  <li>
+<strong>图片转文字</strong>准确率超高的办公利器</li>
+  <li>可以截图</li>
+  <li>可以翻译</li>
+  <li>可以识别公式</li>
+</ul>
+
+<h4 id="2-作者暴露出的部分接口">2 作者暴露出的部分接口</h4>
+
+<pre><code class="language-C#">//image：要识别的图片
+public static string OCR_Custom(Image image)
+{
+    //string url = "";
+    //string poststr ="";
+    //string result =CustomHelp.HttpPost(url,poststr);
+    //获取请求获取解析结果后按照下面格式进行解析
+    TxtFormat.Root jsonRoot=new TxtFormat.Root();
+    jsonRoot.result=new List&lt;TxtFormat.TextBlock&gt;();
+    jsonRoot.isHasLocation=true;//判断是否含有坐标返回
+    for(int i=0; i&lt;5; i++)//遍历返回的json字符串
+    {
+        TxtFormat.TextBlock textBlock = new TxtFormat.TextBlock();
+        textBlock.Text = "公式测试文本"+i.ToString();//json内的文本
+        textBlock.TopLeft = new Point(0,0);//左上角坐标
+        textBlock.TopRight = new Point(0,0);//右上角坐标
+        textBlock.BottomRight =new Point(0,0);//右下角坐标
+        textBlock.BottomLeft =new Point(0,0);//左下角坐标
+        jsonRoot.result.Add(textBlock);
+    }
+    string json = JsonConvert.SerializeObject(jsonRoot);
+    return json;
+}
+</code></pre>
+
+<ul>
+  <li>一开始认为 <code class="language-plaintext highlighter-rouge">CustomHelp.HttpPost()</code>是一个具体的类, 但是也没有一个demo来说明各个参数的意义, 因此认为是<strong>伪码</strong>, 所以认为下面的也全是伪代码, 让我付出了惨重的代价</li>
+  <li>实际上就应该是一个具体的类, 因为后文的TxtFormat等也是具体的类, 但是没有使用说明, 就只能使用 <strong>HttpWebResponse</strong>库交换 http报文</li>
+</ul>
+
+<h4 id="3-天若开源版本的代码">3 天若开源版本的代码</h4>
+
+<ul>
+  <li>猜测<strong>typeset_txt</strong> 就是显示的内容, 也是 接口中返回的<strong>原始字符串</strong>对应起来</li>
+</ul>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">img</span> <span class="p">=</span> <span class="n">image_screen</span><span class="p">;</span>
+				<span class="kt">var</span> <span class="n">inArray</span> <span class="p">=</span> <span class="n">OcrHelper</span><span class="p">.</span><span class="nf">ImgToBytes</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+				<span class="kt">var</span> <span class="n">s</span> <span class="p">=</span> <span class="s">"{\t\"formats\": [\"latex_styled\", \"text\"],\t\"metadata\": {\t\t\"count\": 0,\t\t\"platform\": \"windows 10\",\t\t\"skip_recrop\": true,\t\t\"user_id\": \"\",\t\t\"version\": \"snip.windows@01.02.0027\"\t},\t\"ocr\": [\"text\", \"math\"],\t\"src\": \"data:image/jpeg;base64,"</span> <span class="p">+</span> <span class="n">Convert</span><span class="p">.</span><span class="nf">ToBase64String</span><span class="p">(</span><span class="n">inArray</span><span class="p">)</span> <span class="p">+</span> <span class="s">"\"}"</span><span class="p">;</span>
+				<span class="kt">var</span> <span class="n">bytes</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+				<span class="kt">var</span> <span class="n">httpWebRequest</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebRequest</span><span class="p">)</span><span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.mathpix.com/v3/latex"</span><span class="p">);</span>
+				<span class="n">httpWebRequest</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
+				<span class="n">httpWebRequest</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
+				<span class="n">httpWebRequest</span><span class="p">.</span><span class="n">Timeout</span> <span class="p">=</span> <span class="m">8000</span><span class="p">;</span>
+				<span class="n">httpWebRequest</span><span class="p">.</span><span class="n">ReadWriteTimeout</span> <span class="p">=</span> <span class="m">5000</span><span class="p">;</span>
+				<span class="n">httpWebRequest</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"app_id: mathpix_chrome"</span><span class="p">);</span>
+				<span class="n">httpWebRequest</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"app_key: 85948264c5d443573286752fbe8df361"</span><span class="p">);</span>
+				<span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">requestStream</span> <span class="p">=</span> <span class="n">httpWebRequest</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">())</span>
+				<span class="p">{</span>
+					<span class="n">requestStream</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+				<span class="p">}</span>
+				<span class="kt">var</span> <span class="n">responseStream</span> <span class="p">=</span> <span class="p">((</span><span class="n">HttpWebResponse</span><span class="p">)</span><span class="n">httpWebRequest</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">()).</span><span class="nf">GetResponseStream</span><span class="p">();</span>
+				<span class="kt">var</span> <span class="k">value</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamReader</span><span class="p">(</span><span class="n">responseStream</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="nf">GetEncoding</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)).</span><span class="nf">ReadToEnd</span><span class="p">();</span>
+				<span class="n">responseStream</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+				<span class="kt">var</span> <span class="n">text</span> <span class="p">=</span> <span class="s">"$"</span> <span class="p">+</span> <span class="p">((</span><span class="n">JObject</span><span class="p">)</span><span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="k">value</span><span class="p">))[</span><span class="s">"latex_styled"</span><span class="p">]</span> <span class="p">+</span> <span class="s">"$"</span><span class="p">;</span>
+				<span class="n">split_txt</span> <span class="p">=</span> <span class="n">text</span><span class="p">;</span>
+				<span class="n">typeset_txt</span> <span class="p">=</span> <span class="n">text</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="4-simpletex-api-的python调用">4 simpletex API 的python调用</h4>
+
+<ul>
+  <li>使用 <strong>post</strong> 方法</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">requests</span>
+<span class="n">api_url</span><span class="o">=</span><span class="sh">"</span><span class="s">https://server.simpletex.cn/api/latex_ocr/v2</span><span class="sh">"</span>  <span class="c1"># 接口地址
+</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span> <span class="c1"># 请求数据
+</span><span class="n">header</span><span class="o">=</span><span class="p">{</span> <span class="sh">"</span><span class="s">token</span><span class="sh">"</span><span class="p">:</span> <span class="sh">""</span> <span class="p">}</span> <span class="c1"># 鉴权信息，此处使用UAT方式
+</span><span class="nb">file</span><span class="o">=</span><span class="p">[(</span><span class="sh">"</span><span class="s">file</span><span class="sh">"</span><span class="p">,(</span><span class="sh">"</span><span class="s">test.png</span><span class="sh">"</span><span class="p">,</span><span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">test.png</span><span class="sh">"</span><span class="p">,</span> <span class="sh">'</span><span class="s">rb</span><span class="sh">'</span><span class="p">)))]</span> <span class="c1"># 请求文件,字段名一般为file
+</span><span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="nb">file</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span> <span class="c1"># 使用requests库上传文件
+</span><span class="nf">print</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="err">/</span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">是否成功调用接口</span><span class="w">
+ </span><span class="nl">"res"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">调用结果</span><span class="w">
+     </span><span class="err">...</span><span class="w">
+ </span><span class="p">},</span><span class="w">
+ </span><span class="nl">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tr_xxxxxxxxxx"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">请求ID</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="5-如何输出错误">5 如何输出错误</h4>
+
+<ul>
+  <li>发现 <strong>MessageBox.Show</strong>()能输出信息, 就用它来<strong>调试</strong>
+</li>
+</ul>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MessageBox</span><span class="p">.</span><span class="nf">Show</span><span class="p">(</span><span class="n">responseContent</span><span class="p">.</span><span class="nf">ToString</span><span class="p">()</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="6-协议-post-的数据格式">6 协议 post 的数据格式</h4>
+
+<ul>
+  <li>边界符: <code class="language-plaintext highlighter-rouge">boundary=AaB03x </code>
+    <ul>
+      <li>Post 中定义的<strong>换行符</strong>是 \r\n, 每一个边界符前面都需要加 2 个连字符 “–”，然后跟上换行符。</li>
+    </ul>
+  </li>
+  <li>使用<strong>Content-Type</strong> 指定发送或接收实体正文的<strong>媒体类型</strong>
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">Content-Type</code> 由两部分组成，用斜杠分隔：媒体类型（media type）和子类型（subtype）。<strong>常见的媒体</strong>类型包括：
+        <ul>
+          <li>
+<code class="language-plaintext highlighter-rouge">text/plain</code>：纯文本类型。</li>
+          <li>
+<code class="language-plaintext highlighter-rouge">text/html</code>：HTML 文档类型。</li>
+          <li>
+<code class="language-plaintext highlighter-rouge">application/json</code>：JSON 数据类型。</li>
+          <li>
+<code class="language-plaintext highlighter-rouge">application/xml</code>：XML 数据类型。</li>
+          <li>application/octet-stream : 二进制数据.</li>
+          <li>
+<code class="language-plaintext highlighter-rouge">image/jpeg</code>：JPEG 图片类型。</li>
+          <li>
+<code class="language-plaintext highlighter-rouge">audio/mpeg</code>：MPEG 音频类型。</li>
+          <li>
+<code class="language-plaintext highlighter-rouge">video/mp4</code>：MP4 视频类型。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Content-Disposition</code>：该头部字段用于指示如何处理包含在消息体中的数据。它可以指定将数据显示在浏览器窗口中、作为附件下载、保存到磁盘等行为。常见的值包括：
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">inline</code>：默认值，将数据在浏览器中显示。</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">attachment</code>：将数据作为附件下载。</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">filename=&lt;文件名&gt;</code>：指定下载时的文件名。</li>
+      <li>
+<strong>Content-Disposition</strong>: form-data; name=”file”; filename=”file1.dat”, 通常是用在客户端向服务端<strong>传送大文件数据</strong>，如：图片或者文件</li>
+    </ul>
+  </li>
+  <li>使用<code class="language-plaintext highlighter-rouge"> boundary</code>来分隔文件</li>
+  <li>数据结束后的分界符，注意因为这个后面没有数据了所以需要<strong>在后面追加一个 “–”</strong> 表示<strong>结束</strong>。</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 来自 https://blog.csdn.net/flymorn/article/details/6769722
+Content-Type: multipart/form-data; boundary=AaB03x
+ 
+ --AaB03x
+ Content-Disposition: form-data; name="submit-name"
+ 
+ Larry
+ --AaB03x
+ Content-Disposition: form-data; name="file"; filename="file1.dat"
+ Content-Type: application/octet-stream
+ 
+ ... contents of file1.dat ...
+ --AaB03x--
+
+</code></pre></div></div>
+
+<h4 id="7-完整代码如下">7 完整代码如下</h4>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">OCR_Custom</span><span class="p">(</span><span class="n">Image</span> <span class="n">image</span><span class="p">)</span>
+	<span class="p">{</span><span class="c1">// Image 是一个类，它是用于处理图像和图形的基本类之一。</span>
+	    <span class="kt">byte</span><span class="p">[]</span> <span class="n">result</span><span class="p">;</span>
+	    <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">memoryStream</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MemoryStream</span><span class="p">())</span>
+	    <span class="p">{</span>
+	        <span class="n">image</span><span class="p">.</span><span class="nf">Save</span><span class="p">(</span><span class="n">memoryStream</span><span class="p">,</span> <span class="n">ImageFormat</span><span class="p">.</span><span class="n">Png</span><span class="p">);</span>
+	        <span class="n">result</span> <span class="p">=</span> <span class="n">memoryStream</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+	    <span class="p">}</span>
+	    <span class="c1">// request</span>
+	    <span class="kt">string</span> <span class="n">url</span> <span class="p">=</span> <span class="s">"https://server.simpletex.cn/api/latex_ocr/v2"</span><span class="p">;</span>
+	    <span class="n">HttpWebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebRequest</span><span class="p">)</span><span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
+	    <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"multipart/form-data;boundary=---------------------------boundary"</span><span class="p">;</span>
+	    <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
+	    <span class="n">request</span><span class="p">.</span><span class="n">Headers</span><span class="p">[</span><span class="s">"token"</span><span class="p">]</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+	    <span class="kt">string</span> <span class="n">boundary</span> <span class="p">=</span> <span class="s">"---------------------------boundary"</span><span class="p">;</span>
+	    <span class="kt">byte</span><span class="p">[]</span> <span class="n">boundaryBytes</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="s">"\r\n--"</span> <span class="p">+</span> <span class="n">boundary</span> <span class="p">+</span> <span class="s">"\r\n"</span><span class="p">);</span>
+	    <span class="kt">string</span> <span class="n">formDataTemplate</span> <span class="p">=</span> <span class="s">"--{0}\r\nContent-Type:application/octet-stream\r\nContent-Disposition: form-data; name=\"file\"; filename=\"image.png\"\r\nContent-Type: image/png\r\n\r\n"</span><span class="p">;</span>
+	    <span class="kt">string</span> <span class="n">formData</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="n">formDataTemplate</span><span class="p">,</span> <span class="n">boundary</span><span class="p">);</span>
+	    <span class="kt">byte</span><span class="p">[]</span> <span class="n">formDataBytes</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">formData</span><span class="p">);</span>
+	    <span class="c1">// 设置请求体长度</span>
+	    <span class="n">request</span><span class="p">.</span><span class="n">ContentLength</span> <span class="p">=</span> <span class="n">formDataBytes</span><span class="p">.</span><span class="n">Length</span> <span class="p">+</span> <span class="n">result</span><span class="p">.</span><span class="n">Length</span> <span class="p">+</span> <span class="n">boundaryBytes</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+	    <span class="c1">// 将请求体数据写入请求流中</span>
+	    <span class="k">using</span> <span class="p">(</span><span class="n">Stream</span> <span class="n">requestStream</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">())</span>
+	    <span class="p">{</span>
+	        <span class="n">requestStream</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">formDataBytes</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">formDataBytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+	        <span class="n">requestStream</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+	        <span class="n">requestStream</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">boundaryBytes</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">boundaryBytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+	    <span class="p">}</span>
+	    <span class="c1">// 发送请求并获取响应</span>
+	    <span class="n">HttpWebResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebResponse</span><span class="p">)</span><span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+	    <span class="c1">// 处理响应</span>
+	    <span class="kt">string</span> <span class="n">responseContent</span><span class="p">;</span>
+	    <span class="k">using</span> <span class="p">(</span><span class="n">StreamReader</span> <span class="n">reader</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamReader</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">GetResponseStream</span><span class="p">()))</span>
+	    <span class="p">{</span>
+	        <span class="n">responseContent</span> <span class="p">=</span> <span class="n">reader</span><span class="p">.</span><span class="nf">ReadToEnd</span><span class="p">();</span>
+	        <span class="c1">// Console.WriteLine(responseContent);</span>
+	    <span class="p">}</span>
+	    <span class="n">response</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+	    <span class="kt">var</span> <span class="n">resultData</span> <span class="p">=</span> <span class="p">((</span><span class="n">JObject</span><span class="p">)</span><span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">responseContent</span><span class="p">));</span>
+	    <span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="n">resultData</span><span class="p">[</span><span class="s">"res"</span><span class="p">];</span>
+	    <span class="kt">var</span> <span class="n">region</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"latex"</span><span class="p">];</span>
+	    <span class="kt">var</span> <span class="n">text</span> <span class="p">=</span> <span class="s">"$"</span> <span class="p">+</span><span class="n">region</span><span class="p">.</span><span class="nf">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="s">"$"</span><span class="p">;</span>
+	    <span class="n">TxtFormat</span><span class="p">.</span><span class="n">Root</span> <span class="n">jsonRoot</span><span class="p">=</span><span class="k">new</span> <span class="n">TxtFormat</span><span class="p">.</span><span class="nf">Root</span> <span class="p">();</span>
+	    <span class="n">jsonRoot</span><span class="p">.</span><span class="n">result</span><span class="p">=</span><span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">TxtFormat</span><span class="p">.</span><span class="n">TextBlock</span><span class="p">&gt;();</span>
+	    <span class="n">jsonRoot</span><span class="p">.</span><span class="n">isHasLocation</span><span class="p">=</span><span class="k">true</span><span class="p">;</span><span class="c1">// 判断是否含有坐标返回</span>
+	    <span class="n">TxtFormat</span><span class="p">.</span><span class="n">TextBlock</span> <span class="n">textBlock</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TxtFormat</span><span class="p">.</span><span class="nf">TextBlock</span> <span class="p">();</span>
+	    <span class="n">textBlock</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">text</span><span class="p">;</span><span class="c1">//json 内的文本</span>
+	    <span class="n">textBlock</span><span class="p">.</span><span class="n">TopLeft</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Point</span> <span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span><span class="c1">// 左上角坐标</span>
+	    <span class="n">textBlock</span><span class="p">.</span><span class="n">TopRight</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Point</span> <span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span><span class="c1">// 右上角坐标</span>
+	    <span class="n">textBlock</span><span class="p">.</span><span class="n">BottomRight</span> <span class="p">=</span><span class="k">new</span> <span class="nf">Point</span> <span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span><span class="c1">// 右下角坐标</span>
+	    <span class="n">textBlock</span><span class="p">.</span><span class="n">BottomLeft</span> <span class="p">=</span><span class="k">new</span> <span class="nf">Point</span> <span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span><span class="c1">// 左下角坐标</span>
+	    <span class="n">jsonRoot</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="nf">Add</span> <span class="p">(</span><span class="n">textBlock</span><span class="p">);</span>
+        <span class="c1">// `SerializeObject(object value)`：将对象序列化为 **JSON 字符串**。</span>
+	    <span class="k">return</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span> <span class="p">(</span><span class="n">jsonRoot</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+
+</code></pre></div></div>
+
+<h4 id="记录一下用的接口">记录一下用的接口</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>服务</th>
+      <th>免费额度</th>
+      <th>超出免费额度</th>
+      <th>并发请求数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<strong>百度</strong>通用文字识别</td>
+      <td>每月1000次（实名认证后）</td>
+      <td>0.0050元/次（开通付费后）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>通用文字识别（高精度版）</td>
+      <td>每月1000次（实名认证后）</td>
+      <td>0.028元/次（开通付费后）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>彩云小译API(在用)</td>
+      <td>每月100万字符</td>
+      <td>20元/100万字符</td>
+      <td>无相关说明</td>
+    </tr>
+    <tr>
+      <td>
+<strong>百度</strong>通用翻译API（标准版）</td>
+      <td>完全免费</td>
+      <td> </td>
+      <td>1次/秒</td>
+    </tr>
+    <tr>
+      <td>
+<strong>百度</strong>通用翻译API（高级版）</td>
+      <td>每月200万字符</td>
+      <td>49元/100万字符</td>
+      <td>10次/秒</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>
+<strong>百度</strong>教育场景文字识别</td>
+      <td>每月500次（有效期365天, 后续资源付费）</td>
+      <td>1500元/万次（开通付费后）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>
+<strong>腾讯</strong>数学试题识别()已经<strong>废弃</strong>
+</td>
+      <td>每月1000次</td>
+      <td>120元/1000次</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/jekyll-theme-yat/algorithm/2023/basic-1.html" title="basic_1_算法基础知识">basic_1_算法基础知识</a><a class="next" href="/jekyll-theme-yat/cpp/2023/cpp_STL_0_basic.html" title="cpp_STL_O_basic">cpp_STL_O_basic</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li class="">
+          <a class="post-link" href="/jekyll-theme-yat/algorithm/2023/356.html" title="第356场周赛">
+            第356场周赛<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/about" title="About">
+            About<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/api_software/2023/love_markdown.html" title="永远热爱markdown">
+            永远热爱markdown<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/0_overview.html" title="字节后端训练营">
+            字节后端训练营<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/jekyll-theme-yat/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2024 li54426</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/jekyll-theme-yat/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
