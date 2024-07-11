@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>README | li54426 blog</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="README">
+<meta name="author" content="li54426">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<link rel="canonical" href="/jekyll-theme-yat/readme/">
+<meta property="og:url" content="/jekyll-theme-yat/readme/">
+<meta property="og:site_name" content="li54426 blog">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="README">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"li54426"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"README","url":"/jekyll-theme-yat/readme/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="/assets/my/favicon.ico">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/jekyll-theme-yat/assets/css/main.css">
+  <script src="/jekyll-theme-yat/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="/jekyll-theme-yat/feed.xml" title="li54426  blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/jekyll-theme-yat/">
+  <img class="site-favicon" title="li54426  blog" src="/assets/my/favicon.ico" onerror="this.style.display='none'">
+  li54426  blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/jekyll-theme-yat/">HOME</a><a class="page-link" href="/jekyll-theme-yat/archives">ARCHIVES</a><a class="page-link" href="/jekyll-theme-yat/categories">CATEGORIES</a><a class="page-link" href="/jekyll-theme-yat/tags">TAGS</a><a class="page-link" href="/jekyll-theme-yat/about">ABOUT</a><a class="page-link" href="/jekyll-theme-yat/tools">TOOLS</a><a class="page-link" href="/jekyll-theme-yat/software">好软推荐</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('manual' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">README</h1>
+  <h2 class="post-subtitle"></h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="" itemprop="datePublished"><i class="fa fa-calendar"></i> 
+    </time>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 9 mins</span>
+  </div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <h2 id="修改-v3-20240313">修改 V3 20240313</h2>
+
+<h4 id="主题修改">主题修改</h4>
+
+<ul>
+  <li><a href="https://github.com/jeffreytse/jekyll-theme-yat">jekyll-theme-yat</a></li>
+  <li>将即开即用</li>
+  <li>丢弃掉原本无用的文件，直接<code class="language-plaintext highlighter-rouge">fork</code>大佬的仓库</li>
+  <li>增加一个<code class="language-plaintext highlighter-rouge">software</code>的页面, 其中为常用的软件, 以及 软件的使用方法</li>
+  <li>增加一个<code class="language-plaintext highlighter-rouge">tools</code>页面,</li>
+</ul>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<h4 id="全部命令">全部命令</h4>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Welcome to Jekyll!</span>
+<span class="na">subtitle</span><span class="pi">:</span> <span class="s">A awesome static site generator.</span>
+<span class="na">author</span><span class="pi">:</span> <span class="s">Jeffrey</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="s">jekyll</span>
+<span class="na">banner</span><span class="pi">:</span>
+  <span class="na">video</span><span class="pi">:</span> <span class="s">https://vjs.zencdn.net/v/oceans.mp4</span>
+  <span class="na">loop</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">volume</span><span class="pi">:</span> <span class="m">0.8</span>
+  <span class="na">start_at</span><span class="pi">:</span> <span class="m">8.5</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">https://bit.ly/3xTmdUP</span>
+  <span class="na">opacity</span><span class="pi">:</span> <span class="m">0.618</span>
+  <span class="na">background</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#000"</span>
+  <span class="na">height</span><span class="pi">:</span> <span class="s2">"</span><span class="s">100vh"</span>
+  <span class="na">min_height</span><span class="pi">:</span> <span class="s2">"</span><span class="s">38vh"</span>
+  <span class="na">heading_style</span><span class="pi">:</span> <span class="s2">"</span><span class="s">font-size:</span><span class="nv"> </span><span class="s">4.25em;</span><span class="nv"> </span><span class="s">font-weight:</span><span class="nv"> </span><span class="s">bold;</span><span class="nv"> </span><span class="s">text-decoration:</span><span class="nv"> </span><span class="s">underline"</span>
+  <span class="na">subheading_style</span><span class="pi">:</span> <span class="s2">"</span><span class="s">color:</span><span class="nv"> </span><span class="s">gold"</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="s">jekyll theme yat</span>
+<span class="na">top</span><span class="pi">:</span> <span class="m">1</span>
+<span class="na">sidebar</span><span class="pi">:</span> <span class="pi">[]</span>
+</code></pre></div></div>
+
+<h4 id="置顶文章">置顶文章</h4>
+
+<p><strong>数字越小，优先级越高。</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```
+title: Your Article Title
+top: 1
+```
+
+This is an example to show how to pin an article at top.
+</code></pre></div></div>
+
+<h2 id="修改-v2-2023-7-31">修改 V2-2023-7-31</h2>
+
+<ul>
+  <li>因为上一个模板渲染代码块难以辨认, 使用了另一个模板<a href="https://github.com/vszhub/not-pure-poole">vszhub/not-pure-poole: A simple, beautiful, and powerful Jekyll theme for blogs. (github.com)</a>
+</li>
+</ul>
+
+<h3 id="md-生成网站-问题概览">md 生成网站 问题概览</h3>
+
+<h4 id="问题1-编译失败">问题1 —编译失败</h4>
+
+<p>最新的 2.0 版本似乎打破了 <code class="language-plaintext highlighter-rouge">\{\{</code> 在模板中的使用，不再类似以前的版本，在 2.0 版本使用 <code class="language-plaintext highlighter-rouge">\{\{</code> 会出现以下问题：</p>
+
+<p>解决方案</p>
+
+<ul>
+  <li>两个 <code class="language-plaintext highlighter-rouge">\{\{</code>中间加<code class="language-plaintext highlighter-rouge">空格</code>=&gt;<code class="language-plaintext highlighter-rouge">{ {</code>
+</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{ {'</span> was not properly terminated with regexp: /<span class="se">\}\}</span>/  <span class="o">(</span>Liquid::SyntaxError<span class="o">)</span>
+</code></pre></div></div>
+
+<h4 id="问题2图片无法加载">问题2—图片无法加载</h4>
+
+<ul>
+  <li>不要在 _posts 下面建立目录</li>
+  <li>新建一个文件夹<code class="language-plaintext highlighter-rouge">assets</code>
+</li>
+</ul>
+
+<pre><code class="language-mark">![image-20220906145334336](/assets/20230801md.png)
+</code></pre>
+
+<h4 id="问题-3-about无法使用">问题 3 —<code class="language-plaintext highlighter-rouge">about</code>无法使用</h4>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">about</code>无法使用</li>
+  <li>解决方案
+    <ul>
+      <li>在<code class="language-plaintext highlighter-rouge">about.md</code>中, 加入如下代码</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">---</span>
+<span class="n">permalink</span><span class="o">:</span> <span class="o">/</span><span class="n">about</span><span class="o">/</span>
+<span class="o">---</span>
+</code></pre></div></div>
+
+<h3 id="设置--模板修改---说明">设置(  模板修改 )  说明</h3>
+
+<ul>
+  <li>在<code class="language-plaintext highlighter-rouge">_config.yml</code> 末尾 添加了, 每篇文章开启默认目录</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">defaults</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">values</span><span class="pi">:</span>
+      <span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<ul>
+  <li>可以通过修改 _ config.yml 中的 <code class="language-plaintext highlighter-rouge">cover _ image </code>变量来设置自己的封面图像，还可以通过在每个页面上设置 <code class="language-plaintext highlighter-rouge">cover _ image</code> <strong>变量</strong>来设置不同页面上的封面图像。</li>
+  <li>产生路径方式(路由方式)<code class="language-plaintext highlighter-rouge">permalink: /:categories/:title.html</code>
+</li>
+  <li>
+    <p>您可以在<code class="language-plaintext highlighter-rouge">_data/social.yml</code> 中设置<strong>社交链接</strong>。您可以自定义标题，URL和图标（目前仅支持<a href="https://fontawesome.com/">字体真棒</a>），例如：</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  - title: Email
+    url: mailto://vszhub@gmail.com
+    icon: fas fa-envelope
+  - title: Twitter
+    url: https://twitter.com/vszhub
+    icon: fab fa-twitter
+  - title: GitHub
+    url: https://github.com/vszhub/not-pure-poole
+    icon: fab fa-github
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>将<code class="language-plaintext highlighter-rouge">about.md, tags.md, dates.md</code>移入<code class="language-plaintext highlighter-rouge">post</code>文件夹下并给他们加上时间， 没有时间的化默认不编译</p>
+  </li>
+  <li>
+<strong>侧边栏</strong>增加新的导航<code class="language-plaintext highlighter-rouge">tools.md</code>, 来存放<code class="language-plaintext highlighter-rouge">github</code>的其他仓库，</li>
+</ul>
+
+<h3 id="分类导航">分类导航</h3>
+
+<p>Not Pure Poole 支持按日期，类别和标签存档的帖子。要启用此功能，您应该将以下一些数据放入：<code class="language-plaintext highlighter-rouge">_data/archive.yml</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- type: dates
+  title: Dates
+  url: /dates/
+- type: categories
+  title: Categories
+  url: /categories/
+- type: tags
+  title: Tags
+  url: /tags/
+</code></pre></div></div>
+
+<p>之后，这些存档页面的导航将显示在主页顶部。</p>
+
+<p>然后，您可以创建一个类别存档页面，并在该页面上设置以下参数：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: archive-taxonomies
+type: categories
+---
+</code></pre></div></div>
+
+<p>或标签存档页面：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>layout: archive-taxonomies
+type: tags
+</code></pre></div></div>
+
+<p>或按日期存档：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>layout: archive-dates
+</code></pre></div></div>
+
+<h3 id="增加功能">增加功能</h3>
+
+<h4 id="命令">命令</h4>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">layout</span><span class="pi">:</span> <span class="s">blog</span>
+<span class="na">book</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">你的标题"</span>
+<span class="na">date</span><span class="pi">:</span>   <span class="s">2017-07-03 23:13:54</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s">书籍</span>
+<span class="na">tags</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">美丽新世界</span> 
+<span class="na">redirect_from</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">/about/</span>
+</code></pre></div></div>
+
+<h4 id="自动提交脚本">自动提交脚本</h4>
+
+<ul>
+  <li>只是一个博客, 提交的信息就不重要了, 只提交一个 时间信息就好</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo off
+
+setlocal enabledelayedexpansion
+
+REM 获取当前日期和时间
+<span class="k">for</span> /f <span class="s2">"tokens=1-4 delims=/ "</span> %%i <span class="k">in</span> <span class="o">(</span><span class="s2">"%date%"</span><span class="o">)</span> <span class="k">do</span> <span class="o">(</span>
+    <span class="nb">set </span><span class="nv">year</span><span class="o">=</span>%%l
+    <span class="nb">set </span><span class="nv">month</span><span class="o">=</span>%%j
+    <span class="nb">set </span><span class="nv">day</span><span class="o">=</span>%%k
+<span class="o">)</span>
+
+<span class="k">for</span> /f <span class="s2">"tokens=1-3 delims=:."</span> %%i <span class="k">in</span> <span class="o">(</span><span class="s2">"%time%"</span><span class="o">)</span> <span class="k">do</span> <span class="o">(</span>
+    <span class="nb">set </span><span class="nv">hour</span><span class="o">=</span>%%i
+    <span class="nb">set </span><span class="nv">minute</span><span class="o">=</span>%%j
+    <span class="nb">set </span><span class="nv">second</span><span class="o">=</span>%%k
+<span class="o">)</span>
+
+REM 构建提交信息
+<span class="nb">set </span><span class="nv">commit_message</span><span class="o">=</span>%year%-%month%-%day% %hour%:%minute%:%second%
+
+REM 添加文件到暂存区
+git add <span class="nb">.</span>
+
+REM 提交代码，并包含日期和时间作为提交信息
+git commit <span class="nt">-m</span> <span class="s2">"%commit_message%"</span>
+
+REM 推送到远程仓库
+git push
+
+endlocal
+
+</code></pre></div></div>
+
+<h4 id="自动生成-markdown">自动生成 markdown</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh">#!/bin/bash</span>
+
+filename=$(date +"%Y-%m-%d-.md")
+
+<span class="gh">cat &gt; "$filename" &lt;&lt; EOF
+---
+</span>layout: blog
+banana: true
+category: default
+title:  
+date:   $(date +"%Y-%m-%d %H:%M:%S")
+background: green
+tags:
+<span class="p">-</span> default
+<span class="gh">- memcache
+---
+</span><span class="p">
+*</span> content
+{:toc}
+EOF
+
+echo "文件已生成：$filename"
+
+</code></pre></div></div>
+
+<h2 id="修改-v1-2023-7-29">修改 V1-2023-7-29</h2>
+
+<p><a href="https://li54426.github.io/">我的项目地址</a></p>
+
+<h4 id="设置说明">设置说明</h4>
+
+<ul>
+  <li>修改_config.yml 的 links 为您的菜单</li>
+  <li>修改_config.yml 的 paginate 为您的按照多少页分页</li>
+  <li>修改自己的网<strong>图标</strong><code class="language-plaintext highlighter-rouge">\style\favicons\favicon.ico</code>
+</li>
+  <li>修改自己的网<strong>标志</strong><code class="language-plaintext highlighter-rouge">\style\favicons\logo-liberxue.png</code>
+</li>
+  <li>在<code class="language-plaintext highlighter-rouge">_layouts\blog.html</code>中, 将 <code class="language-plaintext highlighter-rouge">本文由 &lt;a href="/"&gt;liberxue&lt;/a&gt; 创作</code> 改为您的<code class="language-plaintext highlighter-rouge">github</code>名字</li>
+  <li>修改<code class="language-plaintext highlighter-rouge">\about.md</code>中的内容, 它对应着文章中的<code class="language-plaintext highlighter-rouge">关于</code>这一页</li>
+  <li>在<code class="language-plaintext highlighter-rouge">_layouts\default.html</code>中, 将 <code class="language-plaintext highlighter-rouge">本文由 &lt;a href="/"&gt;liberxue&lt;/a&gt; 创作</code> 改为您的<code class="language-plaintext highlighter-rouge">github</code>名字</li>
+</ul>
+
+<h4 id="使用说明">使用说明</h4>
+
+<ul>
+  <li>打开<code class="language-plaintext highlighter-rouge">\_posts</code> 文件夹是<strong>博客文章</strong>所在的位置，文件夹中的内容就是你的<strong>博客</strong>, 博客格式为 <code class="language-plaintext highlighter-rouge">markdown</code>
+</li>
+  <li>文件名格式为<code class="language-plaintext highlighter-rouge">2015-06-11-xxxx.md</code>, <strong>不能有中文</strong>, 因为文件名会成为这篇博文的链接</li>
+  <li><del>当天的<code class="language-plaintext highlighter-rouge">blog</code>不会上传</del></li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>layout: blog
+book: true
+title:  "《美丽新世界》之幸福和自由思考"
+background: green
+background-image: http://ot1cc1u9t.bkt.clouddn.com/17-7-15/78939382.jpg
+date:   2017-07-03 23:13:54
+category: 书籍
+tags:
+<span class="p">-</span> 美丽新世界 <span class="sb">
+
+
+
+
+
+</span>可选项目
+// 设置颜色
+background: green
+background: blue
+background: purple
+
+// 设置路径
+redirect_from:
+<span class="p">  -</span> /about/
+</code></pre></div></div>
+
+<h4 id="颜色说明">颜色说明</h4>
+
+<ul>
+  <li>蓝色: 软件/ API/ 提升效率</li>
+  <li>绿色: 语言相关</li>
+  <li>紫色: 算法/ 周赛</li>
+</ul>
+
+<p>原作者邮箱</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>liberxue@gmail.com
+</code></pre></div></div>
+
+<h1 id="not-pure-poole-">Not Pure Poole <!-- omit in toc -->
+</h1>
+
+<p><a href="https://jekyll-themes.com">
+  <img src="https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg" height="20" alt="Jekyll Themes Shield">
+</a></p>
+
+<p><strong>Not Pure Poole</strong> is a simple, beautiful, and powerful Jekyll theme for blogs. It is built on <a href="https://github.com/poole/poole">Poole</a> and <a href="https://purecss.io/">Pure</a>.</p>
+
+<blockquote>
+  <p>Poole explains that Jekyll has been asking for a particular chemical for days now but every time it has been fetched for him he rejects it as <strong>not pure</strong>. Poole also explains that he caught a glimpse of the man inside and he looked barely human.</p>
+
+  <p>– <a href="https://www.bbc.co.uk/bitesize/guides/zbtjnrd/revision/6"><cite>The death of Jekyll</cite></a></p>
+</blockquote>
+
+<hr>
+
+<p>See Not Pure Poole in action with <a href="https://vszhub.github.io/not-pure-poole/">the demo site</a>.</p>
+
+<p><img src="screenshot.png" alt="Screenshot"></p>
+
+<h2 id="table-of-contents-">Table of Contents <!-- omit in toc -->
+</h2>
+
+<ul>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li>
+<a href="#usage">Usage</a>
+    <ul>
+      <li><a href="#configuration">Configuration</a></li>
+      <li><a href="#customizing-head">Customizing Head</a></li>
+      <li><a href="#creating-themes">Creating Themes</a></li>
+      <li><a href="#customizing-navigation">Customizing Navigation</a></li>
+      <li><a href="#customizing-cover-image">Customizing Cover Image</a></li>
+      <li><a href="#customizing-social-links">Customizing Social Links</a></li>
+      <li><a href="#enabling-posts-archive">Enabling Posts Archive</a></li>
+      <li><a href="#enabling-toc">Enabling TOC</a></li>
+      <li><a href="#enabling-mathjax">Enabling MathJax</a></li>
+      <li><a href="#something-more">Something More</a></li>
+    </ul>
+  </li>
+  <li><a href="#development">Development</a></li>
+  <li><a href="#license">License</a></li>
+</ul>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li><a href="https://github.com/jekyll/jekyll-seo-tag">Jekyll SEO Tag</a></li>
+  <li><a href="https://github.com/jekyll/jekyll-feed">Jekyll Feed</a></li>
+  <li><a href="https://github.com/jekyll/jekyll-sitemap">Jekyll Sitemap</a></li>
+  <li><a href="https://github.com/jekyll/jekyll-gist">Jekyll Gist</a></li>
+  <li><a href="https://analytics.google.com/">Google Analytics</a></li>
+  <li><a href="https://disqus.com/">Disqus</a></li>
+  <li><a href="https://fontawesome.com/">Font Awesome</a></li>
+  <li><a href="https://www.mathjax.org/">MathJax</a></li>
+  <li>Dark mode (enabled automatically via CSS media query)</li>
+  <li>Posts archive by dates, categories, and tags</li>
+  <li>Pagination, generated by <a href="https://github.com/jekyll/jekyll-paginate">Jekyll Paginate</a>
+</li>
+  <li>TOC (generated by Vladimir “allejo” Jimenez’s <a href="https://github.com/allejo/jekyll-toc">jekyll-toc</a>)</li>
+  <li>Related posts (time-based, because Jekyll) below each post</li>
+  <li>Mobile friendly design and development</li>
+  <li>Easily scalable text and component sizing with <code class="language-plaintext highlighter-rouge">rem</code> units in the CSS</li>
+  <li>Support for a wide gamut of HTML elements</li>
+  <li>Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>You can choose one of the following methods to install Not Pure Poole:</p>
+
+<ul>
+  <li>
+    <p>Directly specify the <code class="language-plaintext highlighter-rouge">not-pure-poole</code> gem.</p>
+
+    <ol>
+      <li>Add <code class="language-plaintext highlighter-rouge">gem 'not-pure-poole'</code> into your <code class="language-plaintext highlighter-rouge">Gemfile</code>.</li>
+      <li>
+        <p>Add the below lines into your <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+
+        <div class="language-yml highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="na">plugins</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">not-pure-poole</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>If your site is hosted on GitHub Pages, you can use <a href="https://github.com/benbalter/jekyll-remote-theme"><code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code></a> to import the master branch of Not Pure Poole.</p>
+
+    <ol>
+      <li>Add <code class="language-plaintext highlighter-rouge">gem 'jekyll-remote-theme'</code> into your <code class="language-plaintext highlighter-rouge">Gemfile</code>.</li>
+      <li>
+        <p>Add the below lines into your <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+
+        <div class="language-yml highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="na">plugins</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">jekyll-remote-theme</span>
+        
+ <span class="na">remote_theme</span><span class="pi">:</span> <span class="s">vszhub/not-pure-poole</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<p>You can read this <a href="https://vszhub.github.io/not-pure-poole/2020/09/29/welcome-to-not-pure-poole/">example post</a> to see the rendering result in this theme, and put the <a href="_posts/2020-09-29-welcome-to-not-pure-poole.md">source</a> aside to learn some basic usages.</p>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>The <a href="_config.yml"><code class="language-plaintext highlighter-rouge">_config.yml</code></a> file in this repository already contains some variables, you can try to override them in your repository.</p>
+
+<h3 id="customizing-head">Customizing Head</h3>
+
+<p>Not Pure Poole leaves a placeholder to allow defining custom head, in principle, you can add anything here, e.g. favicons. All you need to do is just creating a file <code class="language-plaintext highlighter-rouge">_includes/custom-head.html</code> and put data into it.</p>
+
+<h3 id="creating-themes">Creating Themes</h3>
+
+<p>If you want to make your own color schemes, modify the CSS variables in the <code class="language-plaintext highlighter-rouge">_sass/_variables.scss</code> stylesheet with a scoped data attribute or class name.</p>
+
+<p>For example, below we’ve created the beginnings of a blue theme:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Example blue theme</span>
+<span class="o">[</span><span class="nt">data-theme</span><span class="o">=</span><span class="s2">"blue"</span><span class="o">]</span> <span class="p">{</span>
+  <span class="na">--body-bg</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="no">blue</span><span class="p">);</span>
+  <span class="na">--body-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Then, apply the theme by adding <code class="language-plaintext highlighter-rouge">data-theme="blue"</code> to the <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> element.</p>
+
+<h3 id="customizing-navigation">Customizing Navigation</h3>
+
+<p>You can create a file <code class="language-plaintext highlighter-rouge">_data/navigation.yml</code> to configure links to some pages. For example,</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Blog</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">/</span>
+<span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">About</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">/about/</span>
+</code></pre></div></div>
+
+<h3 id="customizing-cover-image">Customizing Cover Image</h3>
+
+<p>You can set your own cover image by modifying the <code class="language-plaintext highlighter-rouge">cover_image</code> variable in <code class="language-plaintext highlighter-rouge">_config.yml</code>, and you can also set different cover images on different pages by setting the <code class="language-plaintext highlighter-rouge">cover_image</code> variable on each page.</p>
+
+<p>If you discover that the contrast between the cover text color and the cover background color is not enough, you can also adjust these two variables:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">cover_bg_color</span><span class="pi">:</span> <span class="s">rgb(40, 73, 77)</span>
+<span class="na">cover_color</span><span class="pi">:</span> <span class="s">rgb(255, 255, 255)</span>
+</code></pre></div></div>
+
+<h3 id="customizing-social-links">Customizing Social Links</h3>
+
+<p>You can set your social links in <code class="language-plaintext highlighter-rouge">_data/social.yml</code>. You can custom titles, URLs, and icons (only support <a href="https://fontawesome.com/">Font Awesome</a> currently), for example:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Email</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">mailto://vszhub@gmail.com</span>
+  <span class="na">icon</span><span class="pi">:</span> <span class="s">fas fa-envelope</span>
+<span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Twitter</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">https://twitter.com/vszhub</span>
+  <span class="na">icon</span><span class="pi">:</span> <span class="s">fab fa-twitter</span>
+<span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">GitHub</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">https://github.com/vszhub/not-pure-poole</span>
+  <span class="na">icon</span><span class="pi">:</span> <span class="s">fab fa-github</span>
+</code></pre></div></div>
+
+<h3 id="enabling-posts-archive">Enabling Posts Archive</h3>
+
+<p>Not Pure Poole supports posts archive by date, categories, and tags. For enabling that, you should put some data like below into <code class="language-plaintext highlighter-rouge">_data/archive.yml</code>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">dates</span>
+  <span class="na">title</span><span class="pi">:</span> <span class="s">Dates</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">/dates/</span>
+<span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">categories</span>
+  <span class="na">title</span><span class="pi">:</span> <span class="s">Categories</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">/categories/</span>
+<span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">tags</span>
+  <span class="na">title</span><span class="pi">:</span> <span class="s">Tags</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">/tags/</span>
+</code></pre></div></div>
+
+<p>After that, the navigation to these archive pages would be shown on the top of the homepage.</p>
+
+<p>Then, you can create a category archive page, and set the below parameters on that page:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">archive-taxonomies</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">categories</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>Or a tag archive page:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">layout</span><span class="pi">:</span> <span class="s">archive-taxonomies</span>
+<span class="na">type</span><span class="pi">:</span> <span class="s">tags</span>
+</code></pre></div></div>
+
+<p>Or archive by dates:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">layout</span><span class="pi">:</span> <span class="s">archive-dates</span>
+</code></pre></div></div>
+
+<h3 id="enabling-toc">Enabling TOC</h3>
+
+<p>If you want to show the TOC of a page on the right side, just set <code class="language-plaintext highlighter-rouge">toc: true</code> on that page.</p>
+
+<h3 id="enabling-mathjax">Enabling MathJax</h3>
+
+<p>If you want to write mathematics on a page, just set <code class="language-plaintext highlighter-rouge">math: true</code> on that page to enable MathJax.</p>
+
+<h3 id="something-more">Something More</h3>
+
+<p>Just <strong>hack</strong> into the code and see what you can get.</p>
+
+<h2 id="development">Development</h2>
+
+<p>To set up your environment to develop this theme, run <code class="language-plaintext highlighter-rouge">bundle install</code>.</p>
+
+<p>Your theme is setup just like a normal Jekyll site! To test your theme, run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> and open your browser at <code class="language-plaintext highlighter-rouge">http://localhost:4000</code>. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme’s contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.</p>
+
+<p>When your theme is released, only the files in <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>, <code class="language-plaintext highlighter-rouge">_sass</code> and <code class="language-plaintext highlighter-rouge">assets</code> tracked with Git will be bundled.
+To add a custom directory to your theme-gem, please edit the regexp in <code class="language-plaintext highlighter-rouge">not-pure-poole.gemspec</code> accordingly.</p>
+
+<h2 id="license">License</h2>
+
+<p>The theme is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<span></span><span></span>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        </ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/jekyll-theme-yat/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2024 li54426</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/jekyll-theme-yat/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Go_ | li54426 blog</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="Go_">
+<meta name="author" content="li54426">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="三、测试 三、测试">
+<meta property="og:description" content="三、测试 三、测试">
+<link rel="canonical" href="/jekyll-theme-yat/byte_tech/2023/test.html">
+<meta property="og:url" content="/jekyll-theme-yat/byte_tech/2023/test.html">
+<meta property="og:site_name" content="li54426 blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2023-08-17T18:11:09+08:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Go_">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"li54426"},"dateModified":"2023-08-17T18:11:09+08:00","datePublished":"2023-08-17T18:11:09+08:00","description":"三、测试 三、测试","headline":"Go_","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll-theme-yat/byte_tech/2023/test.html"},"url":"/jekyll-theme-yat/byte_tech/2023/test.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="/assets/my/favicon.ico">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/jekyll-theme-yat/assets/css/main.css">
+  <script src="/jekyll-theme-yat/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="/jekyll-theme-yat/feed.xml" title="li54426  blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/jekyll-theme-yat/">
+  <img class="site-favicon" title="li54426  blog" src="/assets/my/favicon.ico" onerror="this.style.display='none'">
+  li54426  blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/jekyll-theme-yat/">HOME</a><a class="page-link" href="/jekyll-theme-yat/archives">ARCHIVES</a><a class="page-link" href="/jekyll-theme-yat/categories">CATEGORIES</a><a class="page-link" href="/jekyll-theme-yat/tags">TAGS</a><a class="page-link" href="/jekyll-theme-yat/about">ABOUT</a><a class="page-link" href="/jekyll-theme-yat/tools">TOOLS</a><a class="page-link" href="/jekyll-theme-yat/software">好软推荐</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('manual' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Go_</h1>
+  <h2 class="post-subtitle"></h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2023-08-17T18:11:09+08:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Aug 17, 2023
+    </time>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+  </div>
+<div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#byte_tech">#byte_tech</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#go">#go</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <ul id="markdown-toc">
+  <li><a href="#%E4%B8%89%E6%B5%8B%E8%AF%95" id="markdown-toc-三测试">三、测试</a></li>
+  <li><a href="#assert" id="markdown-toc-assert">assert</a></li>
+  <li><a href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" id="markdown-toc-基本概念">基本概念</a></li>
+  <li><a href="#gc-%E7%AE%97%E6%B3%95" id="markdown-toc-gc-算法">gc 算法</a></li>
+  <li><a href="#%E8%BF%BD%E8%B8%AA%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB" id="markdown-toc-追踪垃圾分类">追踪垃圾分类</a></li>
+  <li><a href="#%E5%88%86%E4%BB%A3-gc" id="markdown-toc-分代-gc">分代 gc</a></li>
+  <li><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0" id="markdown-toc-引用计数">引用计数</a></li>
+</ul>
+<h4 id="三测试">三、测试</h4>
+
+<p>测试是避免事物的最后一道屏障。</p>
+
+<ul>
+  <li>回归测试</li>
+  <li>集成测试</li>
+  <li>单元测试</li>
+</ul>
+
+<p>从上到下，覆盖率逐层变大，成本却逐层降低</p>
+
+<p>Go 语言内置有对单元测试的支持，主要通过 testing 包实现。</p>
+
+<ul>
+  <li>所有测试文件以<code class="language-plaintext highlighter-rouge">_test.go</code>结尾</li>
+  <li><code class="language-plaintext highlighter-rouge">func TestXxx(t *testing.T)</code></li>
+  <li>初始化逻辑放到<code class="language-plaintext highlighter-rouge">TestMain</code>中</li>
+</ul>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">Add</span><span class="p">(</span><span class="n">a</span> <span class="kt">int</span><span class="p">,</span> <span class="n">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span><span class="p">{</span>
+  <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">TestAdd</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">output</span><span class="o">:=</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+  <span class="n">expectOutput</span><span class="o">:=</span><span class="m">3</span>
+  <span class="k">if</span> <span class="n">output</span> <span class="o">!=</span> <span class="n">expectOutput</span><span class="p">{</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">Error</span><span class="p">(</span><span class="s">"Add failed"</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h4 id="assert">assert</h4>
+
+<ul>
+  <li>Go 语言内置的 testing 包提供了 assert 包来进行单元测试的断言，assert 能大大简化测试代码，不需要过多的 if 条件判断，只要最终结果不符合断言，就会自动标记为测试失败。</li>
+</ul>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">Test</span>
+
+<span class="k">import</span> <span class="p">(</span>
+   <span class="s">"github.com/stretchr/testify/assert"</span>
+   <span class="s">"testing"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">Add</span><span class="p">(</span><span class="n">a</span> <span class="kt">int</span><span class="p">,</span> <span class="n">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">TestAdd</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">output</span> <span class="o">:=</span> <span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+   <span class="n">expectOutput</span> <span class="o">:=</span> <span class="m">3</span>
+   <span class="n">assert</span><span class="o">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">expectOutput</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>性能优化与软件质量</p>
+
+<ul>
+  <li>软件质量至关重要</li>
+  <li>在保证接口<strong>稳定</strong>的前提下改进具体实现</li>
+  <li>测试用例: 覆盖尽可能多的场景,方便回归, 测试驱动开发</li>
+  <li>文档:做了什么,没做什么,能达到怎样的效果</li>
+  <li>隔离:通过选项控制是否开启优化</li>
+  <li>可观测:必要的日志输出</li>
+</ul>
+
+<p>自动内存管理主要管理的是<code class="language-plaintext highlighter-rouge">动态内存</code>，<code class="language-plaintext highlighter-rouge">动态内存</code>指的是程序在运行时根据需求动态分配的内存，比如 C 语言中的 <code class="language-plaintext highlighter-rouge">malloc()</code> 函数分配的内存。</p>
+
+<p>自动内存管理也称为<code class="language-plaintext highlighter-rouge">垃圾回收</code>，主要目的是由程序语言的运行时系统管理动态内存，这样做有以下两方面的好处：</p>
+
+<ul>
+  <li>避免手动内存管理，专注于实现业务逻辑</li>
+  <li>保证内存使用的正确性和安全性，比如 <code class="language-plaintext highlighter-rouge">C</code> 语言中的内存多次释放：<code class="language-plaintext highlighter-rouge">double-free problem</code>, 释放后再次使用 <code class="language-plaintext highlighter-rouge">use-after-free problem</code>。</li>
+</ul>
+
+<p>由此可见，手动释放内存存在很多问题，如果使用不当的话，可能会引起程序的崩溃、漏洞，而自动内存管理可以帮我们自动处理这些问题。</p>
+
+<p>自动内存管理有 3 个主要的核心任务：</p>
+
+<ol>
+  <li>为新对象分配空间</li>
+  <li>找到存活对象</li>
+  <li>回收死亡对象的内存空间</li>
+</ol>
+
+<h4 id="基本概念">基本概念</h4>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">Mutator</code>：业务线程，分配新对象，修改对象指向关系</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Collector</code>：GC 线程，找到存活对象，回收死亡对象的内存空间</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Serial GC</code>：只有一个 <code class="language-plaintext highlighter-rouge">collector</code>，会暂停 (STW)</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Parallec GC</code>：支持多个 <code class="language-plaintext highlighter-rouge">collectors</code> 同时回收 <code class="language-plaintext highlighter-rouge">GC</code> 算法，会暂停 (STW)</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Concurrent GC</code>：<code class="language-plaintext highlighter-rouge">mutator(s)</code> 和 <code class="language-plaintext highlighter-rouge">collector(s)</code> 可以同时执行，<code class="language-plaintext highlighter-rouge">Collectors</code> 必须感知对象指向关系的改变。</li>
+</ul>
+
+<h4 id="gc-算法">gc 算法</h4>
+
+<p>接下来将介绍两种常见的 <code class="language-plaintext highlighter-rouge">GC</code> 相关的技术：</p>
+
+<ul>
+  <li>追踪垃圾回收 (Tracing garbage collection)</li>
+  <li>引用计数 (Reference counting)</li>
+</ul>
+
+<h4 id="追踪垃圾分类">追踪垃圾分类</h4>
+
+<p>追踪垃圾回收，当一个对象的指针指向关系<strong>不可达</strong>的时候，该对象就要被回收了。</p>
+
+<p>追踪垃圾回收算法垃圾回收步骤：</p>
+
+<ol>
+  <li>标记根对象
+    <ul>
+      <li>标记包括 静态变量、全局变量、常量、线程栈等</li>
+    </ul>
+  </li>
+  <li>标记：找到可达对象
+    <ul>
+      <li>求指针指向关系的传递闭包：从根对象触发，找到所有可达对象</li>
+    </ul>
+  </li>
+  <li>清理：所有不可达对象
+    <ul>
+      <li>将存活对象复制到另外的内存空间 (<code class="language-plaintext highlighter-rouge">Copying GC</code>)</li>
+      <li>将死亡对象的内存标记为” 可分配 “(<code class="language-plaintext highlighter-rouge">Marking-sweep GC</code>)</li>
+      <li>移动并整理存活对象 (<code class="language-plaintext highlighter-rouge">Mark-compact GC</code>)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>清理策略有很多种，在实际清理的时候应该根据对象的生命周期，使用不同的标记和清理策略。</p>
+
+<h4 id="分代-gc">分代 gc</h4>
+
+<p><code class="language-plaintext highlighter-rouge">分代GC</code>(<code class="language-plaintext highlighter-rouge">Generational GC</code>) 是一种常见的内存管理方式，思想是基于分代假说 (<code class="language-plaintext highlighter-rouge">Generational hypothesis</code>)—— 大多数对象很快就死掉了 (<code class="language-plaintext highlighter-rouge">most objects die young</code>)，很多对象在分配出来后很快就不再使用了。</p>
+
+<p>每个对象都有年龄，也就是对象经历过 <code class="language-plaintext highlighter-rouge">GC</code> 的次数，比如经历了 2 次 <code class="language-plaintext highlighter-rouge">GC</code> 那么他的年龄就为 2。</p>
+
+<p><code class="language-plaintext highlighter-rouge">分代GC</code> 根据对象年龄的不同，把对象放在不同的区域，年轻代对象放在 <code class="language-plaintext highlighter-rouge">Young Generation</code> 区域，老年代放在 <code class="language-plaintext highlighter-rouge">Old Generation</code> 区域，这样做的目的为对年轻和老年的对象，制定不同的 <code class="language-plaintext highlighter-rouge">GC策略</code>，降低整体内存管理的开销。</p>
+
+<p><code class="language-plaintext highlighter-rouge">年轻代</code>为常规的对象分配，由于存活对象很少，可以采用 <code class="language-plaintext highlighter-rouge">copying collection算法</code>，GC 吞吐量很高。</p>
+
+<p><code class="language-plaintext highlighter-rouge">老年代</code>内对象趋向于一直活着，反复复制开销较大，可以采用 <code class="language-plaintext highlighter-rouge">mark-sweep collection算法</code>。</p>
+
+<h4 id="引用计数">引用计数</h4>
+
+<p>引用计数管理内存的方式为每个对象都有一个与之相关联的引用数目，对象存活的条件为当且仅当引用数大于 0。</p>
+
+<p>引用计数管理内存的优点如下：</p>
+
+<ul>
+  <li>内存管理的操作被平摊到程序执行过程中</li>
+  <li>内存管理不需要了解 <code class="language-plaintext highlighter-rouge">runtime</code> 的实现细节，有一些库可以帮助实现引用计数，比如 <code class="language-plaintext highlighter-rouge">C++</code> 智能指针 (<code class="language-plaintext highlighter-rouge">smart pointer</code>)。</li>
+</ul>
+
+<p>当然引用计数也有缺点：</p>
+
+<ul>
+  <li>维护引用计数的开销较大：通过原子操作保证对引用计数操作的原子性和可见性</li>
+  <li>无法回收环形数据结构 ——<code class="language-plaintext highlighter-rouge">weak reference</code>
+</li>
+  <li>内存开销：每个对象都引入的额外内存空间存储引用数目</li>
+  <li>回收内存时可能引发暂停 —— 大的数据结构</li>
+</ul>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/jekyll-theme-yat/byte_tech/2023/mult-thread.html" title="Go_">Go_</a><a class="next" href="/jekyll-theme-yat/byte_tech/2023/hole.html" title="漏洞">漏洞</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li class="">
+          <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/go-7-database.html" title="Go_">
+            Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/summary/2023/2023-m.html" title="2023 年中总结">
+            2023 年中总结<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/summary/2024/bi_ye_lun_wen.html" title="Bi_ye_lun_wen">
+            Bi_ye_lun_wen<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/mult-thread.html" title="Go_">
+            Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/jekyll-theme-yat/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2024 li54426</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/jekyll-theme-yat/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

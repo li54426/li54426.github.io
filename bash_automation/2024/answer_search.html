@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>答案查找 | li54426 blog</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="答案查找">
+<meta name="author" content="li54426">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<link rel="canonical" href="/jekyll-theme-yat/bash_automation/2024/answer_search.html">
+<meta property="og:url" content="/jekyll-theme-yat/bash_automation/2024/answer_search.html">
+<meta property="og:site_name" content="li54426 blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2024-04-06T01:05:44+08:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="答案查找">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"li54426"},"dateModified":"2024-04-06T01:05:44+08:00","datePublished":"2024-04-06T01:05:44+08:00","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"答案查找","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll-theme-yat/bash_automation/2024/answer_search.html"},"url":"/jekyll-theme-yat/bash_automation/2024/answer_search.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="/assets/my/favicon.ico">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/jekyll-theme-yat/assets/css/main.css">
+  <script src="/jekyll-theme-yat/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="/jekyll-theme-yat/feed.xml" title="li54426  blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header site-header-transparent" role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/jekyll-theme-yat/">
+  <img class="site-favicon" title="li54426  blog" src="/assets/my/favicon.ico" onerror="this.style.display='none'">
+  li54426  blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/jekyll-theme-yat/">HOME</a><a class="page-link" href="/jekyll-theme-yat/archives">ARCHIVES</a><a class="page-link" href="/jekyll-theme-yat/categories">CATEGORIES</a><a class="page-link" href="/jekyll-theme-yat/tags">TAGS</a><a class="page-link" href="/jekyll-theme-yat/about">ABOUT</a><a class="page-link" href="/jekyll-theme-yat/tools">TOOLS</a><a class="page-link" href="/jekyll-theme-yat/software">好软推荐</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-banner">
+    <div class="page-banner-img">
+<div style="background-image: url(https://bit.ly/3xTmdUP)"></div>
+        <img class="img-placeholder" src="https://bit.ly/3xTmdUP">
+</div>
+    <div class="wrapper">
+      <div class="page-banner-inner">
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">答案查找</h1>
+  <h2 class="post-subtitle"></h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2024-04-06T01:05:44+08:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Apr 06, 2024
+    </time>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 13 mins</span>
+  </div>
+<div class="post-tags">
+<a class="post-tag" href="/jekyll-theme-yat/tags.html#automation">#automation</a><a class="post-tag" href="/jekyll-theme-yat/tags.html#bash">#bash</a>
+</div></header>
+</div>
+    </div>
+  </section><script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('manual' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <ul id="markdown-toc">
+  <li><a href="#1-%E8%87%AA%E5%8A%A8%E6%9F%A5%E6%89%BE%E7%AD%94%E6%A1%88" id="markdown-toc-1-自动查找答案">1 自动查找答案</a></li>
+  <li><a href="#2-%E5%AD%90%E6%96%87%E4%BB%B6%E5%A4%B9%E5%86%85%E5%AE%B9%E7%A7%BB%E5%87%BA%E5%B9%B6%E9%87%8D%E5%91%BD%E5%90%8D%E4%B8%BA%E5%AD%90%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0" id="markdown-toc-2-子文件夹内容移出并重命名为子文件夹名称">2 子文件夹内容移出并重命名为子文件夹名称</a></li>
+  <li><a href="#3-%E7%94%9F%E6%88%90%E7%9B%AE%E5%BD%95%E6%A0%91" id="markdown-toc-3-生成目录树">3 生成目录树</a></li>
+  <li><a href="#%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4%E8%84%9A%E6%9C%AC" id="markdown-toc-自动提交脚本">自动提交脚本</a></li>
+  <li><a href="#%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-markdown" id="markdown-toc-自动生成-markdown">自动生成 markdown</a></li>
+</ul>
+
+<h4 id="1-自动查找答案">1 自动查找答案</h4>
+
+<p>在我们的生活中有这样的场景，需要做一些题目，而这些题目是知道答案的（例如，校规校纪，防火检查等）</p>
+
+<p>代码的功能为: 读取问题、查询题库并生成查询结果的 Python 脚本。这个脚本可以处理文本预处理、从文本中提取题目、读取题库、进行查询并将结果保存到 Excel 文件等多个功能。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">re</span>
+<span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+
+
+<span class="c1">##########-读取查询列-#########
+</span>
+
+<span class="c1"># 文本预处理
+</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="sh">"</span><span class="s">./auto/question.txt</span><span class="sh">"</span>
+
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+
+<span class="n">text_new</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">'</span><span class="s">（</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">(</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">text_new</span> <span class="o">=</span> <span class="n">text_new</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">'</span><span class="s">）</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">)</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">text_new</span><span class="p">)</span>
+
+
+
+
+<span class="c1"># 打开txt文件并读取内容
+</span><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">./auto/question.txt</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">"</span><span class="s">utf-8</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+<span class="c1"># print("contect=", content)
+</span>
+<span class="c1"># 把题目导出来
+</span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="sh">'</span><span class="s">(\d+\.+)(.+?)(?=(\(|\。|\n|$))</span><span class="sh">'</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="p">.</span><span class="n">DOTALL</span><span class="p">)</span>
+<span class="c1"># [('1. ', '质量流量计不能够直接测出的参数是（ ）'),.....]
+</span>
+<span class="c1"># print("maches=", matches)
+</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="p">[(</span><span class="n">ma</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ma</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">ma</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">maches=</span><span class="sh">"</span><span class="p">,</span> <span class="n">matches</span><span class="p">)</span>
+
+
+<span class="c1"># 将数据转换成 DataFrame 格式
+</span>
+<span class="c1"># 将数据转换成 DataFrame 格式, 并修改列名为 "序号" 和 "答案"
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">matches</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">序号</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">问题</span><span class="sh">'</span><span class="p">])</span>
+
+<span class="c1"># 使用 slice() 方法将 content 列的字符串长度截断为 20
+</span><span class="n">df</span><span class="p">[</span><span class="sh">'</span><span class="s">问题</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sh">'</span><span class="s">问题</span><span class="sh">'</span><span class="p">]</span><span class="c1">#.str.slice(20)
+</span>
+
+
+<span class="c1"># print("df=", df)
+# 将数据保存到 Excel 文件中
+</span><span class="n">df</span><span class="p">.</span><span class="nf">to_excel</span><span class="p">(</span><span class="sh">'</span><span class="s">./auto/问题列表.xlsx</span><span class="sh">'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+
+
+
+
+
+<span class="c1">######### 读取题库 ##############
+</span><span class="n">dic</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># 读取单选题
+</span><span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_excel</span><span class="p">(</span><span class="sh">"</span><span class="s">./auto/diction.xlsx</span><span class="sh">"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="sh">"</span><span class="s">one</span><span class="sh">"</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">value_array</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="sh">"</span><span class="s">题目</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">答案</span><span class="sh">"</span><span class="p">]].</span><span class="n">values</span>
+<span class="c1">#print(df)
+</span><span class="n">dic1</span><span class="o">=</span> <span class="p">[(</span><span class="n">question</span><span class="p">,</span> <span class="n">ans</span><span class="p">)</span> <span class="k">for</span> <span class="n">question</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">value_array</span><span class="p">]</span>
+<span class="n">dic</span><span class="p">.</span><span class="nf">extend</span><span class="p">(</span><span class="n">dic1</span><span class="p">)</span>
+
+
+<span class="c1"># 读取多选题
+</span><span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_excel</span><span class="p">(</span><span class="sh">"</span><span class="s">./auto/diction.xlsx</span><span class="sh">"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="sh">"</span><span class="s">two</span><span class="sh">"</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">value_array</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="sh">"</span><span class="s">题目</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">答案</span><span class="sh">"</span><span class="p">]].</span><span class="n">values</span>
+<span class="n">dic1</span><span class="o">=</span> <span class="p">[(</span><span class="n">question</span><span class="p">,</span> <span class="n">ans</span><span class="p">)</span> <span class="k">for</span> <span class="n">question</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">value_array</span><span class="p">]</span>
+<span class="n">dic</span><span class="p">.</span><span class="nf">extend</span><span class="p">(</span><span class="n">dic1</span><span class="p">)</span>
+
+<span class="c1"># 读取判断题
+</span><span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_excel</span><span class="p">(</span><span class="sh">"</span><span class="s">./auto/diction.xlsx</span><span class="sh">"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="sh">"</span><span class="s">bool</span><span class="sh">"</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">value_array</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="sh">"</span><span class="s">题目</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">答案</span><span class="sh">"</span><span class="p">]].</span><span class="n">values</span>
+<span class="n">dic1</span><span class="o">=</span> <span class="p">[(</span><span class="n">question</span><span class="p">,</span> <span class="n">ans</span><span class="p">)</span> <span class="k">for</span> <span class="n">question</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">value_array</span><span class="p">]</span>
+<span class="n">dic</span><span class="p">.</span><span class="nf">extend</span><span class="p">(</span><span class="n">dic1</span><span class="p">)</span>
+
+
+<span class="c1"># dic = [('修改后的《安全生产法》由习近平主席于2014年签署第十三号令予以公布，自2014年（）起施行。', 'C'),(),,,,]
+# print("\n\n\ndic=", dic)
+</span>
+
+<span class="c1">########### 进行查询 ###############
+</span><span class="n">res</span><span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="c1"># 查询id, 查询题目
+</span>    <span class="nb">id</span> <span class="o">=</span> <span class="n">match</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">qu</span> <span class="o">=</span> <span class="n">match</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># 题目过短, 自己进行处理
+</span>    <span class="nf">if</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">qu</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">res</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">没有答案</span><span class="sh">"</span><span class="p">))</span>
+        <span class="k">continue</span>
+    
+    <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># 开始从题库中查询
+</span>    <span class="k">for</span> <span class="n">allqu</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">qu</span> <span class="ow">in</span> <span class="n">allqu</span><span class="p">:</span>
+            <span class="n">res</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="nb">id</span><span class="p">,</span> <span class="n">ans</span><span class="p">))</span>
+            <span class="n">flag</span> <span class="o">=</span><span class="mi">1</span>
+            <span class="n">num</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="k">break</span>
+        
+    
+    <span class="nf">if</span><span class="p">(</span><span class="n">flag</span> <span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">res</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">没有答案</span><span class="sh">"</span><span class="p">))</span>
+
+<span class="c1"># print("res=", res)
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">共查询到</span><span class="sh">"</span><span class="p">,</span> <span class="n">num</span> <span class="p">,</span> <span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">res</span><span class="p">),</span><span class="sh">"</span><span class="s">个结果</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># 输出为 execl, 一共两列
+</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">'</span><span class="s">题号</span><span class="sh">'</span><span class="p">:</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">res</span><span class="p">],</span>
+    <span class="sh">'</span><span class="s">答案</span><span class="sh">'</span><span class="p">:</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">res</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span><span class="p">.</span><span class="nf">to_excel</span><span class="p">(</span><span class="sh">"</span><span class="s">./auto/查询结果.xlsx</span><span class="sh">"</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="sh">"</span><span class="s">Sheet1</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+
+
+<span class="c1">############ 如果没有搜索到答案 ###########
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">下面请输入没有搜索到答案的问题</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">请输入问题：(右键即黏贴)</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ques</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">ques</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="sh">"</span><span class="se">\n\n\n</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">re</span>
+<span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c1"># 文本预处理
+</span><span class="n">filepath</span> <span class="o">=</span> <span class="sh">"</span><span class="s">./auto/question.txt</span><span class="sh">"</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+
+<span class="n">text_new</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">'</span><span class="s">（</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">(</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">text_new</span> <span class="o">=</span> <span class="n">text_new</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">'</span><span class="s">）</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">)</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">text_new</span><span class="p">)</span>
+
+<span class="c1"># 打开txt文件并读取内容
+</span><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">./auto/question.txt</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">"</span><span class="s">utf-8</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+
+<span class="c1"># 把题目导出来
+</span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="sh">'</span><span class="s">(\d+\.+)(.+?)(?=(\(|\。|\n|$))</span><span class="sh">'</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="p">.</span><span class="n">DOTALL</span><span class="p">)</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="p">[(</span><span class="n">ma</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ma</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">ma</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">matches=</span><span class="sh">"</span><span class="p">,</span> <span class="n">matches</span><span class="p">)</span>
+
+<span class="c1"># 将数据转换成 DataFrame 格式
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">matches</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">序号</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">问题</span><span class="sh">'</span><span class="p">])</span>
+<span class="c1"># 使用 slice() 方法将 content 列的字符串长度截断为 20
+</span><span class="n">df</span><span class="p">[</span><span class="sh">'</span><span class="s">问题</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sh">'</span><span class="s">问题</span><span class="sh">'</span><span class="p">]</span>  <span class="c1"># .str.slice(20)
+# 将数据保存到 Excel 文件中
+</span><span class="n">df</span><span class="p">.</span><span class="nf">to_excel</span><span class="p">(</span><span class="sh">'</span><span class="s">./auto/问题列表.xlsx</span><span class="sh">'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># 读取题库
+</span><span class="n">dic</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">excel_file</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">ExcelFile</span><span class="p">(</span><span class="sh">"</span><span class="s">./auto/diction.xlsx</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># 读取所有表格的数据
+</span><span class="k">for</span> <span class="n">sheet_name</span> <span class="ow">in</span> <span class="n">excel_file</span><span class="p">.</span><span class="n">sheet_names</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_excel</span><span class="p">(</span><span class="n">excel_file</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">value_array</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="sh">"</span><span class="s">题目</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">答案</span><span class="sh">"</span><span class="p">]].</span><span class="n">values</span>
+    <span class="n">dic1</span> <span class="o">=</span> <span class="p">[(</span><span class="n">question</span><span class="p">,</span> <span class="n">ans</span><span class="p">)</span> <span class="k">for</span> <span class="n">question</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">value_array</span><span class="p">]</span>
+    <span class="n">dic</span><span class="p">.</span><span class="nf">extend</span><span class="p">(</span><span class="n">dic1</span><span class="p">)</span>
+
+<span class="c1"># 进行查询
+</span><span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="c1"># 查询id, 查询题目
+</span>    <span class="nb">id</span> <span class="o">=</span> <span class="n">match</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">qu</span> <span class="o">=</span> <span class="n">match</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># 题目过短, 自己进行处理
+</span>    <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">qu</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">res</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">没有答案</span><span class="sh">"</span><span class="p">))</span>
+        <span class="k">continue</span>
+
+    <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># 开始从题库中查询
+</span>    <span class="k">for</span> <span class="n">allqu</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">qu</span> <span class="ow">in</span> <span class="n">allqu</span><span class="p">:</span>
+            <span class="n">res</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="nb">id</span><span class="p">,</span> <span class="n">ans</span><span class="p">))</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">res</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">没有答案</span><span class="sh">"</span><span class="p">))</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">共查询到</span><span class="sh">"</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">res</span><span class="p">),</span> <span class="sh">"</span><span class="s">个结果</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># 输出为 execl, 一共两列
+</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">'</span><span class="s">题号</span><span class="sh">'</span><span class="p">:</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">res</span><span class="p">],</span>
+    <span class="sh">'</span><span class="s">答案</span><span class="sh">'</span><span class="p">:</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">res</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span><span class="p">.</span><span class="nf">to_excel</span><span class="p">(</span><span class="sh">"</span><span class="s">./auto/查询结果.xlsx</span><span class="sh">"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="sh">"</span><span class="s">Sheet1</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># 如果没有搜索到答案
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">下面请输入没有搜索到答案的问题</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">请输入问题：(右键即黏贴)</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ques</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">ques</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="sh">"</span><span class="se">\n\n\n</span><span class="sh">"</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h4 id="2-子文件夹内容移出并重命名为子文件夹名称">2 子文件夹内容移出并重命名为子文件夹名称</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo off
+setlocal enabledelayedexpansion
+
+rem 遍历当前文件夹下的每个子文件夹
+<span class="k">for</span> /d %%F <span class="k">in</span> <span class="o">(</span><span class="k">*</span><span class="o">)</span> <span class="k">do</span> <span class="o">(</span>
+    <span class="nb">set</span> <span class="s2">"folder_name=%%~nxF"</span>
+    
+    rem 将子文件夹下的文件重命名为文件夹名字
+    <span class="k">for</span> %%G <span class="k">in</span> <span class="o">(</span><span class="s2">"%%~F</span><span class="se">\*</span><span class="s2">"</span><span class="o">)</span> <span class="k">do</span> <span class="o">(</span>
+        move <span class="s2">"%%~G"</span> <span class="s2">"%%~dpF</span><span class="se">\!</span><span class="s2">folder_name!_%%~nxG"</span>
+    <span class="o">)</span>
+    
+    rem 将子文件夹下的所有文件移动到当前文件夹下
+    move <span class="s2">"%%~F</span><span class="se">\*</span><span class="s2">"</span> <span class="nb">.</span>
+    
+    rem 删除空的子文件夹
+    rd <span class="s2">"%%~F"</span>
+<span class="o">)</span>
+</code></pre></div></div>
+
+<h4 id="3-生成目录树">3 生成目录树</h4>
+
+<p><code class="language-plaintext highlighter-rouge">tree</code> 命令用于在命令行界面显示目录结构树，它会递归地列出指定目录及其子目录中的所有文件和文件夹，并以树状结构进行展示。这个命令通常在命令行界面中使用，对于需要快速了解目录结构的情况非常有用。</p>
+
+<p>使用 <code class="language-plaintext highlighter-rouge">tree</code> 命令，你可以快速了解指定目录中的文件和文件夹的组织结构，包括子目录、文件名、文件大小等信息，从而更方便地进行文件管理和导航。</p>
+
+<p>常见用法示例：</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">tree</code>: 显示当前目录下的目录结构树。</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">tree /F</code>: 显示目录结构树时，包括文件名。</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">tree /A</code>: 显示所有文件和文件夹，包括隐藏文件和系统文件。</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">tree /L n</code>: 限制目录层级，只显示前 n 层的目录结构。</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">tree /A /F &gt; tree.txt</code>: 将目录结构树输出到文本文件 <code class="language-plaintext highlighter-rouge">tree.txt</code> 中。</li>
+</ul>
+
+<p>总的来说，<code class="language-plaintext highlighter-rouge">tree</code> 命令是一个方便的工具，用于在命令行界面快速查看和分析目录结构。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tree <span class="o">&gt;</span>tree.txt
+</code></pre></div></div>
+
+<blockquote>
+  <p>D:.
+│  shilei_mymuduo.zip
+│  tree.txt
+│  __.DS_Store
+│  推荐课程学习路径.pdf
+│  目录树.bat
+│  重写muduo库.pdf
+│<br>
+└─视频
+     01项目介绍_ev.mp4
+     02.1_IO的阻塞和非阻塞_ev.mp4
+     02.2_IO的阻塞和非阻塞_勘误_ev.mp4
+     03 IO的同步和异步_IO的同步和异步_ev.mp4
+     04 阻塞&amp;非阻塞&amp;同步&amp;异步总结_阻塞&amp;非阻塞&amp;同步&amp;异步总结_ev.mp4
+     05 Linux的五种IO模型简介_Linux的五种IO模型简介_ev.mp4
+     06 Linux的五种IO模型详解_Linux的五种IO模型详解_ev.mp4
+     07 良好的网络服务器该怎么设计_良好的网络服务器该怎么设计_ev.mp4
+     08 Reactor模型详解_Reactor模型详解_ev.mp4</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DIR /S <span class="o">&gt;</span> dirs.txt
+</code></pre></div></div>
+
+<blockquote>
+  <p>D:\正在看的视频\cpp_手写C++ Muduo网络库项目-掌握高性能网络库实现原理 的目录</p>
+
+  <p>2023/07/17  16:44    </p>
+<dir>          .
+2023/07/17  16:44    <dir>          ..
+2023/07/17  16:44                 0 dirs.txt
+2023/07/15  15:10             4,224 shilei_mymuduo.zip
+2023/07/17  16:39             3,464 tree.txt
+2023/07/15  15:10             4,096 __.DS_Store
+2023/07/15  15:10            97,797 推荐课程学习路径.pdf
+2023/07/17  16:44                17 目录树.bat</dir>
+</dir>
+
+  <p>2023/07/15  16:20               466 子文件夹内容移出并重命名为子文件夹名称.bat
+           55 个文件  3,519,689,412 字节</p>
+
+  <p>所列文件总数:
+           62 个文件  3,520,852,047 字节
+            5 个目录 53,564,571,648 可用字节</p>
+</blockquote>
+
+<h4 id="自动提交脚本">自动提交脚本</h4>
+
+<ul>
+  <li>只是一个博客, 提交的信息就不重要了, 只提交一个 时间信息就好</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo off
+
+setlocal enabledelayedexpansion
+
+REM 获取当前日期和时间
+<span class="k">for</span> /f <span class="s2">"tokens=1-4 delims=/ "</span> %%i <span class="k">in</span> <span class="o">(</span><span class="s2">"%date%"</span><span class="o">)</span> <span class="k">do</span> <span class="o">(</span>
+    <span class="nb">set </span><span class="nv">year</span><span class="o">=</span>%%l
+    <span class="nb">set </span><span class="nv">month</span><span class="o">=</span>%%j
+    <span class="nb">set </span><span class="nv">day</span><span class="o">=</span>%%k
+<span class="o">)</span>
+
+<span class="k">for</span> /f <span class="s2">"tokens=1-3 delims=:."</span> %%i <span class="k">in</span> <span class="o">(</span><span class="s2">"%time%"</span><span class="o">)</span> <span class="k">do</span> <span class="o">(</span>
+    <span class="nb">set </span><span class="nv">hour</span><span class="o">=</span>%%i
+    <span class="nb">set </span><span class="nv">minute</span><span class="o">=</span>%%j
+    <span class="nb">set </span><span class="nv">second</span><span class="o">=</span>%%k
+<span class="o">)</span>
+
+REM 构建提交信息
+<span class="nb">set </span><span class="nv">commit_message</span><span class="o">=</span>%year%-%month%-%day% %hour%:%minute%:%second%
+
+REM 添加文件到暂存区
+git add <span class="nb">.</span>
+
+REM 提交代码，并包含日期和时间作为提交信息
+git commit <span class="nt">-m</span> <span class="s2">"%commit_message%"</span>
+
+REM 推送到远程仓库
+git push
+
+endlocal
+
+</code></pre></div></div>
+
+<h4 id="自动生成-markdown">自动生成 markdown</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh">#!/bin/bash</span>
+
+filename=$(date +"%Y-%m-%d-.md")
+
+<span class="gh">cat &gt; "$filename" &lt;&lt; EOF
+---
+</span>layout: blog
+banana: true
+category: default
+title:  
+date:   $(date +"%Y-%m-%d %H:%M:%S")
+background: green
+tags:
+<span class="p">-</span> default
+<span class="gh">- memcache
+---
+</span><span class="p">
+*</span> content
+{:toc}
+EOF
+
+echo "文件已生成：$filename"
+
+</code></pre></div></div>
+
+<p>请帮我生成批处理代码，实现以下功能，将当前目录下的子文件夹中的 png 文件 复制到，当前目录的上一级的 assets 文件夹下子文件夹blog 文件夹下</p>
+
+<p>请帮我生成批处理代码，实现以下功能，将当前目录下的子文件夹中的 md 文件中的 “assets/” 修改为 “/assets/blog/”</p>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/jekyll-theme-yat/api_software/2024/md_plus_tuchuang.html" title="图床">图床</a><a class="next" href="/jekyll-theme-yat/bash_automation/2024/mail_zhuan_fa.html" title="邮件设置转发">邮件设置转发</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li class="">
+          <a class="post-link" href="/jekyll-theme-yat/categories/" title="Categories">
+            Categories<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/summary/2023/2023-m.html" title="2023 年中总结">
+            2023 年中总结<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/mult-thread.html" title="Go_">
+            Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/jekyll-theme-yat/byte_tech/2023/project.html" title="Go_">
+            Go_<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/jekyll-theme-yat/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2024 li54426</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/jekyll-theme-yat/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
