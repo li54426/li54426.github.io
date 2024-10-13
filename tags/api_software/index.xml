@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>API_software on 演示站点</title>
+        <title>API_software on Blog</title>
         <link>https://li54426.github.io/tags/api_software/</link>
-        <description>Recent content in API_software on 演示站点</description>
+        <description>Recent content in API_software on Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
         <lastBuildDate>Mon, 01 Jul 2024 16:36:14 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/api_software/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title></title>
+        <title>浏览器插件推荐</title>
         <link>https://li54426.github.io/2024-07-01-broswer/</link>
         <pubDate>Mon, 01 Jul 2024 16:36:14 +0000</pubDate>
         
