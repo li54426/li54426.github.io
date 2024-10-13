@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Tags on Blog</title>
+        <title>Tags on li54426 &#39;s Blog</title>
         <link>https://li54426.github.io/tags/</link>
-        <description>Recent content in Tags on Blog</description>
+        <description>Recent content in Tags on li54426 &#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
@@ -50,7 +50,7 @@
         <item>
         <title>Automation</title>
         <link>https://li54426.github.io/tags/automation/</link>
-        <pubDate>Sat, 06 Apr 2024 13:53:18 +0000</pubDate>
+        <pubDate>Fri, 05 Apr 2024 23:09:34 +0000</pubDate>
         
         <guid>https://li54426.github.io/tags/automation/</guid>
         <description></description>
@@ -58,7 +58,7 @@
         <item>
         <title>Bash</title>
         <link>https://li54426.github.io/tags/bash/</link>
-        <pubDate>Sat, 06 Apr 2024 13:53:18 +0000</pubDate>
+        <pubDate>Fri, 05 Apr 2024 23:09:34 +0000</pubDate>
         
         <guid>https://li54426.github.io/tags/bash/</guid>
         <description></description>

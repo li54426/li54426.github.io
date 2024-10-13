@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>API_software on Blog</title>
+        <title>API_software on li54426 &#39;s Blog</title>
         <link>https://li54426.github.io/tags/api_software/</link>
-        <description>Recent content in API_software on Blog</description>
+        <description>Recent content in API_software on li54426 &#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
@@ -183,28 +183,12 @@
 </description>
         </item>
         <item>
-        <title></title>
-        <link>https://li54426.github.io/2024-04-09-github-action/</link>
-        <pubDate>Tue, 09 Apr 2024 10:21:32 +0000</pubDate>
-        
-        <guid>https://li54426.github.io/2024-04-09-github-action/</guid>
-        <description>&lt;ul&gt;
-&lt;li&gt;content
-{:toc}&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title></title>
+        <title>TVBox使用指南</title>
         <link>https://li54426.github.io/2024-04-08-tvbox/</link>
         <pubDate>Mon, 08 Apr 2024 21:59:02 +0000</pubDate>
         
         <guid>https://li54426.github.io/2024-04-08-tvbox/</guid>
-        <description>&lt;ul&gt;
-&lt;li&gt;content
-{:toc}&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;tvbox&#34;&gt;TVBox
+        <description>&lt;h3 id=&#34;tvbox&#34;&gt;TVBox
 &lt;/h3&gt;&lt;h3 id=&#34;1简介&#34;&gt;1简介
 &lt;/h3&gt;&lt;h4 id=&#34;11-介绍&#34;&gt;1.1 介绍
 &lt;/h4&gt;&lt;p&gt;TVBOX开源版是一款基于GitHub社区官方代码仓生成的安卓应用。其前身就是之前很火的猫影视 TV，延续了猫影视采用的「&lt;strong&gt;套壳&lt;/strong&gt;」与「&lt;strong&gt;视频源&lt;/strong&gt;」&lt;strong&gt;分离&lt;/strong&gt;的结构形式；这样有个好处，哪怕视频源倒闭了，壳子软件可以一直用。&lt;/p&gt;
@@ -307,16 +291,12 @@ jiopages(阿三出品)主力使用&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title></title>
+        <title>金山 airscript</title>
         <link>https://li54426.github.io/2024-04-07-airscript_wps/</link>
         <pubDate>Mon, 08 Apr 2024 21:44:44 +0000</pubDate>
         
         <guid>https://li54426.github.io/2024-04-07-airscript_wps/</guid>
-        <description>&lt;ul&gt;
-&lt;li&gt;content
-{:toc}&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;1-概述&#34;&gt;1 概述
+        <description>&lt;h3 id=&#34;1-概述&#34;&gt;1 概述
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://as.js.cool/demo/wps/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;原作者地址&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;文档地址：&lt;a class=&#34;link&#34; href=&#34;https://as.js.cool/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
