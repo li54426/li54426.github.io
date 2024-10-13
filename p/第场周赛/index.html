@@ -14,6 +14,7 @@
 <meta name="twitter:title" content="第场周赛">
 <meta name="twitter:description" content=" content {:toc} 20240407&mdash;&mdash;392 3105. 最长的严格递增或递减子数组 - 力扣（LeetCode）\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 class Solution { public: int longestMonotonicSubarray(vector&lt;int&gt;&amp; nums) { int len = nums.size(); vector&lt;int&gt; n(nums.size(), 1); int plus = 1; int res =1; for(int i = 1; i&lt; len; ++i){ if(nums[i]&gt; nums[i-1]){ n[i] = n[i-1]+1; res = max(res, n[i]); } } vector&lt;int&gt; m(nums.size(), 1); for(int i = 1; i&lt; len; ++i){ if(nums[i]&lt; nums[i-1]){ m[i] = m[i-1]+1; res = max(res, m[i]); } } return res; } }; 3106. 满足距离约束且字典序最小的字符串 - 力扣（LeetCode）\n">
     <link rel="shortcut icon" href="/favicon.ico" />
+<meta name="referrer" content="never">
 
     </head>
     <body class="

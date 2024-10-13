@@ -14,6 +14,7 @@
 <meta name="twitter:title" content="basic_1_算法基础知识">
 <meta name="twitter:description" content=" content {:toc} 基础知识 代码风格 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class Solution { public: void moveZeroes(vector&lt;int&gt;&amp; nums) { int slowIndex = 0; for (int fastIndex = 0; fastIndex &lt; nums.size(); fastIndex++) { if (nums[fastIndex] != 0) { nums[slowIndex++] = nums[fastIndex]; } } for (int i = slowIndex; i &lt; nums.size(); i++) { nums[i] = 0; } } }; ACM模式 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #include&lt;iostream&gt; #include&lt;vector&gt; using namespace std; int main() { int n; while (cin &gt;&gt; n) { vector&lt;int&gt; gym(n); vector&lt;int&gt; work(n); for (int i = 0; i &lt; n; i++) cin &gt;&gt; work[i]; for (int i = 0; i &lt; n; i++) cin &gt;&gt; gym[i]; int result = 0; // 处理逻辑 cout &lt;&lt; result &lt;&lt; endl; } return 0; } leetcode模式/ 核心代码模式 只关注核心逻辑, 培养算法思维 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class Solution { public: void moveZeroes(vector&lt;int&gt;&amp; nums) { int slowIndex = 0; for (int fastIndex = 0; fastIndex &lt; nums.size(); fastIndex++) { if (nums[fastIndex] != 0) { nums[slowIndex++] = nums[fastIndex]; } } for (int i = slowIndex; i &lt; nums.size(); i++) { nums[i] = 0; } } }; 究竟什么是时间复杂度 时间复杂度是一个函数，它定性描述该算法的运行时间。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
+<meta name="referrer" content="never">
 
     </head>
     <body class="

@@ -1129,7 +1129,6 @@ usepackage{graphics}
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
 &lt;/ul&gt;
-&lt;meta name=&#34;referrer&#34; content=&#34;never&#34;&gt;
 &lt;p&gt;&lt;img src=&#34;https://li54426.github.io/assets/blog/20230801md.png&#34;
 	
 	
@@ -1142,19 +1141,6 @@ usepackage{graphics}
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/li54426/the_pictures/raw/master/blog_cs/202409271347493504.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;tupian&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gitee.com/li54426/the_pictures/raw/master/blog_cs/202409271347493504.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;tupian&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;img src=&#34;https://gitee.com/li54426/the_pictures/raw/master/blog_cs/202409271347493504.png&#34; /&gt;
-&lt;p&gt;{{ $image &lt;strong&gt;:=&lt;/strong&gt; resources.GetRemote &amp;ldquo;&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/li54426/the_pictures/raw/master/blog_cs/202409271347493504.png%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://gitee.com/li54426/the_pictures/raw/master/blog_cs/202409271347493504.png&#34;&lt;/a&gt; }}&lt;/p&gt;
 &lt;h3 id=&#34;一-简介&#34;&gt;一 简介
 &lt;/h3&gt;&lt;h4 id=&#34;1-什么是markdown&#34;&gt;1 什么是markdown
 &lt;/h4&gt;&lt;p&gt;​	Markdown是一种轻量级标记&lt;strong&gt;语言&lt;/strong&gt;，创始人为约翰-格鲁伯（John Gruber）。它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。
