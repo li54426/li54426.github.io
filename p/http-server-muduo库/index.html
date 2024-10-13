@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" content {:toc} 0 写在开头 “如无必要，勿增实体”&mdash;&mdash;&mdash;威廉\n这就是著名的奥卡姆剃刀原则, 他说的是, 小就是美, 今天在写处理http的网络库时, 深有感触\n">
+<title>http server muduo库</title>
+
+<link rel='canonical' href='https://li54426.github.io/p/http-server-muduo%E5%BA%93/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="http server muduo库">
+<meta property='og:description' content=" content {:toc} 0 写在开头 “如无必要，勿增实体”&mdash;&mdash;&mdash;威廉\n这就是著名的奥卡姆剃刀原则, 他说的是, 小就是美, 今天在写处理http的网络库时, 深有感触\n">
+<meta property='og:url' content='https://li54426.github.io/p/http-server-muduo%E5%BA%93/'>
+<meta property='og:site_name' content='演示站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='lib_linux' /><meta property='article:published_time' content='2023-08-02T22:26:13&#43;00:00'/><meta property='article:modified_time' content='2023-08-02T22:26:13&#43;00:00'/>
+<meta name="twitter:title" content="http server muduo库">
+<meta name="twitter:description" content=" content {:toc} 0 写在开头 “如无必要，勿增实体”&mdash;&mdash;&mdash;威廉\n这就是著名的奥卡姆剃刀原则, 他说的是, 小就是美, 今天在写处理http的网络库时, 深有感触\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">演示站点</a></h1>
+            <h2 class="site-description">我的个人博客。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/li54426'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://li54426.github.io/en/" >English</option>
+                                
+                                    <option value="https://li54426.github.io/" selected>中文</option>
+                                
+                                    <option value="https://li54426.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#0-写在开头">0 写在开头</a></li>
+        <li><a href="#1-httprequest">1 HttpRequest</a></li>
+        <li><a href="#2-httpcontext">2 HttpContext</a>
+          <ol>
+            <li><a href="#21-主要的功能">2.1 主要的功能:</a></li>
+            <li><a href="#22-http报文格式">2.2 http报文格式</a></li>
+            <li><a href="#23-核心函数bool-parserequcestbuffer-buf-timestamp-receivetime">2.3 核心函数<code>bool parseRequCest(Buffer* buf, Timestamp receivetime);</code></a></li>
+            <li><a href="#24处理请求行">2.4处理请求行</a></li>
+          </ol>
+        </li>
+        <li><a href="#3-httpresponse">3 httpResponse</a></li>
+        <li><a href="#4-httpserver">4 HttpServer</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/http-server-muduo%E5%BA%93/">http server muduo库</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-08-02</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <ul>
+<li>content
+{:toc}</li>
+</ul>
+<h3 id="0-写在开头">0 写在开头
+</h3><p>“<strong>如无必要，勿增实体</strong>”&mdash;&mdash;&mdash;威廉</p>
+<p>这就是著名的奥卡姆剃刀原则, 他说的是, 小就是美, 今天在写处理<code>http</code>的网络库时, 深有感触</p>
+<p>http协议位于传输层上方, 但是不一定是最高的层次, 他就像操作系统对于硬件和用户的关系一样, 既要支持用户直接用, 也要支持作为协议的一层</p>
+<p>从支持用户直接使用的角度来看, 报文的请求行, 请求头, 请求体要一块进行处理, 但是从协议的一层来看, 请求体要向上传递, 交给另一个协议进行处理, 设计时, 要让 <code>body</code>部分不处理, 这就带来了一个问题, 如何区分<code>headers</code>和<code>body</code>, 因为headers可以有很多行, 协议的设计人员使用一个<strong>空行</strong>来进行分隔, 既要用少的规则来区分不同的属性, 又要尽可能的简单</p>
+<p>优点</p>
+<ul>
+<li>有着<code>crlf</code>这个明确的分界线来表示一行, 我们能够<strong>逐行处理</strong></li>
+<li>请求行中有着空格隔开, 可以十分方便的处理每个值</li>
+<li>请求头分为很多行, 可以逐行处理每一对<code>header</code>, 使用同一个逻辑 ( while  )</li>
+<li>请求头和请求体之间有着一个空行, 标志着请求头的结束, 能够方便的区分( 判断 )这两者</li>
+</ul>
+<p>用户关心的事情只有</p>
+<ul>
+<li>对发送来的 <code>HTTP</code>做出<strong>回复</strong></li>
+<li>因此, 为用户提供的接口是</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">HttpCallback</span> <span class="o">=</span> <span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span> <span class="n">HttpRequest</span> <span class="o">&amp;</span><span class="p">,</span> <span class="n">HttpResponse</span> <span class="o">*</span> <span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">setHttpCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">HttpCallback</span> <span class="o">&amp;</span> <span class="n">cb</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1-httprequest">1 HttpRequest
+</h3><ul>
+<li>存储了连接的<strong>状态</strong>, <code>URL</code>以及 <code>headers</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HttpRequest</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">using</span> <span class="n">HttpMap</span><span class="o">=</span> <span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">enum</span> <span class="nc">Method</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kInvalid</span><span class="p">,</span> <span class="n">kGet</span><span class="p">,</span> <span class="n">kPost</span><span class="p">,</span> <span class="n">kHead</span><span class="p">,</span> <span class="n">kPut</span><span class="p">,</span> <span class="n">kDelete</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">enum</span> <span class="nc">Version</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kUnkown</span><span class="p">,</span> <span class="n">kHttp10</span> <span class="p">,</span> <span class="n">kHttp11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Method</span> <span class="n">method_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Version</span> <span class="n">version_</span><span class="p">;</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">path_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">query_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Timestamp</span> <span class="n">receiveTime_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">headers_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-httpcontext">2 HttpContext
+</h3><h4 id="21-主要的功能">2.1 主要的功能:
+</h4><ul>
+<li>处理 <code>http</code>报文, 将报文解析出来, 传入成员<code>HttpRequest</code>中</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HttpContext</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">enum</span> <span class="nc">HttpRequestParseState</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kExpectRequestLine</span><span class="p">,</span> <span class="c1">// 期望解析请求行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">kExpectHeaders</span><span class="p">,</span> <span class="c1">// 期望解析请求头部
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">kExpectBody</span><span class="p">,</span> <span class="c1">// 期望解析请求体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">kGotAll</span><span class="p">,</span> <span class="c1">// 已经解析完整请求
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">parseRequCest</span><span class="p">(</span><span class="n">Buffer</span><span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="n">Timestamp</span> <span class="n">receivetime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HttpRequestParseState</span> <span class="n">state_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HttpRequest</span> <span class="n">request_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="22-http报文格式">2.2 http报文格式
+</h4><ul>
+<li>请求行 / 状态行
+<ul>
+<li>方法名</li>
+<li>URL</li>
+<li>协议版本</li>
+</ul>
+</li>
+<li><strong>请求头</strong> / 响应头</li>
+<li>请求体 / 响应体</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">POST /index.html HTTP/1.1 <span class="c1">#(回车换行)</span>
+</span></span><span class="line"><span class="cl">Who: Alex                 <span class="c1">#(回车换行)</span>
+</span></span><span class="line"><span class="cl">Content-Type: text/plain 
+</span></span><span class="line"><span class="cl">Host: 127.0.0.1:8888
+</span></span><span class="line"><span class="cl">Content-Length: <span class="m">28</span>
+</span></span><span class="line"><span class="cl">Cookie: <span class="nv">JSESSIONID</span><span class="o">=</span>24DF2688E37EE4F66D9669D2542AC17B <span class="c1">#(回车换行)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#(回车换行)</span>
+</span></span><span class="line"><span class="cl">Let<span class="err">&#39;</span>s watch a movie together
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 响应报文</span>
+</span></span><span class="line"><span class="cl">HTTP/1.1 <span class="m">200</span> OK 
+</span></span><span class="line"><span class="cl">Server: Apache-Coyote/1.1
+</span></span><span class="line"><span class="cl">Content-Type: application/json 
+</span></span><span class="line"><span class="cl">Transfer-Encoding: chunked 
+</span></span><span class="line"><span class="cl">Date: Mon, <span class="m">12</span> Sep <span class="m">2011</span> 12: 41: <span class="m">24</span> GMT
+</span></span><span class="line"><span class="cl">6f
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;password&#34;</span>:<span class="s2">&#34;1234&#34;</span>,<span class="s2">&#34;userName&#34;</span>:<span class="s2">&#34;tom&#34;</span>,<span class="s2">&#34;birthday&#34;</span>:null,<span class="s2">&#34;salary&#34;</span>:0,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;realName&#34;</span>: <span class="s2">&#34;tomson&#34;</span>,<span class="s2">&#34;userId&#34;</span>: <span class="s2">&#34;1000&#34;</span>,<span class="s2">&#34;dept&#34;</span>:null<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中, 状态行和首部中的每行都是以<strong>回车符</strong> (\r，%0d，CR) 和<strong>换行符</strong> (\n，%0a，LF) 结束, <code>headers</code>和<code>body</code>中间有一个空行</p>
+<p>因此我们也要分为三部分处理, 首先处理请求行, 再处理 <code>header</code>, 最后再处理 请求体</p>
+<h4 id="23-核心函数bool-parserequcestbuffer-buf-timestamp-receivetime">2.3 核心函数<code>bool parseRequCest(Buffer* buf, Timestamp receivetime);</code>
+</h4><ul>
+<li>功能: 从buffer中将报文解析出来</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">HttpContext</span><span class="o">::</span><span class="n">parseRequCest</span><span class="p">(</span><span class="n">Buffer</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="n">Timestamp</span> <span class="n">receivetime</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">ok</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">has_more</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">has_more</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">state_</span> <span class="o">==</span><span class="n">kExpectRequestLine</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 找到第一行结束的位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">crlf</span> <span class="o">=</span> <span class="n">buf</span><span class="o">-&gt;</span><span class="n">findCRLF</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">crlf</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 处理 请求行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">ok</span> <span class="o">=</span> <span class="n">processRequestLine</span><span class="p">(</span><span class="n">buf</span><span class="o">-&gt;</span> <span class="n">Peek</span><span class="p">(),</span> <span class="n">crlf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">ok</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// 设置时间戳
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">request_</span><span class="p">.</span><span class="n">setReceiveTime</span><span class="p">(</span><span class="n">receivetime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">buf</span><span class="o">-&gt;</span> <span class="n">Retrieve</span><span class="p">(</span><span class="n">crlf</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">buf</span><span class="o">-&gt;</span> <span class="n">Peek</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// 处理完请求行, 处理 headers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">state_</span> <span class="o">=</span> <span class="n">kExpectHeaders</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">{</span><span class="c1">// !ok
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="c1">// 遇到错误, 处理失败
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">has_more</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">{</span><span class="c1">// ! crlf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="c1">// 没有找到 crlf, 非法报文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">has_more</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 处理 头部, 本身没有循环, 通过外部循环来**逐行** 处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">state_</span> <span class="o">==</span> <span class="n">kExpectHeaders</span><span class="p">){</span><span class="c1">// state_ != kExpectRequestLine
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">crlf</span> <span class="o">=</span> <span class="n">buf</span><span class="o">-&gt;</span><span class="n">findCRLF</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">crlf</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">colon</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">buf</span><span class="o">-&gt;</span> <span class="n">Peek</span><span class="p">(),</span> <span class="n">crlf</span><span class="p">,</span> <span class="sc">&#39;:&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">colon</span> <span class="o">!=</span> <span class="n">crlf</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">++</span><span class="n">colon</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">colon</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">colon</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">request_</span><span class="p">.</span><span class="n">addHeader</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="n">buf</span><span class="o">-&gt;</span> <span class="n">Peek</span><span class="p">(),</span> <span class="n">colon</span><span class="p">),</span> <span class="n">string</span><span class="p">(</span><span class="n">colon</span><span class="p">,</span> <span class="n">crlf</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 有一个空行, 头部处理完毕
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">state_</span> <span class="o">=</span> <span class="n">kGotAll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">has_more</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">buf</span><span class="o">-&gt;</span> <span class="n">Retrieve</span><span class="p">(</span><span class="n">crlf</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">buf</span><span class="o">-&gt;</span> <span class="n">Peek</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 没找到回车换行, 非法报文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">has_more</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// body 部分依旧留在 buf中, 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 空语句, 在这里不处理, 只是为了逻辑上更顺畅
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">state_</span> <span class="o">==</span> <span class="n">kExpectBody</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ok</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="24处理请求行">2.4处理请求行
+</h4><ul>
+<li>每个值中间都用空格<code>方法(空格)URL(空格)版本CRLF</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">HttpContext</span><span class="o">::</span><span class="n">processRequestLine</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">begin</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">end</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 传进来的数据就是一行, 不用找 crlf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 以空格为准
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="n">succeed</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">start</span> <span class="o">=</span> <span class="n">begin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">space</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 设置方法名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">space</span> <span class="o">!=</span> <span class="n">end</span> <span class="o">&amp;&amp;</span> <span class="n">request_</span><span class="p">.</span><span class="n">setMethod</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">space</span><span class="p">))){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">start</span> <span class="o">=</span> <span class="n">space</span> <span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 继续查找下一个空格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">space</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">space</span> <span class="o">!=</span> <span class="n">end</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">question</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="sc">&#39;?&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">question</span> <span class="o">!=</span> <span class="n">space</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">request_</span><span class="p">.</span><span class="n">setPath</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">question</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                <span class="n">request_</span><span class="p">.</span><span class="n">setQuery</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">space</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">request_</span><span class="p">.</span><span class="n">setPath</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">space</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">start</span> <span class="o">=</span> <span class="n">space</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">succeed</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="n">std</span><span class="o">::</span><span class="n">equal</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#34;HTTP/1.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">succeed</span> <span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="sc">&#39;1&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">request_</span><span class="p">.</span><span class="n">setVersion</span><span class="p">(</span><span class="n">HttpRequest</span><span class="o">::</span><span class="n">kHttp11</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="sc">&#39;0&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">request_</span><span class="p">.</span><span class="n">setVersion</span><span class="p">(</span><span class="n">HttpRequest</span><span class="o">::</span><span class="n">kHttp10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">succeed</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">}</span><span class="c1">// space != end
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="c1">// set method
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">succeed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-httpresponse">3 httpResponse
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HttpResponse</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">enum</span> <span class="nc">HttpStatusCode</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kUnknown</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">k200Ok</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">k301MovedPermanently</span> <span class="o">=</span> <span class="mi">301</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">k400BadRequest</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">k404NotFound</span> <span class="o">=</span> <span class="mi">404</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">explicit</span> <span class="nf">HttpResponse</span><span class="p">(</span><span class="kt">bool</span> <span class="n">close</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="o">:</span> <span class="n">status_code_</span><span class="p">(</span><span class="n">kUnknown</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">close_connection_</span><span class="p">(</span><span class="n">close</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">void</span> <span class="nf">setStatusCode</span><span class="p">(</span><span class="n">HttpStatusCode</span> <span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="n">status_code_</span> <span class="o">=</span> <span class="n">code</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">setStatusMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="n">status_message_</span> <span class="o">=</span> <span class="n">message</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">setCloseConnection</span><span class="p">(</span><span class="kt">bool</span> <span class="n">on</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="n">close_connection_</span> <span class="o">=</span> <span class="n">on</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">closeConnection</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="k">return</span> <span class="n">close_connection_</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">setContentType</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">contentType</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="n">addHeader</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="n">contentType</span><span class="p">);</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// FIXME: replace string with StringPiece
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">addHeader</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="n">headers_</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">setBody</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">body</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="n">body_</span> <span class="o">=</span> <span class="n">body</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">appendToBuffer</span><span class="p">(</span><span class="n">Buffer</span><span class="o">*</span> <span class="n">output</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HttpStatusCode</span> <span class="n">status_code_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">body_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">status_message_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">close_connection_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">headers_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-httpserver">4 HttpServer
+</h3><p>用户只需要关心：</p>
+<ul>
+<li>对来的 报文 做 制作 <code>response</code>, 因此<code>using HttpCallback = function&lt;void(const HttpRequest &amp;, HttpResponse * )&gt; ;</code>, 第一个参数用来保存用户的请求, 第二个参数我们用来制作报文</li>
+<li>为用户提供的<strong>接口</strong>是<code>function&lt;void(const HttpRequest &amp;, HttpResponse * )&gt;</code></li>
+</ul>
+<p>因此在 <code>onMessage </code>中, 库设计者需要</p>
+<ul>
+<li>将<code>tcp</code>中的消息转换为 <strong>HTTP报文</strong></li>
+<li>调用用户传入的<code>callback</code>函数,</li>
+<li>发送 response</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HttpServer</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">using</span> <span class="n">HttpCallback</span> <span class="o">=</span> <span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span> <span class="n">HttpRequest</span> <span class="o">&amp;</span><span class="p">,</span> <span class="n">HttpResponse</span> <span class="o">*</span> <span class="p">)</span><span class="o">&gt;</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 实际就是进行 server_的初始化操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">HttpServer</span><span class="p">(</span><span class="n">EventLoop</span> <span class="o">*</span><span class="n">loop</span><span class="p">,</span> <span class="k">const</span> <span class="n">InetAddress</span> <span class="o">&amp;</span> <span class="n">linten_addr</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span> <span class="n">name</span><span class="p">,</span> <span class="n">TcpServer</span><span class="o">::</span><span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="n">TcpServer</span><span class="o">::</span><span class="n">kNoReusePort</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">EventLoop</span> <span class="o">*</span> <span class="nf">getLoop</span><span class="p">()</span><span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">setHttpCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">HttpCallback</span> <span class="o">&amp;</span> <span class="n">cb</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">http_callback_</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">setThreadNum</span><span class="p">(</span><span class="kt">int</span> <span class="n">num_thread</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">server_</span><span class="p">.</span><span class="n">setNumThread</span><span class="p">(</span><span class="n">num_thread</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">onConnection</span><span class="p">(</span><span class="k">const</span> <span class="n">TcpConnectionPtr</span> <span class="o">&amp;</span> <span class="n">conn</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">onMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">TcpConnectionPtr</span> <span class="o">&amp;</span><span class="n">conn</span><span class="p">,</span> <span class="n">Buffer</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="n">Timestamp</span> <span class="n">receive_time</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">onRequest</span><span class="p">(</span><span class="k">const</span> <span class="n">TcpConnectionPtr</span><span class="o">&amp;</span> <span class="n">conn</span><span class="p">,</span> <span class="k">const</span> <span class="n">HttpRequest</span> <span class="o">&amp;</span> <span class="n">req</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TcpServer</span> <span class="n">server_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HttpCallback</span> <span class="n">http_callback_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">defaultHttpCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">HttpRequest</span> <span class="o">&amp;</span><span class="p">,</span> <span class="n">HttpResponse</span> <span class="o">*</span><span class="n">resp</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resp</span><span class="o">-&gt;</span> <span class="n">setStatusCode</span><span class="p">(</span><span class="n">HttpResponse</span><span class="o">::</span><span class="n">k404NotFound</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resp</span><span class="o">-&gt;</span> <span class="n">setStatusMessage</span><span class="p">(</span><span class="s">&#34;Not Found&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resp</span><span class="o">-&gt;</span> <span class="n">setCloseConnection</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HttpServer</span><span class="o">::</span><span class="n">HttpServer</span><span class="p">(</span><span class="n">EventLoop</span> <span class="o">*</span><span class="n">loop</span><span class="p">,</span> <span class="k">const</span> <span class="n">InetAddress</span> <span class="o">&amp;</span><span class="n">listen_addr</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">,</span> <span class="n">TcpServer</span><span class="o">::</span><span class="n">Option</span> <span class="n">option</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server_</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">listen_addr</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">option</span> <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">http_callback_</span><span class="p">(</span><span class="n">defaultHttpCallback</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server_</span><span class="p">.</span><span class="n">setConnectionCallback</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">HttpServer</span><span class="o">::</span><span class="n">onConnection</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="n">_1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server_</span><span class="p">.</span><span class="n">setMessageCallback</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">HttpServer</span><span class="o">::</span><span class="n">onMessage</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="n">_1</span><span class="p">,</span> <span class="n">_2</span><span class="p">,</span> <span class="n">_3</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">EventLoop</span> <span class="o">*</span><span class="n">HttpServer</span><span class="o">::</span><span class="n">getLoop</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">server_</span><span class="p">.</span><span class="n">getLoop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">HttpServer</span><span class="o">::</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LOG_DEBUG</span><span class="p">(</span><span class="s">&#34;httpserver %s start, listen on %s&#34;</span><span class="p">,</span> <span class="n">server_</span><span class="p">.</span><span class="n">name</span><span class="p">(),</span> <span class="n">server_</span><span class="p">.</span><span class="n">ipPort</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server_</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">HttpServer</span><span class="o">::</span><span class="n">onConnection</span><span class="p">(</span><span class="k">const</span> <span class="n">TcpConnectionPtr</span> <span class="o">&amp;</span><span class="n">conn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">conn</span><span class="o">-&gt;</span> <span class="n">connected</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">conn</span><span class="o">-&gt;</span><span class="n">setContext</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">HttpServer</span><span class="o">::</span><span class="n">onMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">TcpConnectionPtr</span> <span class="o">&amp;</span><span class="n">conn</span><span class="p">,</span> <span class="n">Buffer</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="n">Timestamp</span> <span class="n">receive_time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HttpContext</span> <span class="n">context</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">ok</span> <span class="o">=</span>  <span class="n">context</span><span class="p">.</span><span class="n">parseRequCest</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">receive_time</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">conn</span><span class="o">-&gt;</span> <span class="n">send</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="s">&#34;HTTP/1.1 400 Bad Request</span><span class="se">\r\n\r\n</span><span class="s">&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">conn</span><span class="o">-&gt;</span> <span class="n">shutdown</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">gotAll</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">onRequest</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">context</span><span class="p">.</span><span class="n">request</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">context</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">HttpServer</span><span class="o">::</span><span class="n">onRequest</span><span class="p">(</span><span class="k">const</span> <span class="n">TcpConnectionPtr</span> <span class="o">&amp;</span><span class="n">conn</span><span class="p">,</span> <span class="k">const</span> <span class="n">HttpRequest</span> <span class="o">&amp;</span><span class="n">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">connection</span> <span class="o">=</span> <span class="n">req</span><span class="p">.</span><span class="n">getHeader</span><span class="p">(</span><span class="s">&#34;Connection&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isclose</span> <span class="o">=</span> <span class="n">connection</span><span class="o">==</span><span class="s">&#34;close&#34;</span> <span class="o">||</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">getVersion</span><span class="p">()</span> <span class="o">==</span> <span class="n">HttpRequest</span><span class="o">::</span><span class="n">kHttp10</span> <span class="o">&amp;&amp;</span> <span class="n">connection</span> <span class="o">!=</span> <span class="s">&#34;Keep-Alive&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">HttpResponse</span> <span class="nf">response</span><span class="p">(</span><span class="n">isclose</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">http_callback_</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">response</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Buffer</span> <span class="n">buf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="p">.</span><span class="n">appendToBuffer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">-&gt;</span><span class="n">send</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">closeConnection</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">conn</span><span class="o">-&gt;</span> <span class="n">shutdown</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/lib_linux/">Lib_linux</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
