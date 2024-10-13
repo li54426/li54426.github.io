@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="[TOC]\n数据库 特点 作为后端软件的底座, 性能敏感 ( 没有数据还有服务? ) 存储系统软件架构, 容易受硬件影响 (别人发明了快十倍的硬件, 但是需要从头写, 你用不) 存储系统代码,既&quot;简单&quot;又&quot;复杂&quot; 设计程序原则 「缓存」很重要,贯穿整个存储体系 「拷贝」很昂贵,应该尽量减少 硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件 高速数据库的设计应该归为操作系统这一级别\n">
+<title>Go_</title>
+
+<link rel='canonical' href='https://li54426.github.io/p/go_/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Go_">
+<meta property='og:description' content="[TOC]\n数据库 特点 作为后端软件的底座, 性能敏感 ( 没有数据还有服务? ) 存储系统软件架构, 容易受硬件影响 (别人发明了快十倍的硬件, 但是需要从头写, 你用不) 存储系统代码,既&quot;简单&quot;又&quot;复杂&quot; 设计程序原则 「缓存」很重要,贯穿整个存储体系 「拷贝」很昂贵,应该尽量减少 硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件 高速数据库的设计应该归为操作系统这一级别\n">
+<meta property='og:url' content='https://li54426.github.io/p/go_/'>
+<meta property='og:site_name' content='演示站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='byte_tech' /><meta property='article:tag' content='go' /><meta property='article:published_time' content='2023-08-12T21:34:04&#43;00:00'/><meta property='article:modified_time' content='2023-08-12T21:34:04&#43;00:00'/>
+<meta name="twitter:title" content="Go_">
+<meta name="twitter:description" content="[TOC]\n数据库 特点 作为后端软件的底座, 性能敏感 ( 没有数据还有服务? ) 存储系统软件架构, 容易受硬件影响 (别人发明了快十倍的硬件, 但是需要从头写, 你用不) 存储系统代码,既&quot;简单&quot;又&quot;复杂&quot; 设计程序原则 「缓存」很重要,贯穿整个存储体系 「拷贝」很昂贵,应该尽量减少 硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件 高速数据库的设计应该归为操作系统这一级别\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">演示站点</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://li54426.github.io/en/" >English</option>
+                                
+                                    <option value="https://li54426.github.io/" selected>中文</option>
+                                
+                                    <option value="https://li54426.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#我的工作---发布视频">我的工作&mdash;发布视频</a>
+          <ol>
+            <li><a href="#简介">简介</a></li>
+            <li><a href="#队友的接口">队友的接口</a></li>
+            <li><a href="#使用了接口之后的伪代码">使用了接口之后的伪代码</a></li>
+          </ol>
+        </li>
+        <li><a href="#user">user</a></li>
+        <li><a href="#项目分析">项目分析</a>
+          <ol>
+            <li><a href="#service-messagego">service/ message.go</a></li>
+            <li><a href="#api--路由-基于-http-协议">API / 路由/ 基于 HTTP 协议</a></li>
+            <li><a href="#返回类型">返回类型</a></li>
+          </ol>
+        </li>
+        <li><a href="#gorm-使用">GORM 使用</a></li>
+        <li><a href="#其他库">其他库</a>
+          <ol>
+            <li><a href="#抽取图片">抽取图片</a></li>
+            <li><a href="#syncmap">sync.Map</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/go_/">Go_</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 05, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <ul>
+<li>content
+{:toc}</li>
+</ul>
+<h3 id="我的工作---发布视频">我的工作&mdash;发布视频
+</h3><h4 id="简介">简介
+</h4><p>我的工作为发布视频, 将这个任务分解为几个小任务, 先看哪些任务能够自己独立完成,先完成这些任务, 之后再根据小组成员的接口, 实现完整的功能</p>
+<p>环境</p>
+<ul>
+<li>需要提前安装<code>ffmpeg</code></li>
+</ul>
+<p>发布视频的流程</p>
+<ul>
+<li>鉴权 &mdash;&ndash; 使用别人的接口</li>
+<li>存储视频   &mdash;- (  demo中 有 )</li>
+<li>抽取封面并存储</li>
+<li>视频 和 封面 上传到 <code>cdn</code> (  没有, 因此没有做 )</li>
+<li>将收到的视频信息( 视频名称, 用户名, 播放地址, 封面的地址 )存储到数据库中   &mdash;- 使用数据库的接口</li>
+<li>返回消息 ( 发布成功)</li>
+</ul>
+<p>因此最先做的工作就是</p>
+<ul>
+<li>确定资源<strong>存储的位置</strong>, 通过查找<strong>路由</strong>得知, 有这样一个映射<code>r.Static(&quot;/static&quot;, &quot;./public&quot;)</code>, 我们访问静态资源的时候, 网址为<code>xxx/static/fileName.txt</code>, 通过<code> c.Request.Host</code>字段, 来获得域名 : <code>2f781ee3592dd7a9ff0bbd0007fe40ce-app.1024paas.com</code>, 加头(协议)加尾(路径 + 文件名), 进行字符串拼接</li>
+<li>使用<code>ffmpeg</code>来抽取某一帧来做封面, 需要设置 其 <strong>环境</strong></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// controller/ publish.go
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 没有其他合作者的提供的接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">Publish</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// token, 鉴权
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 	
+</span></span><span class="line"><span class="cl">    <span class="c1">// 存储
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">SaveUploadedFile</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">saveFile</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 抽取并存储图片
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">Vedio2Jpeg</span><span class="p">(</span><span class="nx">saveFile</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 拼接网址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">vedio_url</span> <span class="o">:=</span> <span class="s">&#34;https://&#34;</span><span class="o">+</span> <span class="nx">domain</span> <span class="o">+</span> <span class="s">&#34;/static/&#34;</span><span class="o">+</span> <span class="nx">finalName</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 放入数据库
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">db</span><span class="p">.</span><span class="nf">creat</span><span class="p">()</span><span class="o">...</span><span class="p">..</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>抽取图片 demo</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//  将视频抽取一帧, 转化为流
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kn">package</span> <span class="nx">examples</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;bytes&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;io&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">ffmpeg</span> <span class="s">&#34;github.com/u2takey/ffmpeg-go&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">ExampleReadFrameAsJpeg</span><span class="p">(</span><span class="nx">inFileName</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">frameNum</span> <span class="kt">int</span><span class="p">)</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">buf</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBuffer</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="nx">inFileName</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Filter</span><span class="p">(</span><span class="s">&#34;select&#34;</span><span class="p">,</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nx">Args</span><span class="p">{</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;gte(n,%d)&#34;</span><span class="p">,</span> <span class="nx">frameNum</span><span class="p">)}).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Output</span><span class="p">(</span><span class="s">&#34;pipe:&#34;</span><span class="p">,</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nx">KwArgs</span><span class="p">{</span><span class="s">&#34;vframes&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;format&#34;</span><span class="p">:</span> <span class="s">&#34;image2&#34;</span><span class="p">,</span> <span class="s">&#34;vcodec&#34;</span><span class="p">:</span> <span class="s">&#34;mjpeg&#34;</span><span class="p">}).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">WithOutput</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">buf</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="队友的接口">队友的接口
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 鉴权接口
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 参数: token, 返回: username
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">ParseToken</span><span class="p">(</span><span class="nx">token</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 数据库接口---用户
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">UserDao</span><span class="p">)</span> <span class="nf">FindUserByName</span><span class="p">(</span><span class="nx">username</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">User</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">UserDao</span><span class="p">)</span> <span class="nf">FindUserById</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">User</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">models</span><span class="p">.</span><span class="nf">NewUserDaoInstance</span><span class="p">().</span><span class="nf">FindUserByName</span><span class="p">(</span><span class="s">&#34;qong&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 数据库接口--- 视频
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">VideoDao</span><span class="p">)</span> <span class="nf">CreateVideo</span><span class="p">(</span><span class="nx">video</span> <span class="o">*</span><span class="nx">Video</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">Video</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="使用了接口之后的伪代码">使用了接口之后的伪代码
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Publish</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// token, 鉴权
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 	<span class="nx">token</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">PostForm</span><span class="p">(</span><span class="s">&#34;token&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">user_name</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">ParseToken</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">user</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">models</span><span class="p">.</span><span class="nf">NewUserDaoInstance</span><span class="p">().</span><span class="nf">FindUserByName</span><span class="p">(</span><span class="nx">user_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">user_id</span> <span class="p">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">UserId</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 存储
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">SaveUploadedFile</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">saveFile</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 抽取并存储图片
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">Vedio2Jpeg</span><span class="p">(</span><span class="nx">saveFile</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 拼接网址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">vedio_url</span> <span class="o">:=</span> <span class="s">&#34;https://&#34;</span><span class="o">+</span> <span class="nx">domain</span> <span class="o">+</span> <span class="s">&#34;/static/&#34;</span><span class="o">+</span> <span class="nx">finalName</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 放入数据库
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">video1</span> <span class="o">:=</span> <span class="nx">models</span><span class="p">.</span><span class="nx">Video</span><span class="p">{</span><span class="nx">UserId</span> <span class="p">:</span> <span class="nx">user_id</span><span class="p">,</span> <span class="nx">PlayUrl</span> <span class="p">:</span> <span class="nx">vedio_url</span><span class="p">,</span> <span class="nx">CoverUrl</span> <span class="p">:</span> <span class="nx">img_url</span> <span class="p">,</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">models</span><span class="p">.</span><span class="nf">NewVideoDaoInstance</span><span class="p">().</span><span class="nf">CreateVideo</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">video1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">主题</th>
+          <th style="text-align: left">描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">计算机基础</td>
+          <td style="text-align: left">数据结构、算法/ 计算机组成原理、计算机网络、操作系统、编译原理</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Linux</td>
+          <td style="text-align: left">linux基础操作、unix环境编程、网络编程</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">数据库</td>
+          <td style="text-align: left">基础理论ACID、MySQL、NoSQL</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">编程语言</td>
+          <td style="text-align: left">Java、Go、C/C++、Rust</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">设计模式</td>
+          <td style="text-align: left">23种设计模式</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">中间件</td>
+          <td style="text-align: left">API网关、Web/RPC框架、消息队列、缓存、定时调度、数据库中间件ORM、日志系统、配置中型</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">分布式</td>
+          <td style="text-align: left">一致性/CAP、事务、等、微服务、拓展性</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">高并发、高性能、高可用</td>
+          <td style="text-align: left">C10k、进程、线程、线程、异步、池化、缓存、CDN、集群、负载均衡、限流、容灾、多活</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table></div>
+<p>linux 命令</p>
+<ul>
+<li>查看目录</li>
+<li>打开文件</li>
+<li>两个命令 awk,  sed</li>
+</ul>
+<p>SOA(Service-Oriented Architecture)
+1.将应用的不同功能单元抽象为服务
+2.定义服务之间的通信标准微服务架构:SOA的去中心化演进方向</p>
+<h3 id="user">user
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Response</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">StatusCode</span> <span class="kt">int32</span>  <span class="s">`json:&#34;status_code&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">StatusMsg</span>  <span class="kt">string</span> <span class="s">`json:&#34;status_msg,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="项目分析">项目分析
+</h3><h4 id="service-messagego">service/ message.go
+</h4><ul>
+<li>tcp 客户端,</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">service</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="o">...</span><span class="p">..</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 并发安全的 映射类型
+</span></span></span><span class="line"><span class="cl"><span class="c1">// event.UserId_event.ToUserId
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">chatConnMap</span> <span class="p">=</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">RunMessageServer</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">listen</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;127.0.0.1:9090&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listen</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Accept conn failed: %v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">go</span> <span class="nf">process</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nx">conn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">buf</span> <span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="kt">byte</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">buf</span><span class="p">[:])</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="nx">io</span><span class="p">.</span><span class="nx">EOF</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">break</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Read message failed: %v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">        <span class="c1">// 在 common.go #L39
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 请求事件是什么
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kd">var</span> <span class="nx">event</span> <span class="p">=</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">MessageSendEvent</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">buf</span><span class="p">[:</span><span class="nx">n</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Receive Message：%+v\n&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">fromChatKey</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d_%d&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">UserId</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ToUserId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">MsgContent</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">chatConnMap</span><span class="p">.</span><span class="nf">Store</span><span class="p">(</span><span class="nx">fromChatKey</span><span class="p">,</span> <span class="nx">conn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">toChatKey</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d_%d&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ToUserId</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">UserId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">writeConn</span><span class="p">,</span> <span class="nx">exist</span> <span class="o">:=</span> <span class="nx">chatConnMap</span><span class="p">.</span><span class="nf">Load</span><span class="p">(</span><span class="nx">toChatKey</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">exist</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;User %d offline\n&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ToUserId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">pushEvent</span> <span class="o">:=</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">MessagePushEvent</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">FromUserId</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">UserId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">MsgContent</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">MsgContent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 转化为 json 字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">pushData</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">pushEvent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">writeConn</span><span class="p">.(</span><span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">).</span><span class="nf">Write</span><span class="p">(</span><span class="nx">pushData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Push message failed: %v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="api--路由-基于-http-协议">API / 路由/ 基于 HTTP 协议
+</h4><p>做的事情有</p>
+<ul>
+<li>
+<p>通过调用 <code>r.Static(&quot;/static&quot;, &quot;./public&quot;)</code> 将 &ldquo;/static&rdquo; 路径<strong>映射</strong>到 &ldquo;./public&rdquo; 目录，用于提供静态资源文件。</p>
+</li>
+<li>
+<p>接下来，通过调用 <code>r.LoadHTMLGlob(&quot;templates/*&quot;)</code> 加载了所有位于 &ldquo;templates&rdquo; 目录下的 HTML 模板文件。</p>
+</li>
+<li>
+<p>之后，定义了一个处理根路径 (&quot;/&quot;) 的 GET 请求的<strong>路由</strong>。</p>
+</li>
+<li>
+<p>当GET 的路径为<code>douyin/feed/</code>时, 调用<code>controller.Feed</code>, 其他也一样</p>
+</li>
+<li>
+<p>注意: Gin 默认情况下会返回 404 错误</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">initRouter</span><span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// public directory is used to serve static resources
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">r</span><span class="p">.</span><span class="nf">Static</span><span class="p">(</span><span class="s">&#34;/static&#34;</span><span class="p">,</span> <span class="s">&#34;./public&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">r</span><span class="p">.</span><span class="nf">LoadHTMLGlob</span><span class="p">(</span><span class="s">&#34;templates/*&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// home page
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nf">HTML</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;index.html&#34;</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="s">&#34;title&#34;</span><span class="p">:</span> <span class="s">&#34;Main website&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/douyin&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// basic apis
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/feed/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">Feed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/user/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">UserInfo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/user/register/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">Register</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/user/login/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">Login</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// -------我的工作在这里----------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/publish/action/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">Publish</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/publish/list/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">PublishList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="返回类型">返回类型
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">DemoVideos</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">Video</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Id</span><span class="p">:</span>            <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Author</span><span class="p">:</span>        <span class="nx">DemoUser</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 静态资源 https://49e48d523a1b2e3ac60f4f7e9aec3628-app.1024paas.com/static/2_mmexport1692111641344.mp4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">PlayUrl</span><span class="p">:</span>       <span class="s">&#34;https://www.w3schools.com/html/movie.mp4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">CoverUrl</span><span class="p">:</span>      <span class="s">&#34;https://cdn.pixabay.com/photo/2016/03/27/18/10/bear-1283347_1280.jpg&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">FavoriteCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">CommentCount</span><span class="p">:</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">IsFavorite</span><span class="p">:</span>    <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Response</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">StatusCode</span> <span class="kt">int32</span>  <span class="s">`json:&#34;status_code&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">StatusMsg</span>  <span class="kt">string</span> <span class="s">`json:&#34;status_msg,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 存储
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="nf">SaveUploadedFile</span><span class="p">(</span><span class="nx">file</span> <span class="o">*</span><span class="nx">multipart</span><span class="p">.</span><span class="nx">FileHeader</span><span class="p">,</span> <span class="nx">dst</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="nf">JSON</span><span class="p">(</span><span class="nx">code</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">obj</span> <span class="kd">interface</span><span class="p">{})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="gorm-使用">GORM 使用
+</h3><p><a class="link" href="https://blog.csdn.net/yoyogu/article/details/109318626"  target="_blank" rel="noopener"
+    >go 语言 gorm 基本使用_go gorm_含光君～的博客 - CSDN 博客</a></p>
+<h3 id="其他库">其他库
+</h3><h4 id="抽取图片">抽取图片
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//  将视频抽取一帧, 转化为流
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kn">package</span> <span class="nx">examples</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;bytes&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;io&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">ffmpeg</span> <span class="s">&#34;github.com/u2takey/ffmpeg-go&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">ExampleReadFrameAsJpeg</span><span class="p">(</span><span class="nx">inFileName</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">frameNum</span> <span class="kt">int</span><span class="p">)</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">buf</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBuffer</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="nx">inFileName</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Filter</span><span class="p">(</span><span class="s">&#34;select&#34;</span><span class="p">,</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nx">Args</span><span class="p">{</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;gte(n,%d)&#34;</span><span class="p">,</span> <span class="nx">frameNum</span><span class="p">)}).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Output</span><span class="p">(</span><span class="s">&#34;pipe:&#34;</span><span class="p">,</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nx">KwArgs</span><span class="p">{</span><span class="s">&#34;vframes&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;format&#34;</span><span class="p">:</span> <span class="s">&#34;image2&#34;</span><span class="p">,</span> <span class="s">&#34;vcodec&#34;</span><span class="p">:</span> <span class="s">&#34;mjpeg&#34;</span><span class="p">}).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">WithOutput</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">buf</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;strings&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">inFileName</span> <span class="o">:=</span> <span class="s">&#34;path/to/video.mp4&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">index</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">LastIndex</span><span class="p">(</span><span class="nx">inFileName</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">outFileName</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="nx">inFileName</span><span class="p">[:</span><span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#34;jpeg&#34;</span><span class="p">},</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Print</span><span class="p">(</span><span class="nx">outFileName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Invalid file name&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="syncmap">sync.Map
+</h4><p><code>sync.Map</code> 是 Go 语言提供的一种并发安全的映射（Map）结构。它可以在多个 goroutine 并发访问时保证数据的安全性，而不需要额外的加锁操作。</p>
+<p><code>sync.Map</code> 的主要特点如下：</p>
+<ol>
+<li>无需显式初始化，可以直接声明并使用。</li>
+<li>支持并发的读取和写入操作，可以在多个 goroutine 中同时访问。</li>
+<li>内部自动进行了并发安全的处理，不需要额外的锁机制。</li>
+<li>提供了几个常用的方法来对映射进行操作，如 Store、Load、Delete 等。</li>
+</ol>
+<p>需要注意的是，<code>sync.Map</code> 相对于普通的 <code>map</code> 有一些限制：</p>
+<ol>
+<li>不允许使用 <code>nil</code> 作为键值。</li>
+<li>对于存储的值类型没有约束，可以是任意类型。</li>
+<li>没有提供获取映射长度的方法。</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/byte_tech/">Byte_tech</a>
+        
+            <a href="/tags/go/">Go</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/go_%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E9%9B%B6%E6%8B%B7%E8%B4%9D%E5%8F%8A%E5%BA%94%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go_深入浅出零拷贝及应用</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/go_quick_book/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go_quick_book</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%BC%8F%E6%B4%9E/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">漏洞</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/go_/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go_</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/go_/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go_</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
