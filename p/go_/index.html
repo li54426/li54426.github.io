@@ -10,7 +10,7 @@
 <meta property='og:description' content="[TOC]\n数据库 特点 作为后端软件的底座, 性能敏感 ( 没有数据还有服务? ) 存储系统软件架构, 容易受硬件影响 (别人发明了快十倍的硬件, 但是需要从头写, 你用不) 存储系统代码,既&quot;简单&quot;又&quot;复杂&quot; 设计程序原则 「缓存」很重要,贯穿整个存储体系 「拷贝」很昂贵,应该尽量减少 硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件 高速数据库的设计应该归为操作系统这一级别\n">
 <meta property='og:url' content='https://li54426.github.io/p/go_/'>
 <meta property='og:site_name' content='演示站点'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='byte_tech' /><meta property='article:tag' content='go' /><meta property='article:published_time' content='2023-08-12T21:34:04&#43;00:00'/><meta property='article:modified_time' content='2023-08-12T21:34:04&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='byte_tech' /><meta property='article:tag' content='go' /><meta property='article:published_time' content='2023-08-17T10:11:09&#43;00:00'/><meta property='article:modified_time' content='2023-08-17T10:11:09&#43;00:00'/>
 <meta name="twitter:title" content="Go_">
 <meta name="twitter:description" content="[TOC]\n数据库 特点 作为后端软件的底座, 性能敏感 ( 没有数据还有服务? ) 存储系统软件架构, 容易受硬件影响 (别人发明了快十倍的硬件, 但是需要从头写, 你用不) 存储系统代码,既&quot;简单&quot;又&quot;复杂&quot; 设计程序原则 「缓存」很重要,贯穿整个存储体系 「拷贝」很昂贵,应该尽量减少 硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件 高速数据库的设计应该归为操作系统这一级别\n">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -294,26 +294,15 @@
   <ol>
     <li>
       <ol>
-        <li><a href="#我的工作---发布视频">我的工作&mdash;发布视频</a>
+        <li>
           <ol>
-            <li><a href="#简介">简介</a></li>
-            <li><a href="#队友的接口">队友的接口</a></li>
-            <li><a href="#使用了接口之后的伪代码">使用了接口之后的伪代码</a></li>
-          </ol>
-        </li>
-        <li><a href="#user">user</a></li>
-        <li><a href="#项目分析">项目分析</a>
-          <ol>
-            <li><a href="#service-messagego">service/ message.go</a></li>
-            <li><a href="#api--路由-基于-http-协议">API / 路由/ 基于 HTTP 协议</a></li>
-            <li><a href="#返回类型">返回类型</a></li>
-          </ol>
-        </li>
-        <li><a href="#gorm-使用">GORM 使用</a></li>
-        <li><a href="#其他库">其他库</a>
-          <ol>
-            <li><a href="#抽取图片">抽取图片</a></li>
-            <li><a href="#syncmap">sync.Map</a></li>
+            <li><a href="#三测试">三、测试</a></li>
+            <li><a href="#assert">assert</a></li>
+            <li><a href="#基本概念">基本概念</a></li>
+            <li><a href="#gc-算法">gc 算法</a></li>
+            <li><a href="#追踪垃圾分类">追踪垃圾分类</a></li>
+            <li><a href="#分代-gc">分代 gc</a></li>
+            <li><a href="#引用计数">引用计数</a></li>
           </ol>
         </li>
       </ol>
@@ -393,26 +382,19 @@
 <li>content
 {:toc}</li>
 </ul>
-<h3 id="我的工作---发布视频">我的工作&mdash;发布视频
-</h3><h4 id="简介">简介
-</h4><p>我的工作为发布视频, 将这个任务分解为几个小任务, 先看哪些任务能够自己独立完成,先完成这些任务, 之后再根据小组成员的接口, 实现完整的功能</p>
-<p>环境</p>
+<h4 id="三测试">三、测试
+</h4><p>测试是避免事物的最后一道屏障。</p>
 <ul>
-<li>需要提前安装<code>ffmpeg</code></li>
+<li>回归测试</li>
+<li>集成测试</li>
+<li>单元测试</li>
 </ul>
-<p>发布视频的流程</p>
+<p>从上到下，覆盖率逐层变大，成本却逐层降低</p>
+<p>Go 语言内置有对单元测试的支持，主要通过 testing 包实现。</p>
 <ul>
-<li>鉴权 &mdash;&ndash; 使用别人的接口</li>
-<li>存储视频   &mdash;- (  demo中 有 )</li>
-<li>抽取封面并存储</li>
-<li>视频 和 封面 上传到 <code>cdn</code> (  没有, 因此没有做 )</li>
-<li>将收到的视频信息( 视频名称, 用户名, 播放地址, 封面的地址 )存储到数据库中   &mdash;- 使用数据库的接口</li>
-<li>返回消息 ( 发布成功)</li>
-</ul>
-<p>因此最先做的工作就是</p>
-<ul>
-<li>确定资源<strong>存储的位置</strong>, 通过查找<strong>路由</strong>得知, 有这样一个映射<code>r.Static(&quot;/static&quot;, &quot;./public&quot;)</code>, 我们访问静态资源的时候, 网址为<code>xxx/static/fileName.txt</code>, 通过<code> c.Request.Host</code>字段, 来获得域名 : <code>2f781ee3592dd7a9ff0bbd0007fe40ce-app.1024paas.com</code>, 加头(协议)加尾(路径 + 文件名), 进行字符串拼接</li>
-<li>使用<code>ffmpeg</code>来抽取某一帧来做封面, 需要设置 其 <strong>环境</strong></li>
+<li>所有测试文件以<code>_test.go</code>结尾</li>
+<li><code>func TestXxx(t *testing.T)</code></li>
+<li>初始化逻辑放到<code>TestMain</code>中</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -427,246 +409,24 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// controller/ publish.go
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 没有其他合作者的提供的接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">Publish</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// token, 鉴权
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 	
-</span></span><span class="line"><span class="cl">    <span class="c1">// 存储
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">SaveUploadedFile</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">saveFile</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 抽取并存储图片
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">Vedio2Jpeg</span><span class="p">(</span><span class="nx">saveFile</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 拼接网址
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">vedio_url</span> <span class="o">:=</span> <span class="s">&#34;https://&#34;</span><span class="o">+</span> <span class="nx">domain</span> <span class="o">+</span> <span class="s">&#34;/static/&#34;</span><span class="o">+</span> <span class="nx">finalName</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 放入数据库
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">db</span><span class="p">.</span><span class="nf">creat</span><span class="p">()</span><span class="o">...</span><span class="p">..</span>
-</span></span><span class="line"><span class="cl">    
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestAdd</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">output</span><span class="o">:=</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">expectOutput</span><span class="o">:=</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">output</span> <span class="o">!=</span> <span class="nx">expectOutput</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;Add failed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>抽取图片 demo</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//  将视频抽取一帧, 转化为流
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kn">package</span> <span class="nx">examples</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;bytes&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;io&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">ffmpeg</span> <span class="s">&#34;github.com/u2takey/ffmpeg-go&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">ExampleReadFrameAsJpeg</span><span class="p">(</span><span class="nx">inFileName</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">frameNum</span> <span class="kt">int</span><span class="p">)</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">buf</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBuffer</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="nx">inFileName</span><span class="p">).</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">Filter</span><span class="p">(</span><span class="s">&#34;select&#34;</span><span class="p">,</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nx">Args</span><span class="p">{</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;gte(n,%d)&#34;</span><span class="p">,</span> <span class="nx">frameNum</span><span class="p">)}).</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">Output</span><span class="p">(</span><span class="s">&#34;pipe:&#34;</span><span class="p">,</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nx">KwArgs</span><span class="p">{</span><span class="s">&#34;vframes&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;format&#34;</span><span class="p">:</span> <span class="s">&#34;image2&#34;</span><span class="p">,</span> <span class="s">&#34;vcodec&#34;</span><span class="p">:</span> <span class="s">&#34;mjpeg&#34;</span><span class="p">}).</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">WithOutput</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">).</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">Run</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">buf</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="队友的接口">队友的接口
-</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 鉴权接口
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 参数: token, 返回: username
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">ParseToken</span><span class="p">(</span><span class="nx">token</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 数据库接口---用户
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">UserDao</span><span class="p">)</span> <span class="nf">FindUserByName</span><span class="p">(</span><span class="nx">username</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">User</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">UserDao</span><span class="p">)</span> <span class="nf">FindUserById</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">User</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">models</span><span class="p">.</span><span class="nf">NewUserDaoInstance</span><span class="p">().</span><span class="nf">FindUserByName</span><span class="p">(</span><span class="s">&#34;qong&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 数据库接口--- 视频
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">VideoDao</span><span class="p">)</span> <span class="nf">CreateVideo</span><span class="p">(</span><span class="nx">video</span> <span class="o">*</span><span class="nx">Video</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">Video</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="使用了接口之后的伪代码">使用了接口之后的伪代码
-</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Publish</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// token, 鉴权
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 	<span class="nx">token</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">PostForm</span><span class="p">(</span><span class="s">&#34;token&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">user_name</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">ParseToken</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">user</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">models</span><span class="p">.</span><span class="nf">NewUserDaoInstance</span><span class="p">().</span><span class="nf">FindUserByName</span><span class="p">(</span><span class="nx">user_name</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">user_id</span> <span class="p">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">UserId</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 存储
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">SaveUploadedFile</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">saveFile</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 抽取并存储图片
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">Vedio2Jpeg</span><span class="p">(</span><span class="nx">saveFile</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 拼接网址
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">vedio_url</span> <span class="o">:=</span> <span class="s">&#34;https://&#34;</span><span class="o">+</span> <span class="nx">domain</span> <span class="o">+</span> <span class="s">&#34;/static/&#34;</span><span class="o">+</span> <span class="nx">finalName</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 放入数据库
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">video1</span> <span class="o">:=</span> <span class="nx">models</span><span class="p">.</span><span class="nx">Video</span><span class="p">{</span><span class="nx">UserId</span> <span class="p">:</span> <span class="nx">user_id</span><span class="p">,</span> <span class="nx">PlayUrl</span> <span class="p">:</span> <span class="nx">vedio_url</span><span class="p">,</span> <span class="nx">CoverUrl</span> <span class="p">:</span> <span class="nx">img_url</span> <span class="p">,</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">models</span><span class="p">.</span><span class="nf">NewVideoDaoInstance</span><span class="p">().</span><span class="nf">CreateVideo</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">video1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th style="text-align: left">主题</th>
-          <th style="text-align: left">描述</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">计算机基础</td>
-          <td style="text-align: left">数据结构、算法/ 计算机组成原理、计算机网络、操作系统、编译原理</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Linux</td>
-          <td style="text-align: left">linux基础操作、unix环境编程、网络编程</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">数据库</td>
-          <td style="text-align: left">基础理论ACID、MySQL、NoSQL</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">编程语言</td>
-          <td style="text-align: left">Java、Go、C/C++、Rust</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">设计模式</td>
-          <td style="text-align: left">23种设计模式</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">中间件</td>
-          <td style="text-align: left">API网关、Web/RPC框架、消息队列、缓存、定时调度、数据库中间件ORM、日志系统、配置中型</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">分布式</td>
-          <td style="text-align: left">一致性/CAP、事务、等、微服务、拓展性</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">高并发、高性能、高可用</td>
-          <td style="text-align: left">C10k、进程、线程、线程、异步、池化、缓存、CDN、集群、负载均衡、限流、容灾、多活</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"></td>
-          <td style="text-align: left"></td>
-      </tr>
-  </tbody>
-</table></div>
-<p>linux 命令</p>
-<ul>
-<li>查看目录</li>
-<li>打开文件</li>
-<li>两个命令 awk,  sed</li>
-</ul>
-<p>SOA(Service-Oriented Architecture)
-1.将应用的不同功能单元抽象为服务
-2.定义服务之间的通信标准微服务架构:SOA的去中心化演进方向</p>
-<h3 id="user">user
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Response</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">StatusCode</span> <span class="kt">int32</span>  <span class="s">`json:&#34;status_code&#34;`</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">StatusMsg</span>  <span class="kt">string</span> <span class="s">`json:&#34;status_msg,omitempty&#34;`</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="项目分析">项目分析
-</h3><h4 id="service-messagego">service/ message.go
+</div><h4 id="assert">assert
 </h4><ul>
-<li>tcp 客户端,</li>
+<li>Go 语言内置的 testing 包提供了 assert 包来进行单元测试的断言，assert 能大大简化测试代码，不需要过多的 if 条件判断，只要最终结果不符合断言，就会自动标记为测试失败。</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -686,382 +446,105 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">service</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">Test</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="o">...</span><span class="p">..</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">   <span class="s">&#34;github.com/stretchr/testify/assert&#34;</span>
+</span></span><span class="line"><span class="cl">   <span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 并发安全的 映射类型
-</span></span></span><span class="line"><span class="cl"><span class="c1">// event.UserId_event.ToUserId
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">chatConnMap</span> <span class="p">=</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span><span class="p">{}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">RunMessageServer</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">listen</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;127.0.0.1:9090&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listen</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Accept conn failed: %v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="k">go</span> <span class="nf">process</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nx">conn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">buf</span> <span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="kt">byte</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">buf</span><span class="p">[:])</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="nx">io</span><span class="p">.</span><span class="nx">EOF</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="k">break</span>
-</span></span><span class="line"><span class="cl">			<span class="p">}</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Read message failed: %v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		
-</span></span><span class="line"><span class="cl">        <span class="c1">// 在 common.go #L39
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 请求事件是什么
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kd">var</span> <span class="nx">event</span> <span class="p">=</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">MessageSendEvent</span><span class="p">{}</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">buf</span><span class="p">[:</span><span class="nx">n</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">event</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Receive Message：%+v\n&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="nx">fromChatKey</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d_%d&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">UserId</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ToUserId</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">MsgContent</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">chatConnMap</span><span class="p">.</span><span class="nf">Store</span><span class="p">(</span><span class="nx">fromChatKey</span><span class="p">,</span> <span class="nx">conn</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="nx">toChatKey</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d_%d&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ToUserId</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">UserId</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">writeConn</span><span class="p">,</span> <span class="nx">exist</span> <span class="o">:=</span> <span class="nx">chatConnMap</span><span class="p">.</span><span class="nf">Load</span><span class="p">(</span><span class="nx">toChatKey</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">exist</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;User %d offline\n&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ToUserId</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="nx">pushEvent</span> <span class="o">:=</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">MessagePushEvent</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">FromUserId</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">UserId</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">MsgContent</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">MsgContent</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 转化为 json 字符串
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">pushData</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">pushEvent</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">writeConn</span><span class="p">.(</span><span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">).</span><span class="nf">Write</span><span class="p">(</span><span class="nx">pushData</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Push message failed: %v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestAdd</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">output</span> <span class="o">:=</span> <span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">expectOutput</span> <span class="o">:=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">assert</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">expectOutput</span><span class="p">,</span> <span class="nx">output</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="api--路由-基于-http-协议">API / 路由/ 基于 HTTP 协议
-</h4><p>做的事情有</p>
+</div><p>性能优化与软件质量</p>
 <ul>
-<li>
-<p>通过调用 <code>r.Static(&quot;/static&quot;, &quot;./public&quot;)</code> 将 &ldquo;/static&rdquo; 路径<strong>映射</strong>到 &ldquo;./public&rdquo; 目录，用于提供静态资源文件。</p>
-</li>
-<li>
-<p>接下来，通过调用 <code>r.LoadHTMLGlob(&quot;templates/*&quot;)</code> 加载了所有位于 &ldquo;templates&rdquo; 目录下的 HTML 模板文件。</p>
-</li>
-<li>
-<p>之后，定义了一个处理根路径 (&quot;/&quot;) 的 GET 请求的<strong>路由</strong>。</p>
-</li>
-<li>
-<p>当GET 的路径为<code>douyin/feed/</code>时, 调用<code>controller.Feed</code>, 其他也一样</p>
-</li>
-<li>
-<p>注意: Gin 默认情况下会返回 404 错误</p>
-</li>
+<li>软件质量至关重要</li>
+<li>在保证接口<strong>稳定</strong>的前提下改进具体实现</li>
+<li>测试用例: 覆盖尽可能多的场景,方便回归, 测试驱动开发</li>
+<li>文档:做了什么,没做什么,能达到怎样的效果</li>
+<li>隔离:通过选项控制是否开启优化</li>
+<li>可观测:必要的日志输出</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">initRouter</span><span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">// public directory is used to serve static resources
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">r</span><span class="p">.</span><span class="nf">Static</span><span class="p">(</span><span class="s">&#34;/static&#34;</span><span class="p">,</span> <span class="s">&#34;./public&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">r</span><span class="p">.</span><span class="nf">LoadHTMLGlob</span><span class="p">(</span><span class="s">&#34;templates/*&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c1">// home page
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nf">HTML</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;index.html&#34;</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="s">&#34;title&#34;</span><span class="p">:</span> <span class="s">&#34;Main website&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="p">})</span>
-</span></span><span class="line"><span class="cl">  <span class="p">})</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/douyin&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c1">// basic apis
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/feed/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">Feed</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/user/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">UserInfo</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/user/register/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">Register</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/user/login/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">Login</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// -------我的工作在这里----------
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/publish/action/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">Publish</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">apiRouter</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/publish/list/&#34;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">PublishList</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="返回类型">返回类型
-</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">DemoVideos</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">Video</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">Id</span><span class="p">:</span>            <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">Author</span><span class="p">:</span>        <span class="nx">DemoUser</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 静态资源 https://49e48d523a1b2e3ac60f4f7e9aec3628-app.1024paas.com/static/2_mmexport1692111641344.mp4
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">PlayUrl</span><span class="p">:</span>       <span class="s">&#34;https://www.w3schools.com/html/movie.mp4&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">CoverUrl</span><span class="p">:</span>      <span class="s">&#34;https://cdn.pixabay.com/photo/2016/03/27/18/10/bear-1283347_1280.jpg&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">FavoriteCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">CommentCount</span><span class="p">:</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">IsFavorite</span><span class="p">:</span>    <span class="kc">false</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="p">},</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Response</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">StatusCode</span> <span class="kt">int32</span>  <span class="s">`json:&#34;status_code&#34;`</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">StatusMsg</span>  <span class="kt">string</span> <span class="s">`json:&#34;status_msg,omitempty&#34;`</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 存储
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="nf">SaveUploadedFile</span><span class="p">(</span><span class="nx">file</span> <span class="o">*</span><span class="nx">multipart</span><span class="p">.</span><span class="nx">FileHeader</span><span class="p">,</span> <span class="nx">dst</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="nf">JSON</span><span class="p">(</span><span class="nx">code</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">obj</span> <span class="kd">interface</span><span class="p">{})</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="gorm-使用">GORM 使用
-</h3><p><a class="link" href="https://blog.csdn.net/yoyogu/article/details/109318626"  target="_blank" rel="noopener"
-    >go 语言 gorm 基本使用_go gorm_含光君～的博客 - CSDN 博客</a></p>
-<h3 id="其他库">其他库
-</h3><h4 id="抽取图片">抽取图片
-</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//  将视频抽取一帧, 转化为流
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kn">package</span> <span class="nx">examples</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;bytes&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;io&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">ffmpeg</span> <span class="s">&#34;github.com/u2takey/ffmpeg-go&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">ExampleReadFrameAsJpeg</span><span class="p">(</span><span class="nx">inFileName</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">frameNum</span> <span class="kt">int</span><span class="p">)</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">buf</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBuffer</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="nx">inFileName</span><span class="p">).</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">Filter</span><span class="p">(</span><span class="s">&#34;select&#34;</span><span class="p">,</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nx">Args</span><span class="p">{</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;gte(n,%d)&#34;</span><span class="p">,</span> <span class="nx">frameNum</span><span class="p">)}).</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">Output</span><span class="p">(</span><span class="s">&#34;pipe:&#34;</span><span class="p">,</span> <span class="nx">ffmpeg</span><span class="p">.</span><span class="nx">KwArgs</span><span class="p">{</span><span class="s">&#34;vframes&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;format&#34;</span><span class="p">:</span> <span class="s">&#34;image2&#34;</span><span class="p">,</span> <span class="s">&#34;vcodec&#34;</span><span class="p">:</span> <span class="s">&#34;mjpeg&#34;</span><span class="p">}).</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">WithOutput</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">).</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">Run</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">buf</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;strings&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">inFileName</span> <span class="o">:=</span> <span class="s">&#34;path/to/video.mp4&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">index</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">LastIndex</span><span class="p">(</span><span class="nx">inFileName</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">outFileName</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="nx">inFileName</span><span class="p">[:</span><span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#34;jpeg&#34;</span><span class="p">},</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Print</span><span class="p">(</span><span class="nx">outFileName</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Invalid file name&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="syncmap">sync.Map
-</h4><p><code>sync.Map</code> 是 Go 语言提供的一种并发安全的映射（Map）结构。它可以在多个 goroutine 并发访问时保证数据的安全性，而不需要额外的加锁操作。</p>
-<p><code>sync.Map</code> 的主要特点如下：</p>
+<p>自动内存管理主要管理的是<code>动态内存</code>，<code>动态内存</code>指的是程序在运行时根据需求动态分配的内存，比如 C 语言中的 <code>malloc()</code> 函数分配的内存。</p>
+<p>自动内存管理也称为<code>垃圾回收</code>，主要目的是由程序语言的运行时系统管理动态内存，这样做有以下两方面的好处：</p>
+<ul>
+<li>避免手动内存管理，专注于实现业务逻辑</li>
+<li>保证内存使用的正确性和安全性，比如 <code>C</code> 语言中的内存多次释放：<code>double-free problem</code>, 释放后再次使用 <code>use-after-free problem</code>。</li>
+</ul>
+<p>由此可见，手动释放内存存在很多问题，如果使用不当的话，可能会引起程序的崩溃、漏洞，而自动内存管理可以帮我们自动处理这些问题。</p>
+<p>自动内存管理有 3 个主要的核心任务：</p>
 <ol>
-<li>无需显式初始化，可以直接声明并使用。</li>
-<li>支持并发的读取和写入操作，可以在多个 goroutine 中同时访问。</li>
-<li>内部自动进行了并发安全的处理，不需要额外的锁机制。</li>
-<li>提供了几个常用的方法来对映射进行操作，如 Store、Load、Delete 等。</li>
+<li>为新对象分配空间</li>
+<li>找到存活对象</li>
+<li>回收死亡对象的内存空间</li>
 </ol>
-<p>需要注意的是，<code>sync.Map</code> 相对于普通的 <code>map</code> 有一些限制：</p>
+<h4 id="基本概念">基本概念
+</h4><ul>
+<li><code>Mutator</code>：业务线程，分配新对象，修改对象指向关系</li>
+<li><code>Collector</code>：GC 线程，找到存活对象，回收死亡对象的内存空间</li>
+<li><code>Serial GC</code>：只有一个 <code>collector</code>，会暂停 (STW)</li>
+<li><code>Parallec GC</code>：支持多个 <code>collectors</code> 同时回收 <code>GC</code> 算法，会暂停 (STW)</li>
+<li><code>Concurrent GC</code>：<code>mutator(s)</code> 和 <code>collector(s)</code> 可以同时执行，<code>Collectors</code> 必须感知对象指向关系的改变。</li>
+</ul>
+<h4 id="gc-算法">gc 算法
+</h4><p>接下来将介绍两种常见的 <code>GC</code> 相关的技术：</p>
+<ul>
+<li>追踪垃圾回收 (Tracing garbage collection)</li>
+<li>引用计数 (Reference counting)</li>
+</ul>
+<h4 id="追踪垃圾分类">追踪垃圾分类
+</h4><p>追踪垃圾回收，当一个对象的指针指向关系<strong>不可达</strong>的时候，该对象就要被回收了。</p>
+<p>追踪垃圾回收算法垃圾回收步骤：</p>
 <ol>
-<li>不允许使用 <code>nil</code> 作为键值。</li>
-<li>对于存储的值类型没有约束，可以是任意类型。</li>
-<li>没有提供获取映射长度的方法。</li>
+<li>标记根对象
+<ul>
+<li>标记包括 静态变量、全局变量、常量、线程栈等</li>
+</ul>
+</li>
+<li>标记：找到可达对象
+<ul>
+<li>求指针指向关系的传递闭包：从根对象触发，找到所有可达对象</li>
+</ul>
+</li>
+<li>清理：所有不可达对象
+<ul>
+<li>将存活对象复制到另外的内存空间 (<code>Copying GC</code>)</li>
+<li>将死亡对象的内存标记为” 可分配 “(<code>Marking-sweep GC</code>)</li>
+<li>移动并整理存活对象 (<code>Mark-compact GC</code>)</li>
+</ul>
+</li>
 </ol>
+<p>清理策略有很多种，在实际清理的时候应该根据对象的生命周期，使用不同的标记和清理策略。</p>
+<h4 id="分代-gc">分代 gc
+</h4><p><code>分代GC</code>(<code>Generational GC</code>) 是一种常见的内存管理方式，思想是基于分代假说 (<code>Generational hypothesis</code>)—— 大多数对象很快就死掉了 (<code>most objects die young</code>)，很多对象在分配出来后很快就不再使用了。</p>
+<p>每个对象都有年龄，也就是对象经历过 <code>GC</code> 的次数，比如经历了 2 次 <code>GC</code> 那么他的年龄就为 2。</p>
+<p><code>分代GC</code> 根据对象年龄的不同，把对象放在不同的区域，年轻代对象放在 <code>Young Generation</code> 区域，老年代放在 <code>Old Generation</code> 区域，这样做的目的为对年轻和老年的对象，制定不同的 <code>GC策略</code>，降低整体内存管理的开销。</p>
+<p><code>年轻代</code>为常规的对象分配，由于存活对象很少，可以采用 <code>copying collection算法</code>，GC 吞吐量很高。</p>
+<p><code>老年代</code>内对象趋向于一直活着，反复复制开销较大，可以采用 <code>mark-sweep collection算法</code>。</p>
+<h4 id="引用计数">引用计数
+</h4><p>引用计数管理内存的方式为每个对象都有一个与之相关联的引用数目，对象存活的条件为当且仅当引用数大于 0。</p>
+<p>引用计数管理内存的优点如下：</p>
+<ul>
+<li>内存管理的操作被平摊到程序执行过程中</li>
+<li>内存管理不需要了解 <code>runtime</code> 的实现细节，有一些库可以帮助实现引用计数，比如 <code>C++</code> 智能指针 (<code>smart pointer</code>)。</li>
+</ul>
+<p>当然引用计数也有缺点：</p>
+<ul>
+<li>维护引用计数的开销较大：通过原子操作保证对引用计数操作的原子性和可见性</li>
+<li>无法回收环形数据结构 ——<code>weak reference</code></li>
+<li>内存开销：每个对象都引入的额外内存空间存储引用数目</li>
+<li>回收内存时可能引发暂停 —— 大的数据结构</li>
+</ul>
 
 </section>
 
@@ -1158,12 +641,12 @@
             
                 
 <article class="">
-    <a href="/p/go_/">
+    <a href="/p/go_%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Go_</h2>
+            <h2 class="article-title">Go_常用框架/中间件</h2>
         </div>
     </a>
 </article>
