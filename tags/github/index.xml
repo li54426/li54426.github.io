@@ -9,10 +9,10 @@
         <copyright>Example Person</copyright>
         <lastBuildDate>Sat, 29 Jul 2023 15:17:12 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Github使用指南</title>
-        <link>https://li54426.github.io/p/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+        <link>https://li54426.github.io/2023-07-29-github/</link>
         <pubDate>Sat, 29 Jul 2023 15:17:12 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+        <guid>https://li54426.github.io/2023-07-29-github/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -570,7 +570,8 @@
 &lt;li&gt;如果你在本地的 master 分支做了一些工作，在同一段时间内有其他人推送&lt;strong&gt;提交&lt;/strong&gt;到 &lt;code&gt;git.ourcompany.com&lt;/code&gt; 并且&lt;strong&gt;更新&lt;/strong&gt;了它的 master 分支，这就是说你们的提交历史已走向不同的方向。 即便这样，只要你保持不与origin 服务器连接（并拉取数据），你的 origin/master 指针就不会移动。&lt;/li&gt;
 &lt;li&gt;如果要与给定的远程仓库&lt;strong&gt;同步数据&lt;/strong&gt;，运行 &lt;code&gt;git fetch &amp;lt;remote&amp;gt; &lt;/code&gt;命令&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;4-常见开发场景&#34;&gt;4 常见开发场景
+&lt;h4 id=&#34;37-让分支成为新的分支&#34;&gt;3.7 让分支成为新的分支
+&lt;/h4&gt;&lt;h3 id=&#34;4-常见开发场景&#34;&gt;4 常见开发场景
 &lt;/h3&gt;&lt;h4 id=&#34;1本地仓库有文件远程服务器上面是新建的仓库&#34;&gt;1、本地仓库有文件，远程服务器上面是新建的仓库
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;

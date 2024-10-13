@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" content {:toc} 论文技巧Latex使用简介: latex摘要&mdash;-快速入门 中文使用cjkutf8\n使用 % 进行注释 段与段之间要空一行 0 安装 网址 清华大学开源软件镜像站 | Tsinghua Open Source Mirror\n推荐miktex + texstudio\n安装推荐:miktix和texstudio\n">
+<title>latex使用指南</title>
+
+<link rel='canonical' href='https://li54426.github.io/2023-07-29-latex/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="latex使用指南">
+<meta property='og:description' content=" content {:toc} 论文技巧Latex使用简介: latex摘要&mdash;-快速入门 中文使用cjkutf8\n使用 % 进行注释 段与段之间要空一行 0 安装 网址 清华大学开源软件镜像站 | Tsinghua Open Source Mirror\n推荐miktex + texstudio\n安装推荐:miktix和texstudio\n">
+<meta property='og:url' content='https://li54426.github.io/2023-07-29-latex/'>
+<meta property='og:site_name' content='演示站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='software' /><meta property='article:tag' content='latex' /><meta property='article:published_time' content='2023-07-29T14:26:19&#43;00:00'/><meta property='article:modified_time' content='2023-07-29T14:26:19&#43;00:00'/>
+<meta name="twitter:title" content="latex使用指南">
+<meta name="twitter:description" content=" content {:toc} 论文技巧Latex使用简介: latex摘要&mdash;-快速入门 中文使用cjkutf8\n使用 % 进行注释 段与段之间要空一行 0 安装 网址 清华大学开源软件镜像站 | Tsinghua Open Source Mirror\n推荐miktex + texstudio\n安装推荐:miktix和texstudio\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<meta name="referrer" content="never">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">演示站点</a></h1>
+            <h2 class="site-description">我的个人博客。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/li54426'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://li54426.github.io/en/" >English</option>
+                                
+                                    <option value="https://li54426.github.io/" selected>中文</option>
+                                
+                                    <option value="https://li54426.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#论文技巧latex使用简介">论文技巧Latex使用简介:</a>
+      <ol>
+        <li><a href="#latex摘要----快速入门">latex摘要&mdash;-快速入门</a></li>
+        <li><a href="#0-安装">0 安装</a>
+          <ol>
+            <li><a href="#13-公式引用">1.3 公式引用</a></li>
+            <li><a href="#14-特殊的公式----规划">1.4 特殊的公式&mdash;-规划</a></li>
+            <li><a href="#15-多行公式---公式编号在中间">1.5 多行公式   公式编号在中间</a></li>
+            <li><a href="#21-单个标题">2.1 单个标题</a></li>
+            <li><a href="#2-并排插入多张图片并公用一个caption">2. 并排插入多张图片并公用一个caption</a></li>
+          </ol>
+        </li>
+        <li><a href="#3引用-参考文献">3.引用 (参考文献)</a>
+          <ol>
+            <li><a href="#bib-参考文献一键复制httpsgreasyforkorgzh-cnscripts455062-bib参考文献一键复制"><a href="https://greasyfork.org/zh-CN/scripts/455062-bib%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E4%B8%80%E9%94%AE%E5%A4%8D%E5%88%B6">Bib 参考文献一键复制</a></a></li>
+            <li><a href="#31-ieee模板">3.1 IEEE模板</a></li>
+            <li><a href="#32-其他模板">3.2 其他模板</a></li>
+          </ol>
+        </li>
+        <li><a href="#4表格">4.表格</a></li>
+        <li><a href="#5-算法">5 算法</a></li>
+        <li><a href="#6-字体大小">6 字体大小</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2023-07-29-latex/">latex使用指南</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-07-29</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <ul>
+<li>content
+{:toc}</li>
+</ul>
+<h2 id="论文技巧latex使用简介">论文技巧Latex使用简介:
+</h2><h3 id="latex摘要----快速入门">latex摘要&mdash;-快速入门
+</h3><p>中文使用cjkutf8</p>
+<ul>
+<li>使用 % 进行注释</li>
+<li>段与段之间要空一行</li>
+</ul>
+<h3 id="0-安装">0 安装
+</h3><p>网址  <a class="link" href="https://mirrors.tuna.tsinghua.edu.cn/"  target="_blank" rel="noopener"
+    >清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+<p>推荐miktex + texstudio</p>
+<p>安装推荐:miktix和texstudio</p>
+<p>miktex console  -&gt; 更新 -&gt;选择一个源</p>
+<p>###1. 公式</p>
+<p>####1.1 基本使用</p>
+<ul>
+<li>使用$$表示行内公式</li>
+<li>如果需要直接使用不带编号的行间公式，则将公式用命令 \ [ 和 \ ] 包裹</li>
+<li>使用带编号的公式 使用  \begin{equation}   和   \end{equation}<br>
+​       还可以用 \tag 命令手动修改公式的编号，或者用 \notag 命令取消为公式编号
+​       数学模式有如下特点:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1 空格忽略, 
+</span></span><span class="line"><span class="cl">2 不允许有空行, 
+</span></span><span class="line"><span class="cl">3 所有字母当作变量处理
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>####1.2 数学符号</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">省略号</th>
+          <th style="text-align: left">代码</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\div$</td>
+          <td style="text-align: left">\div</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\times$</td>
+          <td style="text-align: left">\times</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">空格</td>
+          <td style="text-align: left">\quad</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">省略号$\dots$</td>
+          <td style="text-align: left">\dots</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">上标</td>
+          <td style="text-align: left">^{}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">下标</td>
+          <td style="text-align: left">_{}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">根号$\sqrt[n]{}$</td>
+          <td style="text-align: left">\sqrt[n]{}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">分数     $\frac{}{}$</td>
+          <td style="text-align: left">\frac{}{}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">或者    $$</td>
+          <td style="text-align: left">\parallel</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">无穷大      $\infty  $</td>
+          <td style="text-align: left">\infty</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">求和     $\sum $</td>
+          <td style="text-align: left">\sum</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">求和有上下</td>
+          <td style="text-align: left">\sum \limits^{}_{}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">不等号   $\ne $</td>
+          <td style="text-align: left">\ne</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">大于等于     $\ge$</td>
+          <td style="text-align: left">\ge</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">小于等于    $\le   $</td>
+          <td style="text-align: left">\le</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">约等于      $\approx $</td>
+          <td style="text-align: left">\approx</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">等价        $\equiv  $</td>
+          <td style="text-align: left">\equiv</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">范数(双竖杠)  $\Vert $</td>
+          <td style="text-align: left">\Vert</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">罗马数字   $$</td>
+          <td style="text-align: left">\uppercase\expandafter{\romannumeral2}</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">希腊字母</th>
+          <th style="text-align: left">Latex代码</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\alpha$</td>
+          <td style="text-align: left">\alpha</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\beta$</td>
+          <td style="text-align: left">\beta</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\delta$</td>
+          <td style="text-align: left">\delta</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\Delta$</td>
+          <td style="text-align: left">\delta</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\Pi$</td>
+          <td style="text-align: left">\Pi</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="13-公式引用">1.3 公式引用
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\begin{equation}
+</span></span><span class="line"><span class="cl">	\label{key}
+</span></span><span class="line"><span class="cl">\end{equation}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">%当引用时, 没有括号 例如 6 
+</span></span><span class="line"><span class="cl">\ref{key}
+</span></span><span class="line"><span class="cl">%当引用时, 需要括号 例如 6 
+</span></span><span class="line"><span class="cl">(\ref{key})
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="14-特殊的公式----规划">1.4 特殊的公式&mdash;-规划
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">% 规划的形式
+</span></span></span><span class="line"><span class="cl"><span class="c">% 最后一行没有 \\ 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">\min</span>  <span class="k">\quad</span>  
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span>   目标函数             <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\text</span><span class="nb">{</span>s.t.<span class="nb">}</span>   <span class="k">\quad</span>   	    	
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span>   约束1  <span class="k">\label</span> <span class="nb">{</span>cons1<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span>   约束2  <span class="k">\label</span> <span class="nb">{</span>cons2<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span>   约束3  <span class="k">\label</span> <span class="nb">{</span>cons3<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span>   约束4	<span class="k">\label</span> <span class="nb">{</span>cons4<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="c">%分段函数
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">f(x)=
+</span></span><span class="line"><span class="cl">    <span class="k">\begin</span><span class="nb">{</span>cases<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    0   <span class="nb">&amp;</span> <span class="k">\text</span><span class="nb">{</span>x=0<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    1   <span class="nb">&amp;</span> <span class="k">\text</span><span class="nb">{</span>x!=0<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\end</span><span class="nb">{</span>cases<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="15-多行公式---公式编号在中间">1.5 多行公式   公式编号在中间
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="c">%  如果要折行的话，习惯上优先在等号之前折行，其次在加号、减号之前，再次在乘号、除号之前。其它位置应当避免折行。  目前最常用的是 align 环境，它将公式用 &amp; 隔为两部分并对齐。分隔符通常放在等号左边
+</span></span></span><span class="line"><span class="cl"><span class="c">%   用  \notag 去掉某行的编号
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>aligned<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    a <span class="nb">&amp;</span>= b + c <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    d <span class="nb">&amp;</span>= e + f + g <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    h + i <span class="nb">&amp;</span>= j + k <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    l + m <span class="nb">&amp;</span>= n
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>aligned<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%如果因为加的元素太多, 一行放不开 建议, 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>aligned<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    a =<span class="nb">&amp;</span>  b + c <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    + <span class="nb">&amp;</span> e + f + g <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    + <span class="nb">&amp;</span> j + k <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    + <span class="nb">&amp;</span> n
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>aligned<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%如果因为加的元素太多, 一行放不开 建议 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>	<span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">\begin</span><span class="nb">{</span>aligned<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">\text</span><span class="nb">{</span>min<span class="nb">}</span>  <span class="k">\quad</span> <span class="nb">&amp;</span>  b + c <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">			<span class="k">\text</span><span class="nb">{</span>s.t.<span class="nb">}</span> <span class="k">\quad</span> <span class="nb">&amp;</span> e + f + g <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">&amp;</span> j + k <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">&amp;</span> n
+</span></span><span class="line"><span class="cl">		<span class="k">\end</span><span class="nb">{</span>aligned<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>###2. 图片</p>
+<h4 id="21-单个标题">2.1 单个标题
+</h4><p>\includegraphics[⟨options⟩]{⟨fi lename ⟩}，
+文件名可能需要用相对路径或绝对路径表示, 图片文件的扩展名一般可不写</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\include{chapters/file} % 相对路径
+</span></span><span class="line"><span class="cl">\include{/home/Bob/file} % *nix（包含 Linux、macOS）绝对路径
+</span></span><span class="line"><span class="cl">\include{D:/file} % Windows 绝对路径，用正斜线
+</span></span></code></pre></td></tr></table>
+</div>
+</div><pre><code>```
+%导包
+usepackage{graphics}
+
+%导入图片, 当模板为两列, 但是想让图片占据着两列时, 使用\begin{figure*}[t]
+%图片
+\begin{figure}[htbp]
+%居中
+\centering
+%\includegraphics[width=2.5in]{Autoencoder1}
+%占据0.8宽度
+\includegraphics[width=0.40\textwidth]{time.png}
+%图片名称
+\caption{Experimental running time}
+\label{time}
+\end{figure}
+</code></pre>
+<ul>
+<li>
+\[htbp\]<p> 为调整图片排版位置选项，说明如下：</p>
+\[h\]<p>当前位置。将图形放置在正文文本中给出该图形环境的地方。如果本页所剩的页面不够，这一参数将不起作用。<br>
+</p>
+\[t\]<p>顶部。将图形放置在页面的顶部。<br>
+</p>
+\[b\]<p>底部。将图形放置在页面的底部。<br>
+</p>
+\[p\]<p>浮动页。将图形放置在一只允许有浮动对象的页面上。</p>
+</li>
+</ul>
+<h4 id="2-并排插入多张图片并公用一个caption">2. 并排插入多张图片并公用一个caption
+</h4><p>有时候我们希望同时插入一组图片，共用一个大标题且为每张子图设小标题，效果如下：<br>
+<img src="https://img-blog.csdnimg.cn/20200417095821196.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NTI2NjIz,size_16,color_FFFFFF,t_70"
+	
+	
+	
+	loading="lazy"
+	
+		alt="在这里插入图片描述"
+	
+	
+><br>
+方法：同时引入 \usepackage{graphicx} 和 \usepackage{subfigure} 宏包，如下代码实现。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\begin{figure}[htbp]
+</span></span><span class="line"><span class="cl">\centering
+</span></span><span class="line"><span class="cl">\subfigure[Fig1]{
+</span></span><span class="line"><span class="cl">\includegraphics[scale=0.25]{Fig1.png} \label{1}
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">\quad
+</span></span><span class="line"><span class="cl">\subfigure[Fig2]{
+</span></span><span class="line"><span class="cl">\includegraphics[scale=0.25]{Fig2.png} \label{2} 
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">\quad
+</span></span><span class="line"><span class="cl">\subfigure[Fig3]{
+</span></span><span class="line"><span class="cl">\includegraphics[scale=0.25]{Fig3.png}\label{3}
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">\quad
+</span></span><span class="line"><span class="cl">\subfigure[Fig4]{
+</span></span><span class="line"><span class="cl">\includegraphics[scale=0.25]{Fig4.png}\label{4}
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">\caption{Experimental results of the authors}
+</span></span><span class="line"><span class="cl">\end{figure}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码说明：<br>
+\subfigure</p>
+\[Fig1\]<p> 为子图的标题；<br>
+\caption{Experimental results of the authors} 为总标题。</p>
+<h3 id="3引用-参考文献">3.引用 (参考文献)
+</h3><h4 id="bib-参考文献一键复制httpsgreasyforkorgzh-cnscripts455062-bib参考文献一键复制"><a class="link" href="https://greasyfork.org/zh-CN/scripts/455062-bib%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae%e4%b8%80%e9%94%ae%e5%a4%8d%e5%88%b6"  target="_blank" rel="noopener"
+    >Bib 参考文献一键复制</a>
+</h4><p>设置方法</p>
+<ul>
+<li>谷歌学术-&gt; 设置 -&gt; 选中<code>显示导入 bibtex的链接</code></li>
+</ul>
+<h4 id="31-ieee模板">3.1 IEEE模板
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="c">%  IEEE官网的latex模板，无法调用cite包。与下面第一节调用的biblatex包冲突（模板里自带的，开始没注意到，相当于我调用了两个参考文献的包），然后我改成网上一样的biblatex调用声明还是不行，因为新版必须用bibtex编译，且要在[ ]中声明，很多博客用的是biber，并且默认也是biber！即调用biblatex包必须要声明是用bibtex编译！
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>
+</span></span><span class="line"><span class="cl"><span class="c">%导包, 在文章开始之前也就是 \begin{document}
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="na">[backend=bibtex,sorting=none]</span><span class="nb">{</span>biblatex<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\addbibresource</span><span class="nb">{</span>ref.bib<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%sorting=none表示按照参考文献在论文中出现的先后顺序排序。
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>hyperref=true和backref=true表示为各个参考文献的引用处、及定理、定义、例子等的引用处都添加上超链接；
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% 显示参考文献, 在\end{document}之前
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\printbibliography</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%引用格式:
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\cite</span><span class="nb">{</span>key<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="32-其他模板">3.2 其他模板
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="c">%引用, FCN是我们在bibtex文件中自定义的名字
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>以一篇古老的分子动力学文章作为参考<span class="k">\cite</span><span class="nb">{</span>yu2013toward<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%如果不想用方括号, 可以使用
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="na">[superscript]</span><span class="nb">{</span>cite<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%参考文献, 在 \end{document}之前写
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\bibliographystyle</span><span class="nb">{</span>IEEEtran<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\bibliography</span><span class="nb">{</span>ref.bib<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>####3.2引用网址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	%正文前引用
+</span></span><span class="line"><span class="cl">usepackagefurl}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	%bib文件中加入: 
+</span></span><span class="line"><span class="cl">@Misc{cite变量名,
+</span></span><span class="line"><span class="cl">howpublished = {\url{网页地址}},
+</span></span><span class="line"><span class="cl">note = {Accessed进入网页的具体日期},
+</span></span><span class="line"><span class="cl">title = {网页名称},
+</span></span><span class="line"><span class="cl">author = {作者}
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">1911正文中具体使用为
+</span></span><span class="line"><span class="cl">1\cite{cite变量名）
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4表格">4.表格
+</h3><p>网址 : tablegenerator.com</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\begin{tabular}{cc}%一个c表示有一列，格式为居中显示(center)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">%\begin{tabular}{|c|c|}通过添加 | 来表示是否需要绘制竖线
+</span></span><span class="line"><span class="cl">(1,1)&amp;(1,2)\\%第一行第一列和第二列  中间用&amp;连接
+</span></span><span class="line"><span class="cl">(2,1)&amp;(2,2)\\%第二行第一列和第二列  中间用&amp;连接
+</span></span><span class="line"><span class="cl">\end{tabular}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">   %经典三线表格   table的目的就是把表格给图片化
+</span></span><span class="line"><span class="cl">   \begin{table}[]
+</span></span><span class="line"><span class="cl">       	\centering
+</span></span><span class="line"><span class="cl">    	\caption{Notations in This Paper}
+</span></span><span class="line"><span class="cl">    	\begin{tabular}{|c|c|}
+</span></span><span class="line"><span class="cl">    		\hline
+</span></span><span class="line"><span class="cl">    		标题1    &amp;    标题2   \\
+</span></span><span class="line"><span class="cl">    		\hline
+</span></span><span class="line"><span class="cl">    		
+</span></span><span class="line"><span class="cl">	    	$P$	          &amp; the provider      \\
+</span></span><span class="line"><span class="cl">	    	$M_{it}$      &amp;   the   \\
+</span></span><span class="line"><span class="cl"> 		\hline
+</span></span><span class="line"><span class="cl">    	\end{tabular}
+</span></span><span class="line"><span class="cl">    \end{table}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5-算法">5 算法
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">%算法宏包
+</span></span><span class="line"><span class="cl">\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+</span></span><span class="line"><span class="cl">\usepackage{setspace}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">\begin{algorithm}[t]
+</span></span><span class="line"><span class="cl">    %设置算法编号
+</span></span><span class="line"><span class="cl">    %\renewcommand{\thealgocf}{3-1}
+</span></span><span class="line"><span class="cl">    \SetAlgoLined %显示end
+</span></span><span class="line"><span class="cl">    \caption{Genetic Algorithm}%算法名字
+</span></span><span class="line"><span class="cl">    \label{}
+</span></span><span class="line"><span class="cl">    	\KwIn{input parameters $T, $}%输入参数
+</span></span><span class="line"><span class="cl">    	\KwOut{$ $}%输出
+</span></span><span class="line"><span class="cl">    %      &#39;\;&#39;   用于换行
+</span></span><span class="line"><span class="cl">    some description\; 
+</span></span><span class="line"><span class="cl">    \For{condition}{
+</span></span><span class="line"><span class="cl">        \If{condition}{
+</span></span><span class="line"><span class="cl">        	1\;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    return 
+</span></span><span class="line"><span class="cl"> \end{algorithm} 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="6-字体大小">6 字体大小
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">%学院名称太长, 导致作者变成了两行, 可以把学院名称的字体调小
+</span></span><span class="line"><span class="cl">\tiny Hello Latex.
+</span></span><span class="line"><span class="cl">\scriptsize Hello Latex.
+</span></span><span class="line"><span class="cl">\footnotesize Hello Latex.
+</span></span><span class="line"><span class="cl">\small Hello Latex.
+</span></span><span class="line"><span class="cl">\normalsize Hello Latex.
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/software/">Software</a>
+        
+            <a href="/tags/latex/">Latex</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -9,10 +9,10 @@
         <copyright>Example Person</copyright>
         <lastBuildDate>Tue, 25 Jul 2023 21:19:24 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/stl/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>cpp_STL_1_alloctor</title>
-        <link>https://li54426.github.io/p/cpp_stl_1_alloctor/</link>
+        <link>https://li54426.github.io/2023-07-26-cpp_stl_1_allocator/</link>
         <pubDate>Tue, 25 Jul 2023 21:19:24 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/cpp_stl_1_alloctor/</guid>
+        <guid>https://li54426.github.io/2023-07-26-cpp_stl_1_allocator/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -780,10 +780,10 @@ STL规则告诉我们配置器定义与&amp;lt;memory&amp;gt;中,
         </item>
         <item>
         <title>cpp_STL_O_basic</title>
-        <link>https://li54426.github.io/p/cpp_stl_o_basic/</link>
+        <link>https://li54426.github.io/2023-07-25-cpp_stl_0_basic/</link>
         <pubDate>Tue, 25 Jul 2023 21:19:24 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/cpp_stl_o_basic/</guid>
+        <guid>https://li54426.github.io/2023-07-25-cpp_stl_0_basic/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;

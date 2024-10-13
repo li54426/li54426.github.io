@@ -9,10 +9,10 @@
         <copyright>Example Person</copyright>
         <lastBuildDate>Thu, 24 Aug 2023 16:12:16 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Go_深入浅出零拷贝及应用</title>
-        <link>https://li54426.github.io/p/go_%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E9%9B%B6%E6%8B%B7%E8%B4%9D%E5%8F%8A%E5%BA%94%E7%94%A8/</link>
+        <link>https://li54426.github.io/2023-08-24-zero-copy/</link>
         <pubDate>Thu, 24 Aug 2023 16:12:16 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E9%9B%B6%E6%8B%B7%E8%B4%9D%E5%8F%8A%E5%BA%94%E7%94%A8/</guid>
+        <guid>https://li54426.github.io/2023-08-24-zero-copy/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}
@@ -41,10 +41,10 @@
         </item>
         <item>
         <title>Go_quick_book</title>
-        <link>https://li54426.github.io/p/go_quick_book/</link>
+        <link>https://li54426.github.io/2023-0823-go-quick-book/</link>
         <pubDate>Wed, 23 Aug 2023 20:26:16 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_quick_book/</guid>
+        <guid>https://li54426.github.io/2023-0823-go-quick-book/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -3471,10 +3471,10 @@
         </item>
         <item>
         <title>漏洞</title>
-        <link>https://li54426.github.io/p/%E6%BC%8F%E6%B4%9E/</link>
+        <link>https://li54426.github.io/2023-08-18-hole/</link>
         <pubDate>Fri, 18 Aug 2023 12:59:58 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/%E6%BC%8F%E6%B4%9E/</guid>
+        <guid>https://li54426.github.io/2023-08-18-hole/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -3549,10 +3549,10 @@ b.使用vue/react等框架时候,避免使用危险指令,而应该使用安全�
         </item>
         <item>
         <title>Go_</title>
-        <link>https://li54426.github.io/p/go_/</link>
+        <link>https://li54426.github.io/2023-08-17-test/</link>
         <pubDate>Thu, 17 Aug 2023 10:11:09 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_/</guid>
+        <guid>https://li54426.github.io/2023-08-17-test/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -3724,10 +3724,10 @@ b.使用vue/react等框架时候,避免使用危险指令,而应该使用安全�
         </item>
         <item>
         <title>Go_</title>
-        <link>https://li54426.github.io/p/go_/</link>
+        <link>https://li54426.github.io/2023-08-17-mult-thread/</link>
         <pubDate>Thu, 17 Aug 2023 09:59:12 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_/</guid>
+        <guid>https://li54426.github.io/2023-08-17-mult-thread/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -4232,10 +4232,10 @@ b.使用vue/react等框架时候,避免使用危险指令,而应该使用安全�
         </item>
         <item>
         <title>Go_常用框架/中间件</title>
-        <link>https://li54426.github.io/p/go_%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+        <link>https://li54426.github.io/2023-08-17-package/</link>
         <pubDate>Thu, 17 Aug 2023 09:43:00 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+        <guid>https://li54426.github.io/2023-08-17-package/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -7150,10 +7150,10 @@ b.使用vue/react等框架时候,避免使用危险指令,而应该使用安全�
         </item>
         <item>
         <title>Go_</title>
-        <link>https://li54426.github.io/p/go_/</link>
+        <link>https://li54426.github.io/2023-08-12-project/</link>
         <pubDate>Sat, 12 Aug 2023 21:34:04 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_/</guid>
+        <guid>https://li54426.github.io/2023-08-12-project/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -7831,10 +7831,10 @@ b.使用vue/react等框架时候,避免使用危险指令,而应该使用安全�
         </item>
         <item>
         <title>Go_</title>
-        <link>https://li54426.github.io/p/go_/</link>
+        <link>https://li54426.github.io/2023-08-11-xiao_xi_dui_lie/</link>
         <pubDate>Fri, 11 Aug 2023 10:11:14 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_/</guid>
+        <guid>https://li54426.github.io/2023-08-11-xiao_xi_dui_lie/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -7881,10 +7881,10 @@ b.使用vue/react等框架时候,避免使用危险指令,而应该使用安全�
         </item>
         <item>
         <title>Go_对象存储</title>
-        <link>https://li54426.github.io/p/go_%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</link>
+        <link>https://li54426.github.io/2023-08-10-dui_xiang_cun_chu/</link>
         <pubDate>Thu, 10 Aug 2023 10:04:35 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</guid>
+        <guid>https://li54426.github.io/2023-08-10-dui_xiang_cun_chu/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -8155,10 +8155,10 @@ b.使用vue/react等框架时候,避免使用危险指令,而应该使用安全�
         </item>
         <item>
         <title>Go_Redis</title>
-        <link>https://li54426.github.io/p/go_redis/</link>
+        <link>https://li54426.github.io/2023-08-08-redis/</link>
         <pubDate>Tue, 08 Aug 2023 15:04:16 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_redis/</guid>
+        <guid>https://li54426.github.io/2023-08-08-redis/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -8356,10 +8356,10 @@ b.使用vue/react等框架时候,避免使用危险指令,而应该使用安全�
         </item>
         <item>
         <title>Go_</title>
-        <link>https://li54426.github.io/p/go_/</link>
+        <link>https://li54426.github.io/2023-08-05-go-7-database/</link>
         <pubDate>Sat, 05 Aug 2023 09:57:32 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_/</guid>
+        <guid>https://li54426.github.io/2023-08-05-go-7-database/</guid>
         <description>&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h3 id=&#34;数据库&#34;&gt;数据库
 &lt;/h3&gt;&lt;h4 id=&#34;特点&#34;&gt;特点
@@ -8700,10 +8700,10 @@ Persistent Memory在NVMeSSD和Main Memory间有一种全新的存储产品:Persi
         </item>
         <item>
         <title>Go_5_网络编程</title>
-        <link>https://li54426.github.io/p/go_5_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+        <link>https://li54426.github.io/2023-08-01-go-5-arp-nat/</link>
         <pubDate>Tue, 01 Aug 2023 10:16:54 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_5_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+        <guid>https://li54426.github.io/2023-08-01-go-5-arp-nat/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -8891,10 +8891,10 @@ Persistent Memory在NVMeSSD和Main Memory间有一种全新的存储产品:Persi
         </item>
         <item>
         <title>Go_4_HTTP_RPC_</title>
-        <link>https://li54426.github.io/p/go_4_http_rpc_/</link>
+        <link>https://li54426.github.io/2023-07-31-go-4-http-rpc/</link>
         <pubDate>Mon, 31 Jul 2023 11:02:06 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_4_http_rpc_/</guid>
+        <guid>https://li54426.github.io/2023-07-31-go-4-http-rpc/</guid>
         <description>&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ctrl&lt;/code&gt; + &lt;code&gt;/&lt;/code&gt;打开专注模式&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://li54426.github.io/assets/image-20230731154712540.png&#34;
@@ -9428,10 +9428,10 @@ User-Agent、 Content-Type、 Content-Length、 Connection、 Transfer-Encoding&
         </item>
         <item>
         <title>Go_2_小DEMO</title>
-        <link>https://li54426.github.io/p/go_2_%E5%B0%8Fdemo/</link>
+        <link>https://li54426.github.io/2023-07-30-go-2-godemo/</link>
         <pubDate>Sun, 30 Jul 2023 13:34:18 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_2_%E5%B0%8Fdemo/</guid>
+        <guid>https://li54426.github.io/2023-07-30-go-2-godemo/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -9556,10 +9556,10 @@ User-Agent、 Content-Type、 Content-Length、 Connection、 Transfer-Encoding&
         </item>
         <item>
         <title>Go_1_简介</title>
-        <link>https://li54426.github.io/p/go_1_%E7%AE%80%E4%BB%8B/</link>
+        <link>https://li54426.github.io/2023-07-25-go-1/</link>
         <pubDate>Fri, 28 Jul 2023 21:19:24 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/go_1_%E7%AE%80%E4%BB%8B/</guid>
+        <guid>https://li54426.github.io/2023-07-25-go-1/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -11443,10 +11443,10 @@ recovery 会把异常捕获到 做一个处理 比如返回一个状态码&lt;/p
         </item>
         <item>
         <title>字节后端训练营</title>
-        <link>https://li54426.github.io/p/%E5%AD%97%E8%8A%82%E5%90%8E%E7%AB%AF%E8%AE%AD%E7%BB%83%E8%90%A5/</link>
+        <link>https://li54426.github.io/2023-07-26-0_overview/</link>
         <pubDate>Wed, 26 Jul 2023 13:21:50 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/%E5%AD%97%E8%8A%82%E5%90%8E%E7%AB%AF%E8%AE%AD%E7%BB%83%E8%90%A5/</guid>
+        <guid>https://li54426.github.io/2023-07-26-0_overview/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;

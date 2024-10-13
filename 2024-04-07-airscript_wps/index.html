@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" content {:toc} 1 概述 原作者地址\n文档地址：https://as.js.cool\n1.1 已经实现功能 云盘每日签到 公共号每日签到 公众号抽奖 每日任务 - 上传 每日任务 - 云笔记（官方下线） APP 抽奖（摇一摇） 浇水种树 - 云盘 APP 浇水种树 - 邮箱 APP 每月任务 - 邮箱 APP - 可直接完成的 热门任务 - 分享文件每月 7 次 邮箱 APP 开盲盒 每月任务 - PC 端登录 合成大芝麻每月 1 次 每月分享 20 次 每月上传 1 G AI 猜字谜 自动领取每月备份奖励（APP / 邮箱） 更多每月任务适配中，敬请不要期待 需要的 信息 代码 ： npmmirror 镜像站\n">
+<title></title>
+
+<link rel='canonical' href='https://li54426.github.io/2024-04-07-airscript_wps/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="">
+<meta property='og:description' content=" content {:toc} 1 概述 原作者地址\n文档地址：https://as.js.cool\n1.1 已经实现功能 云盘每日签到 公共号每日签到 公众号抽奖 每日任务 - 上传 每日任务 - 云笔记（官方下线） APP 抽奖（摇一摇） 浇水种树 - 云盘 APP 浇水种树 - 邮箱 APP 每月任务 - 邮箱 APP - 可直接完成的 热门任务 - 分享文件每月 7 次 邮箱 APP 开盲盒 每月任务 - PC 端登录 合成大芝麻每月 1 次 每月分享 20 次 每月上传 1 G AI 猜字谜 自动领取每月备份奖励（APP / 邮箱） 更多每月任务适配中，敬请不要期待 需要的 信息 代码 ： npmmirror 镜像站\n">
+<meta property='og:url' content='https://li54426.github.io/2024-04-07-airscript_wps/'>
+<meta property='og:site_name' content='演示站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='API_software' /><meta property='article:published_time' content='2024-04-08T21:44:44&#43;00:00'/><meta property='article:modified_time' content='2024-04-08T21:44:44&#43;00:00'/>
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content=" content {:toc} 1 概述 原作者地址\n文档地址：https://as.js.cool\n1.1 已经实现功能 云盘每日签到 公共号每日签到 公众号抽奖 每日任务 - 上传 每日任务 - 云笔记（官方下线） APP 抽奖（摇一摇） 浇水种树 - 云盘 APP 浇水种树 - 邮箱 APP 每月任务 - 邮箱 APP - 可直接完成的 热门任务 - 分享文件每月 7 次 邮箱 APP 开盲盒 每月任务 - PC 端登录 合成大芝麻每月 1 次 每月分享 20 次 每月上传 1 G AI 猜字谜 自动领取每月备份奖励（APP / 邮箱） 更多每月任务适配中，敬请不要期待 需要的 信息 代码 ： npmmirror 镜像站\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<meta name="referrer" content="never">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">演示站点</a></h1>
+            <h2 class="site-description">我的个人博客。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/li54426'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://li54426.github.io/en/" >English</option>
+                                
+                                    <option value="https://li54426.github.io/" selected>中文</option>
+                                
+                                    <option value="https://li54426.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#1-概述">1 概述</a>
+          <ol>
+            <li><a href="#11-已经实现功能">1.1 已经实现功能</a></li>
+            <li><a href="#需要的-信息">需要的 信息</a></li>
+          </ol>
+        </li>
+        <li><a href="#金山文档wps-云文档使用详细教程">金山文档（WPS 云文档）使用详细教程</a>
+          <ol>
+            <li><a href="#1-准备工作">1 准备工作</a></li>
+            <li><a href="#11-创建账号">1.1 创建账号</a></li>
+            <li><a href="#表格介绍">表格介绍</a></li>
+          </ol>
+        </li>
+        <li><a href="#2-表格设计">2 表格设计</a>
+          <ol>
+            <li><a href="#运行简单的脚本">运行简单的脚本</a></li>
+          </ol>
+        </li>
+        <li><a href="#3-创建脚本">3 创建脚本</a></li>
+        <li><a href="#4-定时运行">4 定时运行</a></li>
+        <li><a href="#5-附件">5 附件</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2024-04-07-airscript_wps/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-04-08</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <ul>
+<li>content
+{:toc}</li>
+</ul>
+<h3 id="1-概述">1 概述
+</h3><p><a class="link" href="https://as.js.cool/demo/wps/"  target="_blank" rel="noopener"
+    >原作者地址</a></p>
+<p>文档地址：<a class="link" href="https://as.js.cool/"  target="_blank" rel="noopener"
+    >https://as.js.cool</a></p>
+<h4 id="11-已经实现功能">1.1 已经实现功能
+</h4><ul>
+<li>云盘每日签到</li>
+<li>公共号每日签到</li>
+<li>公众号抽奖</li>
+<li>每日任务 - 上传</li>
+<li><del>每日任务 - 云笔记</del>（官方下线）</li>
+<li>APP 抽奖（摇一摇）</li>
+<li>浇水种树 - 云盘 APP</li>
+<li>浇水种树 - 邮箱 APP</li>
+<li>每月任务 - 邮箱 APP - 可直接完成的</li>
+<li>热门任务 - 分享文件每月 7 次</li>
+<li>邮箱 APP 开盲盒</li>
+<li>每月任务 - PC 端登录</li>
+<li>合成大芝麻每月 1 次</li>
+<li>每月分享 20 次</li>
+<li>每月上传 1 G</li>
+<li>AI 猜字谜</li>
+<li>自动领取每月备份奖励（APP / 邮箱）</li>
+<li>更多每月任务适配中，敬请不要期待</li>
+<li></li>
+</ul>
+<h4 id="需要的-信息">需要的 信息
+</h4><ul>
+<li>
+<p>代码 ： <a class="link" href="https://npmmirror.com/package/@asunajs/dist/files/caiyun.wps.js?version=0.0.11#L44"  target="_blank" rel="noopener"
+    >npmmirror 镜像站</a></p>
+</li>
+<li>
+<p>gitee  <a class="link" href="https://gitee.com/asunajs/asuna"  target="_blank" rel="noopener"
+    >asuna: 介绍剧吐ʚ♡⃛ɞ(ू・ᴗ・ू❁) (gitee.com)</a></p>
+</li>
+<li>
+<p>列表不需要额外的设计，直接<strong>简单</strong>粗暴，A 列是当前账号的手机号，B 列是之前复制的 authorization，C 列是之前复制的 auth_token（支持多账号，放多行）</p>
+</li>
+</ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">参数1</th>
+          <th style="text-align: left">参数2</th>
+          <th style="text-align: left">参数3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">手机号</td>
+          <td style="text-align: left">authorization</td>
+          <td style="text-align: left">auth_token</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="金山文档wps-云文档使用详细教程">金山文档（WPS 云文档）使用详细教程
+</h3><h4 id="1-准备工作">1 准备工作
+</h4><h4 id="11-创建账号">1.1 创建账号
+</h4><p>官网 <a class="link" href="https://www.kdocs.cn/"  target="_blank" rel="noopener"
+    >https://www.kdocs.cn/</a></p>
+<p>如果你未曾拥有金山文档账号，请先注册一个账号，然后登录。详细步骤略。</p>
+<p>1.2 创建文档</p>
+<p>点击首页的 <code>+新建</code></p>
+<img src="https://as.js.cool/_astro/create_docs.DhXuj-5F_Z8xdfF.webp" alt="创建文档" />
+<p>然后选择 <code>智能表格</code> 或者 <code>表格</code>（这里以表格为例）</p>
+<p>然后创建一个空白表格</p>
+<p><img src="https://as.js.cool/_astro/create_table.my37e0GO_2ixFlA.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="创建一个空白表格"
+	
+	
+></p>
+<h4 id="表格介绍">表格介绍
+</h4><p><img src="https://as.js.cool/_astro/table_info.DxVdUbAt_I1qVf.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="表格介绍"
+	
+	
+></p>
+<p>字母 ABCD。。。 表示表格的列</p>
+<p>数字 1234。。。 表示表格的行</p>
+<p><code>A1</code> 表示第一行第一列（左上角那个格子），那么 <code>B2</code> 呢？</p>
+<p>最底部有个 <code>Sheet1</code> （中文叫做 单元格），新建的表格只有一个单元格，你可以点击后面的 <code>+</code> 添加（选择工具表）</p>
+<p>鼠标左键双击 <code>Sheet1</code> 这个单元格名称，然后就能输入你想要的名称了，比如 <code>夸克网盘</code>。</p>
+<p>鼠标左键单击 <code>Sheet1</code> 这个单元格，就是选中这个单元格（有多个单元格时有效，例如图中 <code>Sheet2</code> 绿色加粗的，所以我当前选择的是 <code>Sheet2</code>）。</p>
+<p>试试让自己拥有 <code>alipan</code>，<code>quark</code> 以及 <code>推送</code> 三个单元格吧。成功后进入下一章节。</p>
+<h3 id="2-表格设计">2 表格设计
+</h3><p>表格设计是为了写入 网络传输所需要的<code>cookie</code>信息等</p>
+<ul>
+<li>1 点击刚才创建的 <code>推送</code> 单元格</li>
+</ul>
+<p>推送配置设计如下：</p>
+<p>表格如图所示，每两列为一个配置单元（每个单元之间允许空列，可有可没有，例如 C 列就是空的，但是 EF 之间没有空）</p>
+<p>单元的第首行首列放置推送名，如 email，pushplus。base 比较特殊。（如果没有放推送名，下面写的东西就会被忽略掉）</p>
+<p>除第一行外，每个单元第一列为配置名称，第二列为值，中间允许空行（如 email 的第 4 行所示）</p>
+<p><img src="https://as.js.cool/_astro/create_push.Dh-VwnaQ_Z15dPWB.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="推送"
+	
+	
+></p>
+<p>注意：图中表格的颜色是为了方便演示添加的，无实际意义，你不必和我的一样。</p>
+<h4 id="运行简单的脚本">运行简单的脚本
+</h4><p><strong>以阿里云盘签到为例</strong></p>
+<p><img src="https://as.js.cool/_astro/alpan_token.BycbK2Hr_T3ynL.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="表格介绍"
+	
+	
+></p>
+<p>选择 <code>alipan</code> 单元格，在 <code>A1</code> 填上你的 token（如何获取不在本教程范围内，请自行完成）。每一行表示一个用户，故 <code>A2</code> 可以是你的第二个账号，<code>A3</code> 呢？以此类推。。。</p>
+<h3 id="3-创建脚本">3 创建脚本
+</h3><p><img src="https://as.js.cool/_astro/create_air.BVVMBIX0_Td4WM.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="创建脚本"
+	
+	
+></p>
+<p><img src="/assets/blog/202404082301604_airscript_jiaoben.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="https://gitee.com/li54426/the_pictures/raw/master/img//202404082301604_airscript_jiaoben.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<ol>
+<li>点击头部菜单栏的 <code>效率</code></li>
+<li>选择<code>高级开发</code></li>
+<li>选择 <code>AirScript 脚本编辑器</code></li>
+<li>点击文档共享脚本后面的 <code>+</code> 加号</li>
+</ol>
+<p><img src="https://as.js.cool/_astro/create_air2.CoY1T7I3_ZVpdhM.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="创建脚本"
+	
+	
+></p>
+<ol start="5">
+<li>粘贴脚本代码（示例代码：<a class="link" href="https://npmmirror.com/package/@asunajs/dist/files?version"  target="_blank" rel="noopener"
+    >https://npmmirror.com/package/@asunajs/dist/files?version</a> 点击后选择 <code>alipan.wps.js</code>）</li>
+<li>点击输入框上面的操作栏的第六个，一个六边形图标那个（鼠标放上去显示服务授权）</li>
+<li>点击添加服务</li>
+<li>添加 <code>网络API</code>，<code>邮箱API</code></li>
+</ol>
+<p><img src="https://as.js.cool/_astro/create_air3.DRHFg6O7_ZQMj34.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="运行"
+	
+	
+></p>
+<ol start="9">
+<li>点击输入框上面的操作栏的第四个，一个三角形图标那个（鼠标放上去显示运行 F5）</li>
+<li>允许服务授权</li>
+</ol>
+<p><img src="https://as.js.cool/_astro/create_air4.BhKaaVj__Zm7yK7.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="成功"
+	
+	
+></p>
+<p>当看到成功提示时，恭喜你，你已经成功运行了脚本。</p>
+<h3 id="4-定时运行">4 定时运行
+</h3><p>这里就不放图了</p>
+<p><img src="/assets/blog/202404082259555_airscript_dingshi.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="https://gitee.com/li54426/the_pictures/raw/master/img//202404082259555_airscript_dingshi.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<ol>
+<li>点击头部菜单栏的 <code>效率</code></li>
+<li>选择 <code>高级开发</code></li>
+<li>选择 <code>定时任务</code></li>
+<li>右边出来的抽屉中点击蓝色的 <code>创建任务</code></li>
+<li>选择每天，再选个具体时间（不推荐晚上接近 12 点，也不推荐凌晨）</li>
+<li>选择你创建的脚本</li>
+<li>然后点击确定</li>
+</ol>
+<p>恭喜你，你已经成功设置了定时任务。</p>
+<h3 id="5-附件">5 附件
+</h3><p><a class="link" href="assets/office/caiyun%e7%ad%be%e5%88%b0%e6%a8%a1%e6%9d%bf.xlsx" >移动云盘签到模板</a></p>
+<p><a class="link" href="assets/office/%e6%bc%ab%e7%94%bb%e7%ad%be%e5%88%b0-%e6%a8%a1%e6%9d%bf.xlsx" >哔哩哔哩签到</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/api_software/">API_software</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

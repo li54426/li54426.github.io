@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" content {:toc} 0 jekyII + github pages 运行博客的问题 我的typora中的图片设置为复制到assets文件夹下，因此github page生成博客的时候会发生图片加载失败的问题。\n">
+<title>jekyll进阶设置</title>
+
+<link rel='canonical' href='https://li54426.github.io/2023-07-31-blog_jekyll/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="jekyll进阶设置">
+<meta property='og:description' content=" content {:toc} 0 jekyII + github pages 运行博客的问题 我的typora中的图片设置为复制到assets文件夹下，因此github page生成博客的时候会发生图片加载失败的问题。\n">
+<meta property='og:url' content='https://li54426.github.io/2023-07-31-blog_jekyll/'>
+<meta property='og:site_name' content='演示站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='API_software' /><meta property='article:published_time' content='2023-07-31T19:55:34&#43;00:00'/><meta property='article:modified_time' content='2023-07-31T19:55:34&#43;00:00'/>
+<meta name="twitter:title" content="jekyll进阶设置">
+<meta name="twitter:description" content=" content {:toc} 0 jekyII + github pages 运行博客的问题 我的typora中的图片设置为复制到assets文件夹下，因此github page生成博客的时候会发生图片加载失败的问题。\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<meta name="referrer" content="never">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">演示站点</a></h1>
+            <h2 class="site-description">我的个人博客。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/li54426'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://li54426.github.io/en/" >English</option>
+                                
+                                    <option value="https://li54426.github.io/" selected>中文</option>
+                                
+                                    <option value="https://li54426.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#0-jekyii--github-pages-运行博客的问题">0 jekyII + github pages 运行博客的问题</a>
+          <ol>
+            <li><a href="#32-引用图片和其它资源">3.2 引用图片和其它资源</a></li>
+          </ol>
+        </li>
+        <li><a href="#1-简介">1 简介</a>
+          <ol>
+            <li><a href="#11-jekyll-究竟是什么">1.1 Jekyll 究竟是什么？</a></li>
+            <li><a href="#12-目录结构">1.2 目录结构</a></li>
+          </ol>
+        </li>
+        <li><a href="#2-头部信息设置信息">2 头部信息(设置信息)</a>
+          <ol>
+            <li><a href="#21-头信息">2.1 头信息</a></li>
+            <li><a href="#22-格式">2.2 格式</a></li>
+            <li><a href="#23-默认值">2.3 默认值</a></li>
+            <li><a href="#24-路径的组织方式">2.4 路径的组织方式</a></li>
+          </ol>
+        </li>
+        <li><a href="#3-其他">3 其他</a>
+          <ol>
+            <li><a href="#31-github-某些-样式">3.1 github 某些 样式</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2023-07-31-blog_jekyll/">jekyll进阶设置</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-07-31</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <ul>
+<li>content
+{:toc}</li>
+</ul>
+<h3 id="0-jekyii--github-pages-运行博客的问题">0 jekyII + github pages 运行博客的问题
+</h3><p>我的<code>typora</code>中的图片设置为<code>复制到assets文件夹下</code>，因此<code>github page</code>生成博客的时候会发生图片加载失败的问题。</p>
+<ul>
+<li>
+<p>这是上传到 gitee 云的 png 文件 加载失败</p>
+</li>
+<li>
+<p>这是上传到 gitee 云的 webp 文件  加载<strong>成功</strong></p>
+</li>
+</ul>
+<p>一共有两种解决方案</p>
+<ul>
+<li>
+<p>图片转换为 webp 文件，上传</p>
+</li>
+<li>
+<p>存储到到固定目录下，如果你的图片存在根目录<code>assets</code>中<code>img</code>文件夹下，写相对位置<code>assets/img</code>，例如<code>![图片](assets/img/1.png)</code></p>
+</li>
+<li>
+<p>使用<code>base64</code>编码</p>
+</li>
+<li>
+<p>在截屏快捷键截屏后直接复制 base64 编码到 Markdown 编辑器</p>
+</li>
+</ul>
+<h4 id="32-引用图片和其它资源">3.2 引用图片和其它资源
+</h4><p>很多时候，你需要在文章中引用图片、下载或其它数字资源。尽管 Markdown 和 Textile 在链接这些资源时的语法并不一样，但你只需要关心在站点的哪些地方保存这些文件。</p>
+<p>由于 Jekyll 的灵活性，有很多方式可以解决这个问题。一种常用做法是在工程的<strong>根目录下创建一个文件夹</strong>，命名为　<code>assets</code> 或者 <code>downloads</code>，将图片文件，下载文件或者其它的资源放到这个文件夹下。然后在任何一篇文章中，它们都可以用站点的根目录来进行引用。这和你站点的域名 / 二级域名和目录的设置相关，下面有一些例子（<strong>Markdown 格式</strong>）来演示怎样利用 <code>site.url</code> 变量来解决这个问题。</p>
+<p>在文章中引用一个图片</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">… 从下面的截图可以看到：
+</span></span><span class="line"><span class="cl">![有帮助的截图]({{ site.url }}/assets/screenshot.jpg)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>链接一个读者可下载的 PDF 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">… 你可以直接 [下载 PDF]({{ site.url }}/assets/mydoc.pdf).
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1-简介">1 简介
+</h3><h4 id="11-jekyll-究竟是什么">1.1 Jekyll 究竟是什么？
+</h4><p>Jekyll 是一个简单的博客形态的<strong>静态站点</strong>生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过一个转换器（如 <a class="link" href="http://daringfireball.net/projects/markdown/"  target="_blank" rel="noopener"
+    >Markdown</a>）和我们的 <a class="link" href="https://github.com/Shopify/liquid/wiki"  target="_blank" rel="noopener"
+    >Liquid</a> 渲染器转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 <a class="link" href="http://pages.github.com/"  target="_blank" rel="noopener"
+    >GitHub Page</a> 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是<strong>完全免费</strong>的。</p>
+<p>站点内容页面，可以使用 <code>markdown</code> 或 <code>html</code> 来编写，但 markdown 编写的 md 文件，在浏览器地址访问的时候依然使用 html 文件后缀。且html优先级更高</p>
+<p><a class="link" href="http://jekyllcn.com/docs/"  target="_blank" rel="noopener"
+    >官方文档</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ jekyll build
+</span></span><span class="line"><span class="cl"><span class="c1"># =&gt; 当前文件夹中的内容将会生成到 ./_site 文件夹中。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ jekyll build --destination &lt;destination&gt;
+</span></span><span class="line"><span class="cl"><span class="c1"># =&gt; 当前文件夹中的内容将会生成到目标文件夹&lt;destination&gt;中。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ jekyll build --source &lt;source&gt; --destination &lt;destination&gt;
+</span></span><span class="line"><span class="cl"><span class="c1"># =&gt; 指定源文件夹&lt;source&gt;中的内容将会生成到目标文件夹&lt;destination&gt;中。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ jekyll build --watch
+</span></span><span class="line"><span class="cl"><span class="c1"># =&gt; 当前文件夹中的内容将会生成到 ./_site 文件夹中，</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    查看改变，并且自动再生成。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="12-目录结构">1.2 目录结构
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── _config.yml
+</span></span><span class="line"><span class="cl">├── _drafts
+</span></span><span class="line"><span class="cl">|   ├── begin-with-the-crazy-ideas.textile
+</span></span><span class="line"><span class="cl">|   └── on-simplicity-in-technology.markdown
+</span></span><span class="line"><span class="cl">├── _includes
+</span></span><span class="line"><span class="cl">|   ├── footer.html
+</span></span><span class="line"><span class="cl">|   └── header.html
+</span></span><span class="line"><span class="cl">├── _layouts
+</span></span><span class="line"><span class="cl">|   ├── default.html
+</span></span><span class="line"><span class="cl">|   └── post.html
+</span></span><span class="line"><span class="cl">├── _posts
+</span></span><span class="line"><span class="cl">|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+</span></span><span class="line"><span class="cl">|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+</span></span><span class="line"><span class="cl">├── _site
+</span></span><span class="line"><span class="cl">├── .jekyll-metadata
+</span></span><span class="line"><span class="cl">└── index.html
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>config.yml</code> 里写有整个站点的主要配置项</li>
+<li><code>_includes</code> 可以在模板中随时包含的文件</li>
+<li><code>_layouts</code> 布局文件，在博客头配置中可以选择</li>
+<li><code>_posts</code> 下的所有目录中的所有博客</li>
+</ul>
+<p>注意: .yml 文件中，字段的冒号后面<strong>必须有空格</strong>！</p>
+<h3 id="2-头部信息设置信息">2 头部信息(设置信息)
+</h3><h4 id="21-头信息">2.1 头信息
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">变量名称</th>
+          <th style="text-align: left">描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>layout</code></td>
+          <td style="text-align: left">如果设置的话，会指定<strong>使用该模板文件</strong>。指定模板文件时候不需要文件扩展名。模板文件必须放在 <code>_layouts</code> 目录下。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>permalink</code></td>
+          <td style="text-align: left">如果你需要让你发布的博客的 URL 地址<strong>不同于默认值</strong> <code>/year/month/day/title.html</code>，那你就设置这个变量，然后变量值就会作为最终的 URL 地址。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>published</code></td>
+          <td style="text-align: left">如果你<strong>不想</strong>在站点生成后<strong>展示</strong>某篇特定的博文，那么就设置（该博文的）该变量为 false。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>date</code></td>
+          <td style="text-align: left">这里的日期会<strong>覆盖文章名字中的日期</strong>。这样就可以用来保障文章排序的正确。日期的具体格式为 <code>YYYY-MM-DD HH:MM:SS +/-TTTT</code>；时，分，秒和时区都是可选的。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>category</code></td>
+          <td style="text-align: left">除过将博客文章放在某个文件夹下面外，你还可以指定博客的一个或者多个分类属性。这样当你的站点生成后，这些文章就可以根据这些分类来阅读。<code>categories</code> 可以通过 <a class="link" href="http://en.wikipedia.org/wiki/YAML#Lists"  target="_blank" rel="noopener"
+    >YAML list</a>，或者以逗号隔开的字符串指定。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>tags</code></td>
+          <td style="text-align: left">类似分类 <code>categories</code>，一篇文章也可以给它增加<strong>一个或者多个</strong>标签。同样，<code>tags</code> 可以通过 YAML 列表或者以逗号隔开的字符串指定。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="22-格式">2.2 格式
+</h4><p>传统的块格式使用连字符 + 空格来开始列表中的新项目。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">--- # Favorite movies
+</span></span><span class="line"><span class="cl">- Casablanca
+</span></span><span class="line"><span class="cl">- North by Northwest
+</span></span><span class="line"><span class="cl">- The Man Who Wasn&#39;t There
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可选的内联格式由逗号+空格分隔，并括在括号中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">--- # Shopping list
+</span></span><span class="line"><span class="cl">[milk, pumpkin pie, eggs, juice]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="23-默认值">2.3 默认值
+</h4><p>假设您想添加一个默认的布局给站点中的所有页面和文章。 你要将这添加到你的 <code>_config.yml</code> 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">defaults:
+</span></span><span class="line"><span class="cl">  -
+</span></span><span class="line"><span class="cl">    scope:
+</span></span><span class="line"><span class="cl">      path: <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      type: <span class="s2">&#34;posts&#34;</span>
+</span></span><span class="line"><span class="cl">    values:
+</span></span><span class="line"><span class="cl">      layout: <span class="s2">&#34;my-site&#34;</span>
+</span></span><span class="line"><span class="cl">  -
+</span></span><span class="line"><span class="cl">    scope:
+</span></span><span class="line"><span class="cl">      path: <span class="s2">&#34;projects&#34;</span>
+</span></span><span class="line"><span class="cl">      type: <span class="s2">&#34;pages&#34;</span> <span class="c1"># 以前的 `page`， 在 Jekyll 2.2 里。</span>
+</span></span><span class="line"><span class="cl">    values:
+</span></span><span class="line"><span class="cl">      layout: <span class="s2">&#34;project&#34;</span> <span class="c1"># 覆盖之前的默认布局</span>
+</span></span><span class="line"><span class="cl">      author: <span class="s2">&#34;Mr. Hyde&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="24-路径的组织方式">2.4 路径的组织方式
+</h4><p>总体设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c">#产生路径方式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permalink</span><span class="p">:</span><span class="w"> </span><span class="l">pretty</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permalink</span><span class="p">:</span><span class="w"> </span><span class="l">/:categories/:title.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 可以使用分类的方式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permalink</span><span class="p">:</span><span class="w">        </span><span class="l">/:categories/:title.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 这是默认的方式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permalink</span><span class="p">:</span><span class="w"> </span><span class="l">/:year/:month/:day/:title.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">https://xxxx.github.io/algorithm/2023/07/30/problem-string/</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>单独设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permalink</span><span class="p">:</span><span class="w"> </span><span class="l">/about/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Permalink Style</th>
+          <th style="text-align: left">URL Template</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>date</code></td>
+          <td style="text-align: left"><code>/:categories/:year/:month/:day/:title:output_ext</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>pretty</code></td>
+          <td style="text-align: left"><code>/:categories/:year/:month/:day/:title/</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>ordinal</code></td>
+          <td style="text-align: left"><code>/:categories/:year/:y_day/:title:output_ext</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>weekdate</code>4.0</td>
+          <td style="text-align: left"><code>/:categories/:year/W:week/:short_day/:title:output_ext</code> (<code>W</code> will be prefixed to the value of <code>:week</code>)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>none</code></td>
+          <td style="text-align: left"><code>/:categories/:title:output_ext</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="3-其他">3 其他
+</h3><h4 id="31-github-某些-样式">3.1 github 某些 样式
+</h4><ul>
+<li>
+<p><a class="link" href="http://jekyllthemes.org/"  target="_blank" rel="noopener"
+    >Jekyll Themes</a></p>
+</li>
+<li>
+<p><a class="link" href="https://github.com/cotes2020/jekyll-theme-chirpy"  target="_blank" rel="noopener"
+    >cotes2020/jekyll-theme-chirpy：一个用于技术写作的最小、响应迅速且功能丰富的 Jekyll 主题。 (github.com)</a></p>
+</li>
+<li>
+<p><a class="link" href="https://github.com/Liberxue/liberxue.github.io"  target="_blank" rel="noopener"
+    >博客模板 1</a></p>
+</li>
+<li>
+<p><a class="link" href="https://github.com/artemsheludko/bef"  target="_blank" rel="noopener"
+    >artemsheludko/bef: Bef is a responsive jekyll theme https://artemsheludko.github.io/bef/</a></p>
+</li>
+<li>
+<p><a class="link" href="https://github.com/leopardpan/leopardpan.github.io"  target="_blank" rel="noopener"
+    >leopardpan/leopardpan.github.io: 个人博客，看效果进入</a></p>
+</li>
+<li>
+<p><a class="link" href="https://github.com/jeffreytse/jekyll-theme-yat/tree/master"  target="_blank" rel="noopener"
+    >再用 2023 依旧更新</a></p>
+</li>
+<li></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/api_software/">API_software</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

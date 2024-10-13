@@ -9,10 +9,10 @@
         <copyright>Example Person</copyright>
         <lastBuildDate>Sat, 29 Jul 2023 14:26:19 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/software/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>latex使用指南</title>
-        <link>https://li54426.github.io/p/latex%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+        <link>https://li54426.github.io/2023-07-29-latex/</link>
         <pubDate>Sat, 29 Jul 2023 14:26:19 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/latex%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+        <guid>https://li54426.github.io/2023-07-29-latex/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -681,10 +681,10 @@ usepackage{graphics}
         </item>
         <item>
         <title>天若ocr调用simpletex</title>
-        <link>https://li54426.github.io/p/%E5%A4%A9%E8%8B%A5ocr%E8%B0%83%E7%94%A8simpletex/</link>
+        <link>https://li54426.github.io/2023-07-25-tianruo_ocr_use_simpletex_api/</link>
         <pubDate>Tue, 25 Jul 2023 21:19:24 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/%E5%A4%A9%E8%8B%A5ocr%E8%B0%83%E7%94%A8simpletex/</guid>
+        <guid>https://li54426.github.io/2023-07-25-tianruo_ocr_use_simpletex_api/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -1121,10 +1121,10 @@ usepackage{graphics}
         </item>
         <item>
         <title>永远热爱markdown</title>
-        <link>https://li54426.github.io/p/%E6%B0%B8%E8%BF%9C%E7%83%AD%E7%88%B1markdown/</link>
+        <link>https://li54426.github.io/2023-07-23-love_markdown/</link>
         <pubDate>Sun, 23 Jul 2023 14:21:18 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/%E6%B0%B8%E8%BF%9C%E7%83%AD%E7%88%B1markdown/</guid>
+        <guid>https://li54426.github.io/2023-07-23-love_markdown/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;

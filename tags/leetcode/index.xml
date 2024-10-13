@@ -9,10 +9,10 @@
         <copyright>Example Person</copyright>
         <lastBuildDate>Sun, 30 Jul 2023 22:09:51 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>一些字符串的问题</title>
-        <link>https://li54426.github.io/p/%E4%B8%80%E4%BA%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+        <link>https://li54426.github.io/2023-07-30-problem-string/</link>
         <pubDate>Sun, 30 Jul 2023 22:09:51 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/%E4%B8%80%E4%BA%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+        <guid>https://li54426.github.io/2023-07-30-problem-string/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -385,10 +385,10 @@ s 由小写英文字母组成&lt;/p&gt;
         </item>
         <item>
         <title>经典的数组的题目</title>
-        <link>https://li54426.github.io/p/%E7%BB%8F%E5%85%B8%E7%9A%84%E6%95%B0%E7%BB%84%E7%9A%84%E9%A2%98%E7%9B%AE/</link>
+        <link>https://li54426.github.io/2023-07-30-problem-array/</link>
         <pubDate>Sun, 30 Jul 2023 22:08:29 +0000</pubDate>
         
-        <guid>https://li54426.github.io/p/%E7%BB%8F%E5%85%B8%E7%9A%84%E6%95%B0%E7%BB%84%E7%9A%84%E9%A2%98%E7%9B%AE/</guid>
+        <guid>https://li54426.github.io/2023-07-30-problem-array/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;

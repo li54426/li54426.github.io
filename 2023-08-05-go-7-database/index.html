@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="[TOC]\n数据库 特点 作为后端软件的底座, 性能敏感 ( 没有数据还有服务? ) 存储系统软件架构, 容易受硬件影响 (别人发明了快十倍的硬件, 但是需要从头写, 你用不) 存储系统代码,既&quot;简单&quot;又&quot;复杂&quot; 设计程序原则 「缓存」很重要,贯穿整个存储体系 「拷贝」很昂贵,应该尽量减少 硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件 高速数据库的设计应该归为操作系统这一级别\n">
+<title>Go_</title>
+
+<link rel='canonical' href='https://li54426.github.io/2023-08-05-go-7-database/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Go_">
+<meta property='og:description' content="[TOC]\n数据库 特点 作为后端软件的底座, 性能敏感 ( 没有数据还有服务? ) 存储系统软件架构, 容易受硬件影响 (别人发明了快十倍的硬件, 但是需要从头写, 你用不) 存储系统代码,既&quot;简单&quot;又&quot;复杂&quot; 设计程序原则 「缓存」很重要,贯穿整个存储体系 「拷贝」很昂贵,应该尽量减少 硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件 高速数据库的设计应该归为操作系统这一级别\n">
+<meta property='og:url' content='https://li54426.github.io/2023-08-05-go-7-database/'>
+<meta property='og:site_name' content='演示站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='byte_tech' /><meta property='article:tag' content='go' /><meta property='article:published_time' content='2023-08-05T09:57:32&#43;00:00'/><meta property='article:modified_time' content='2023-08-05T09:57:32&#43;00:00'/>
+<meta name="twitter:title" content="Go_">
+<meta name="twitter:description" content="[TOC]\n数据库 特点 作为后端软件的底座, 性能敏感 ( 没有数据还有服务? ) 存储系统软件架构, 容易受硬件影响 (别人发明了快十倍的硬件, 但是需要从头写, 你用不) 存储系统代码,既&quot;简单&quot;又&quot;复杂&quot; 设计程序原则 「缓存」很重要,贯穿整个存储体系 「拷贝」很昂贵,应该尽量减少 硬件设备五花八门, 需要有抽象统一的接入层 , 例如 linux 的 一切皆文件 高速数据库的设计应该归为操作系统这一级别\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<meta name="referrer" content="never">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">演示站点</a></h1>
+            <h2 class="site-description">我的个人博客。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/li54426'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://li54426.github.io/en/" >English</option>
+                                
+                                    <option value="https://li54426.github.io/" selected>中文</option>
+                                
+                                    <option value="https://li54426.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#数据库">数据库</a>
+          <ol>
+            <li><a href="#特点">特点</a></li>
+            <li><a href="#设计程序原则">设计程序原则</a></li>
+            <li><a href="#raid技术">RAID技术</a></li>
+            <li><a href="#为什么要使用数据库">为什么要使用数据库</a></li>
+            <li><a href="#事物具有">事物具有</a></li>
+            <li><a href="#使用文件系统来存储数据的弊端">使用文件系统来存储数据的弊端</a></li>
+            <li><a href="#概念解释">概念解释</a></li>
+            <li><a href="#关系代数">关系代数</a></li>
+            <li><a href="#聚合函数">聚合函数</a></li>
+            <li><a href="#课后思考">课后思考</a></li>
+          </ol>
+        </li>
+        <li><a href="#主流-存储产品">主流 存储产品</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2023-08-05-go-7-database/">Go_</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-08-05</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>[TOC]</p>
+<h3 id="数据库">数据库
+</h3><h4 id="特点">特点
+</h4><ul>
+<li>作为后端软件的底座, 性能敏感 ( 没有数据还有服务? )</li>
+<li>存储系统软件架构, 容易受<strong>硬件</strong>影响  (别人发明了快十倍的硬件, 但是需要从头写, 你用不)</li>
+<li>存储系统代码,既&quot;简单&quot;又&quot;复杂&quot;</li>
+</ul>
+<h4 id="设计程序原则">设计程序原则
+</h4><ul>
+<li>「缓存」很重要,贯穿整个存储体系</li>
+<li>「拷贝」很昂贵,应该尽量减少</li>
+<li>硬件设备五花八门, 需要有<strong>抽象统一</strong>的接入层 , 例如 linux 的 一切皆文件</li>
+</ul>
+<p>高速数据库的设计应该归为操作系统这一级别</p>
+<ul>
+<li>必不可少, 所有的计算机必须存储数据</li>
+<li>缓存的数据必须由程序员控制, 而不是操作系统的某个算法来控制
+<ul>
+<li>例如, 用户查找了 <code>A</code>表的数据, 下一个行为必须是查询<code>B</code>表, 算法计算出来的是缓存<code>C</code>表, 那缓存还有用吗</li>
+</ul>
+</li>
+</ul>
+<h4 id="raid技术">RAID技术
+</h4><p>RAID（Redundant Array of Independent Disks）技术是一种数据存储技术，通过将多个硬盘组合在一起来提供更高的性能、容错性和数据冗余。RAID 技术可以应用在服务器、工作站和个人计算机等各种存储设备上。</p>
+<p>RAID 技术采用了不同的级别或配置，每种级别都具有其特定的优点和用途。以下是常见的几种 RAID 级别：</p>
+<p>RAID 0</p>
+<ul>
+<li>
+<p>多块磁盘简单组合</p>
+</li>
+<li>
+<p>数据条带化存储, 提高磁盘带宽</p>
+</li>
+<li>
+<p>没有额外的容错设计</p>
+</li>
+</ul>
+<p>RAID 1</p>
+<ul>
+<li>一块磁盘对应一块额外镜像盘</li>
+<li>真实空间利用率仅50%</li>
+<li>容错能力强</li>
+</ul>
+<p>RAID 0+1</p>
+<ul>
+<li>结合了RAID0和RAID1</li>
+<li>真实空间利用率仅50%</li>
+<li>容错能力强,写入带宽好</li>
+</ul>
+<h4 id="为什么要使用数据库">为什么要使用数据库
+</h4><ul>
+<li>所有的系统都会<strong>产生数据</strong>, 所以 数据库系统是所有系统<strong>不可或缺</strong>的模块</li>
+<li>逻辑层和物理层之间的  存在  <strong>紧耦合</strong></li>
+<li>复杂查询很麻烦</li>
+</ul>
+<h4 id="事物具有">事物具有
+</h4><ul>
+<li>A(tomicity),事务内的操作要么全做,要么不做</li>
+<li>C(onsistency), 事务执行前后,数据状态是一致的</li>
+<li>I(solation),可以隔离多个并发事务,避免影响</li>
+<li>D(urability),事务一旦提交成功,数据保证持久性</li>
+</ul>
+<h4 id="使用文件系统来存储数据的弊端">使用文件系统来存储数据的弊端
+</h4><ul>
+<li>数据的冗余和不一致</li>
+<li>数据访问图难</li>
+<li>数据孤立</li>
+<li>完整性问题</li>
+<li>原子性问题</li>
+<li>并发访问异常</li>
+</ul>
+<h4 id="概念解释">概念解释
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">名词</th>
+          <th style="text-align: left">解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">关系</td>
+          <td style="text-align: left">一组无序的元素或者记录</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">主键(<code>primary key</code>)</td>
+          <td style="text-align: left">某一个唯一<strong>属性</strong>或一个<strong>属性组</strong>能唯一标识一条记录</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">外键(<code>foreign key</code> )</td>
+          <td style="text-align: left">指定一张表中的属性必须存在于另一张表中</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">SQL (Structured Query Language)</td>
+          <td style="text-align: left">结构化查询语言</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>notes:</p>
+<ul>
+<li>原始关系模型中,所有的值都必须保证<strong>原子性</strong>或者单个属性值 (不能是数组 或者嵌套对象)</li>
+<li><code>relation</code> 和 <code>table</code> 是一回事</li>
+<li><code>n元组</code> 就是一个有n个值的元组,它对应于<strong>表</strong>中的一行.</li>
+</ul>
+<h4 id="关系代数">关系代数
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">符号</th>
+          <th style="text-align: left">解释</th>
+          <th style="text-align: left">注释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\sigma _{predicate}(R)$</td>
+          <td style="text-align: left">选择</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\prod_{A1,A2,,,An}(R)$</td>
+          <td style="text-align: left">投影, 即选择<code>部分列</code>，而元组不改变</td>
+          <td style="text-align: left">A1是属性</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(  R- S )</td>
+          <td style="text-align: left">R中有但是S中没有</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">并集</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">交集</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$R \times S$</td>
+          <td style="text-align: left">笛卡尔积, 产生 所有<strong>可能的不重复</strong>的组合</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$R \bowtie S$</td>
+          <td style="text-align: left">R表 和 S 中 每个属性都相同</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="聚合函数">聚合函数
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">函数名</th>
+          <th style="text-align: left">解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">AVG( col )</td>
+          <td style="text-align: left">返回平均值</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">MIN( col )</td>
+          <td style="text-align: left">返回最小值</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">MAX( col )</td>
+          <td style="text-align: left">返回最大值</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">SUM( col )</td>
+          <td style="text-align: left">返回 值</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">COUNT( col )</td>
+          <td style="text-align: left">计数</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>Notes:</p>
+<ul>
+<li>聚合函数接收一组 Tuple 作为其输入，然后产生一个单一的标量值作为其输出。</li>
+<li>只能在 SELECT 输出列表中使用。</li>
+</ul>
+<h4 id="课后思考">课后思考
+</h4><ol>
+<li>写入存储系统的粒度太大，会不会导致数据原子性问题？例如一次性写 100MB，如果系统突然 crash，会不会只有一部分数据持久化了，另一部分丢失了？如果要解决原子性问题，一般会设计什么机制？</li>
+<li>在从应用程序到存储介质的链路上，无论读还是写，数据可能要被拷贝好几次，这几次拷贝能不能去掉？如果我们去掉大部分拷贝操作，会有什么副作用，要怎么缓解副作用？</li>
+<li>一个关系型数据库大概率是会被并发访问的，如果要保证并发安全，除了在行数据上加悲观锁还有其他方式吗？</li>
+<li>在数据库领域，把数据按行存和按列存各有好处，你能从性能优先的角度设计出一种混合存储格式吗？</li>
+</ol>
+<h3 id="主流-存储产品">主流 存储产品
+</h3><p>单机存储=单个计算机节点上的存储软件系统,一般不涉及网络交互</p>
+<p>Linux文件系统的两大数据结构:Index Node&amp;DirectoryEntry</p>
+<p>Index Node记录文件元数据,如id、大小、权限、磁盘位置等node是一个文件的唯一标识,会被存储到磁盘上node的总数在格式化文件系统时就固定了</p>
+<p>Directory Entry记录文件名、inode指针,层级关系(parent)等dentry是内存结构,与inode的关系是N:1(hardlink的实现)</p>
+<p>世间一切皆 key-value</p>
+<ul>
+<li>key是你身份证,value是你的内涵:</li>
+<li>感觉就像是数学中的映射 <code>y = f(x)</code>, 在数组中, index -&gt; value, map中 key-&gt; value</li>
+</ul>
+<p>常见使用方式:put(k,v)&amp;get(k)
+常见数据结构:LSM-Tree,某种程度上牺牲读性能,追求写入性能拳头产品:RocksDB</p>
+<p>分布式文件系统</p>
+<p>HDFS:堪称大数据时代的基石  (  又是谷歌 )</p>
+<p>时代背景:专用的高级硬件很贵,同时数据存量很大,要求超高吞吐</p>
+<p>HDFS核心特点</p>
+<ul>
+<li>支持海量数据存储</li>
+<li>高容错性</li>
+<li>弱POSIX语义</li>
+<li>使用普通x86服务器,性价比高</li>
+</ul>
+<p>( 既要又要还要 )</p>
+<p>分布式存储 一Ceph</p>
+<ul>
+<li>Ceph:开源分布式存储系统里的「万金油」</li>
+</ul>
+<p>建议去读源码</p>
+<p>Ceph的核心特点</p>
+<ul>
+<li>一套系统支持对象接口、块接口、文件接口,但是一切皆对象</li>
+<li>数据写入采用主备复制模型</li>
+<li>数据分布模型采用CRUSH算法, HASH+权重+随机抽签</li>
+</ul>
+<p>关系型数据库的通用组件</p>
+<ul>
+<li>Query Engine—负责解析query,生成查询计划</li>
+<li>TxnManager负责事务并发管理</li>
+<li>Lock Manager负责锁相关的策</li>
+<li>Storage Engine负责组织内存/磁盘数据结构</li>
+<li>Replication负责主备同步</li>
+</ul>
+<p>关键<strong>内存</strong>数据结构:B-Tree、B+-Tree、LRU List等关键</p>
+<p><strong>磁盘</strong>数据结构:WriteAheadLog(RedoLog)、Page</p>
+<p>mongoDB</p>
+<ul>
+<li>
+<p>面向「文档」存储文档</p>
+</li>
+<li>
+<p>可序列化成JSON/BSON,支持嵌套</p>
+</li>
+<li>
+<p>存在「collection」,collection=文档的集合</p>
+</li>
+<li>
+<p>存储和构建索引能力依赖wiredTiger引擎</p>
+</li>
+<li>
+<p>4.0后开始支持事务(多文档、跨分片多文档等)</p>
+</li>
+<li>
+<p>常用client/SDK交互,可通过插件转译支持弱SQL</p>
+</li>
+<li>
+<p>数据结构丰富(hash表、set、zset、list)</p>
+</li>
+<li>
+<p>C语言实现,超高性能</p>
+</li>
+<li>
+<p>主要基于内存,但支持AOF/RDB持久化</p>
+</li>
+<li>
+<p>常用redis-cli/多语言SDK交互</p>
+</li>
+</ul>
+<p>Kernel Space -&gt; User Space</p>
+<ul>
+<li>避免syscall带来的性能损耗,直接从用户态访问磁盘</li>
+</ul>
+<p>中断-&gt;轮询</p>
+<ul>
+<li>磁盘性能提高后,中断次数随之上升,不利于IO性能SPDK poller可以绑定特定的cpu核不断轮询,减少cs,提高性能</li>
+</ul>
+<p>无锁数据结构</p>
+<ul>
+<li>
+<p>使用Lock-free queue,降低并发时的同步开销</p>
+</li>
+<li>
+<p>传统的网络协议栈,需要基于多层网络协议处理数据包,存在用户态&amp;内核态的切换,足够通用但性能不是最佳RDMA是kernel bypass的流派,不经过传统的网络协议栈,可以把用户态虚拟内存映射给网卡,减少拷贝开销,减少cpu开销</p>
+</li>
+</ul>
+<p>02
+Persistent Memory在NVMeSSD和Main Memory间有一种全新的存储产品:Persistent Memory O时延介于SSD和Memory之间,约百纳秒量级可以用作易失性内存(memorymode),也可以用作持久化介质(app-direct</p>
+<p>03.可编程交换机P4Switch,配有编译器、计算单元、DRAM,可以在交换机层对网络包做计算逻辑.在数据库场景下,可以实现缓存一致性协议等</p>
+<ol start="4">
+<li></li>
+</ol>
+<p>CPU/GPU/DPU CPU:从multi-coremany-core GPU:强大的算力&amp;越来越大的显存空间DPU:异构计算,减轻CPU的workload</p>
+<p>存储系统</p>
+<ul>
+<li>块存储:存储软件栈里的底层系统,接口过于朴素</li>
+<li>文件存储:日常使用最广泛的存储系统,接口十分友好,实现五花八门</li>
+<li>对象存储:公有云上的王牌产品,immutable语义加持</li>
+<li>key-value存储:形式最灵活,存在大量的开源/黑盒产品</li>
+</ul>
+<p>数据库系统关系型数据库:</p>
+<ul>
+<li>基于关系和关系代数构建的,一般支持事务和SQL访问,使用体验友好的存储产品</li>
+<li>非关系型数据库:结构灵活,访问方式灵活,针对不同场景有不同的针对性产品</li>
+</ul>
+<p>分布式架构</p>
+<ul>
+<li>数据分布策略:决定了数据怎么分布到集群里的多个物理节点,是否均匀,是否能做到高性能</li>
+<li>数据复制协议:影响IO路径的性能、机器故障场景的处理方式</li>
+<li>分布式事务算法:多个数据库节点协同保障, 一个事务的ACID特性的算法,通常基于2pc的思想设计</li>
+</ul>
+<p>课后作业实现一个(分布式)key-value存储系统要求:
+1.基于本地文件系统实现,支持常用的put(k,v)、get(k,v)、scan_by_prefix(prefix)接口
+2.支持存储server独立进程部署,支持跨进程或者网络访问
+3.1O操作做到低时延4.*可选:支持扩展成分布式架构,多台存储server组成一个分布式key-value存储系统,并保证全局的数据一致性</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/byte_tech/">Byte_tech</a>
+        
+            <a href="/tags/go/">Go</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/2023-08-24-zero-copy/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go_深入浅出零拷贝及应用</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/2023-0823-go-quick-book/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go_quick_book</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/2023-08-18-hole/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">漏洞</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/2023-08-17-test/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go_</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/2023-08-17-mult-thread/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go_</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

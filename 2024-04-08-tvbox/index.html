@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" content {:toc} TVBox 1简介 1.1 介绍 TVBOX开源版是一款基于GitHub社区官方代码仓生成的安卓应用。其前身就是之前很火的猫影视 TV，延续了猫影视采用的「套壳」与「视频源」分离的结构形式；这样有个好处，哪怕视频源倒闭了，壳子软件可以一直用。\n">
+<title></title>
+
+<link rel='canonical' href='https://li54426.github.io/2024-04-08-tvbox/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="">
+<meta property='og:description' content=" content {:toc} TVBox 1简介 1.1 介绍 TVBOX开源版是一款基于GitHub社区官方代码仓生成的安卓应用。其前身就是之前很火的猫影视 TV，延续了猫影视采用的「套壳」与「视频源」分离的结构形式；这样有个好处，哪怕视频源倒闭了，壳子软件可以一直用。\n">
+<meta property='og:url' content='https://li54426.github.io/2024-04-08-tvbox/'>
+<meta property='og:site_name' content='演示站点'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='API_software' /><meta property='article:published_time' content='2024-04-08T21:59:02&#43;00:00'/><meta property='article:modified_time' content='2024-04-08T21:59:02&#43;00:00'/>
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content=" content {:toc} TVBox 1简介 1.1 介绍 TVBOX开源版是一款基于GitHub社区官方代码仓生成的安卓应用。其前身就是之前很火的猫影视 TV，延续了猫影视采用的「套壳」与「视频源」分离的结构形式；这样有个好处，哪怕视频源倒闭了，壳子软件可以一直用。\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<meta name="referrer" content="never">
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">演示站点</a></h1>
+            <h2 class="site-description">我的个人博客。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/li54426'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://li54426.github.io/en/" >English</option>
+                                
+                                    <option value="https://li54426.github.io/" selected>中文</option>
+                                
+                                    <option value="https://li54426.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#tvbox">TVBox</a></li>
+        <li><a href="#1简介">1简介</a>
+          <ol>
+            <li><a href="#11-介绍">1.1 介绍</a></li>
+            <li><a href="#12-源">1.2 源</a></li>
+            <li><a href="#13-收集的资源">1.3 收集的资源</a></li>
+            <li><a href="#14-使用教程">1.4 使用教程</a></li>
+          </ol>
+        </li>
+        <li><a href="#2-不同版本">2 不同版本</a>
+          <ol>
+            <li><a href="#21-黑盒版本">2.1 黑盒版本</a></li>
+            <li><a href="#22-蜂蜜230">2.2 蜂蜜2.3.0</a></li>
+            <li><a href="#23-521魔改壳子">2.3 521魔改壳子</a></li>
+            <li><a href="#24-yuan_影视仓-506-版本">2.4 yuan_影视仓 5.0.6 版本：</a></li>
+            <li><a href="#ok猫颖230">OK猫颖2.3.0</a></li>
+          </ol>
+        </li>
+        <li><a href="#资源站">资源站</a>
+          <ol>
+            <li><a href="#2-tv-和手机通用会员">2 TV 和手机通用会员</a></li>
+            <li><a href="#2021年安卓电视上最好用的网络浏览器是什么">2021年,安卓电视上最好用的网络浏览器是什么?</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2024-04-08-tvbox/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-04-08</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <ul>
+<li>content
+{:toc}</li>
+</ul>
+<h3 id="tvbox">TVBox
+</h3><h3 id="1简介">1简介
+</h3><h4 id="11-介绍">1.1 介绍
+</h4><p>TVBOX开源版是一款基于GitHub社区官方代码仓生成的安卓应用。其前身就是之前很火的猫影视 TV，延续了猫影视采用的「<strong>套壳</strong>」与「<strong>视频源</strong>」<strong>分离</strong>的结构形式；这样有个好处，哪怕视频源倒闭了，壳子软件可以一直用。</p>
+<p>「<strong>猫影视</strong>」就采用的是这种模式，之前我也早就在储物间有提供，用过的粉丝应该都觉得好用，但影视猫还良心的给我们留了点〝遗产〞，<strong>原团队在 Github 开源了一个名为 TVBox 的项目</strong>，此 APP 功能界面与影视猫几乎保持一致： <a class="link" href="https://github.com/CatVodTVOfficial/TVBoxOSC"  target="_blank" rel="noopener"
+    >https://github.com/CatVodTVOfficial/TVBoxOSC</a>，不过原项目这里并没有给大家提供编译好的 APP</p>
+<p>但这世上似乎永远不缺少英雄，<strong>o0HalfLife0o</strong> 大佬好心的提供已签名可安装的最新测试版 APK：https://github.com/o0HalfLife0o/TVBoxOSC/releases/</p>
+<p>安装完成后，用户导入电视源配置便可以正常使用该软件，这款应用配置源非常丰富，支持sp源、APP源、采集站源和聚合源等多种来源，几乎可以满足用户对不同类型影视资源的观影需求，无论是影视作品还是电视直播都可以在线观看。</p>
+<p>以 TVbox 为参照的各种 TVbox 改版，开始陆续发布上线。.例如 TVbox_pro、pluto-player、TVbox 影视仓、TVbox_taka、tvboxq 版、宝盒 (tvbox 改版)、tvbox 蜂蜜版、TVBOX 魔改版等等。这其中有的是与原版采用同样的壳源分离模式，有的则是内置了部分资源接口。</p>
+<h4 id="12-源">1.2 源
+</h4><p>下面是几个我在使用的源:</p>
+<p><a class="link" href="http://pandown.pro/tvbox/tvbox.json"  target="_blank" rel="noopener"
+    >http://pandown.pro/tvbox/tvbox.json</a></p>
+<p><a class="link" href="https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json"  target="_blank" rel="noopener"
+    >https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json</a></p>
+<p><a class="link" href="https://xn--sss604efuw.top/"  target="_blank" rel="noopener"
+    >饭太硬 | 导航 (xn&ndash;sss604efuw.top)</a></p>
+<h4 id="13-收集的资源">1.3 收集的资源
+</h4><blockquote>
+<p>链接:https://caiyun.139.com/m/i?105CqOWrry45X
+提取码:n7Pu
+复制内容打开移动云盘PC客户端，操作更方便哦</p>
+</blockquote>
+<p>在 Github 上其实有很多程序员在维护<strong>自用的 TVBOX 接口</strong>，而 Github 上的代码多数都是公开的，所以你懂的</p>
+<p>搜索方法也很简单，在 github.com 上<strong>搜索关键词：TVBOX</strong>，然后再右上角 <strong>Sort 筛选</strong>这里，选择 <strong>Recently upload 最近更新</strong></p>
+<h4 id="14-使用教程">1.4 使用教程
+</h4><p>本地源</p>
+<ul>
+<li>在<strong>配置</strong>界面，选择 [<strong>上传文件</strong>]</li>
+<li>在弹出的系统文件管理界面中，按之前的保存路径找到本地包，</li>
+<li>确认上传，点确定；本地包就会<strong>自动解压</strong>到本地根目录。</li>
+<li>下面这里就会显示出刚刚解压出来的本地包文件夹，点开</li>
+<li>找到<strong>接口</strong>文件，点击 [使用]</li>
+</ul>
+<h3 id="2-不同版本">2 不同版本
+</h3><h4 id="21-黑盒版本">2.1 黑盒版本
+</h4><p><code>TVBox_takagen99_20230816 版本</code></p>
+<ul>
+<li>简单, 俗称<strong>黑版</strong></li>
+<li>没有其他内容</li>
+</ul>
+<h4 id="22-蜂蜜230">2.2 蜂蜜2.3.0
+</h4><ul>
+<li>
+<p><strong>安装后</strong>名称为<code>影视</code></p>
+</li>
+<li>
+<p>蜂蜜版也就是 <strong>FongMi 版</strong> TVBox 电视盒子是一款最新的 TVBox 新的优化版本 FongMi 版，做了很多优化，最好用的就是自动跳过失效的线路，其他的版本会一直卡在那里，最新的 FongMi 版 tvbox 会自动选择最好最流畅的线路进行播放，非常好用。</p>
+</li>
+<li>
+<p>程序足足比原生 tvbox <strong>大 2 倍</strong>，也就 <strong>40M</strong> 左右</p>
+</li>
+<li>
+<p>内置版本比较方便的就是无需扫码配置接口了，另外遇到什么问题打不开软件了只需要重置一下软件数据就能继续用了，这个是内置比较方便的，尤其老人使用哈。</p>
+</li>
+<li>
+<p>颖式壳子在很早之前就更新了接口补齐的功能了，也就是在接口的地方输入字母a就会自动补齐接口格式变为本地接口前缀assets://，这个时候只需要再输入一下字母a，就可以调用软件自带的多仓接口了，操作起来是非常方便的！</p>
+<p>​</p>
+</li>
+</ul>
+<p><a class="link" href="https://github.com/mlabalabala/box"  target="_blank" rel="noopener"
+    >mlabalabala/box: TVBox 的一个可以处理多源的版本，支持安卓 4.4 (github.com)</a></p>
+<h4 id="23-521魔改壳子">2.3 521魔改壳子
+</h4><p>一款基于<strong>蜂蜜版本</strong>制作来的支持多仓，支持浏览器的壳子，界面做的很好，只是大佬更新上比较佛系，都是看到<strong>蜂蜜版本</strong>有了什么好的功能然后再去搬运一把，之前还搞了很多创意的功能，现在只是定期搬搬砖了</p>
+<h4 id="24-yuan_影视仓-506-版本">2.4 yuan_影视仓 5.0.6 版本：
+</h4><ul>
+<li>影视仓支持阿里网盘，只需要添加阿里 token，即可查看阿里网盘里面的 4k 影视资源。影视仓支持多仓，只需要内置多仓地址，即可切换地址源，解锁众多影视资源。也可以添加单仓地址源。影视仓更新的比较勤快。版本更新快。</li>
+<li>支持<code>dlnc</code>投屏, 推荐使用</li>
+</ul>
+<p>目前影视仓总共有 3 个发行版本，蓝色和红色图标为手机版本，适配手机最好，竖屏形式。</p>
+<ul>
+<li>蓝色是街机游戏版，提供了街机模拟器，小霸王，世嘉等模拟器，用来回味童年经典。</li>
+<li>红色版本是短视频版本，内置了快手短视频。</li>
+</ul>
+<p>我目前自己主要用手机端了～，这两个功能都是看剧无聊时用来打发时间的，大家按需下载即可。其他功能一致</p>
+<p>而橙色版本是<strong>横屏</strong>版本，主要用于 TV 端，或者平板，手机版也可用于平板，看自己需求，但是手机版不可安装到电视端，没有适配，如果你需要在电视端安装，安装橙色版本</p>
+<h4 id="ok猫颖230">OK猫颖2.3.0
+</h4><p>比较有意思的是OK大佬完全不跟着蜂蜜大佬原来的路线走哈，大佬新的版本居然又支持了clan的格式了，这个功能蜂蜜大佬可是在退网前才刚关掉的，另外首页显示分类的功能，蜂蜜大佬也是故意不放的，OK大佬则是特意搞了，还放了开关设置，真的很不错哈！</p>
+<p>在资源筛选这块，除了豆瓣就是360还有2345这些站的资源比较强了，筛选的内容比较细致，随手写了规则，然后从其他接口里面偷来的接口直接用到了大全的接口上，感觉还可以，热门的资源基本都可以做到秒b，唯一的缺点就是咚慢还有宗义的资源解析看运气，貌似大部分的解析在这两块内容都比较差劲哈！</p>
+<h3 id="资源站">资源站
+</h3><p><a class="link" href="https://www.yckceo.com/index/applist/tvbox.html"  target="_blank" rel="noopener"
+    >源仓库 (yckceo.com)</a></p>
+<p><a class="link" href="https://xn--sss604efuw.top/"  target="_blank" rel="noopener"
+    >饭太硬 | 导航 (xn&ndash;sss604efuw.top)</a></p>
+<h4 id="2-tv-和手机通用会员">2 TV 和手机通用会员
+</h4><ul>
+<li><strong>腾讯视频</strong>  之小爱音箱提取版魔改版</li>
+<li><strong>哔哩哔哩</strong>   之小爱音箱<strong>提取版</strong> / 哔哩哔哩TV版</li>
+<li>百度网盘TV版 ( 需要会员 )</li>
+<li><a class="link" href="https://github.com/qidian55/bilibilitv1.6.6-repair"  target="_blank" rel="noopener"
+    >尝试修复经典的 bilibili tv 1.6.6 版本</a></li>
+</ul>
+<h4 id="2021年安卓电视上最好用的网络浏览器是什么">2021年,安卓电视上最好用的网络浏览器是什么?
+</h4><p>目前(2022年)用到遥控器体验最好的电视浏览器:<strong>TV Bro(开源)</strong>
+jiopages(阿三出品)主力使用</p>
+<ul>
+<li>TV Bro跟jiopages浏览器有一拼,只有5M,速度快,开源,可过滤广告,设置收藏</li>
+<li>火狐TV版(可用,兼容性广,官方停止更新,不再推荐)</li>
+<li>TCL雷鸟BrowseHere浏览器(内存占用稍大,遥控操作稍有卡顿</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/api_software/">API_software</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
