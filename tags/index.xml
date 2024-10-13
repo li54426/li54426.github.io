@@ -1,66 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Tags on Example Site</title>
-        <link>http://localhost:1313/tags/</link>
-        <description>Recent content in Tags on Example Site</description>
+        <title>Tags on 演示站点</title>
+        <link>https://li54426.github.io/tags/</link>
+        <description>Recent content in Tags on 演示站点</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en</language>
+        <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Css</title>
-        <link>http://localhost:1313/tags/css/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        <lastBuildDate>Sat, 15 Jun 2024 22:22:02 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cpp</title>
+        <link>https://li54426.github.io/tags/cpp/</link>
+        <pubDate>Sat, 15 Jun 2024 22:22:02 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/css/</guid>
+        <guid>https://li54426.github.io/tags/cpp/</guid>
         <description></description>
         </item>
         <item>
-        <title>Html</title>
-        <link>http://localhost:1313/tags/html/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        <title>Standard</title>
+        <link>https://li54426.github.io/tags/standard/</link>
+        <pubDate>Sun, 30 Jul 2023 19:08:53 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/html/</guid>
+        <guid>https://li54426.github.io/tags/standard/</guid>
         <description></description>
         </item>
         <item>
-        <title>Markdown</title>
-        <link>http://localhost:1313/tags/markdown/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        <title>STL</title>
+        <link>https://li54426.github.io/tags/stl/</link>
+        <pubDate>Tue, 25 Jul 2023 21:19:24 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/markdown/</guid>
+        <guid>https://li54426.github.io/tags/stl/</guid>
         <description></description>
         </item>
         <item>
-        <title>Themes</title>
-        <link>http://localhost:1313/tags/themes/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        <title>Ptr</title>
+        <link>https://li54426.github.io/tags/ptr/</link>
+        <pubDate>Mon, 03 Jul 2023 23:13:54 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/themes/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Tag With Whitespaces</title>
-        <link>http://localhost:1313/tags/tag-with-whitespaces/</link>
-        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost:1313/tags/tag-with-whitespaces/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Text</title>
-        <link>http://localhost:1313/tags/text/</link>
-        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost:1313/tags/text/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Emoji</title>
-        <link>http://localhost:1313/tags/emoji/</link>
-        <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost:1313/tags/emoji/</guid>
+        <guid>https://li54426.github.io/tags/ptr/</guid>
         <description></description>
         </item>
         
