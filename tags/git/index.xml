@@ -9,10 +9,10 @@
         <copyright>Example Person</copyright>
         <lastBuildDate>Sat, 29 Jul 2023 15:17:12 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Github使用指南</title>
-        <link>https://li54426.github.io/2023-07-29-github/</link>
+        <link>https://li54426.github.io/2023-07-29-github-git/</link>
         <pubDate>Sat, 29 Jul 2023 15:17:12 +0000</pubDate>
         
-        <guid>https://li54426.github.io/2023-07-29-github/</guid>
+        <guid>https://li54426.github.io/2023-07-29-github-git/</guid>
         <description>&lt;ul&gt;
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
@@ -570,8 +570,53 @@
 &lt;li&gt;如果你在本地的 master 分支做了一些工作，在同一段时间内有其他人推送&lt;strong&gt;提交&lt;/strong&gt;到 &lt;code&gt;git.ourcompany.com&lt;/code&gt; 并且&lt;strong&gt;更新&lt;/strong&gt;了它的 master 分支，这就是说你们的提交历史已走向不同的方向。 即便这样，只要你保持不与origin 服务器连接（并拉取数据），你的 origin/master 指针就不会移动。&lt;/li&gt;
 &lt;li&gt;如果要与给定的远程仓库&lt;strong&gt;同步数据&lt;/strong&gt;，运行 &lt;code&gt;git fetch &amp;lt;remote&amp;gt; &lt;/code&gt;命令&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;37-让分支成为新的分支&#34;&gt;3.7 让分支成为新的分支
-&lt;/h4&gt;&lt;h3 id=&#34;4-常见开发场景&#34;&gt;4 常见开发场景
+&lt;h4 id=&#34;37-删除记录但保留代码&#34;&gt;3.7 删除记录但保留代码
+&lt;/h4&gt;&lt;p&gt;背景&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;以前开发中未制定、遵循 git 管理项目标准，随意 (不规范) 的提交 严重 “污染了” 提交历史，使开发主线 “脏乱”;&lt;/li&gt;
+&lt;li&gt;基于以前的仓库重新开发，这样可保留以前的配置等文件，但是需要删除全部的历史记录、tag、分支等；&lt;/li&gt;
+&lt;li&gt;由于自己或其他方面特殊需求，需要保留仓库的部分属性 (创建时间，说明，主页等)，但需要清除历史记录，使其为 “新库”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;基于以上 3 方面的需求，需要提供一个 &lt;strong&gt;在不删除原仓库的前提下，清除原仓库的所有历史提交记录 (包含：分支、tag)&lt;/strong&gt; 解决方案。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 创建新的分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;### 严格意义上说，这样创建的分支还不是一个真正的分支，因为 HEAD 指向的引用中没有 commit 值，只有在进行一次提交后，它才算得上真正的分支。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout --orphan &amp;lt;new_branch&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 进行提交操作&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;first commit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 删除现在的分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -D master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 重命名分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -m master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 将分支提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -f origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;4-常见开发场景&#34;&gt;4 常见开发场景
 &lt;/h3&gt;&lt;h4 id=&#34;1本地仓库有文件远程服务器上面是新建的仓库&#34;&gt;1、本地仓库有文件，远程服务器上面是新建的仓库
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
