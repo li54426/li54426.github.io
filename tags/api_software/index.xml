@@ -7,7 +7,436 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Mon, 01 Jul 2024 16:36:14 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/api_software/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 13 Oct 2024 20:53:35 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/api_software/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>使用Hugo来组织博客</title>
+        <link>https://li54426.github.io/2024-10-13-blog-hugo/</link>
+        <pubDate>Sun, 13 Oct 2024 20:53:35 +0000</pubDate>
+        
+        <guid>https://li54426.github.io/2024-10-13-blog-hugo/</guid>
+        <description>&lt;p&gt;实际上有两个github仓库，分别是&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Blog静态资源仓库，仓库名称任意，用来存储博客的笔记即&lt;code&gt;markdown&lt;/code&gt;文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$UserName$.gihub.io&lt;/code&gt;，必须是用 &lt;code&gt;github.io&lt;/code&gt;结尾的仓库，用来存放网站的资源等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每当你上传文件到静态仓库时，触发静态资源仓库的&lt;code&gt;Action&lt;/code&gt;，推送到&lt;code&gt;$UserName$.gihub.io&lt;/code&gt;仓库&lt;/p&gt;
+&lt;h4 id=&#34;建立资源md仓库&#34;&gt;建立资源（md）仓库
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;first commit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -M main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;你的github仓库地址&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;github-action&#34;&gt;github Action
+&lt;/h4&gt;&lt;p&gt;在 hugo 主文件创建一个&lt;code&gt;.github/workflows/xxxx.yaml&lt;/code&gt; 文件，将以下内容复制进去，想具体了解更多，可查看【&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/zh/actions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github Action 文档&lt;/a&gt;】&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;name: deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 代码提交到main分支时触发github action
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;on:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  push:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    branches:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      - main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jobs:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  deploy:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    runs-on: ubuntu-latest
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    steps:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        - name: Checkout
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          uses: actions/checkout@v4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          with:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              fetch-depth: 0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        - name: Setup Hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          uses: peaceiris/actions-hugo@v3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          with:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              hugo-version: &amp;#34;latest&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              extended: true
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        - name: Build Web
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          run: hugo -D
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        - name: Deploy Web
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          uses: peaceiris/actions-gh-pages@v4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          with:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PERSONAL_TOKEN: ${{ secrets.你的token变量名 }}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              EXTERNAL_REPOSITORY: 你的github名/你的仓库名
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PUBLISH_BRANCH: main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PUBLISH_DIR: ./public
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              commit_message: auto deploy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;参考链接&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo+Github免费部署自己的博客&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title></title>
+        <link>https://li54426.github.io/2024-10-13-github-action/</link>
+        <pubDate>Sun, 13 Oct 2024 20:39:59 +0000</pubDate>
+        
+        <guid>https://li54426.github.io/2024-10-13-github-action/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Github Action 官方文档：&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//docs.github.com/en/actions/reference/workflow-syntax-for-github-actions%23name&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;是 Github 推出的持续集成工具&lt;/p&gt;
+&lt;h4 id=&#34;持续集成是什么&#34;&gt;持续集成是什么？
+&lt;/h4&gt;&lt;p&gt;简单说就是自动化的打包程序 —— 如果是前端程序员，这样解释比较顺畅：&lt;/p&gt;
+&lt;p&gt;每次提交代码到 Github 的仓库后，Github 都会自动创建一个虚拟机（Mac / Windows / Linux 任我们选），来执行一段或多段指令（由我们定），例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;npm install&lt;/li&gt;
+&lt;li&gt;npm run build&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;yaml-是什么&#34;&gt;Yaml 是什么？
+&lt;/h4&gt;&lt;p&gt;我们集成 Github Action 的做法，就是在我们仓库的根目录下，创建一个 .github 文件夹，里面放一个 *.yaml 文件 —— 这个 Yaml 文件就是我们配置 Github Action 所用的文件。&lt;/p&gt;
+&lt;p&gt;它是一个非常容易地脚本语言，如果我们不会的话，也没啥大事继续往下看就成了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考文档：&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;五分钟学习 YAML&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;github-action-的使用限制&#34;&gt;Github Action 的使用限制
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;每个 Workflow 中的 job 最多可以执行 6 个小时&lt;/li&gt;
+&lt;li&gt;每个 Workflow 最多可以执行 72 小时&lt;/li&gt;
+&lt;li&gt;每个 Workflow 中的 job 最多可以排队 24 小时&lt;/li&gt;
+&lt;li&gt;在一个存储库的所有 Action 中，一个小时最多可以执行 1000 个 API 请求&lt;/li&gt;
+&lt;li&gt;并发工作数：Linux：20，Mac：5（专业版可以最多提高到 180 / 50）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;什么是-workflow&#34;&gt;什么是 Workflow？
+&lt;/h4&gt;&lt;p&gt;Workflow 是由一个或多个 job 组成的可配置的自动化过程。我们通过创建 YAML 文件来创建 Workflow 配置。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;一如何定义-workflow-的名字&#34;&gt;一、如何定义 Workflow 的名字？
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;name&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Workflow 的名称，Github 在存储库的 Action 页面上显示 Workflow 的名称。&lt;/p&gt;
+&lt;p&gt;如果我们省略 name，则 Github 会将其设置为相对于存储库根目录的工作流文件路径。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;name: Greeting from Mona on: push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;h4 id=&#34;二如何定义-workflow-的触发器&#34;&gt;二、如何定义 Workflow 的触发器？
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;on&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;触发 Workflow 执行的 event 名称，比如：&lt;strong&gt;每当我提交代码到 Github 上的时候，或者是每当我打 TAG 的时候。&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;// 单个事件 on: push // 多个事件 on: [push,pull_request]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;事件大全：&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//docs.github.com/en/actions/reference/events-that-trigger-workflows%23about-workflow-events&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://docs.github.com/en/actions/reference/events-that-trigger-workflows#about-workflow-events&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;三workflow-的-job-是什么&#34;&gt;三、Workflow 的 job 是什么？
+&lt;/h4&gt;&lt;p&gt;答：一个 Workflow 由一个或多个 jobs 构成，含义是一次持续集成的运行，可以完成多个任务。&lt;/p&gt;
+&lt;h5 id=&#34;1如何定义一个-job&#34;&gt;1、如何定义一个 job？
+&lt;/h5&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jobs: my_first_job: name: My first job my_second_job: name: My second job
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;答：通过 job 的 id 定义。&lt;/p&gt;
+&lt;p&gt;每个 job 必须具有一个 id 与之关联。&lt;/p&gt;
+&lt;p&gt;上面的 my_first_job 和 my_second_job 就是 job_id。&lt;/p&gt;
+&lt;h5 id=&#34;2如何定义-job-的名称&#34;&gt;2、如何定义 job 的名称？
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.name&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;name 会显示在 Github 上&lt;/p&gt;
+&lt;h5 id=&#34;3如何定义-job-的依赖job-是否可以依赖于别的-job-的输出结果&#34;&gt;3、如何定义 job 的依赖？job 是否可以依赖于别的 job 的输出结果？
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.needs&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;答：needs 可以标识 job 是否依赖于别的 job—— 如果 job 失败，则会跳过所有需要该 job 的 job。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jobs: job1: job2: needs: job1 job3: needs: [job1, job2]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.outputs：用于和 need 打配合，outputs 输出 =》need 输入&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;jobs 的输出，用于和 needs 打配合：可以看到 ouput&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jobs: job1: runs-on: ubuntu-latest # Map a step output to a job output outputs: output1: ${{ steps.step1.outputs.test }} output2: ${{ steps.step2.outputs.test }} steps: - id: step1 run: echo &amp;#34;::set-output name=test::hello&amp;#34; - id: step2 run: echo &amp;#34;::set-output name=test::world&amp;#34; job2: runs-on: ubuntu-latest needs: job1 steps: - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h5 id=&#34;4如何定义-job-的运行环境&#34;&gt;4、如何定义 job 的运行环境？
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.runs-on&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;指定运行 job 的运行环境，Github 上可用的运行器为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;windows-2019&lt;/li&gt;
+&lt;li&gt;ubuntu-20.04&lt;/li&gt;
+&lt;li&gt;ubuntu-18.04&lt;/li&gt;
+&lt;li&gt;ubuntu-16.04&lt;/li&gt;
+&lt;li&gt;macos-10.15&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jobs: job1: runs-on: macos-10.15 job2: runs-on: windows-2019
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h5 id=&#34;5如何给-job-定义环境变量&#34;&gt;5、如何给 job 定义环境变量？
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.env&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;jobs: job1: env: FIRST_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Mona&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h5 id=&#34;6如何使用-job-的条件控制语句&#34;&gt;6、如何使用 job 的条件控制语句？
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.if&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们可以使用 if 条件语句来组织 job 运行&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;四step-属性是什么&#34;&gt;四、Step 属性是什么？
+&lt;/h4&gt;&lt;p&gt;答：每个 job 由多个 step 构成，它会从上至下依次执行。&lt;/p&gt;
+&lt;h5 id=&#34;step-运行的是什么&#34;&gt;step 运行的是什么？
+&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;step 可以运行：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;command&lt;/strong&gt;s：命令行命令&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;setup tasks&lt;/strong&gt;：环境配置命令（比如安装个 Node 环境、安装个 Python 环境）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;action&lt;/strong&gt;（in your repository, in public repository, in Docker registry）：一段 action（Action 是什么我们后面再说）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;每个 step 都在自己的运行器环境中运行，并且可以访问工作空间和文件系统。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;因为每个 step 都在运行器环境中独立运行，所以 &lt;strong&gt;step 之间不会保留对环境变量的更改&lt;/strong&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 定义 Workflow 的名字 name: Greeting from Mona # 定义 Workflow 的触发器 on: push # 定义 Workflow 的 job jobs: # 定义 job 的 id my-job: # 定义 job 的 name name: My Job # 定义 job 的运行环境 runs-on: ubuntu-latest # 定义 job 的运行步骤 steps: # 定义 step 的名称 - name: Print a greeting # 定义 step 的环境变量 env: MY_VAR: Hi there! My name is FIRST_NAME: Mona MIDDLE_NAME: The LAST_NAME: Octocat # 运行指令：输出环境变量 run: | echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;h4 id=&#34;五action-是什么&#34;&gt;五、Action 是什么？
+&lt;/h4&gt;&lt;p&gt;我们可以直接打开下面的 Action 市场来看看：&lt;/p&gt;
+&lt;p&gt;Action 其实就是命令，比如 Github 官方给了我们一些默认的命令：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-5208c22215435edfa36040d6b217c325_r.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;比如最常用的，check-out 代码到 Workflow 工作区：&lt;/p&gt;
+&lt;h5 id=&#34;1我们应该如何使用-action&#34;&gt;1、我们应该如何使用 Action？
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.steps.uses&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-e6855fd2e091401590baf4febf356cce_r.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;比如我们可以 check-out 仓库中最新的代码到 Workflow 的工作区：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;steps: - uses: actions/checkout@v2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;当然，我们还可以给它添加个名字：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;steps: - name: Check out Git repository uses: actions/checkout@v2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-8ea878b5f2917be32ba9aa18b3a1cef9_r.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;再比如说，我们如果是 node 项目，我们可以安装 Node.js 与 NPM：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2-beta with: node-version: &amp;#39;12&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h5 id=&#34;2上面我们为什么要用v2-和-v2-beta-呢&#34;&gt;2、上面我们为什么要用：@v2 和 @v2-beta 呢？
+&lt;/h5&gt;&lt;p&gt;答：首先，正如大家所想，这个 @v2 和 @v2-beta 的意思都是 Action 的版本。&lt;/p&gt;
+&lt;p&gt;我们如果不带版本号的话，其实就是默认使用最新版本的了。&lt;/p&gt;
+&lt;p&gt;但是 &lt;strong&gt;Github 官方强烈要求我们带上版本号&lt;/strong&gt; —— 这样子的话，我们就不会出现：&lt;strong&gt;写好一个 Workflow，但是由于某个 Action 的作者一更新，我们的 Workflow 就崩了的问题。&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;3上面的-with-参数是什么意思&#34;&gt;&lt;strong&gt;3、上面的 with 参数是什么意思？&lt;/strong&gt;
+&lt;/h5&gt;&lt;p&gt;答：&lt;strong&gt;有的 Action 可能会需要我们传入一些特定的值&lt;/strong&gt;：比如上面的 node 版本啊之类的，这些&lt;strong&gt;需要我们传入的参数由 with 关键字来引入&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;具体的 Action 需要传入哪些参数，还请去 Github Action Market 中 Action 的页面中查看。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;具体库的使用和参数，我们可以去官方的 Action 市场查看：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;六我们如何运行命令行命令&#34;&gt;六、我们如何运行命令行命令？
+&lt;/h4&gt;&lt;p&gt;上文说到，&lt;strong&gt;steps 可以运行：action 和 command-line programs&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;我们现在已经知道&lt;strong&gt;可以使用 uses 来运行 action 了&lt;/strong&gt;，那么我们该如何运行 command-line programs 呢？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答案是：run&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;run 命令在默认状态下会启动一个没有登录的 shell 来作为命令输入器。&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;1如何运行多行命令&#34;&gt;&lt;strong&gt;1、如何运行多行命令？&lt;/strong&gt;
+&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;每个 run 命令都会启动一个新的 shell，所以我们执行多行连续命令的时候需要写在同一个 run 下：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;单行命令&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- name: Install Dependencies run: npm install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多行命令&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- name: Clean install dependencies and build run： | npm ci npm run build
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h5 id=&#34;2如何指定-command-运行的位置&#34;&gt;2、如何指定 command 运行的位置？
+&lt;/h5&gt;&lt;p&gt;使用 working-directory 关键字，我们可以指定 command 的运行位置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- name: Clean temp directory run: rm -rf * working-directory: ./temp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h5 id=&#34;3如何指定-shell-的类型使用-cmd-or-powershell-or-python&#34;&gt;3、如何指定 shell 的类型？（使用 cmd or powershell or python？？）
+&lt;/h5&gt;&lt;p&gt;使用 shell 关键字，来指定特定的 shell：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;steps: - name: Display the path run: echo $PATH shell: bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;下面是各个系统支持的 shell 类型：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-9283bfe170157cf550cbc86c36fa28c5_r.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;七什么是矩阵&#34;&gt;七、什么是矩阵？
+&lt;/h4&gt;&lt;p&gt;答：就是有时候，我们的代码可能编译环境有多个。比如 electron 的程序，我们需要在 macos 上编译 dmg 压缩包，在 windows 上编译 exe 可执行文件。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这种时候，我们使用矩阵就可以啦～&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;比如下面的代码，我们使用了矩阵指定了：&lt;strong&gt;2 个操作系统，3 个 node 版本&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这时候&lt;strong&gt;下面这段代码就会执行 6 次&lt;/strong&gt; —— 2 x 3 = 6！！！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;runs-on: ${{ matrix.os }} strategy: matrix: os: [ubuntu-16.04, ubuntu-18.04] node: [6, 8, 10] steps: - uses: actions/setup-node@v1 with: node-version: ${{ matrix.node }}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;h4 id=&#34;下一篇文章实战electron-通过-github-action-自动打包并上传到-github-的-release-中&#34;&gt;下一篇文章：《实战：electron 通过 Github Action 自动打包，并上传到 Github 的 release 中》
+&lt;/h4&gt;&lt;p&gt;敬请期待！！！！！&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>浏览器插件推荐</title>
         <link>https://li54426.github.io/2024-07-01-broswer/</link>
         <pubDate>Mon, 01 Jul 2024 16:36:14 +0000</pubDate>
