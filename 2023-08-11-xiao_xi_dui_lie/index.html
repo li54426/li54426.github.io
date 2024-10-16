@@ -10,7 +10,7 @@
 <meta property='og:description' content=" content {:toc} 四个场景,如何解决? 系统奔溃&mdash;&mdash;-消息队列, 解耦 服务处理能力有限&mdash;&mdash;削峰, 消息队列 链路耗时长尾&mdash;&mdash;-异步, 消息队列 日志如何处理&mdash;&mdash; 常见的消息队列 Kafka:分布式的、分区的、多副本的日志提交服务,在高吞吐场景下发挥较为出色 RocketMQ:低延迟、强一致、高性能、高可靠、万亿级容量和灵活的可扩展性,在一些实时场景中运用较广 Pulsar:是下一代云原生分布式消息流平台,集消息、存储、轻量化函数式计算为一体、采用存算分离的架构设计 BMQ:和Pulsar架构类似, 存算分离, 初期定位是承接高吞吐的离线业务场景, 逐步替换掉对应的Kafka集群 使用 kafka流程 创建集群 新增Topic 编写生产者逻辑 编写消费者逻辑 基本概念 Topic:逻辑队列, 不同Topic可以建立不同的Topic 每个 topic 内部有 很多 partition, 可以并行处理 Cluster: 物理集群,每个集群中可以建立多个不同的Topic Producer:生产者,负责将业务消息发送到Topic中 Consumer:消费者,负责消费Topic中的消息 ConsumerGroup:消费者组,不同组Consumer消费进度互不干涉 leader 是 负责存储生产者的产品供消费者使用\n">
 <meta property='og:url' content='https://li54426.github.io/2023-08-11-xiao_xi_dui_lie/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='byte_tech' /><meta property='article:tag' content='go' /><meta property='article:published_time' content='2023-08-11T10:11:14&#43;00:00'/><meta property='article:modified_time' content='2023-08-11T10:11:14&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='byte_tech' /><meta property='article:tag' content='go' /><meta property='article:published_time' content='2023-08-11T10:11:14&#43;00:00'/><meta property='article:modified_time' content='2024-10-13T18:49:58&#43;08:00'/>
 <meta name="twitter:title" content="Go_">
 <meta name="twitter:description" content=" content {:toc} 四个场景,如何解决? 系统奔溃&mdash;&mdash;-消息队列, 解耦 服务处理能力有限&mdash;&mdash;削峰, 消息队列 链路耗时长尾&mdash;&mdash;-异步, 消息队列 日志如何处理&mdash;&mdash; 常见的消息队列 Kafka:分布式的、分区的、多副本的日志提交服务,在高吞吐场景下发挥较为出色 RocketMQ:低延迟、强一致、高性能、高可靠、万亿级容量和灵活的可扩展性,在一些实时场景中运用较广 Pulsar:是下一代云原生分布式消息流平台,集消息、存储、轻量化函数式计算为一体、采用存算分离的架构设计 BMQ:和Pulsar架构类似, 存算分离, 初期定位是承接高吞吐的离线业务场景, 逐步替换掉对应的Kafka集群 使用 kafka流程 创建集群 新增Topic 编写生产者逻辑 编写消费者逻辑 基本概念 Topic:逻辑队列, 不同Topic可以建立不同的Topic 每个 topic 内部有 很多 partition, 可以并行处理 Cluster: 物理集群,每个集群中可以建立多个不同的Topic Producer:生产者,负责将业务消息发送到Topic中 Consumer:消费者,负责消费Topic中的消息 ConsumerGroup:消费者组,不同组Consumer消费进度互不干涉 leader 是 负责存储生产者的产品供消费者使用\n">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -450,7 +450,19 @@
 
         <span>Licensed under CC BY-NC-SA 4.0</span>
     </section>
-    </footer>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Oct 13, 2024 18:49 &#43;0800
+        </span>
+    </section></footer>
 
 
     

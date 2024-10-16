@@ -10,7 +10,7 @@
 <meta property='og:description' content=" content {:toc} 0 代码风格 C++ 风格指南 Cpplint 是一个 Python 脚本，作为一款开源免费的代码静态检测工具，Google 也使用它作为自己的 C++ 代码检测工具，也就是说，只要你想代码遵从 Google C++ 代码规范，那么 Cpplint 将会提供很好的代码静态检测支持。 1. 命名规则 文件名要全部小写, 可以包含下划线 (_) 或连字符 (-), 依照项目的约定. 如果没有约定, 那么“_”更好. 内联函数必须放在 .h 文件中. 如果内联函数比较短, 就直接放在 .h 中. 类名称的每个单词首字母均大写, 不包含下划线: 形如MyExcitingClass, MyExcitingEnum. 变量 (包括函数参数) 和数据成员名一律小写, 单词之间用下划线连接. 类的成员变量以下划线结尾, 常量 声明为 constexpr 或 const 的变量, 或在程序运行期间其值始终保持不变的, 命名时以“k”开头, 大小写混合.const int kDaysInAWeek = 7; 函数名的每个单词首字母大写 (即“驼峰变量名”或“帕斯卡变量名”), 没有下划线. 对于首字母缩写的单词, 更倾向于将它们视作一个单词进行首字母大写 (例如, 写作 StartRpc() 而非 StartRPC()). 较好的起名\n">
 <meta property='og:url' content='https://li54426.github.io/2023-07-30-cpp_style/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cpp' /><meta property='article:published_time' content='2023-07-30T18:47:50&#43;00:00'/><meta property='article:modified_time' content='2023-07-30T18:47:50&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cpp' /><meta property='article:published_time' content='2023-07-30T18:47:50&#43;00:00'/><meta property='article:modified_time' content='2024-10-13T18:49:58&#43;08:00'/>
 <meta name="twitter:title" content="代码风格">
 <meta name="twitter:description" content=" content {:toc} 0 代码风格 C++ 风格指南 Cpplint 是一个 Python 脚本，作为一款开源免费的代码静态检测工具，Google 也使用它作为自己的 C++ 代码检测工具，也就是说，只要你想代码遵从 Google C++ 代码规范，那么 Cpplint 将会提供很好的代码静态检测支持。 1. 命名规则 文件名要全部小写, 可以包含下划线 (_) 或连字符 (-), 依照项目的约定. 如果没有约定, 那么“_”更好. 内联函数必须放在 .h 文件中. 如果内联函数比较短, 就直接放在 .h 中. 类名称的每个单词首字母均大写, 不包含下划线: 形如MyExcitingClass, MyExcitingEnum. 变量 (包括函数参数) 和数据成员名一律小写, 单词之间用下划线连接. 类的成员变量以下划线结尾, 常量 声明为 constexpr 或 const 的变量, 或在程序运行期间其值始终保持不变的, 命名时以“k”开头, 大小写混合.const int kDaysInAWeek = 7; 函数名的每个单词首字母大写 (即“驼峰变量名”或“帕斯卡变量名”), 没有下划线. 对于首字母缩写的单词, 更倾向于将它们视作一个单词进行首字母大写 (例如, 写作 StartRpc() 而非 StartRPC()). 较好的起名\n">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -533,7 +533,19 @@
 
         <span>Licensed under CC BY-NC-SA 4.0</span>
     </section>
-    </footer>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Oct 13, 2024 18:49 &#43;0800
+        </span>
+    </section></footer>
 
 
     
