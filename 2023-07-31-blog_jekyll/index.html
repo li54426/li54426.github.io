@@ -541,35 +541,35 @@
 </h4><div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th style="text-align: left">变量名称</th>
-          <th style="text-align: left">描述</th>
+          <th>变量名称</th>
+          <th>描述</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>layout</code></td>
-          <td style="text-align: left">如果设置的话，会指定<strong>使用该模板文件</strong>。指定模板文件时候不需要文件扩展名。模板文件必须放在 <code>_layouts</code> 目录下。</td>
+          <td><code>layout</code></td>
+          <td>如果设置的话，会指定<strong>使用该模板文件</strong>。指定模板文件时候不需要文件扩展名。模板文件必须放在 <code>_layouts</code> 目录下。</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>permalink</code></td>
-          <td style="text-align: left">如果你需要让你发布的博客的 URL 地址<strong>不同于默认值</strong> <code>/year/month/day/title.html</code>，那你就设置这个变量，然后变量值就会作为最终的 URL 地址。</td>
+          <td><code>permalink</code></td>
+          <td>如果你需要让你发布的博客的 URL 地址<strong>不同于默认值</strong> <code>/year/month/day/title.html</code>，那你就设置这个变量，然后变量值就会作为最终的 URL 地址。</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>published</code></td>
-          <td style="text-align: left">如果你<strong>不想</strong>在站点生成后<strong>展示</strong>某篇特定的博文，那么就设置（该博文的）该变量为 false。</td>
+          <td><code>published</code></td>
+          <td>如果你<strong>不想</strong>在站点生成后<strong>展示</strong>某篇特定的博文，那么就设置（该博文的）该变量为 false。</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>date</code></td>
-          <td style="text-align: left">这里的日期会<strong>覆盖文章名字中的日期</strong>。这样就可以用来保障文章排序的正确。日期的具体格式为 <code>YYYY-MM-DD HH:MM:SS +/-TTTT</code>；时，分，秒和时区都是可选的。</td>
+          <td><code>date</code></td>
+          <td>这里的日期会<strong>覆盖文章名字中的日期</strong>。这样就可以用来保障文章排序的正确。日期的具体格式为 <code>YYYY-MM-DD HH:MM:SS +/-TTTT</code>；时，分，秒和时区都是可选的。</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>category</code></td>
-          <td style="text-align: left">除过将博客文章放在某个文件夹下面外，你还可以指定博客的一个或者多个分类属性。这样当你的站点生成后，这些文章就可以根据这些分类来阅读。<code>categories</code> 可以通过 <a class="link" href="http://en.wikipedia.org/wiki/YAML#Lists"  target="_blank" rel="noopener"
+          <td><code>category</code></td>
+          <td>除过将博客文章放在某个文件夹下面外，你还可以指定博客的一个或者多个分类属性。这样当你的站点生成后，这些文章就可以根据这些分类来阅读。<code>categories</code> 可以通过 <a class="link" href="http://en.wikipedia.org/wiki/YAML#Lists"  target="_blank" rel="noopener"
     >YAML list</a>，或者以逗号隔开的字符串指定。</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>tags</code></td>
-          <td style="text-align: left">类似分类 <code>categories</code>，一篇文章也可以给它增加<strong>一个或者多个</strong>标签。同样，<code>tags</code> 可以通过 YAML 列表或者以逗号隔开的字符串指定。</td>
+          <td><code>tags</code></td>
+          <td>类似分类 <code>categories</code>，一篇文章也可以给它增加<strong>一个或者多个</strong>标签。同样，<code>tags</code> 可以通过 YAML 列表或者以逗号隔开的字符串指定。</td>
       </tr>
   </tbody>
 </table></div>
@@ -678,30 +678,30 @@
 </div><div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th style="text-align: left">Permalink Style</th>
-          <th style="text-align: left">URL Template</th>
+          <th>Permalink Style</th>
+          <th>URL Template</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>date</code></td>
-          <td style="text-align: left"><code>/:categories/:year/:month/:day/:title:output_ext</code></td>
+          <td><code>date</code></td>
+          <td><code>/:categories/:year/:month/:day/:title:output_ext</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>pretty</code></td>
-          <td style="text-align: left"><code>/:categories/:year/:month/:day/:title/</code></td>
+          <td><code>pretty</code></td>
+          <td><code>/:categories/:year/:month/:day/:title/</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>ordinal</code></td>
-          <td style="text-align: left"><code>/:categories/:year/:y_day/:title:output_ext</code></td>
+          <td><code>ordinal</code></td>
+          <td><code>/:categories/:year/:y_day/:title:output_ext</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>weekdate</code>4.0</td>
-          <td style="text-align: left"><code>/:categories/:year/W:week/:short_day/:title:output_ext</code> (<code>W</code> will be prefixed to the value of <code>:week</code>)</td>
+          <td><code>weekdate</code>4.0</td>
+          <td><code>/:categories/:year/W:week/:short_day/:title:output_ext</code> (<code>W</code> will be prefixed to the value of <code>:week</code>)</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>none</code></td>
-          <td style="text-align: left"><code>/:categories/:title:output_ext</code></td>
+          <td><code>none</code></td>
+          <td><code>/:categories/:title:output_ext</code></td>
       </tr>
   </tbody>
 </table></div>
@@ -910,6 +910,25 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<div id="particles-js"></div>
+
+<script src=https://li54426.github.io/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', "https://li54426.github.io/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
 
     </body>
 </html>

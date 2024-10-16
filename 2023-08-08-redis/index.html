@@ -420,36 +420,36 @@
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th style="text-align: left">结构类型</th>
-          <th style="text-align: left">结构存储的值</th>
-          <th style="text-align: left">结构的读写能力</th>
+          <th>结构类型</th>
+          <th>结构存储的值</th>
+          <th>结构的读写能力</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">String字符串</td>
-          <td style="text-align: left">可以是字符串、整数或浮点数</td>
-          <td style="text-align: left">对整个字符串或字符串的一部分进行操作:对整数或浮点数进行自增或自减操作</td>
+          <td>String字符串</td>
+          <td>可以是字符串、整数或浮点数</td>
+          <td>对整个字符串或字符串的一部分进行操作:对整数或浮点数进行自增或自减操作</td>
       </tr>
       <tr>
-          <td style="text-align: left">List列表</td>
-          <td style="text-align: left">一个链表,链表上的每个节点都包含一个字符串</td>
-          <td style="text-align: left">对链表的两端进行push和pop操作,读取单个或多个元素:根据值查找或除元素</td>
+          <td>List列表</td>
+          <td>一个链表,链表上的每个节点都包含一个字符串</td>
+          <td>对链表的两端进行push和pop操作,读取单个或多个元素:根据值查找或除元素</td>
       </tr>
       <tr>
-          <td style="text-align: left">Set集合</td>
-          <td style="text-align: left">包含宇符串的无序集合</td>
-          <td style="text-align: left">字符串的集合,包含基础的方法有看是否存在添加、获取、删除:还包合计算交集、并集、差集等</td>
+          <td>Set集合</td>
+          <td>包含宇符串的无序集合</td>
+          <td>字符串的集合,包含基础的方法有看是否存在添加、获取、删除:还包合计算交集、并集、差集等</td>
       </tr>
       <tr>
-          <td style="text-align: left">Hash散列</td>
-          <td style="text-align: left">包含键值对的无序散列表</td>
-          <td style="text-align: left">包含方法有添加、获取、删除单个元素</td>
+          <td>Hash散列</td>
+          <td>包含键值对的无序散列表</td>
+          <td>包含方法有添加、获取、删除单个元素</td>
       </tr>
       <tr>
-          <td style="text-align: left">Zset有序集合</td>
-          <td style="text-align: left">和散列一样,用于存储键值对</td>
-          <td style="text-align: left">字符串成员与浮点数分数之间的有序映射:元素的排列顺序由分数的大小决定:包含方法有添加、获取、删除单个元素以及根据分值范围或成员来获取元素</td>
+          <td>Zset有序集合</td>
+          <td>和散列一样,用于存储键值对</td>
+          <td>字符串成员与浮点数分数之间的有序映射:元素的排列顺序由分数的大小决定:包含方法有添加、获取、删除单个元素以及根据分值范围或成员来获取元素</td>
       </tr>
   </tbody>
 </table></div>
@@ -845,6 +845,25 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<div id="particles-js"></div>
+
+<script src=https://li54426.github.io/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', "https://li54426.github.io/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
 
     </body>
 </html>

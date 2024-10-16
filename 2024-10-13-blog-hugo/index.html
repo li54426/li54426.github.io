@@ -318,6 +318,7 @@
           <ol>
             <li><a href="#建立资源md仓库">建立资源（md）仓库</a></li>
             <li><a href="#github-action">github Action</a></li>
+            <li><a href="#添加小球效果">添加小球效果</a></li>
           </ol>
         </li>
       </ol>
@@ -486,7 +487,8 @@
 <li><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"  target="_blank" rel="noopener"
     >Hugo+Github免费部署自己的博客</a></li>
 </ul>
-
+<h4 id="添加小球效果">添加小球效果
+</h4>
 </section>
 
 
@@ -664,6 +666,25 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<div id="particles-js"></div>
+
+<script src=https://li54426.github.io/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', "https://li54426.github.io/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
 
     </body>
 </html>
