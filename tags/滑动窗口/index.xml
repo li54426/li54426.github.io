@@ -78,7 +78,7 @@
 &lt;li&gt;随着 r++, 你所想要的目标(求和, 求积) 是怎么进行变化, 是向着你想要的目标走还是怎样&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;满足题目条件---循环内更新&#34;&gt;满足题目条件&amp;mdash;循环内更新
+&lt;h4 id=&#34;满足题目条件循环内更新&#34;&gt;满足题目条件&amp;mdash;循环内更新
 &lt;/h4&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/minimum-size-subarray-sum/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;209. 长度最小的子数组&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -140,7 +140,7 @@
 &lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;在本题中, 随着 r++, 目标和越来越大, 是向着你想要的目标走, 因此用的是 V1, 在循环内更新 结果&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;不满足题目条件---循环外更新&#34;&gt;不满足题目条件&amp;mdash;循环外更新
+&lt;h4 id=&#34;不满足题目条件循环外更新&#34;&gt;不满足题目条件&amp;mdash;循环外更新
 &lt;/h4&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/subarray-product-less-than-k/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;713. 乘积小于 K 的子数组&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;

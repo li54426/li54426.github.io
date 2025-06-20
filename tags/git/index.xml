@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Sun, 13 Oct 2024 21:15:49 +0800</lastBuildDate><atom:link href="https://li54426.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 20 Jun 2025 11:20:33 +0800</lastBuildDate><atom:link href="https://li54426.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Github使用指南</title>
         <link>https://li54426.github.io/2023-07-29-github-git/</link>
         <pubDate>Sat, 29 Jul 2023 15:17:12 +0000</pubDate>
@@ -157,12 +157,14 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 生成本地密钥&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ssh-keygen -t ed25519 -C &amp;#34;your_email@example.com&amp;#34;  密钥默认存在 ~/.ssh/id_ed25519.pub&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh ssh-keygen -t rsa 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;// linux 下ssh-keygen -t rsa 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# ssh-keygen -t ed25519 -C &amp;#34;your_email@example.com&amp;#34;  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 密钥默认存在 ~/.ssh/id_ed25519.pub&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#ssh ssh-keygen -t rsa &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# linux 下，在git bash中也是 ssh-keygen -t rsa &lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;//根据日志信息里面的 SSH KEY 存储路径找到 .ssh/id_rsa.pub 文件
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;//打开 git 网站，右上角用户头像，点击 settings，左侧菜单 SSH KEYS，将文件内容复制到 key 里 添加就可以了
@@ -791,8 +793,7 @@
 &lt;/h2&gt;&lt;h3 id=&#34;6-github-action&#34;&gt;6 github action
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;Github Action 官方文档：&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//docs.github.com/en/actions/reference/workflow-syntax-for-github-actions%23name&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;是 Github 推出的持续集成工具&lt;/p&gt;
 &lt;h4 id=&#34;持续集成是什么&#34;&gt;持续集成是什么？
 &lt;/h4&gt;&lt;p&gt;简单说就是自动化的打包程序 —— 如果是前端程序员，这样解释比较顺畅：&lt;/p&gt;
@@ -806,8 +807,7 @@
 &lt;p&gt;它是一个非常容易地脚本语言，如果我们不会的话，也没啥大事继续往下看就成了。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考文档：&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;五分钟学习 YAML&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;五分钟学习 YAML&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;github-action-的使用限制&#34;&gt;Github Action 的使用限制
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;每个 Workflow 中的 job 最多可以执行 6 个小时&lt;/li&gt;
@@ -821,8 +821,7 @@
 &lt;hr&gt;
 &lt;h5 id=&#34;一如何定义-workflow-的名字&#34;&gt;一、如何定义 Workflow 的名字？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;name&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;name&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Workflow 的名称，Github 在存储库的 Action 页面上显示 Workflow 的名称。&lt;/p&gt;
 &lt;p&gt;如果我们省略 name，则 Github 会将其设置为相对于存储库根目录的工作流文件路径。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -836,8 +835,7 @@
 &lt;/div&gt;&lt;hr&gt;
 &lt;h4 id=&#34;二如何定义-workflow-的触发器&#34;&gt;二、如何定义 Workflow 的触发器？
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;on&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;on&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;触发 Workflow 执行的 event 名称，比如：&lt;strong&gt;每当我提交代码到 Github 上的时候，或者是每当我打 TAG 的时候。&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -866,13 +864,11 @@
 &lt;p&gt;上面的 my_first_job 和 my_second_job 就是 job_id。&lt;/p&gt;
 &lt;h5 id=&#34;2如何定义-job-的名称&#34;&gt;2、如何定义 job 的名称？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.name&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.name&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;name 会显示在 Github 上&lt;/p&gt;
 &lt;h5 id=&#34;3如何定义-job-的依赖job-是否可以依赖于别的-job-的输出结果&#34;&gt;3、如何定义 job 的依赖？job 是否可以依赖于别的 job 的输出结果？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.needs&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.needs&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;答：needs 可以标识 job 是否依赖于别的 job—— 如果 job 失败，则会跳过所有需要该 job 的 job。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -883,8 +879,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.outputs：用于和 need 打配合，outputs 输出 =》need 输入&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.outputs：用于和 need 打配合，outputs 输出 =》need 输入&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;jobs 的输出，用于和 needs 打配合：可以看到 ouput&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -896,8 +891,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h5 id=&#34;4如何定义-job-的运行环境&#34;&gt;4、如何定义 job 的运行环境？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.runs-on&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.runs-on&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;指定运行 job 的运行环境，Github 上可用的运行器为：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;windows-2019&lt;/li&gt;
@@ -916,8 +910,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h5 id=&#34;5如何给-job-定义环境变量&#34;&gt;5、如何给 job 定义环境变量？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.env&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.env&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -928,8 +921,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h5 id=&#34;6如何使用-job-的条件控制语句&#34;&gt;6、如何使用 job 的条件控制语句？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.if&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.if&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;我们可以使用 if 条件语句来组织 job 运行&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;四step-属性是什么&#34;&gt;四、Step 属性是什么？
@@ -966,8 +958,7 @@
 &lt;p&gt;比如最常用的，check-out 代码到 Workflow 工作区：&lt;/p&gt;
 &lt;h5 id=&#34;1我们应该如何使用-action&#34;&gt;1、我们应该如何使用 Action？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.steps.uses&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.steps.uses&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-e6855fd2e091401590baf4febf356cce_r.jpg&#34;
 	
 	

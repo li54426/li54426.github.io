@@ -56,7 +56,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;二-markdown-语法&#34;&gt;二 markdown 语法
-&lt;/h3&gt;&lt;h4 id=&#34;1-标题--号----生成文章的结构&#34;&gt;1 标题 &amp;lsquo;#&amp;rsquo; 号&amp;mdash;-生成文章的结构
+&lt;/h3&gt;&lt;h4 id=&#34;1-标题--号-生成文章的结构&#34;&gt;1 标题 &amp;lsquo;#&amp;rsquo; 号&amp;mdash;-生成文章的结构
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;后面需要一个空格&lt;/li&gt;
 &lt;li&gt;一个是一级标题, 两个是二级标题, 依次类推, 越少代表优先级越高,&lt;/li&gt;
@@ -119,8 +119,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;5-代码&#34;&gt;5 代码
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;使用```(数字1前面的那个)&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;使用```(数字1前面的那个)&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;6-引用&#34;&gt;6 引用
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -131,7 +130,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;三-markdown-与浏览器交互&#34;&gt;三 markdown 与浏览器交互
-&lt;/h3&gt;&lt;h4 id=&#34;31-markdown-here------将markdown上传为-html-格式&#34;&gt;3.1 markdown here&amp;mdash;&amp;mdash;将markdown上传为 html 格式
+&lt;/h3&gt;&lt;h4 id=&#34;31-markdown-here将markdown上传为-html-格式&#34;&gt;3.1 markdown here&amp;mdash;&amp;mdash;将markdown上传为 html 格式
 &lt;/h4&gt;&lt;p&gt;下载地址：&lt;a class=&#34;link&#34; href=&#34;https://markdown-here.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Markdown Here微软商店下载地址&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;使用方法&lt;/strong&gt;    :   点击插件图标或者是, alt + ctrl + M (动画在下面)&lt;/p&gt;
@@ -250,7 +249,7 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://picgo.github.io/PicGo-Doc/zh/guide/config.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;配置手册 | PicGo&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;3-b站图床picgo-插件httpsgithubcomxlzy520picgo-plugin-bilibili&#34;&gt;3 &lt;a class=&#34;link&#34; href=&#34;https://github.com/xlzy520/picgo-plugin-bilibili&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h4 id=&#34;3-b站图床picgo-插件&#34;&gt;3 &lt;a class=&#34;link&#34; href=&#34;https://github.com/xlzy520/picgo-plugin-bilibili&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;B站图床picgo 插件&lt;/a&gt;
 &lt;/h4&gt;&lt;p&gt;插件在线安装&lt;/p&gt;
 &lt;ul&gt;
@@ -287,8 +286,7 @@
     &gt;Themes Gallery — Typora&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;然后打开我们的 Typora 和 -&amp;gt; 文件 -&amp;gt; 偏好设置 -&amp;gt; 外观 -&amp;gt; 打开主题文件夹，将解压好的&lt;strong&gt;文件&lt;/strong&gt;拖到这个 Typora 的主题文件夹&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意：不能解压到单独的文件夹，直接将解压的文件拖到主题文件夹中，否则会不识别&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;注意：不能解压到单独的文件夹，直接将解压的文件拖到主题文件夹中，否则会不识别&lt;/p&gt;&lt;/blockquote&gt;
 </description>
         </item>
         

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2023-10-20-all/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="第场周赛">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="第场周赛">
 <meta property='og:description' content=" content {:toc} 20240407&mdash;&mdash;392 3105. 最长的严格递增或递减子数组 - 力扣（LeetCode）\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 class Solution { public: int longestMonotonicSubarray(vector&lt;int&gt;&amp; nums) { int len = nums.size(); vector&lt;int&gt; n(nums.size(), 1); int plus = 1; int res =1; for(int i = 1; i&lt; len; ++i){ if(nums[i]&gt; nums[i-1]){ n[i] = n[i-1]+1; res = max(res, n[i]); } } vector&lt;int&gt; m(nums.size(), 1); for(int i = 1; i&lt; len; ++i){ if(nums[i]&lt; nums[i-1]){ m[i] = m[i-1]+1; res = max(res, m[i]); } } return res; } }; 3106. 满足距离约束且字典序最小的字符串 - 力扣（LeetCode）\n">
 <meta property='og:url' content='https://li54426.github.io/2023-10-20-all/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -314,23 +314,23 @@
   <ol>
     <li>
       <ol>
-        <li><a href="#20240407------392">20240407&mdash;&mdash;392</a>
+        <li><a href="#20240407392">20240407&mdash;&mdash;392</a>
           <ol>
-            <li><a href="#2447-最大公因数等于-k-的子数组数目httpsleetcodecnproblemsnumber-of-subarrays-with-gcd-equal-to-k"><a href="https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/">2447. 最大公因数等于 K 的子数组数目</a></a></li>
-            <li><a href="#907-子数组的最小值之和httpsleetcodecnproblemssum-of-subarray-minimums"><a href="https://leetcode.cn/problems/sum-of-subarray-minimums/">907. 子数组的最小值之和</a></a></li>
+            <li><a href="#2447-最大公因数等于-k-的子数组数目"><a href="https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/">2447. 最大公因数等于 K 的子数组数目</a></a></li>
+            <li><a href="#907-子数组的最小值之和"><a href="https://leetcode.cn/problems/sum-of-subarray-minimums/">907. 子数组的最小值之和</a></a></li>
           </ol>
         </li>
         <li><a href="#316">316</a>
           <ol>
-            <li><a href="#2448-使数组相等的最小开销httpsleetcodecnproblemsminimum-cost-to-make-array-equal"><a href="https://leetcode.cn/problems/minimum-cost-to-make-array-equal/">2448. 使数组相等的最小开销</a></a></li>
-            <li><a href="#2788-按分隔符拆分字符串---力扣leetcodehttpsleetcodecnproblemssplit-strings-by-separator"><a href="https://leetcode.cn/problems/split-strings-by-separator/">2788. 按分隔符拆分字符串 - 力扣（LeetCode）</a></a></li>
-            <li><a href="#2790-长度递增组的最大数目---力扣leetcodehttpsleetcodecnproblemsmaximum-number-of-groups-with-increasing-lengthdescription"><a href="https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length/description/">2790. 长度递增组的最大数目 - 力扣（LeetCode）</a></a></li>
+            <li><a href="#2448-使数组相等的最小开销"><a href="https://leetcode.cn/problems/minimum-cost-to-make-array-equal/">2448. 使数组相等的最小开销</a></a></li>
+            <li><a href="#2788-按分隔符拆分字符串---力扣leetcode"><a href="https://leetcode.cn/problems/split-strings-by-separator/">2788. 按分隔符拆分字符串 - 力扣（LeetCode）</a></a></li>
+            <li><a href="#2790-长度递增组的最大数目---力扣leetcode"><a href="https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length/description/">2790. 长度递增组的最大数目 - 力扣（LeetCode）</a></a></li>
             <li><a href="#358">358</a></li>
-            <li><a href="#2817-限制条件下元素之间的最小绝对差---力扣leetcodehttpsleetcodecnproblemsminimum-absolute-difference-between-elements-with-constraintdescription"><a href="https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint/description/">2817. 限制条件下元素之间的最小绝对差 - 力扣（LeetCode）</a></a></li>
-            <li><a href="#------359">&mdash;&mdash;359</a></li>
-            <li><a href="#2830-销售利润最大化httpsleetcodecnproblemsmaximize-the-profit-as-the-salesman"><a href="https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/">2830. 销售利润最大化</a></a></li>
-            <li><a href="#2831-找出最长等值子数组httpsleetcodecnproblemsfind-the-longest-equal-subarray"><a href="https://leetcode.cn/problems/find-the-longest-equal-subarray/">2831. 找出最长等值子数组</a></a></li>
-            <li><a href="#2905-找出满足差值条件的下标-iihttpsleetcodecnproblemsfind-indices-with-index-and-value-difference-ii"><a href="https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/">2905. 找出满足差值条件的下标 II</a></a></li>
+            <li><a href="#2817-限制条件下元素之间的最小绝对差---力扣leetcode"><a href="https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint/description/">2817. 限制条件下元素之间的最小绝对差 - 力扣（LeetCode）</a></a></li>
+            <li><a href="#359">&mdash;&mdash;359</a></li>
+            <li><a href="#2830-销售利润最大化"><a href="https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/">2830. 销售利润最大化</a></a></li>
+            <li><a href="#2831-找出最长等值子数组"><a href="https://leetcode.cn/problems/find-the-longest-equal-subarray/">2831. 找出最长等值子数组</a></a></li>
+            <li><a href="#2905-找出满足差值条件的下标-ii"><a href="https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/">2905. 找出满足差值条件的下标 II</a></a></li>
           </ol>
         </li>
       </ol>
@@ -396,7 +396,7 @@
 <li>content
 {:toc}</li>
 </ul>
-<h3 id="20240407------392">20240407&mdash;&mdash;392
+<h3 id="20240407392">20240407&mdash;&mdash;392
 </h3><p><a class="link" href="https://leetcode.cn/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/"  target="_blank" rel="noopener"
     >3105. 最长的严格递增或递减子数组 - 力扣（LeetCode）</a></p>
 <div class="highlight"><div class="chroma">
@@ -552,8 +552,7 @@
 <p><strong>示例 1：</strong></p>
 <p>**输入：**nums = [2,5,6,8,5], k = 4</p>
 <p>**输出：**2</p>
-<p>**解释：**我们将 <code>nums[1]</code> 和 <code>nums[4]</code> 减 <code>1</code> 得到 <code>[2, 4, 6, 8, 4]</code> 。现在数组的中位数等于 <code>k</code> 。</p>
-</blockquote>
+<p>**解释：**我们将 <code>nums[1]</code> 和 <code>nums[4]</code> 减 <code>1</code> 得到 <code>[2, 4, 6, 8, 4]</code> 。现在数组的中位数等于 <code>k</code> 。</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -802,7 +801,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="2447-最大公因数等于-k-的子数组数目httpsleetcodecnproblemsnumber-of-subarrays-with-gcd-equal-to-k"><a class="link" href="https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/"  target="_blank" rel="noopener"
+</div><h4 id="2447-最大公因数等于-k-的子数组数目"><a class="link" href="https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/"  target="_blank" rel="noopener"
     >2447. 最大公因数等于 K 的子数组数目</a>
 </h4><blockquote>
 <p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你统计并返回 <code>nums</code> 的子数组中元素的最大公因数等于 <code>k</code> 的子数组数目。</p>
@@ -963,7 +962,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="907-子数组的最小值之和httpsleetcodecnproblemssum-of-subarray-minimums"><a class="link" href="https://leetcode.cn/problems/sum-of-subarray-minimums/"  target="_blank" rel="noopener"
+</div><h4 id="907-子数组的最小值之和"><a class="link" href="https://leetcode.cn/problems/sum-of-subarray-minimums/"  target="_blank" rel="noopener"
     >907. 子数组的最小值之和</a>
 </h4><blockquote>
 <p>给定一个整数数组 <code>arr</code>，找到 <code>min(b)</code> 的总和，其中 <code>b</code> 的范围为 <code>arr</code> 的每个（连续）子数组。</p>
@@ -1227,7 +1226,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="2448-使数组相等的最小开销httpsleetcodecnproblemsminimum-cost-to-make-array-equal"><a class="link" href="https://leetcode.cn/problems/minimum-cost-to-make-array-equal/"  target="_blank" rel="noopener"
+</div><h4 id="2448-使数组相等的最小开销"><a class="link" href="https://leetcode.cn/problems/minimum-cost-to-make-array-equal/"  target="_blank" rel="noopener"
     >2448. 使数组相等的最小开销</a>
 </h4><blockquote>
 <p>给你两个下标从 <strong>0</strong> 开始的数组 <code>nums</code> 和 <code>cost</code> ，分别包含 <code>n</code> 个 <strong>正</strong> 整数。</p>
@@ -1344,7 +1343,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="2788-按分隔符拆分字符串---力扣leetcodehttpsleetcodecnproblemssplit-strings-by-separator"><a class="link" href="https://leetcode.cn/problems/split-strings-by-separator/"  target="_blank" rel="noopener"
+</div><h4 id="2788-按分隔符拆分字符串---力扣leetcode"><a class="link" href="https://leetcode.cn/problems/split-strings-by-separator/"  target="_blank" rel="noopener"
     >2788. 按分隔符拆分字符串 - 力扣（LeetCode）</a>
 </h4><blockquote>
 <p>给你一个字符串数组 <code>words</code> 和一个字符 <code>separator</code> ，请你按 <code>separator</code> 拆分 <code>words</code> 中的每个字符串。</p>
@@ -1492,7 +1491,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">istringstream</span><span class="o">::</span><span class="n">istringstream</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="2790-长度递增组的最大数目---力扣leetcodehttpsleetcodecnproblemsmaximum-number-of-groups-with-increasing-lengthdescription"><a class="link" href="https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length/description/"  target="_blank" rel="noopener"
+</div><h4 id="2790-长度递增组的最大数目---力扣leetcode"><a class="link" href="https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length/description/"  target="_blank" rel="noopener"
     >2790. 长度递增组的最大数目 - 力扣（LeetCode）</a>
 </h4><blockquote>
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的数组 <code>usageLimits</code> 。</p>
@@ -1574,7 +1573,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="358">358
-</h4><h4 id="2817-限制条件下元素之间的最小绝对差---力扣leetcodehttpsleetcodecnproblemsminimum-absolute-difference-between-elements-with-constraintdescription"><a class="link" href="https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint/description/"  target="_blank" rel="noopener"
+</h4><h4 id="2817-限制条件下元素之间的最小绝对差---力扣leetcode"><a class="link" href="https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint/description/"  target="_blank" rel="noopener"
     >2817. 限制条件下元素之间的最小绝对差 - 力扣（LeetCode）</a>
 </h4><blockquote>
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>x</code> 。</p>
@@ -1646,8 +1645,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="------359">&mdash;&mdash;359
-</h4><h4 id="2830-销售利润最大化httpsleetcodecnproblemsmaximize-the-profit-as-the-salesman"><a class="link" href="https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/"  target="_blank" rel="noopener"
+</div><h4 id="359">&mdash;&mdash;359
+</h4><h4 id="2830-销售利润最大化"><a class="link" href="https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/"  target="_blank" rel="noopener"
     >2830. 销售利润最大化</a>
 </h4><blockquote>
 <p>给你一个整数 <code>n</code> 表示数轴上的房屋数量，编号从 <code>0</code> 到 <code>n - 1</code> 。</p>
@@ -1741,9 +1740,8 @@
 <p>作者：灵茶山艾府
 链接：https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/solutions/2396402/xian-xing-dpfu-xiang-si-ti-mu-pythonjava-wmh7/
 来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-</blockquote>
-<h4 id="2831-找出最长等值子数组httpsleetcodecnproblemsfind-the-longest-equal-subarray"><a class="link" href="https://leetcode.cn/problems/find-the-longest-equal-subarray/"  target="_blank" rel="noopener"
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p></blockquote>
+<h4 id="2831-找出最长等值子数组"><a class="link" href="https://leetcode.cn/problems/find-the-longest-equal-subarray/"  target="_blank" rel="noopener"
     >2831. 找出最长等值子数组</a>
 </h4><blockquote>
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
@@ -2088,7 +2086,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="2905-找出满足差值条件的下标-iihttpsleetcodecnproblemsfind-indices-with-index-and-value-difference-ii"><a class="link" href="https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/"  target="_blank" rel="noopener"
+</div><h4 id="2905-找出满足差值条件的下标-ii"><a class="link" href="https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/"  target="_blank" rel="noopener"
     >2905. 找出满足差值条件的下标 II</a>
 </h4><blockquote>
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的整数数组 <code>nums</code> ，以及整数 <code>indexDifference</code> 和整数 <code>valueDifference</code> 。</p>
@@ -2098,8 +2096,7 @@
 <li><code>abs(nums[i] - nums[j]) &gt;= valueDifference</code></li>
 </ul>
 <p>返回整数数组 <code>answer</code>。如果存在满足题目要求的两个下标，则 <code>answer = [i, j]</code> ；否则，<code>answer = [-1, -1]</code> 。如果存在多组可供选择的下标对，只需要返回其中任意一组即可。</p>
-<p><strong>注意：</strong><code>i</code> 和 <code>j</code> 可能 <strong>相等</strong> 。</p>
-</blockquote>
+<p><strong>注意：</strong><code>i</code> 和 <code>j</code> 可能 <strong>相等</strong> 。</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2281,7 +2278,7 @@
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">

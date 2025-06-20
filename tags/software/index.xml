@@ -7,14 +7,14 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Tue, 22 Oct 2024 12:42:14 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/software/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 20 Jun 2025 03:20:55 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/software/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>latex使用指南</title>
         <link>https://li54426.github.io/2023-07-29-latex/</link>
         <pubDate>Sat, 29 Jul 2023 14:26:19 +0000</pubDate>
         
         <guid>https://li54426.github.io/2023-07-29-latex/</guid>
         <description>&lt;h2 id=&#34;论文技巧latex使用简介&#34;&gt;论文技巧Latex使用简介:
-&lt;/h2&gt;&lt;h3 id=&#34;latex摘要----快速入门&#34;&gt;latex摘要&amp;mdash;-快速入门
+&lt;/h2&gt;&lt;h3 id=&#34;latex摘要-快速入门&#34;&gt;latex摘要&amp;mdash;-快速入门
 &lt;/h3&gt;&lt;p&gt;中文使用cjkutf8&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使用 % 进行注释&lt;/li&gt;
@@ -219,7 +219,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(\ref{key})
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;14-特殊的公式----规划&#34;&gt;1.4 特殊的公式&amp;mdash;-规划
+&lt;/div&gt;&lt;h4 id=&#34;14-特殊的公式-规划&#34;&gt;1.4 特殊的公式&amp;mdash;-规划
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -450,7 +450,7 @@ usepackage{graphics}
 \[Fig1\]&lt;p&gt; 为子图的标题；&lt;br&gt;
 \caption{Experimental results of the authors} 为总标题。&lt;/p&gt;
 &lt;h3 id=&#34;3引用-参考文献&#34;&gt;3.引用 (参考文献)
-&lt;/h3&gt;&lt;h4 id=&#34;bib-参考文献一键复制httpsgreasyforkorgzh-cnscripts455062-bib参考文献一键复制&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://greasyfork.org/zh-CN/scripts/455062-bib%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae%e4%b8%80%e9%94%ae%e5%a4%8d%e5%88%b6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h3&gt;&lt;h4 id=&#34;bib-参考文献一键复制&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://greasyfork.org/zh-CN/scripts/455062-bib%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae%e4%b8%80%e9%94%ae%e5%a4%8d%e5%88%b6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Bib 参考文献一键复制&lt;/a&gt;
 &lt;/h4&gt;&lt;p&gt;设置方法&lt;/p&gt;
 &lt;ul&gt;
@@ -1272,7 +1272,7 @@ usepackage{graphics}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;二-markdown-语法&#34;&gt;二 markdown 语法
-&lt;/h3&gt;&lt;h4 id=&#34;1-标题--号----生成文章的结构&#34;&gt;1 标题 &amp;lsquo;#&amp;rsquo; 号&amp;mdash;-生成文章的结构
+&lt;/h3&gt;&lt;h4 id=&#34;1-标题--号-生成文章的结构&#34;&gt;1 标题 &amp;lsquo;#&amp;rsquo; 号&amp;mdash;-生成文章的结构
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;后面需要一个空格&lt;/li&gt;
 &lt;li&gt;一个是一级标题, 两个是二级标题, 依次类推, 越少代表优先级越高,&lt;/li&gt;
@@ -1335,8 +1335,7 @@ usepackage{graphics}
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;5-代码&#34;&gt;5 代码
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;使用```(数字1前面的那个)&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;使用```(数字1前面的那个)&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;6-引用&#34;&gt;6 引用
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1347,7 +1346,7 @@ usepackage{graphics}
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;三-markdown-与浏览器交互&#34;&gt;三 markdown 与浏览器交互
-&lt;/h3&gt;&lt;h4 id=&#34;31-markdown-here------将markdown上传为-html-格式&#34;&gt;3.1 markdown here&amp;mdash;&amp;mdash;将markdown上传为 html 格式
+&lt;/h3&gt;&lt;h4 id=&#34;31-markdown-here将markdown上传为-html-格式&#34;&gt;3.1 markdown here&amp;mdash;&amp;mdash;将markdown上传为 html 格式
 &lt;/h4&gt;&lt;p&gt;下载地址：&lt;a class=&#34;link&#34; href=&#34;https://markdown-here.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Markdown Here微软商店下载地址&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;使用方法&lt;/strong&gt;    :   点击插件图标或者是, alt + ctrl + M (动画在下面)&lt;/p&gt;
@@ -1466,7 +1465,7 @@ usepackage{graphics}
 &lt;/ol&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://picgo.github.io/PicGo-Doc/zh/guide/config.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;配置手册 | PicGo&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;3-b站图床picgo-插件httpsgithubcomxlzy520picgo-plugin-bilibili&#34;&gt;3 &lt;a class=&#34;link&#34; href=&#34;https://github.com/xlzy520/picgo-plugin-bilibili&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h4 id=&#34;3-b站图床picgo-插件&#34;&gt;3 &lt;a class=&#34;link&#34; href=&#34;https://github.com/xlzy520/picgo-plugin-bilibili&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;B站图床picgo 插件&lt;/a&gt;
 &lt;/h4&gt;&lt;p&gt;插件在线安装&lt;/p&gt;
 &lt;ul&gt;
@@ -1503,8 +1502,7 @@ usepackage{graphics}
     &gt;Themes Gallery — Typora&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;然后打开我们的 Typora 和 -&amp;gt; 文件 -&amp;gt; 偏好设置 -&amp;gt; 外观 -&amp;gt; 打开主题文件夹，将解压好的&lt;strong&gt;文件&lt;/strong&gt;拖到这个 Typora 的主题文件夹&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意：不能解压到单独的文件夹，直接将解压的文件拖到主题文件夹中，否则会不识别&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;注意：不能解压到单独的文件夹，直接将解压的文件拖到主题文件夹中，否则会不识别&lt;/p&gt;&lt;/blockquote&gt;
 </description>
         </item>
         

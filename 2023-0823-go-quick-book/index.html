@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2023-0823-go-quick-book/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Go_quick_book">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="Go_quick_book">
 <meta property='og:description' content=" content {:toc} 1 变量 函数外的每个语句都必须以关键字开始（var、const、func等） :=不能使用在函数外。 _多用于占位，表示忽略值。 Go 语言是一种静态类型的编程语言，它提供了以下基本类型：Go 语言要求标识符以一个字母或下划线开头，后面可以跟任意数量的字母、数字、下划线。不能使用关键字作为标识符\n">
 <meta property='og:url' content='https://li54426.github.io/2023-0823-go-quick-book/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -329,7 +329,7 @@
           <ol>
             <li><a href="#引用类型">引用类型</a></li>
             <li><a href="#数组">数组</a></li>
-            <li><a href="#切片---可变的数组">切片&mdash;可变的数组</a></li>
+            <li><a href="#切片可变的数组">切片&mdash;可变的数组</a></li>
             <li><a href="#切片的容量">切片的容量</a></li>
             <li><a href="#切片扩容过程">切片扩容过程</a></li>
             <li><a href="#初始切片">初始切片</a></li>
@@ -343,7 +343,7 @@
             <li><a href="#interface">interface</a></li>
           </ol>
         </li>
-        <li><a href="#流程控制----没有括号---与-下划线">流程控制&mdash; 没有括号   与 下划线</a>
+        <li><a href="#流程控制-没有括号---与-下划线">流程控制&mdash; 没有括号   与 下划线</a>
           <ol>
             <li><a href="#if">if</a></li>
             <li><a href="#for">for</a></li>
@@ -379,7 +379,7 @@
         </li>
         <li><a href="#面向对象">面向&quot;对象&quot;</a>
           <ol>
-            <li><a href="#继承成员---匿名字段">&ldquo;继承&quot;成员&mdash;匿名字段</a></li>
+            <li><a href="#继承成员匿名字段">&ldquo;继承&quot;成员&mdash;匿名字段</a></li>
             <li><a href="#继承方法">&ldquo;继承&quot;方法</a></li>
             <li><a href="#重写-字段">重写 字段</a></li>
             <li><a href="#重写方法">&ldquo;重写&quot;方法</a></li>
@@ -523,18 +523,18 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">e</span> <span class="kt">float64</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 短变量声明
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">f</span> <span class="o">:=</span> <span class="nx">a</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 短变量声明</span>
+</span></span><span class="line"><span class="cl"><span class="nx">f</span> <span class="o">:=</span> <span class="nx">a</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 同时声明多个变量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">k</span> <span class="p">=</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;asd&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 同时声明多个变量</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">k</span> <span class="p">=</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;asd&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">a</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 数组</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="nx">b</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 多维数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">twoD</span> <span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 多维数组</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">twoD</span> <span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="12-常量">1.2 常量
@@ -645,8 +645,8 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">changestring</span><span class="p">(){</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">s1</span> <span class="o">:=</span> <span class="s">&#34;big&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 强制类型转换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">bytes1</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 强制类型转换</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bytes1</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">bytes1</span><span class="p">[</span><span class="mi">0</span><span class="p">]=</span><span class="err">&#39;</span><span class="nx">p</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">bytes1</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">s2</span><span class="o">:=</span><span class="s">&#34;白萝卜&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">runes2</span><span class="o">:=</span><span class="p">[]</span><span class="nb">rune</span><span class="p">(</span><span class="nx">s2</span><span class="p">)</span>
@@ -749,9 +749,9 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>   <span class="c1">// 未初始化元素值为 0。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>   <span class="c1">// 通过初始化值确定数组长度。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>   <span class="c1">// 未初始化元素值为 0。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>   <span class="c1">// 通过初始化值确定数组长度。</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">printArr</span><span class="p">(</span><span class="nx">arr</span> <span class="o">*</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">10</span>
@@ -761,7 +761,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="切片---可变的数组">切片&mdash;可变的数组
+</div><h4 id="切片可变的数组">切片&mdash;可变的数组
 </h4><ul>
 <li>声明切片和声明数组类似，但是<strong>不指定长度</strong>：</li>
 <li><code>append, len, cap</code>是全局函数, 不是方法</li>
@@ -814,50 +814,50 @@
 </span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 声明一个 int 类型, 名为 a的切片
-</span></span></span><span class="line"><span class="cl"><span class="c1">// a == nil
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">a</span> <span class="p">[]</span><span class="kt">int</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 声明一个 int 类型, 名为 a的切片</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// a == nil</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="p">[]</span><span class="kt">int</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// b != nil, 以下两个形式等价
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// b != nil, 以下两个形式等价</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">s1</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 可以在声明的时候直接初始化
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">a</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 可以在声明的时候直接初始化</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 短变量声明
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">a</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 使用 make 函数可以在创建切片时指定长度和容量。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 创建一个 //[0 0 0 0 0] len = 5 cap = 5
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">a</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 从数组或者切片中 获取切片
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 前闭后开 [), 因此相减就是数组长度
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">string</span> <span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">,</span> <span class="s">&#34;e&#34;</span><span class="p">}</span> <span class="c1">//数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="c1">//切片
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">sliA</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>   <span class="c1">//  [c d]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">sliB</span> <span class="o">:=</span> <span class="nx">b</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>   <span class="c1">//   [2 3]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 获取长度
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">len</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 获取容量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">cap</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 短变量声明</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 多维切片
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ss</span> <span class="o">:=</span> <span class="p">[][]</span><span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="c1">//切片元素的类型可以省去
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用 make 函数可以在创建切片时指定长度和容量。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 创建一个 //[0 0 0 0 0] len = 5 cap = 5</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 从数组或者切片中 获取切片</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 前闭后开 [), 因此相减就是数组长度</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">string</span> <span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;d&#34;</span><span class="p">,</span> <span class="s">&#34;e&#34;</span><span class="p">}</span> <span class="c1">//数组</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="c1">//切片</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sliA</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>   <span class="c1">//  [c d]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sliB</span> <span class="o">:=</span> <span class="nx">b</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>   <span class="c1">//   [2 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 获取长度</span>
+</span></span><span class="line"><span class="cl"><span class="nf">len</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 获取容量</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cap</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 多维切片</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ss</span> <span class="o">:=</span> <span class="p">[][]</span><span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="c1">//切片元素的类型可以省去</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">},</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 复制切片
-</span></span></span><span class="line"><span class="cl"><span class="c1">// dst 是目标切片，src 是源切片，该函数会将 src 中的元素复制到 dst 中，并返回复制的元素个数（该返回值是两个切片长度中的小值）
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nb">copy</span><span class="p">(</span><span class="nx">dst</span> <span class="p">[]</span><span class="nx">Type</span><span class="p">,</span> <span class="nx">src</span> <span class="p">[]</span><span class="nx">Type</span><span class="p">)</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 复制切片</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// dst 是目标切片，src 是源切片，该函数会将 src 中的元素复制到 dst 中，并返回复制的元素个数（该返回值是两个切片长度中的小值）</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nb">copy</span><span class="p">(</span><span class="nx">dst</span> <span class="p">[]</span><span class="nx">Type</span><span class="p">,</span> <span class="nx">src</span> <span class="p">[]</span><span class="nx">Type</span><span class="p">)</span> <span class="kt">int</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="切片的容量">切片的容量
@@ -897,26 +897,26 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">array</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">string</span> <span class="p">{</span><span class="s">&#34;aa&#34;</span><span class="p">,</span> <span class="s">&#34;bb&#34;</span><span class="p">,</span> <span class="s">&#34;cc&#34;</span><span class="p">,</span> <span class="s">&#34;dd&#34;</span><span class="p">,</span> <span class="s">&#34;ee&#34;</span><span class="p">}</span> <span class="c1">//数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="c1">//[aa bb cc dd ee]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="nx">slice1</span> <span class="o">:=</span> <span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1">//切片1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">slice2</span> <span class="o">:=</span> <span class="nx">array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1">//切片2
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">slice3</span> <span class="o">:=</span> <span class="nx">array</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1">//切片3
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice1</span><span class="p">)</span> <span class="c1">//[aa bb]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice2</span><span class="p">)</span> <span class="c1">//[bb cc]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice3</span><span class="p">)</span> <span class="c1">//[cc dd ee]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="nx">slice1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;xx&#34;</span> <span class="c1">//修改切片1中的值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">slice2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;yy&#34;</span> <span class="c1">//修改切片2中的值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">slice3</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;zz&#34;</span> <span class="c1">////修改切片3中的值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="c1">//[xx bb yy dd zz]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice1</span><span class="p">)</span> <span class="c1">//[xx bb]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice2</span><span class="p">)</span> <span class="c1">//[bb yy]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice3</span><span class="p">)</span> <span class="c1">//[yy dd zz]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">array</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">string</span> <span class="p">{</span><span class="s">&#34;aa&#34;</span><span class="p">,</span> <span class="s">&#34;bb&#34;</span><span class="p">,</span> <span class="s">&#34;cc&#34;</span><span class="p">,</span> <span class="s">&#34;dd&#34;</span><span class="p">,</span> <span class="s">&#34;ee&#34;</span><span class="p">}</span> <span class="c1">//数组</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="c1">//[aa bb cc dd ee]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">slice1</span> <span class="o">:=</span> <span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1">//切片1</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">slice2</span> <span class="o">:=</span> <span class="nx">array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1">//切片2</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">slice3</span> <span class="o">:=</span> <span class="nx">array</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1">//切片3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice1</span><span class="p">)</span> <span class="c1">//[aa bb]</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice2</span><span class="p">)</span> <span class="c1">//[bb cc]</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice3</span><span class="p">)</span> <span class="c1">//[cc dd ee]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">slice1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;xx&#34;</span> <span class="c1">//修改切片1中的值</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">slice2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;yy&#34;</span> <span class="c1">//修改切片2中的值</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">slice3</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;zz&#34;</span> <span class="c1">////修改切片3中的值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="c1">//[xx bb yy dd zz]</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice1</span><span class="p">)</span> <span class="c1">//[xx bb]</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice2</span><span class="p">)</span> <span class="c1">//[bb yy]</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice3</span><span class="p">)</span> <span class="c1">//[yy dd zz]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="切片扩容过程">切片扩容过程
@@ -1006,44 +1006,44 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">mp</span> <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span> <span class="p">{</span><span class="s">&#34;数学&#34;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s">&#34;语文&#34;</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">:</span><span class="mi">100</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 可以先声明再使用，注意这样需要使用 make 函数初始化后才能使用：
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">scores</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 可以先声明再使用，注意这样需要使用 make 函数初始化后才能使用：</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">scores</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="nx">scores</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 建议这样直接写 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">m</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 建议这样直接写 </span>
+</span></span><span class="line"><span class="cl"><span class="nx">m</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 增加键值对
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 当 key 不存在时为增加，当 key 存在时为修改
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">scores</span><span class="p">[</span><span class="s">&#34;数学&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">100</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 增加键值对</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 当 key 不存在时为增加，当 key 存在时为修改</span>
+</span></span><span class="line"><span class="cl"><span class="nx">scores</span><span class="p">[</span><span class="s">&#34;数学&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">100</span> 
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 删除键值对
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">delete</span><span class="p">(</span><span class="nx">scores</span><span class="p">,</span> <span class="s">&#34;语文&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 删除键值对</span>
+</span></span><span class="line"><span class="cl"><span class="nb">delete</span><span class="p">(</span><span class="nx">scores</span><span class="p">,</span> <span class="s">&#34;语文&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 查找
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 如果查找的 key 不存在，则会返回 value 类型的 “零值”：
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">score</span><span class="p">,</span> <span class="nx">exist</span> <span class="o">:=</span> <span class="nx">scores</span><span class="p">[</span><span class="s">&#34;数学&#34;</span><span class="p">]</span> <span class="c1">//使用两个返回值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">score</span><span class="p">,</span> <span class="nx">exist</span><span class="p">)</span> <span class="c1">//100 true
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="nx">score1</span> <span class="o">:=</span> <span class="nx">scores</span><span class="p">[</span><span class="s">&#34;语文&#34;</span><span class="p">]</span> <span class="c1">//使用一个返回值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">score1</span><span class="p">)</span> <span class="c1">//90
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="nx">score2</span><span class="p">,</span> <span class="nx">exist2</span> <span class="o">:=</span> <span class="nx">scores</span><span class="p">[</span><span class="s">&#34;Java&#34;</span><span class="p">]</span> <span class="c1">//查找不存在的key
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">score2</span><span class="p">,</span> <span class="nx">exist2</span><span class="p">)</span> <span class="c1">//0 false
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 查找</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 如果查找的 key 不存在，则会返回 value 类型的 “零值”：</span>
+</span></span><span class="line"><span class="cl"><span class="nx">score</span><span class="p">,</span> <span class="nx">exist</span> <span class="o">:=</span> <span class="nx">scores</span><span class="p">[</span><span class="s">&#34;数学&#34;</span><span class="p">]</span> <span class="c1">//使用两个返回值</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">score</span><span class="p">,</span> <span class="nx">exist</span><span class="p">)</span> <span class="c1">//100 true</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 获取数量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">keyNum</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">scores</span><span class="p">)</span> <span class="c1">//获取scores这个map中key的数量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">score1</span> <span class="o">:=</span> <span class="nx">scores</span><span class="p">[</span><span class="s">&#34;语文&#34;</span><span class="p">]</span> <span class="c1">//使用一个返回值</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">score1</span><span class="p">)</span> <span class="c1">//90</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Go 语言中使用 for range 遍历 map。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">scores</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">score2</span><span class="p">,</span> <span class="nx">exist2</span> <span class="o">:=</span> <span class="nx">scores</span><span class="p">[</span><span class="s">&#34;Java&#34;</span><span class="p">]</span> <span class="c1">//查找不存在的key</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">score2</span><span class="p">,</span> <span class="nx">exist2</span><span class="p">)</span> <span class="c1">//0 false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 获取数量</span>
+</span></span><span class="line"><span class="cl"><span class="nx">keyNum</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">scores</span><span class="p">)</span> <span class="c1">//获取scores这个map中key的数量</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Go 语言中使用 for range 遍历 map。</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">scores</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 只想遍历 key
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">scoreMap</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 只想遍历 key</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">scoreMap</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -1076,18 +1076,18 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">map0</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span> <span class="c1">//底层map0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">map0</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;XingXiaoguan&#34;</span> <span class="c1">//增加一个键值对
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="c1">//map1 map2 引用map0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">map1</span> <span class="o">:=</span> <span class="nx">map0</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">map0</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span> <span class="c1">//底层map0</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">map0</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;XingXiaoguan&#34;</span> <span class="c1">//增加一个键值对</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//map1 map2 引用map0</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">map1</span> <span class="o">:=</span> <span class="nx">map0</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">map2</span> <span class="o">:=</span> <span class="nx">map0</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">map0</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="nx">map1</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="nx">map2</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">])</span> <span class="c1">//都是XingXiaoguan
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="nx">map1</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;XingRenGuanXue&#34;</span> <span class="c1">//改变map1的name对应的值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">map0</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="nx">map1</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="nx">map2</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">])</span> <span class="c1">//全部变为XingRenGuanXue
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">map0</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="nx">map1</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="nx">map2</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">])</span> <span class="c1">//都是XingXiaoguan</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">map1</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;XingRenGuanXue&#34;</span> <span class="c1">//改变map1的name对应的值</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">map0</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="nx">map1</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="nx">map2</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">])</span> <span class="c1">//全部变为XingRenGuanXue</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="指针--和-new">指针  和 new
@@ -1109,16 +1109,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// p == nil
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">p</span> <span class="o">*</span><span class="kt">int</span>
-</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">66</span> <span class="c1">//a是值为66的int变量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">p</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">a</span> <span class="c1">//将a的地址赋给指针p
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">b</span> <span class="p">=</span> <span class="o">*</span><span class="nx">p</span> <span class="c1">//根据p中的值找到a，将其值赋给b
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">//66
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="nx">p</span> <span class="p">=</span> <span class="mi">99</span> <span class="c1">//根据p中的值找到a，改变a的值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">//99
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// p == nil</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">p</span> <span class="o">*</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">66</span> <span class="c1">//a是值为66的int变量</span>
+</span></span><span class="line"><span class="cl"><span class="nx">p</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">a</span> <span class="c1">//将a的地址赋给指针p</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">b</span> <span class="p">=</span> <span class="o">*</span><span class="nx">p</span> <span class="c1">//根据p中的值找到a，将其值赋给b</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">//66</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="nx">p</span> <span class="p">=</span> <span class="mi">99</span> <span class="c1">//根据p中的值找到a，改变a的值</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">//99</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>new 是一个内置的<strong>函数</strong></li>
@@ -1137,10 +1137,10 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Type</span><span class="p">)</span> <span class="o">*</span><span class="nx">Type</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">p</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">dog</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span> <span class="c1">//*main.dog
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span> <span class="c1">//&amp;{ 0}
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">p</span><span class="p">)</span> <span class="c1">//{ 0}
-</span></span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%T\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span> <span class="c1">//*main.dog</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span> <span class="c1">//&amp;{ 0}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">p</span><span class="p">)</span> <span class="c1">//{ 0}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="make">make
 </h4><ul>
@@ -1203,9 +1203,9 @@
 </span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;zhang san&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="mi">14</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 直接赋值
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 按顺序赋值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">a</span> <span class="o">:=</span><span class="p">{</span><span class="s">&#34;zhagnsan&#34;</span><span class="p">,</span> <span class="mi">14</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 直接赋值</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 按顺序赋值</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span><span class="p">{</span><span class="s">&#34;zhagnsan&#34;</span><span class="p">,</span> <span class="mi">14</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span> <span class="p">{</span><span class="nx">age</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span><span class="s">&#34;zhang san&#34;</span><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1222,12 +1222,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">d</span> <span class="o">:=</span> <span class="nx">dog</span><span class="p">{</span><span class="s">&#34;哮地犬&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="nx">p</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">d</span> <span class="c1">//获取到d的地址
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">n</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="nx">p</span><span class="p">).</span><span class="nx">name</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="c1">//哮天犬
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 上面的方式比较麻烦, Go 语言提供了隐式间接引用：
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">n</span> <span class="o">:=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span> <span class="c1">//这样也行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">p</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">d</span> <span class="c1">//获取到d的地址</span>
+</span></span><span class="line"><span class="cl"><span class="nx">n</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="nx">p</span><span class="p">).</span><span class="nx">name</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="c1">//哮天犬</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 上面的方式比较麻烦, Go 语言提供了隐式间接引用：</span>
+</span></span><span class="line"><span class="cl"><span class="nx">n</span> <span class="o">:=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span> <span class="c1">//这样也行</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="结构体嵌套">结构体嵌套
@@ -1276,10 +1276,10 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">people</span> <span class="p">{</span><span class="s">&#34;zhangsan&#34;</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="nx">score</span> <span class="p">{</span><span class="nx">English</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="nx">Chinese</span><span class="p">:</span> <span class="mi">95</span><span class="p">}}</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span>            <span class="c1">//{zhangsan 18 {90 95}}
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">grades</span><span class="p">.</span><span class="nx">English</span><span class="p">)</span> <span class="c1">//90
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">grades</span><span class="p">.</span><span class="nx">Chinese</span><span class="p">)</span> <span class="c1">//95
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span>            <span class="c1">//{zhangsan 18 {90 95}}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">grades</span><span class="p">.</span><span class="nx">English</span><span class="p">)</span> <span class="c1">//90</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">grades</span><span class="p">.</span><span class="nx">Chinese</span><span class="p">)</span> <span class="c1">//95</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用匿名字段, 它是指只提供类型，不写字段名：</p>
@@ -1326,10 +1326,10 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">people</span> <span class="p">{</span><span class="s">&#34;zhangsan&#34;</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="nx">score</span> <span class="p">{</span><span class="nx">English</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="nx">Chinese</span><span class="p">:</span> <span class="mi">95</span><span class="p">}}</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span>            <span class="c1">//{zhangsan 18 {90 95}}
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">English</span><span class="p">)</span> <span class="c1">//90
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">Chinese</span><span class="p">)</span> <span class="c1">//95
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span>            <span class="c1">//{zhangsan 18 {90 95}}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">English</span><span class="p">)</span> <span class="c1">//90</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">Chinese</span><span class="p">)</span> <span class="c1">//95</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1391,12 +1391,12 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyImplementation</span> <span class="kd">struct</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MyImplementation</span><span class="p">)</span> <span class="nf">Method1</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// implementation of Method1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// implementation of Method1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MyImplementation</span><span class="p">)</span> <span class="nf">Method2</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// implementation of Method2
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// implementation of Method2</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">myVar</span> <span class="nx">MyInterface</span> <span class="p">=</span> <span class="nx">MyImplementation</span><span class="p">{}</span>
 </span></span></code></pre></td></tr></table>
@@ -1406,7 +1406,7 @@
 <p>总之，接口是 Go 语言中一种非常重要的类型，它们可以帮助您实现抽象和多态性，提高代码的灵活性和可复用性。</p>
 <p>Go 语言中的接口类似于 C++ 中的<strong>接口类</strong>的概念。在 C++ 中，接口类是一个抽象基类，它定义了一组<strong>纯虚函数</strong>，这些函数需要在任何继承该接口类的类中实现。与 C++ 中的接口类类似，Go 语言中的接口也是一种抽象的数据类型，它定义了一组方法签名，但不具体实现这些方法。任何类型都可以实现一个或多个接口，从而使其具有接口定义的方法。</p>
 <p>与 C++ 中的接口类不同的是，Go 语言中的接口不能继承，也不能包含数据成员。Go 语言中的接口更加简单和轻量级，它们只定义了方法签名，而没有任何其他的实现细节。这使得 Go 语言中的接口更加灵活和易于使用，同时也使得代码更加简洁和易于维护。</p>
-<h3 id="流程控制----没有括号---与-下划线">流程控制&mdash; 没有括号   与 下划线
+<h3 id="流程控制-没有括号---与-下划线">流程控制&mdash; 没有括号   与 下划线
 </h3><h4 id="if">if
 </h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1418,10 +1418,10 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">{</span>   <span class="c1">// 必须和 if 在同一行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="c1">// else 必须在 { 后面
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">{</span>   <span class="c1">// 必须和 if 在同一行</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="c1">// else 必须在 { 后面</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -1451,8 +1451,8 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">初始化语句</span><span class="p">;</span> <span class="nx">条件表达式</span><span class="p">;</span> <span class="nx">后置语句</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//循环体代码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//循环体代码</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>for</code> 循环的另一种形式，在某种数据类型的<strong>区间</strong>（range）上遍历，如字符串或切片。</p>
@@ -1497,16 +1497,16 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">switch</span> <span class="nx">变量</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nx">选项1</span> <span class="p">:</span>
-</span></span><span class="line"><span class="cl">    	<span class="c1">//操作1代码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">case</span> <span class="nx">选项2</span> <span class="p">:</span>
-</span></span><span class="line"><span class="cl">    	<span class="c1">//操作2代码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">case</span> <span class="nx">选项3</span> <span class="p">:</span>
-</span></span><span class="line"><span class="cl">    	<span class="c1">//操作3代码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">case</span> <span class="nx">选项n</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    	<span class="c1">//操作n代码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">default</span> <span class="p">:</span>
-</span></span><span class="line"><span class="cl">    	<span class="c1">//默认操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">//操作1代码</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nx">选项2</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">//操作2代码</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nx">选项3</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">//操作3代码</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nx">选项n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">//操作n代码</span>
+</span></span><span class="line"><span class="cl">	<span class="k">default</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">//默认操作</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="下划线">下划线
@@ -1559,11 +1559,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">sumAndDiff</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">sum</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">diff</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span><span class="c1">//提前命名返回值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">sum</span> <span class="p">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">diff</span> <span class="p">=</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">y</span> <span class="c1">//返回值在函数中被初始化
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="c1">//返回值已经初始化了，不需要再在return语句中写变量了
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">sumAndDiff</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">sum</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">diff</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span><span class="c1">//提前命名返回值</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sum</span> <span class="p">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">diff</span> <span class="p">=</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">y</span> <span class="c1">//返回值在函数中被初始化</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="c1">//返回值已经初始化了，不需要再在return语句中写变量了</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="导出">导出
@@ -1587,12 +1587,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">myFunction</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// implementation here
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// implementation here</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">myFunction</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// implementation here
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// implementation here</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，<code>myFunction</code> 函数被重载了两次，一次只有一个整数参数，另一次有一个整数参数和一个字符串参数。</p>
@@ -1633,8 +1633,8 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span><span class="c1">//方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34; 汪汪汪。。。方法&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span><span class="c1">//方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34; 汪汪汪。。。方法&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -1714,8 +1714,8 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 使用 函数来实现, 需要不同的函数名
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">dogSay</span><span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用 函数来实现, 需要不同的函数名</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">dogSay</span><span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34; 汪汪汪。。。函数&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1727,8 +1727,8 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34; 汪汪汪。。。方法&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 使用方法来实现, 相同的函数名就可以
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">cat</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用方法来实现, 相同的函数名就可以</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">cat</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span>  <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34; 喵喵喵。。。方法&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1741,8 +1741,8 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">c</span> <span class="o">:=</span> <span class="nx">cat</span><span class="p">{</span><span class="s">&#34;加菲猫&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">r</span> <span class="o">:=</span> <span class="nx">rabbit</span><span class="p">{</span><span class="s">&#34;玉兔&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span> <span class="c1">//调用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">c</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span> <span class="c1">//调用</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -1791,14 +1791,14 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 修改成功
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">dog</span><span class="p">)</span> <span class="nf">rename</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 修改成功</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">dog</span><span class="p">)</span> <span class="nf">rename</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="nx">name</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;方法内:&#34;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 修改不成功
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="nf">rename1</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 修改不成功</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="nf">rename1</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span>  <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="nx">name</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;方法内:&#34;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -1826,13 +1826,13 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 必须是 double(&amp;i)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">double</span><span class="p">(</span><span class="nx">x</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 必须是 double(&amp;i)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">double</span><span class="p">(</span><span class="nx">x</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="nx">x</span> <span class="p">=</span> <span class="o">*</span><span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// d.rename(&#34;小黑黑&#34;)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">dog</span><span class="p">)</span> <span class="nf">rename</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// d.rename(&#34;小黑黑&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">dog</span><span class="p">)</span> <span class="nf">rename</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="nx">name</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;方法内:&#34;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -1975,14 +1975,14 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Go1.12/src/net/net.go 的 AddrError
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">AddrError</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Go1.12/src/net/net.go 的 AddrError</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">AddrError</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">Err</span>  <span class="kt">string</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">Addr</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//使用 **指针** 接收器实现该Error()接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">AddrError</span><span class="p">)</span> <span class="nf">Error</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//使用 **指针** 接收器实现该Error()接口</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">AddrError</span><span class="p">)</span> <span class="nf">Error</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">e</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    	<span class="k">return</span> <span class="s">&#34;&lt;nil&gt;&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -2023,8 +2023,8 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">whatever</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kd">struct</span><span class="p">{}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">whatever</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>  <span class="c1">// 4  3  2  1   0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>  <span class="c1">// 4  3  2  1   0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -2064,10 +2064,10 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//    c  closed
-</span></span></span><span class="line"><span class="cl"><span class="c1">//    c  closed
-</span></span></span><span class="line"><span class="cl"><span class="c1">//    c  closed
-</span></span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="c1">//    c  closed</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//    c  closed</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//    c  closed</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="携程">携程
 </h4><p>Go 语言中的 goroutine 就是这样一种机制，goroutine 的概念类似于线程，但 goroutine 是由 Go 的运行时（runtime）调度和管理的。Go 程序会智能地将 goroutine 中的任务合理地分配给每个 CPU。Go 语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。</p>
@@ -2109,10 +2109,10 @@
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">go</span> <span class="nf">hello</span><span class="p">()</span> <span class="c1">// 启动一个新的协程执行 hello() 函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// 主线程继续执行其他任务
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">go</span> <span class="nf">hello</span><span class="p">()</span> <span class="c1">// 启动一个新的协程执行 hello() 函数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 主线程继续执行其他任务</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Main Thread:&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
@@ -2160,18 +2160,18 @@
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 定义匿名函数，作为协程的运行函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 定义匿名函数，作为协程的运行函数</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;协程开始执行&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span> <span class="c1">// 模拟一些耗时操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;协程执行完成&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span> <span class="c1">// 模拟一些耗时操作</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;协程执行完成&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 主线程继续执行其他任务
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;主线程执行其他任务&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 主线程继续执行其他任务</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;主线程执行其他任务&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 防止主线程退出，等待一些时间以便协程执行完毕
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 防止主线程退出，等待一些时间以便协程执行完毕</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -2216,25 +2216,25 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ch1</span> <span class="kd">chan</span> <span class="kt">int</span>   <span class="c1">// 声明一个传递整型的通道
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">ch2</span> <span class="kd">chan</span> <span class="kt">bool</span>  <span class="c1">// 声明一个传递布尔型的通道
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">ch3</span> <span class="kd">chan</span> <span class="p">[]</span><span class="kt">int</span> <span class="c1">// 声明一个传递int切片的通道
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 通道是引用类型，通道类型的空值是 nil。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 声明的通道后需要使用 make 函数初始化之后才能使用。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ch4</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ch1</span> <span class="kd">chan</span> <span class="kt">int</span>   <span class="c1">// 声明一个传递整型的通道</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ch2</span> <span class="kd">chan</span> <span class="kt">bool</span>  <span class="c1">// 声明一个传递布尔型的通道</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ch3</span> <span class="kd">chan</span> <span class="p">[]</span><span class="kt">int</span> <span class="c1">// 声明一个传递int切片的通道</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 通道是引用类型，通道类型的空值是 nil。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 声明的通道后需要使用 make 函数初始化之后才能使用。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ch4</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nx">ch5</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nx">ch6</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 发送    将一个值发送到通道中。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">10</span> <span class="c1">// 把10发送到ch中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 接收----从一个通道中接收值。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">x</span> <span class="o">:=</span> <span class="o">&lt;-</span> <span class="nx">ch</span> <span class="c1">// 从ch中接收值并赋值给变量x
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">&lt;-</span><span class="nx">ch</span>       <span class="c1">// 从ch中接收值，忽略结果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="c1">//  close 函数来关闭通道。关闭通道不是必须
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">close</span><span class="p">(</span><span class="nx">ch</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 发送    将一个值发送到通道中。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">10</span> <span class="c1">// 把10发送到ch中</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 接收----从一个通道中接收值。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">x</span> <span class="o">:=</span> <span class="o">&lt;-</span> <span class="nx">ch</span> <span class="c1">// 从ch中接收值并赋值给变量x</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;-</span><span class="nx">ch</span>       <span class="c1">// 从ch中接收值，忽略结果</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//  close 函数来关闭通道。关闭通道不是必须</span>
+</span></span><span class="line"><span class="cl"><span class="nb">close</span><span class="p">(</span><span class="nx">ch</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -2270,27 +2270,27 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">ch1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">ch2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 开启goroutine将0~100的数发送到ch1中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 开启goroutine将0~100的数发送到ch1中</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">ch1</span> <span class="o">&lt;-</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="nb">close</span><span class="p">(</span><span class="nx">ch1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}()</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 开启goroutine从ch1中接收值，并将该值的平方发送到ch2中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 开启goroutine从ch1中接收值，并将该值的平方发送到ch2中</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">i</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">ch1</span> <span class="c1">// 通道关闭后再取值ok=false
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">i</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">ch1</span> <span class="c1">// 通道关闭后再取值ok=false</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="k">break</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">ch2</span> <span class="o">&lt;-</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="nb">close</span><span class="p">(</span><span class="nx">ch2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}()</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 在主goroutine中从ch2中接收值打印
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ch2</span> <span class="p">{</span> <span class="c1">// 通道关闭后会退出for range循环
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在主goroutine中从ch2中接收值打印</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ch2</span> <span class="p">{</span> <span class="c1">// 通道关闭后会退出for range循环</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -2341,30 +2341,30 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">CalSquare</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">src</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>     <span class="c1">//   生产无缓冲
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="nx">dest</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">//   消费缓冲3个元素
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   
-</span></span><span class="line"><span class="cl">   <span class="c1">// 子协程发送0-9数字
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">src</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>     <span class="c1">//   生产无缓冲</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">dest</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">//   消费缓冲3个元素</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">// 子协程发送0-9数字</span>
+</span></span><span class="line"><span class="cl">   <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">         <span class="nx">src</span> <span class="o">&lt;-</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="c1">// 子协程计算输入数字的平方
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 子协程计算输入数字的平方</span>
+</span></span><span class="line"><span class="cl">   <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="nx">dest</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">src</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">         <span class="nx">dest</span> <span class="o">&lt;-</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="c1">// 主协程输出最后的平方数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">dest</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="c1">// 复杂操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 主协程输出最后的平方数</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">dest</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 复杂操作</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// ...</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -2436,10 +2436,10 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">counter</span> <span class="p">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 保护临界区
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">mutex</span>   <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 保证所有的任务都能完成, 也就是主程序阻塞
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">wg</span>      <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 保护临界区</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mutex</span>   <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 保证所有的任务都能完成, 也就是主程序阻塞</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">wg</span>      <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -2456,18 +2456,18 @@
 </span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">// 对公共资源进行加锁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">mutex</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 对公共资源进行加锁</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">mutex</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="c1">// 修改公共资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">counter</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 修改公共资源</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">counter</span><span class="o">++</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[%s] Counter: %d\n&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">counter</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="c1">// 解锁公共资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">mutex</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 解锁公共资源</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">mutex</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="c1">// 模拟其他操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 模拟其他操作</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">500</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -2492,12 +2492,12 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">mu</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 读共享资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 读共享资源</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 写共享资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 写共享资源</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>sync.WaitGroup 是 Go 语言中的一个常用同步工具，可以用于等待一组 goroutine 结束。主要的使用方式是</p>
@@ -2546,8 +2546,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">wg</span> <span class="o">*</span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Start goroutine&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 结束时调用 Done 减少计数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 结束时调用 Done 减少计数</span>
+</span></span><span class="line"><span class="cl">   <span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;End goroutine%d\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -2568,9 +2568,8 @@
 </div><h3 id="面向对象">面向&quot;对象&quot;
 </h3><blockquote>
 <p><strong>尽管 Go 拥有类型和方法，也允许面向对象风格的编程，但它没有类型层级</strong>。 在 Go 中 “接口” 的概念提供了不同的方法，我们相信它易于使用且在某些方面更通用。 也有一些在其它类型中嵌入类型的方法，来提供类似（而非完全相同）的东西进行子类化。 此外，Go 中的方法比 C++ 或 Java 中的更通用：它们可被定义为任何种类的数据。 甚至是像普通的 “未装箱” 整数这样的内建类型。它们并不受结构（类）的限制。</p>
-<p>此外，<strong>类型层级的缺失也使 Go 中的 “对象” 感觉起来比 C++ 或 Java 的更轻量级</strong>。</p>
-</blockquote>
-<h4 id="继承成员---匿名字段">&ldquo;继承&quot;成员&mdash;匿名字段
+<p>此外，<strong>类型层级的缺失也使 Go 中的 “对象” 感觉起来比 C++ 或 Java 的更轻量级</strong>。</p></blockquote>
+<h4 id="继承成员匿名字段">&ldquo;继承&quot;成员&mdash;匿名字段
 </h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2651,21 +2650,21 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">people</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span> <span class="c1">//人名
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">age</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span> <span class="c1">//人名</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">age</span> <span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">student</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">people</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span> <span class="c1">//学生名
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">school</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span> <span class="c1">//学生名</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">school</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">stu</span> <span class="o">:=</span> <span class="nx">student</span><span class="p">{</span><span class="nx">people</span><span class="p">{</span><span class="s">&#34;李二狗&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="s">&#34;李向前&#34;</span><span class="p">,</span> <span class="s">&#34;阳光学校&#34;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">//李向前
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">people</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">//李二狗
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">//李向前</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">stu</span><span class="p">.</span><span class="nx">people</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">//李二狗</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="继承方法">&ldquo;继承&quot;方法
@@ -2727,28 +2726,28 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 定义父类
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Parent</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义父类</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Parent</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">age</span>  <span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 父类的方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Parent</span><span class="p">)</span> <span class="nf">SayHello</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 父类的方法</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Parent</span><span class="p">)</span> <span class="nf">SayHello</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Hello, I&#39;m %s. &#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;I&#39;m %d years old.\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 定义子类
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Child</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">Parent</span> <span class="c1">// 组合父类
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">school</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义子类</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Child</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Parent</span> <span class="c1">// 组合父类</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">school</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 子类的方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Child</span><span class="p">)</span> <span class="nf">SayHello</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// 调用父类的方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">c</span><span class="p">.</span><span class="nx">Parent</span><span class="p">.</span><span class="nf">SayHello</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 子类的方法</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Child</span><span class="p">)</span> <span class="nf">SayHello</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 调用父类的方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">Parent</span><span class="p">.</span><span class="nf">SayHello</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;I study at %s school.\n&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">school</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -2808,14 +2807,14 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">people</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span> <span class="c1">//乳名
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">age</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span> <span class="c1">//乳名</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">age</span> <span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">student</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">people</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span> <span class="c1">//大名
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">school</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span> <span class="c1">//大名</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">school</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">student</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span>
@@ -2893,16 +2892,16 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">language</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">people</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//people的say方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，今年%d岁了，和我一起学习Go语言吧！\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">people</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//people的say方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，今年%d岁了，和我一起学习Go语言吧！\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">student</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//student重写people的say方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，是个学生，今年%d岁了，我在%s上学！\n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">age</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">school</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">student</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//student重写people的say方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，是个学生，今年%d岁了，我在%s上学！\n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">age</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">school</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">programmer</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//programmer重写people的say方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，是个程序员，今年%d岁了，我使用%s语言！\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">language</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">programmer</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//programmer重写people的say方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，是个程序员，今年%d岁了，我使用%s语言！\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">language</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -2945,24 +2944,24 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">human</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义human接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">say</span><span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">human</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义human接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">eat</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 调用接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">h</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 调用接口</span>
+</span></span><span class="line"><span class="cl"><span class="nx">h</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="nx">h</span><span class="p">.</span><span class="nf">eat</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">adult</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义adult接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">adult</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义adult接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">eat</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">drink</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">work</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">teenager</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义teenager接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">teenager</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义teenager接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">eat</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">learn</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -3072,61 +3071,61 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">student</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">people</span> <span class="c1">//&#34;继承&#34;people
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">subject</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">people</span> <span class="c1">//&#34;继承&#34;people</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">subject</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">school</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">programmer</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">people</span> <span class="c1">//&#34;继承&#34;people
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">language</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">people</span> <span class="c1">//&#34;继承&#34;people</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">language</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">company</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">human</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义human接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">human</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义human接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">eat</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">adult</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义adult接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">adult</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义adult接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">eat</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">drink</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">work</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">teenager</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义teenager接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">teenager</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//定义teenager接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">eat</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">learn</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">people</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//people实现say()方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，今年%d。\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">people</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//people实现say()方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，今年%d。\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">people</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//people实现eat()方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，在吃饭。\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">people</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//people实现eat()方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，在吃饭。\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">student</span><span class="p">)</span> <span class="nf">learn</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//student实现learn()方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我在%s学习%s。\n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">school</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">subject</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">student</span><span class="p">)</span> <span class="nf">learn</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//student实现learn()方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我在%s学习%s。\n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">school</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">subject</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">student</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//student重写eat()方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，在%s学校食堂吃饭。\n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">school</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">student</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//student重写eat()方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，在%s学校食堂吃饭。\n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">school</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">pr</span> <span class="nx">programmer</span><span class="p">)</span> <span class="nf">work</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//programmer实现work()方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我在%s用%s工作。\n&#34;</span><span class="p">,</span> <span class="nx">pr</span><span class="p">.</span><span class="nx">company</span><span class="p">,</span> <span class="nx">pr</span><span class="p">.</span><span class="nx">language</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">pr</span> <span class="nx">programmer</span><span class="p">)</span> <span class="nf">work</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//programmer实现work()方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我在%s用%s工作。\n&#34;</span><span class="p">,</span> <span class="nx">pr</span><span class="p">.</span><span class="nx">company</span><span class="p">,</span> <span class="nx">pr</span><span class="p">.</span><span class="nx">language</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">pr</span> <span class="nx">programmer</span><span class="p">)</span> <span class="nf">drink</span><span class="p">()</span> <span class="p">{</span><span class="c1">//programmer实现drink()方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是成年人了，能大口喝酒。\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">pr</span> <span class="nx">programmer</span><span class="p">)</span> <span class="nf">drink</span><span class="p">()</span> <span class="p">{</span><span class="c1">//programmer实现drink()方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是成年人了，能大口喝酒。\n&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">pr</span> <span class="nx">programmer</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//programmer重写eat()方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，在%s公司餐厅吃饭。\n&#34;</span><span class="p">,</span> <span class="nx">pr</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">pr</span><span class="p">.</span><span class="nx">company</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">pr</span> <span class="nx">programmer</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//programmer重写eat()方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，在%s公司餐厅吃饭。\n&#34;</span><span class="p">,</span> <span class="nx">pr</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">pr</span><span class="p">.</span><span class="nx">company</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
@@ -3190,29 +3189,29 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//这三个人都实现了human接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">xiaoguan</span> <span class="o">:=</span> <span class="nx">people</span><span class="p">{</span><span class="s">&#34;行小观&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//这三个人都实现了human接口</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">xiaoguan</span> <span class="o">:=</span> <span class="nx">people</span><span class="p">{</span><span class="s">&#34;行小观&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nx">student</span><span class="p">{</span><span class="nx">people</span><span class="p">{</span><span class="s">&#34;张三&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">},</span> <span class="s">&#34;数学&#34;</span><span class="p">,</span> <span class="s">&#34;银河大学&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nx">programmer</span><span class="p">{</span><span class="nx">people</span><span class="p">{</span><span class="s">&#34;李四&#34;</span><span class="p">,</span> <span class="mi">21</span><span class="p">},</span><span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="s">&#34;火星有限公司&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">h</span> <span class="nx">human</span> <span class="c1">//定义human类型变量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//所以h变量可以存这三个人
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">h</span> <span class="p">=</span> <span class="nx">xiaoguan</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">h</span> <span class="nx">human</span> <span class="c1">//定义human类型变量</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//所以h变量可以存这三个人</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">h</span> <span class="p">=</span> <span class="nx">xiaoguan</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">h</span> <span class="p">=</span> <span class="nx">zhangsan</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">h</span> <span class="p">=</span> <span class="nx">lisi</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 不可以
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">xiaoguan</span> <span class="o">:=</span> <span class="nx">people</span><span class="p">{</span><span class="s">&#34;行小观&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">}</span> <span class="c1">//实现human接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nx">student</span><span class="p">{</span><span class="nx">people</span><span class="p">{</span><span class="s">&#34;张三&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">},</span> <span class="s">&#34;数学&#34;</span><span class="p">,</span> <span class="s">&#34;银河大学&#34;</span><span class="p">}</span> <span class="c1">//实现teenager接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nx">programmer</span><span class="p">{</span><span class="nx">people</span><span class="p">{</span><span class="s">&#34;李四&#34;</span><span class="p">,</span> <span class="mi">21</span><span class="p">},</span><span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="s">&#34;火星有限公司&#34;</span><span class="p">}</span> <span class="c1">//实现adult接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
-</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">a</span> <span class="nx">adult</span> <span class="c1">//定义adult类型变量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//但zhangsan没实现adult接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">a</span> <span class="p">=</span> <span class="nx">zhangsan</span> <span class="c1">//所以a不能存zhangsan，会报错
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 不可以</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">xiaoguan</span> <span class="o">:=</span> <span class="nx">people</span><span class="p">{</span><span class="s">&#34;行小观&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">}</span> <span class="c1">//实现human接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nx">student</span><span class="p">{</span><span class="nx">people</span><span class="p">{</span><span class="s">&#34;张三&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">},</span> <span class="s">&#34;数学&#34;</span><span class="p">,</span> <span class="s">&#34;银河大学&#34;</span><span class="p">}</span> <span class="c1">//实现teenager接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nx">programmer</span><span class="p">{</span><span class="nx">people</span><span class="p">{</span><span class="s">&#34;李四&#34;</span><span class="p">,</span> <span class="mi">21</span><span class="p">},</span><span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="s">&#34;火星有限公司&#34;</span><span class="p">}</span> <span class="c1">//实现adult接口</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">a</span> <span class="nx">adult</span> <span class="c1">//定义adult类型变量</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//但zhangsan没实现adult接口</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="p">=</span> <span class="nx">zhangsan</span> <span class="c1">//所以a不能存zhangsan，会报错</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="空接口">空接口
@@ -3277,36 +3276,36 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">sayer</span> <span class="kd">interface</span> <span class="p">{</span><span class="c1">//接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">sayer</span> <span class="kd">interface</span> <span class="p">{</span><span class="c1">//接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">foo</span><span class="p">(</span><span class="nx">a</span> <span class="nx">sayer</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//函数的参数是接口值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">a</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">foo</span><span class="p">(</span><span class="nx">a</span> <span class="nx">sayer</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//函数的参数是接口值</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">a</span><span class="p">.</span><span class="nf">say</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">people</span> <span class="kd">struct</span> <span class="p">{</span> <span class="c1">//结构体类型
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">people</span> <span class="kd">struct</span> <span class="p">{</span> <span class="c1">//结构体类型</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">age</span> <span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">people</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//people实现了接口sayer
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，今年%d岁。&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">people</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//people实现了接口sayer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%s，今年%d岁。&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyInt</span> <span class="kt">int</span> <span class="c1">//MyInt类型
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MyInt</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//MyInt实现了接口sayer
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%d。\n&#34;</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyInt</span> <span class="kt">int</span> <span class="c1">//MyInt类型</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MyInt</span><span class="p">)</span> <span class="nf">say</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//MyInt实现了接口sayer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;我是%d。\n&#34;</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">xiaoguan</span> <span class="o">:=</span> <span class="nx">people</span><span class="p">{</span><span class="s">&#34;行小观&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">foo</span><span class="p">(</span><span class="nx">xiaoguan</span><span class="p">)</span> <span class="c1">//结构体类型作为参数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">	<span class="nf">foo</span><span class="p">(</span><span class="nx">xiaoguan</span><span class="p">)</span> <span class="c1">//结构体类型作为参数</span>
+</span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="nx">i</span> <span class="o">:=</span> <span class="nf">MyInt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">foo</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="c1">//MyInt类型作为参数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">foo</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="c1">//MyInt类型作为参数</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="继承接口">&ldquo;继承&quot;接口
@@ -3362,39 +3361,39 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">animal</span> <span class="kd">struct</span> <span class="p">{</span> <span class="c1">//结构体animal
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">animal</span> <span class="kd">struct</span> <span class="p">{</span> <span class="c1">//结构体animal</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">age</span> <span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">dog</span> <span class="kd">struct</span> <span class="p">{</span> <span class="c1">//结构体dog
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">animal</span> <span class="c1">//“继承”animal
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">address</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">dog</span> <span class="kd">struct</span> <span class="p">{</span> <span class="c1">//结构体dog</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">animal</span> <span class="c1">//“继承”animal</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">address</span> <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">runner</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//runner接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">runner</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//runner接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">run</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">watcher</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//watcher接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">runner</span> <span class="c1">//“继承”runner接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">watch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">watcher</span> <span class="kd">interface</span> <span class="p">{</span> <span class="c1">//watcher接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">runner</span> <span class="c1">//“继承”runner接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">watch</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">animal</span><span class="p">)</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//animal实现runner接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s会跑\n&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">animal</span><span class="p">)</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//animal实现runner接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s会跑\n&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="nf">watch</span><span class="p">()</span>  <span class="p">{</span> <span class="c1">//dog实现watcher接口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s在%s看门\n&#34;</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">dog</span><span class="p">)</span> <span class="nf">watch</span><span class="p">()</span>  <span class="p">{</span> <span class="c1">//dog实现watcher接口</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s在%s看门\n&#34;</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">a</span> <span class="o">:=</span> <span class="nx">animal</span><span class="p">{</span><span class="s">&#34;小动物&#34;</span><span class="p">,</span> <span class="mi">12</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">d</span> <span class="o">:=</span> <span class="nx">dog</span><span class="p">{</span><span class="nx">animal</span><span class="p">{</span><span class="s">&#34;哮天犬&#34;</span><span class="p">,</span> <span class="mi">13</span><span class="p">},</span> <span class="s">&#34;天庭&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">a</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span> <span class="c1">//哮天犬可以调用“继承”得到的接口中的方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">d</span><span class="p">.</span><span class="nf">watch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span> <span class="c1">//哮天犬可以调用“继承”得到的接口中的方法</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nf">watch</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -3474,14 +3473,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">module</span> <span class="nx">example</span><span class="o">/</span><span class="nx">project</span><span class="o">/</span><span class="nx">ap</span>  <span class="c1">// p依赖管理基本单元
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">go</span> <span class="mf">1.16</span>                    <span class="c1">// 原生库
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">require</span> <span class="p">(</span>                  <span class="c1">// 单元依赖
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">example</span><span class="o">/</span><span class="nx">lib1</span> <span class="nx">v1</span><span class="mf">.0.2</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">example</span><span class="o">/</span><span class="nx">lib2</span> <span class="nx">v1</span><span class="mf">.0.0</span> <span class="c1">// indirect 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">example</span><span class="o">/</span><span class="nx">lib3</span> <span class="nx">v0</span><span class="mf">.1.0</span><span class="o">-</span><span class="mi">20190725025543</span><span class="o">-</span><span class="mi">5</span><span class="nx">a5fe074e612</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">example</span><span class="o">/</span><span class="nx">lib4</span> <span class="nx">v0</span><span class="mf">.0.0</span><span class="o">-</span><span class="mi">20180306012644</span><span class="o">-</span><span class="nx">bacd9c7ef1dd</span> <span class="c1">// indirect example/lib5/v3 v3.0.2 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">module</span> <span class="nx">example</span><span class="o">/</span><span class="nx">project</span><span class="o">/</span><span class="nx">ap</span>  <span class="c1">// p依赖管理基本单元</span>
+</span></span><span class="line"><span class="cl"><span class="k">go</span> <span class="mf">1.16</span>                    <span class="c1">// 原生库</span>
+</span></span><span class="line"><span class="cl"><span class="nf">require</span> <span class="p">(</span>                  <span class="c1">// 单元依赖</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">example</span><span class="o">/</span><span class="nx">lib1</span> <span class="nx">v1</span><span class="mf">.0.2</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">example</span><span class="o">/</span><span class="nx">lib2</span> <span class="nx">v1</span><span class="mf">.0.0</span> <span class="c1">// indirect </span>
+</span></span><span class="line"><span class="cl">    <span class="nx">example</span><span class="o">/</span><span class="nx">lib3</span> <span class="nx">v0</span><span class="mf">.1.0</span><span class="o">-</span><span class="mi">20190725025543</span><span class="o">-</span><span class="mi">5</span><span class="nx">a5fe074e612</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">example</span><span class="o">/</span><span class="nx">lib4</span> <span class="nx">v0</span><span class="mf">.0.0</span><span class="o">-</span><span class="mi">20180306012644</span><span class="o">-</span><span class="nx">bacd9c7ef1dd</span> <span class="c1">// indirect example/lib5/v3 v3.0.2 </span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>依赖配置 - indirect 关键字</p>
@@ -4048,7 +4047,7 @@
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">

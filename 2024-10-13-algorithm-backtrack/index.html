@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2024-10-13-algorithm-backtrack/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="回溯法">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="回溯法">
 <meta property='og:description' content="2 回溯法&mdash;&mdash;用递归来解决嵌套层数的问题 1 2 3 4 给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。 示例 输入：nums = [1,2,3] 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]] \u200b\t肯定可以用暴力方法来解决, 但是当nums数组数量多了的时候, 例如50, 我们需要写 50 层 for循环, 这是个不可能完成的任务.\n">
 <meta property='og:url' content='https://li54426.github.io/2024-10-13-algorithm-backtrack/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -314,18 +314,18 @@
   <ol>
     <li>
       <ol>
-        <li><a href="#2-回溯法------用递归来解决嵌套层数的问题">2 回溯法&mdash;&mdash;用递归来解决嵌套层数的问题</a>
+        <li><a href="#2-回溯法用递归来解决嵌套层数的问题">2 回溯法&mdash;&mdash;用递归来解决嵌套层数的问题</a>
           <ol>
-            <li><a href="#46_全排列httpsleetcodecnproblemspermutations"><a href="https://leetcode.cn/problems/permutations/">46_全排列</a></a></li>
-            <li><a href="#77_组合httpsleetcodecnproblemscombinations"><a href="https://leetcode.cn/problems/combinations/">77_组合</a></a></li>
-            <li><a href="#216_组合总和3httpsleetcodecnproblemscombination-sum-iii"><a href="https://leetcode.cn/problems/combination-sum-iii/">216_组合总和3</a></a></li>
+            <li><a href="#46_"><a href="https://leetcode.cn/problems/permutations/">46_全排列</a></a></li>
+            <li><a href="#77_"><a href="https://leetcode.cn/problems/combinations/">77_组合</a></a></li>
+            <li><a href="#216_"><a href="https://leetcode.cn/problems/combination-sum-iii/">216_组合总和3</a></a></li>
           </ol>
         </li>
         <li><a href="#回溯和递归">回溯和递归</a>
           <ol>
             <li><a href="#31-回溯总是和递归联系在一起的">3.1 回溯总是和递归联系在一起的</a></li>
             <li><a href="#32-要仔细-分析-回溯-树-每一层是从哪个元素开始的">3.2 要仔细 分析 <strong>回溯 树</strong> 每一层是从<strong>哪个元素</strong>开始的</a></li>
-            <li><a href="#321-全排列-------每个元素不重复">3.2.1 全排列&mdash;&mdash;-每个元素不重复</a></li>
+            <li><a href="#321-全排列-每个元素不重复">3.2.1 全排列&mdash;&mdash;-每个元素不重复</a></li>
             <li><a href="#322-组合">3.2.2 组合</a></li>
             <li><a href="#323-组合总和">3.2.3 组合总和</a></li>
             <li><a href="#324-组合总和3">3.2.4 组合总和3</a></li>
@@ -334,7 +334,7 @@
         </li>
         <li><a href="#去重">去重</a>
           <ol>
-            <li><a href="#40_组合总和2重要-涉及去重去重使用了排序httpsleetcodecnproblemscombination-sum-ii"><a href="https://leetcode.cn/problems/combination-sum-ii/">40_组合总和2(重要, 涉及去重,去重使用了排序)</a></a></li>
+            <li><a href="#40_"><a href="https://leetcode.cn/problems/combination-sum-ii/">40_组合总和2(重要, 涉及去重,去重使用了排序)</a></a></li>
           </ol>
         </li>
       </ol>
@@ -396,7 +396,7 @@
     <section class="article-content">
     
     
-    <h3 id="2-回溯法------用递归来解决嵌套层数的问题">2 回溯法&mdash;&mdash;用递归来解决嵌套层数的问题
+    <h3 id="2-回溯法用递归来解决嵌套层数的问题">2 回溯法&mdash;&mdash;用递归来解决嵌套层数的问题
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -491,7 +491,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">track</span><span class="o">.</span><span class="n">pop_back</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="46_全排列httpsleetcodecnproblemspermutations"><a class="link" href="https://leetcode.cn/problems/permutations/"  target="_blank" rel="noopener"
+</div><h4 id="46_"><a class="link" href="https://leetcode.cn/problems/permutations/"  target="_blank" rel="noopener"
     >46_全排列</a>
 </h4><p>给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。</p>
 <p>示例</p>
@@ -555,7 +555,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="77_组合httpsleetcodecnproblemscombinations"><a class="link" href="https://leetcode.cn/problems/combinations/"  target="_blank" rel="noopener"
+</div><h4 id="77_"><a class="link" href="https://leetcode.cn/problems/combinations/"  target="_blank" rel="noopener"
     >77_组合</a>
 </h4><blockquote>
 <p>给定两个整数 <code>n</code> 和 <code>k</code>，返回范围 <code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。
@@ -567,8 +567,7 @@
 ]</p>
 <p>//解题思路:
 一般我们在进行答案的搜索的时候, 都是从小的开始,   先1, 然后2, 并且只找比他大的数
-[1,2],[1,3],[1,4],[2,3],[2,4], [3,4]</p>
-</blockquote>
+[1,2],[1,3],[1,4],[2,3],[2,4], [3,4]</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -677,7 +676,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="216_组合总和3httpsleetcodecnproblemscombination-sum-iii"><a class="link" href="https://leetcode.cn/problems/combination-sum-iii/"  target="_blank" rel="noopener"
+</div><h4 id="216_"><a class="link" href="https://leetcode.cn/problems/combination-sum-iii/"  target="_blank" rel="noopener"
     >216_组合总和3</a>
 </h4><blockquote>
 <p>找出所有相加之和为 <code>n</code> 的 <code>k</code> 个数的组合，且满足下列条件：</p>
@@ -809,12 +808,11 @@
 </div><p>​	回溯其实就是不断的调用自身, 直至满足结束条件</p>
 <h4 id="32-要仔细-分析-回溯-树-每一层是从哪个元素开始的">3.2 要仔细 分析 <strong>回溯 树</strong> 每一层是从<strong>哪个元素</strong>开始的
 </h4><p>方法还是上次说过的  画图</p>
-<h4 id="321-全排列-------每个元素不重复">3.2.1 全排列&mdash;&mdash;-每个元素不重复
+<h4 id="321-全排列-每个元素不重复">3.2.1 全排列&mdash;&mdash;-每个元素不重复
 </h4><blockquote>
 <p>给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。</p>
 <p>示例</p>
-<p>输入：nums = [1,2,3] 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</p>
-</blockquote>
+<p>输入：nums = [1,2,3] 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</p></blockquote>
 <p>分析:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -863,8 +861,7 @@
 </div><h4 id="322-组合">3.2.2 组合
 </h4><blockquote>
 <p>给定两个整数 <code>n</code> 和 <code>k</code>，返回范围 <code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。 你可以按 <strong>任何顺序</strong> 返回答案。 输入：n = 4, k = 2 输出： [ [2,4],[3,4],[2,3],[1,2],[1,3],[1,4], ]</p>
-<p>//解题思路: 一般我们在进行答案的搜索的时候, 都是从小的开始,   先1, 然后2, 并且只找比他大的数 [1,2],[1,3],[1,4],[2,3],[2,4], [3,4]</p>
-</blockquote>
+<p>//解题思路: 一般我们在进行答案的搜索的时候, 都是从小的开始,   先1, 然后2, 并且只找比他大的数 [1,2],[1,3],[1,4],[2,3],[2,4], [3,4]</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -999,8 +996,7 @@
 		alt="img"
 	
 	
-></p>
-</blockquote>
+></p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1034,7 +1030,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">algorithm_回溯_backtrack_4_去重
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="40_组合总和2重要-涉及去重去重使用了排序httpsleetcodecnproblemscombination-sum-ii"><a class="link" href="https://leetcode.cn/problems/combination-sum-ii/"  target="_blank" rel="noopener"
+</div><h4 id="40_"><a class="link" href="https://leetcode.cn/problems/combination-sum-ii/"  target="_blank" rel="noopener"
     >40_组合总和2(重要, 涉及去重,去重使用了排序)</a>
 </h4><blockquote>
 <p>给定一个候选人编号的集合 <code>candidates</code> 和一个目标数 <code>target</code> ，找出 <code>candidates</code> 中所有可以使数字和为 <code>target</code> 的组合。</p>
@@ -1312,7 +1308,7 @@
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">

@@ -131,8 +131,7 @@
         <guid>https://li54426.github.io/2024-10-13-github-action/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Github Action 官方文档：&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//docs.github.com/en/actions/reference/workflow-syntax-for-github-actions%23name&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;是 Github 推出的持续集成工具&lt;/p&gt;
 &lt;h4 id=&#34;持续集成是什么&#34;&gt;持续集成是什么？
 &lt;/h4&gt;&lt;p&gt;简单说就是自动化的打包程序 —— 如果是前端程序员，这样解释比较顺畅：&lt;/p&gt;
@@ -146,8 +145,7 @@
 &lt;p&gt;它是一个非常容易地脚本语言，如果我们不会的话，也没啥大事继续往下看就成了。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;参考文档：&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;五分钟学习 YAML&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;五分钟学习 YAML&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;github-action-的使用限制&#34;&gt;Github Action 的使用限制
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;每个 Workflow 中的 job 最多可以执行 6 个小时&lt;/li&gt;
@@ -161,8 +159,7 @@
 &lt;hr&gt;
 &lt;h5 id=&#34;一如何定义-workflow-的名字&#34;&gt;一、如何定义 Workflow 的名字？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;name&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;name&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Workflow 的名称，Github 在存储库的 Action 页面上显示 Workflow 的名称。&lt;/p&gt;
 &lt;p&gt;如果我们省略 name，则 Github 会将其设置为相对于存储库根目录的工作流文件路径。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -176,8 +173,7 @@
 &lt;/div&gt;&lt;hr&gt;
 &lt;h4 id=&#34;二如何定义-workflow-的触发器&#34;&gt;二、如何定义 Workflow 的触发器？
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;on&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;on&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;触发 Workflow 执行的 event 名称，比如：&lt;strong&gt;每当我提交代码到 Github 上的时候，或者是每当我打 TAG 的时候。&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -206,13 +202,11 @@
 &lt;p&gt;上面的 my_first_job 和 my_second_job 就是 job_id。&lt;/p&gt;
 &lt;h5 id=&#34;2如何定义-job-的名称&#34;&gt;2、如何定义 job 的名称？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.name&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.name&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;name 会显示在 Github 上&lt;/p&gt;
 &lt;h5 id=&#34;3如何定义-job-的依赖job-是否可以依赖于别的-job-的输出结果&#34;&gt;3、如何定义 job 的依赖？job 是否可以依赖于别的 job 的输出结果？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.needs&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.needs&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;答：needs 可以标识 job 是否依赖于别的 job—— 如果 job 失败，则会跳过所有需要该 job 的 job。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -223,8 +217,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.outputs：用于和 need 打配合，outputs 输出 =》need 输入&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.outputs：用于和 need 打配合，outputs 输出 =》need 输入&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;jobs 的输出，用于和 needs 打配合：可以看到 ouput&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -236,8 +229,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h5 id=&#34;4如何定义-job-的运行环境&#34;&gt;4、如何定义 job 的运行环境？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.runs-on&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.runs-on&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;指定运行 job 的运行环境，Github 上可用的运行器为：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;windows-2019&lt;/li&gt;
@@ -256,8 +248,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h5 id=&#34;5如何给-job-定义环境变量&#34;&gt;5、如何给 job 定义环境变量？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.env&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;jobs_id&amp;gt;.env&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -268,8 +259,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h5 id=&#34;6如何使用-job-的条件控制语句&#34;&gt;6、如何使用 job 的条件控制语句？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.if&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.if&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;我们可以使用 if 条件语句来组织 job 运行&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;四step-属性是什么&#34;&gt;四、Step 属性是什么？
@@ -306,8 +296,7 @@
 &lt;p&gt;比如最常用的，check-out 代码到 Workflow 工作区：&lt;/p&gt;
 &lt;h5 id=&#34;1我们应该如何使用-action&#34;&gt;1、我们应该如何使用 Action？
 &lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.steps.uses&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;jobs.&amp;lt;job_id&amp;gt;.steps.uses&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-e6855fd2e091401590baf4febf356cce_r.jpg&#34;
 	
 	
@@ -639,8 +628,7 @@
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;链接:https://caiyun.139.com/m/i?105CqOWrry45X
 提取码:n7Pu
-复制内容打开移动云盘PC客户端，操作更方便哦&lt;/p&gt;
-&lt;/blockquote&gt;
+复制内容打开移动云盘PC客户端，操作更方便哦&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;在 Github 上其实有很多程序员在维护&lt;strong&gt;自用的 TVBOX 接口&lt;/strong&gt;，而 Github 上的代码多数都是公开的，所以你懂的&lt;/p&gt;
 &lt;p&gt;搜索方法也很简单，在 github.com 上&lt;strong&gt;搜索关键词：TVBOX&lt;/strong&gt;，然后再右上角 &lt;strong&gt;Sort 筛选&lt;/strong&gt;这里，选择 &lt;strong&gt;Recently upload 最近更新&lt;/strong&gt;&lt;/p&gt;
 &lt;h4 id=&#34;14-使用教程&#34;&gt;1.4 使用教程
@@ -1068,14 +1056,12 @@ jiopages(阿三出品)主力使用&lt;/p&gt;
 &lt;p&gt;CTs是和车辆安全相关的应用，是保证车辆和乘客安全的关键应用程序，如车辆控制、系统监控和事故预防等。由于CTs和安全紧密相关，因此享有最高的优先级，必须保留充足的计算资源给它，不能因为HPTs和LPTs的存在而影响CTs的正常运行，因此这类任务也不允许卸载，只允许在本地执行，不属于计算任务卸载的范畴。该类任务的实例是：车辆控制、碰撞预警、红绿灯警告、网上车辆诊断、道路湿滑检测等。&lt;/p&gt;
 &lt;p&gt;HPTs包括与驾驶相关的应用和可选的安全增强应用，这类应用程序对车辆而言是重要但不是必须的，拥有较高的执行优先级，例如实时路径规划和路况提醒等。这类应用允许出现延迟或卸载失败的情况，但不能影响CTs。该类任务的实例是：地图导航、平视显示器、视野增强、车辆传感等。&lt;/p&gt;
 &lt;p&gt;LPTs是一类为用户提供影音娱乐服务的应用程序，它的优先级较低，例如语音识别，它允许驾驶员发出各种声音命令，通过语音识别命令计算机做一些响应，而不会使驾驶员分心。该类任务的实例是：虚拟现实、语音识别、视频处理、在线游戏等。&lt;/p&gt;
-&lt;p&gt;HPTs和IPTs已经被部署到越来越多的车辆上，由于HPTs和LPTs不会涉及到安全，因此可以将其进行卸载，来提高资源的利用率。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;HPTs和IPTs已经被部署到越来越多的车辆上，由于HPTs和LPTs不会涉及到安全，因此可以将其进行卸载，来提高资源的利用率。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;prompt_论文润色&#34;&gt;prompt_论文润色
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;充当论文润色者（拿摘要部分举例）&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;请你充当一名论文编辑专家，在论文评审的角度去修改以下论文，使其更加流畅，优美。下面是具体要求：&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;请你充当一名论文编辑专家，在论文评审的角度去修改以下论文，使其更加流畅，优美。下面是具体要求：&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;能让读者快速获得文章的要点或精髓，让文章引人入胜；能让读者了解全文中的重要信息、分析和论点；帮助读者记住论文的要点&lt;/li&gt;
 &lt;li&gt;字数限制在 300 字以下&lt;/li&gt;
@@ -1083,13 +1069,10 @@ jiopages(阿三出品)主力使用&lt;/p&gt;
 &lt;li&gt;用简洁、明了的语言描述您的方法和结果，以便评审更容易理解论文&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;下文是论文的摘要部分，请你修改它：&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;下文是论文的摘要部分，请你修改它：&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;
 &lt;p&gt;充当论文润色者（拿摘要部分举例）&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;请你充当一名论文编辑专家，在论文评审的角度去修改以下论文，使其更加流畅，优美。下面是具体要求：&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;请你充当一名论文编辑专家，在论文评审的角度去修改以下论文，使其更加流畅，优美。下面是具体要求：&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;能让读者快速获得文章的要点或精髓，让文章引人入胜；能让读者了解全文中的重要信息、分析和论点；帮助读者记住论文的要点&lt;/li&gt;
 &lt;li&gt;字数限制在 300 字以下&lt;/li&gt;
@@ -1162,8 +1145,7 @@ jiopages(阿三出品)主力使用&lt;/p&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;项目名称：智能家居系统设计 - 项目描述：参与设计一个智能家居系统，包括家庭安防、智能控制等功能。 - 职责：担任软件工程师，负责系统的需求分析、系统设计和代码编写。 - 工作成果：成功完成系统的设计和开发工作，实现了远程监控、智能控制等功能。系统上线后，用户满意度提高了xx%，故障率降低了xx%。 3. 项目名称：数据分析与挖掘 - 项目描述：参与一个数据分析与挖掘项目，对大量的数据进行分析和挖掘，提取有价值的信息。 - 职责：担任数据分析师，负责数据清洗、特征提取和模型建立。 - 工作成果：成功完成数据分析和挖掘工作，提取出了关键指标和规律，并提供了有针对性的决策建议。项目完成后，公司的利润增长了xx%。 以上是我在简历中的项目经历，通过这些项目，我不仅提升了自己的技能和经验，也取得了一定的成绩和成就。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;4-职业技能--专业技能&#34;&gt;4 职业技能  (专业技能)
 &lt;/h3&gt;&lt;p&gt;【建议】 职业技能是简历中非常重要的一部分，它能够展示你的专业能力和技术水平。对于已有的职业技能，建议你在描述时要更加具体和有针对性，可以提供一些相关项目经验或成果，以突出你的实际应用能力。另外，可以考虑添加一些与职位要求相关的技能，以提高简历的匹配度。&lt;/p&gt;
 &lt;ul&gt;

@@ -17,7 +17,7 @@
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;20240407------392&#34;&gt;20240407&amp;mdash;&amp;mdash;392
+&lt;h3 id=&#34;20240407392&#34;&gt;20240407&amp;mdash;&amp;mdash;392
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;3105. 最长的严格递增或递减子数组 - 力扣（LeetCode）&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -173,8 +173,7 @@
 &lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;**输入：**nums = [2,5,6,8,5], k = 4&lt;/p&gt;
 &lt;p&gt;**输出：**2&lt;/p&gt;
-&lt;p&gt;**解释：**我们将 &lt;code&gt;nums[1]&lt;/code&gt; 和 &lt;code&gt;nums[4]&lt;/code&gt; 减 &lt;code&gt;1&lt;/code&gt; 得到 &lt;code&gt;[2, 4, 6, 8, 4]&lt;/code&gt; 。现在数组的中位数等于 &lt;code&gt;k&lt;/code&gt; 。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;**解释：**我们将 &lt;code&gt;nums[1]&lt;/code&gt; 和 &lt;code&gt;nums[4]&lt;/code&gt; 减 &lt;code&gt;1&lt;/code&gt; 得到 &lt;code&gt;[2, 4, 6, 8, 4]&lt;/code&gt; 。现在数组的中位数等于 &lt;code&gt;k&lt;/code&gt; 。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -423,7 +422,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;2447-最大公因数等于-k-的子数组数目httpsleetcodecnproblemsnumber-of-subarrays-with-gcd-equal-to-k&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;2447-最大公因数等于-k-的子数组数目&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2447. 最大公因数等于 K 的子数组数目&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个整数数组 &lt;code&gt;nums&lt;/code&gt; 和一个整数 &lt;code&gt;k&lt;/code&gt; ，请你统计并返回 &lt;code&gt;nums&lt;/code&gt; 的子数组中元素的最大公因数等于 &lt;code&gt;k&lt;/code&gt; 的子数组数目。&lt;/p&gt;
@@ -584,7 +583,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;907-子数组的最小值之和httpsleetcodecnproblemssum-of-subarray-minimums&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/sum-of-subarray-minimums/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;907-子数组的最小值之和&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/sum-of-subarray-minimums/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;907. 子数组的最小值之和&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给定一个整数数组 &lt;code&gt;arr&lt;/code&gt;，找到 &lt;code&gt;min(b)&lt;/code&gt; 的总和，其中 &lt;code&gt;b&lt;/code&gt; 的范围为 &lt;code&gt;arr&lt;/code&gt; 的每个（连续）子数组。&lt;/p&gt;
@@ -848,7 +847,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;2448-使数组相等的最小开销httpsleetcodecnproblemsminimum-cost-to-make-array-equal&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/minimum-cost-to-make-array-equal/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;2448-使数组相等的最小开销&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/minimum-cost-to-make-array-equal/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2448. 使数组相等的最小开销&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你两个下标从 &lt;strong&gt;0&lt;/strong&gt; 开始的数组 &lt;code&gt;nums&lt;/code&gt; 和 &lt;code&gt;cost&lt;/code&gt; ，分别包含 &lt;code&gt;n&lt;/code&gt; 个 &lt;strong&gt;正&lt;/strong&gt; 整数。&lt;/p&gt;
@@ -965,7 +964,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;2788-按分隔符拆分字符串---力扣leetcodehttpsleetcodecnproblemssplit-strings-by-separator&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/split-strings-by-separator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;2788-按分隔符拆分字符串---力扣leetcode&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/split-strings-by-separator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2788. 按分隔符拆分字符串 - 力扣（LeetCode）&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个字符串数组 &lt;code&gt;words&lt;/code&gt; 和一个字符 &lt;code&gt;separator&lt;/code&gt; ，请你按 &lt;code&gt;separator&lt;/code&gt; 拆分 &lt;code&gt;words&lt;/code&gt; 中的每个字符串。&lt;/p&gt;
@@ -1113,7 +1112,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;istringstream&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;istringstream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;2790-长度递增组的最大数目---力扣leetcodehttpsleetcodecnproblemsmaximum-number-of-groups-with-increasing-lengthdescription&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;2790-长度递增组的最大数目---力扣leetcode&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2790. 长度递增组的最大数目 - 力扣（LeetCode）&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个下标从 &lt;strong&gt;0&lt;/strong&gt; 开始、长度为 &lt;code&gt;n&lt;/code&gt; 的数组 &lt;code&gt;usageLimits&lt;/code&gt; 。&lt;/p&gt;
@@ -1195,7 +1194,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;358&#34;&gt;358
-&lt;/h4&gt;&lt;h4 id=&#34;2817-限制条件下元素之间的最小绝对差---力扣leetcodehttpsleetcodecnproblemsminimum-absolute-difference-between-elements-with-constraintdescription&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h4&gt;&lt;h4 id=&#34;2817-限制条件下元素之间的最小绝对差---力扣leetcode&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/minimum-absolute-difference-between-elements-with-constraint/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2817. 限制条件下元素之间的最小绝对差 - 力扣（LeetCode）&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个下标从 &lt;strong&gt;0&lt;/strong&gt; 开始的整数数组 &lt;code&gt;nums&lt;/code&gt; 和一个整数 &lt;code&gt;x&lt;/code&gt; 。&lt;/p&gt;
@@ -1267,8 +1266,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;------359&#34;&gt;&amp;mdash;&amp;mdash;359
-&lt;/h4&gt;&lt;h4 id=&#34;2830-销售利润最大化httpsleetcodecnproblemsmaximize-the-profit-as-the-salesman&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;359&#34;&gt;&amp;mdash;&amp;mdash;359
+&lt;/h4&gt;&lt;h4 id=&#34;2830-销售利润最大化&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2830. 销售利润最大化&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个整数 &lt;code&gt;n&lt;/code&gt; 表示数轴上的房屋数量，编号从 &lt;code&gt;0&lt;/code&gt; 到 &lt;code&gt;n - 1&lt;/code&gt; 。&lt;/p&gt;
@@ -1362,9 +1361,8 @@
 &lt;p&gt;作者：灵茶山艾府
 链接：https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/solutions/2396402/xian-xing-dpfu-xiang-si-ti-mu-pythonjava-wmh7/
 来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;2831-找出最长等值子数组httpsleetcodecnproblemsfind-the-longest-equal-subarray&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/find-the-longest-equal-subarray/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;2831-找出最长等值子数组&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/find-the-longest-equal-subarray/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2831. 找出最长等值子数组&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个下标从 &lt;strong&gt;0&lt;/strong&gt; 开始的整数数组 &lt;code&gt;nums&lt;/code&gt; 和一个整数 &lt;code&gt;k&lt;/code&gt; 。&lt;/p&gt;
@@ -1709,7 +1707,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;2905-找出满足差值条件的下标-iihttpsleetcodecnproblemsfind-indices-with-index-and-value-difference-ii&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;2905-找出满足差值条件的下标-ii&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2905. 找出满足差值条件的下标 II&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个下标从 &lt;strong&gt;0&lt;/strong&gt; 开始、长度为 &lt;code&gt;n&lt;/code&gt; 的整数数组 &lt;code&gt;nums&lt;/code&gt; ，以及整数 &lt;code&gt;indexDifference&lt;/code&gt; 和整数 &lt;code&gt;valueDifference&lt;/code&gt; 。&lt;/p&gt;
@@ -1719,8 +1717,7 @@
 &lt;li&gt;&lt;code&gt;abs(nums[i] - nums[j]) &amp;gt;= valueDifference&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;返回整数数组 &lt;code&gt;answer&lt;/code&gt;。如果存在满足题目要求的两个下标，则 &lt;code&gt;answer = [i, j]&lt;/code&gt; ；否则，&lt;code&gt;answer = [-1, -1]&lt;/code&gt; 。如果存在多组可供选择的下标对，只需要返回其中任意一组即可。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;code&gt;i&lt;/code&gt; 和 &lt;code&gt;j&lt;/code&gt; 可能 &lt;strong&gt;相等&lt;/strong&gt; 。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;code&gt;i&lt;/code&gt; 和 &lt;code&gt;j&lt;/code&gt; 可能 &lt;strong&gt;相等&lt;/strong&gt; 。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -1795,7 +1792,7 @@
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;6900-统计完全子数组的数目---力扣leetcodehttpsleetcodecnproblemscount-complete-subarrays-in-an-arraydescription&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/count-complete-subarrays-in-an-array/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h4 id=&#34;6900-统计完全子数组的数目---力扣leetcode&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/count-complete-subarrays-in-an-array/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;6900. 统计完全子数组的数目 - 力扣（LeetCode）&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个由 &lt;strong&gt;正&lt;/strong&gt; 整数组成的数组 &lt;code&gt;nums&lt;/code&gt; 。&lt;/p&gt;
@@ -1896,7 +1893,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;2801-统计范围内的步进数字数目---力扣leetcodehttpsleetcodecnproblemscount-stepping-numbers-in-range&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/count-stepping-numbers-in-range/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;2801-统计范围内的步进数字数目---力扣leetcode&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/count-stepping-numbers-in-range/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2801. 统计范围内的步进数字数目 - 力扣（LeetCode）&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你两个正整数 &lt;code&gt;low&lt;/code&gt; 和 &lt;code&gt;high&lt;/code&gt; ，都用字符串表示，请你统计闭区间 &lt;code&gt;[low, high]&lt;/code&gt; 内的 &lt;strong&gt;步进数字&lt;/strong&gt; 数目。&lt;/p&gt;
@@ -2259,7 +2256,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;2800-包含三个字符串的最短字符串---力扣leetcodehttpsleetcodecnproblemsshortest-string-that-contains-three-stringsdescription&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/shortest-string-that-contains-three-strings/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;2800-包含三个字符串的最短字符串---力扣leetcode&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/shortest-string-that-contains-three-strings/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2800. 包含三个字符串的最短字符串 - 力扣（LeetCode）&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你三个字符串 &lt;code&gt;a&lt;/code&gt; ，&lt;code&gt;b&lt;/code&gt; 和 &lt;code&gt;c&lt;/code&gt; ， 你的任务是找到长度 &lt;strong&gt;最短&lt;/strong&gt; 的字符串，且这三个字符串都是它的 &lt;strong&gt;子字符串&lt;/strong&gt; 。&lt;/p&gt;
@@ -2377,7 +2374,7 @@
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;2788-按分隔符拆分字符串---力扣leetcodehttpsleetcodecnproblemssplit-strings-by-separator&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/split-strings-by-separator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h4 id=&#34;2788-按分隔符拆分字符串---力扣leetcode&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/split-strings-by-separator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2788. 按分隔符拆分字符串 - 力扣（LeetCode）&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个字符串数组 &lt;code&gt;words&lt;/code&gt; 和一个字符 &lt;code&gt;separator&lt;/code&gt; ，请你按 &lt;code&gt;separator&lt;/code&gt; 拆分 &lt;code&gt;words&lt;/code&gt; 中的每个字符串。&lt;/p&gt;
@@ -2525,7 +2522,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;istringstream&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;istringstream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;2790-长度递增组的最大数目---力扣leetcodehttpsleetcodecnproblemsmaximum-number-of-groups-with-increasing-lengthdescription&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h4 id=&#34;2790-长度递增组的最大数目---力扣leetcode&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/maximum-number-of-groups-with-increasing-length/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;2790. 长度递增组的最大数目 - 力扣（LeetCode）&lt;/a&gt;
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;给你一个下标从 &lt;strong&gt;0&lt;/strong&gt; 开始、长度为 &lt;code&gt;n&lt;/code&gt; 的数组 &lt;code&gt;usageLimits&lt;/code&gt; 。&lt;/p&gt;

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2023-08-17-mult-thread/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Go_">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="Go_">
 <meta property='og:description' content=" content {:toc} 携程 Go 语言中的 goroutine 就是这样一种机制，goroutine 的概念类似于线程，但 goroutine 是由 Go 的运行时（runtime）调度和管理的。Go 程序会智能地将 goroutine 中的任务合理地分配给每个 CPU。Go 语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。\n">
 <meta property='og:url' content='https://li54426.github.io/2023-08-17-mult-thread/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -425,10 +425,10 @@
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">go</span> <span class="nf">hello</span><span class="p">()</span> <span class="c1">// 启动一个新的协程执行 hello() 函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// 主线程继续执行其他任务
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">go</span> <span class="nf">hello</span><span class="p">()</span> <span class="c1">// 启动一个新的协程执行 hello() 函数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 主线程继续执行其他任务</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Main Thread:&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
@@ -476,18 +476,18 @@
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 定义匿名函数，作为协程的运行函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 定义匿名函数，作为协程的运行函数</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;协程开始执行&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span> <span class="c1">// 模拟一些耗时操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;协程执行完成&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span> <span class="c1">// 模拟一些耗时操作</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;协程执行完成&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 主线程继续执行其他任务
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;主线程执行其他任务&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 主线程继续执行其他任务</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;主线程执行其他任务&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 防止主线程退出，等待一些时间以便协程执行完毕
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 防止主线程退出，等待一些时间以便协程执行完毕</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -532,25 +532,25 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ch1</span> <span class="kd">chan</span> <span class="kt">int</span>   <span class="c1">// 声明一个传递整型的通道
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">ch2</span> <span class="kd">chan</span> <span class="kt">bool</span>  <span class="c1">// 声明一个传递布尔型的通道
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">ch3</span> <span class="kd">chan</span> <span class="p">[]</span><span class="kt">int</span> <span class="c1">// 声明一个传递int切片的通道
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 通道是引用类型，通道类型的空值是 nil。
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 声明的通道后需要使用 make 函数初始化之后才能使用。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ch4</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ch1</span> <span class="kd">chan</span> <span class="kt">int</span>   <span class="c1">// 声明一个传递整型的通道</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ch2</span> <span class="kd">chan</span> <span class="kt">bool</span>  <span class="c1">// 声明一个传递布尔型的通道</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ch3</span> <span class="kd">chan</span> <span class="p">[]</span><span class="kt">int</span> <span class="c1">// 声明一个传递int切片的通道</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 通道是引用类型，通道类型的空值是 nil。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 声明的通道后需要使用 make 函数初始化之后才能使用。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ch4</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nx">ch5</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nx">ch6</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 发送    将一个值发送到通道中。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">10</span> <span class="c1">// 把10发送到ch中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 接收----从一个通道中接收值。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">x</span> <span class="o">:=</span> <span class="o">&lt;-</span> <span class="nx">ch</span> <span class="c1">// 从ch中接收值并赋值给变量x
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">&lt;-</span><span class="nx">ch</span>       <span class="c1">// 从ch中接收值，忽略结果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="c1">//  close 函数来关闭通道。关闭通道不是必须
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">close</span><span class="p">(</span><span class="nx">ch</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 发送    将一个值发送到通道中。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">10</span> <span class="c1">// 把10发送到ch中</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 接收----从一个通道中接收值。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">x</span> <span class="o">:=</span> <span class="o">&lt;-</span> <span class="nx">ch</span> <span class="c1">// 从ch中接收值并赋值给变量x</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;-</span><span class="nx">ch</span>       <span class="c1">// 从ch中接收值，忽略结果</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//  close 函数来关闭通道。关闭通道不是必须</span>
+</span></span><span class="line"><span class="cl"><span class="nb">close</span><span class="p">(</span><span class="nx">ch</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -586,27 +586,27 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">ch1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">ch2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 开启goroutine将0~100的数发送到ch1中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 开启goroutine将0~100的数发送到ch1中</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">ch1</span> <span class="o">&lt;-</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="nb">close</span><span class="p">(</span><span class="nx">ch1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}()</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 开启goroutine从ch1中接收值，并将该值的平方发送到ch2中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 开启goroutine从ch1中接收值，并将该值的平方发送到ch2中</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">i</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">ch1</span> <span class="c1">// 通道关闭后再取值ok=false
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">i</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">ch1</span> <span class="c1">// 通道关闭后再取值ok=false</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="k">break</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">ch2</span> <span class="o">&lt;-</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="nb">close</span><span class="p">(</span><span class="nx">ch2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}()</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 在主goroutine中从ch2中接收值打印
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ch2</span> <span class="p">{</span> <span class="c1">// 通道关闭后会退出for range循环
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在主goroutine中从ch2中接收值打印</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ch2</span> <span class="p">{</span> <span class="c1">// 通道关闭后会退出for range循环</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -657,30 +657,30 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">CalSquare</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">src</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>     <span class="c1">//   生产无缓冲
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="nx">dest</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">//   消费缓冲3个元素
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   
-</span></span><span class="line"><span class="cl">   <span class="c1">// 子协程发送0-9数字
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">src</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>     <span class="c1">//   生产无缓冲</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">dest</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">//   消费缓冲3个元素</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">// 子协程发送0-9数字</span>
+</span></span><span class="line"><span class="cl">   <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">         <span class="nx">src</span> <span class="o">&lt;-</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="c1">// 子协程计算输入数字的平方
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 子协程计算输入数字的平方</span>
+</span></span><span class="line"><span class="cl">   <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="nx">dest</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">src</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">         <span class="nx">dest</span> <span class="o">&lt;-</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="c1">// 主协程输出最后的平方数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">dest</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="c1">// 复杂操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 主协程输出最后的平方数</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">dest</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 复杂操作</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// ...</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -752,10 +752,10 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">counter</span> <span class="p">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 保护临界区
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">mutex</span>   <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 保证所有的任务都能完成, 也就是主程序阻塞
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">wg</span>      <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 保护临界区</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mutex</span>   <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 保证所有的任务都能完成, 也就是主程序阻塞</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">wg</span>      <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -772,18 +772,18 @@
 </span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">// 对公共资源进行加锁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">mutex</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 对公共资源进行加锁</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">mutex</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="c1">// 修改公共资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">counter</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 修改公共资源</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">counter</span><span class="o">++</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[%s] Counter: %d\n&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">counter</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="c1">// 解锁公共资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">mutex</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 解锁公共资源</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">mutex</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="c1">// 模拟其他操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 模拟其他操作</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span> <span class="o">*</span> <span class="mi">500</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -808,12 +808,12 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">mu</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 读共享资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 读共享资源</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 写共享资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 写共享资源</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>sync.WaitGroup 是 Go 语言中的一个常用同步工具，可以用于等待一组 goroutine 结束。主要的使用方式是</p>
@@ -862,8 +862,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">wg</span> <span class="o">*</span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Start goroutine&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 结束时调用 Done 减少计数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 结束时调用 Done 减少计数</span>
+</span></span><span class="line"><span class="cl">   <span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;End goroutine%d\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1039,7 +1039,7 @@
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">

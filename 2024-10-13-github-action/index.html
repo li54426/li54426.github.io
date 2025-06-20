@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2024-10-13-github-action/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="">
 <meta property='og:description' content=" Github Action 官方文档：https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name\n是 Github 推出的持续集成工具\n持续集成是什么？ 简单说就是自动化的打包程序 —— 如果是前端程序员，这样解释比较顺畅：\n每次提交代码到 Github 的仓库后，Github 都会自动创建一个虚拟机（Mac / Windows / Linux 任我们选），来执行一段或多段指令（由我们定），例如：\n">
 <meta property='og:url' content='https://li54426.github.io/2024-10-13-github-action/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -390,8 +390,7 @@
     
     <blockquote>
 <p>Github Action 官方文档：<a class="link" href="https://link.zhihu.com/?target=https%3A//docs.github.com/en/actions/reference/workflow-syntax-for-github-actions%23name"  target="_blank" rel="noopener"
-    >https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name</a></p>
-</blockquote>
+    >https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name</a></p></blockquote>
 <p>是 Github 推出的持续集成工具</p>
 <h4 id="持续集成是什么">持续集成是什么？
 </h4><p>简单说就是自动化的打包程序 —— 如果是前端程序员，这样解释比较顺畅：</p>
@@ -405,8 +404,7 @@
 <p>它是一个非常容易地脚本语言，如果我们不会的话，也没啥大事继续往下看就成了。</p>
 <blockquote>
 <p>参考文档：<a class="link" href="https://link.zhihu.com/?target=https%3A//www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes"  target="_blank" rel="noopener"
-    >五分钟学习 YAML</a></p>
-</blockquote>
+    >五分钟学习 YAML</a></p></blockquote>
 <h4 id="github-action-的使用限制">Github Action 的使用限制
 </h4><ul>
 <li>每个 Workflow 中的 job 最多可以执行 6 个小时</li>
@@ -420,8 +418,7 @@
 <hr>
 <h5 id="一如何定义-workflow-的名字">一、如何定义 Workflow 的名字？
 </h5><blockquote>
-<p>name</p>
-</blockquote>
+<p>name</p></blockquote>
 <p>Workflow 的名称，Github 在存储库的 Action 页面上显示 Workflow 的名称。</p>
 <p>如果我们省略 name，则 Github 会将其设置为相对于存储库根目录的工作流文件路径。</p>
 <div class="highlight"><div class="chroma">
@@ -435,8 +432,7 @@
 </div><hr>
 <h4 id="二如何定义-workflow-的触发器">二、如何定义 Workflow 的触发器？
 </h4><blockquote>
-<p>on</p>
-</blockquote>
+<p>on</p></blockquote>
 <p>触发 Workflow 执行的 event 名称，比如：<strong>每当我提交代码到 Github 上的时候，或者是每当我打 TAG 的时候。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -465,13 +461,11 @@
 <p>上面的 my_first_job 和 my_second_job 就是 job_id。</p>
 <h5 id="2如何定义-job-的名称">2、如何定义 job 的名称？
 </h5><blockquote>
-<p>jobs.&lt;job_id&gt;.name</p>
-</blockquote>
+<p>jobs.&lt;job_id&gt;.name</p></blockquote>
 <p>name 会显示在 Github 上</p>
 <h5 id="3如何定义-job-的依赖job-是否可以依赖于别的-job-的输出结果">3、如何定义 job 的依赖？job 是否可以依赖于别的 job 的输出结果？
 </h5><blockquote>
-<p>jobs.&lt;job_id&gt;.needs</p>
-</blockquote>
+<p>jobs.&lt;job_id&gt;.needs</p></blockquote>
 <p>答：needs 可以标识 job 是否依赖于别的 job—— 如果 job 失败，则会跳过所有需要该 job 的 job。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -482,8 +476,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>jobs.&lt;jobs_id&gt;.outputs：用于和 need 打配合，outputs 输出 =》need 输入</p>
-</blockquote>
+<p>jobs.&lt;jobs_id&gt;.outputs：用于和 need 打配合，outputs 输出 =》need 输入</p></blockquote>
 <p>jobs 的输出，用于和 needs 打配合：可以看到 ouput</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -495,8 +488,7 @@
 </div>
 </div><h5 id="4如何定义-job-的运行环境">4、如何定义 job 的运行环境？
 </h5><blockquote>
-<p>jobs.&lt;job_id&gt;.runs-on</p>
-</blockquote>
+<p>jobs.&lt;job_id&gt;.runs-on</p></blockquote>
 <p>指定运行 job 的运行环境，Github 上可用的运行器为：</p>
 <ul>
 <li>windows-2019</li>
@@ -515,8 +507,7 @@
 </div>
 </div><h5 id="5如何给-job-定义环境变量">5、如何给 job 定义环境变量？
 </h5><blockquote>
-<p>jobs.&lt;jobs_id&gt;.env</p>
-</blockquote>
+<p>jobs.&lt;jobs_id&gt;.env</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -527,8 +518,7 @@
 </div>
 </div><h5 id="6如何使用-job-的条件控制语句">6、如何使用 job 的条件控制语句？
 </h5><blockquote>
-<p>jobs.&lt;job_id&gt;.if</p>
-</blockquote>
+<p>jobs.&lt;job_id&gt;.if</p></blockquote>
 <p>我们可以使用 if 条件语句来组织 job 运行</p>
 <hr>
 <h4 id="四step-属性是什么">四、Step 属性是什么？
@@ -565,8 +555,7 @@
 <p>比如最常用的，check-out 代码到 Workflow 工作区：</p>
 <h5 id="1我们应该如何使用-action">1、我们应该如何使用 Action？
 </h5><blockquote>
-<p>jobs.&lt;job_id&gt;.steps.uses</p>
-</blockquote>
+<p>jobs.&lt;job_id&gt;.steps.uses</p></blockquote>
 <p><img src="https://pic3.zhimg.com/v2-e6855fd2e091401590baf4febf356cce_r.jpg"
 	
 	
@@ -776,7 +765,7 @@
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">

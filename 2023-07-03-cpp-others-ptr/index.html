@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2023-07-03-cpp-others-ptr/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="c++感想之指针1">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="c++感想之指针1">
 <meta property='og:description' content=" content {:toc} cpp感想(1)&mdash;指针 版本号: V1.2\n1 第一版本感想 一开始认为只是一个存储地址的变量, 但是发现有些片面了\n2 第二版感想 想了很久发现, 没有一个词能够很好的形容指针, 感觉协议还靠边一点\n">
 <meta property='og:url' content='https://li54426.github.io/2023-07-03-cpp-others-ptr/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -312,16 +312,16 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#cpp感想1---指针">cpp感想(1)&mdash;指针</a>
+    <li><a href="#cpp感想1指针">cpp感想(1)&mdash;指针</a>
       <ol>
         <li><a href="#1-第一版本感想">1 第一版本感想</a></li>
         <li><a href="#2-第二版感想">2 第二版感想</a>
           <ol>
             <li><a href="#21-void指针">2.1 void指针</a></li>
             <li><a href="#22-malloc-函数">2.2 malloc 函数</a></li>
-            <li><a href="#23-链表---来自数据结构">2.3 链表&mdash;来自数据结构</a></li>
-            <li><a href="#24-obj---来自sgigcc29">2.4 obj&mdash;来自SGIGCC2.9</a></li>
-            <li><a href="#25-short和int---来自编程范式视频">2.5 short和int&mdash;来自编程范式(视频)</a></li>
+            <li><a href="#23-链表来自数据结构">2.3 链表&mdash;来自数据结构</a></li>
+            <li><a href="#24-obj来自sgigcc29">2.4 obj&mdash;来自SGIGCC2.9</a></li>
+            <li><a href="#25-short和int来自编程范式视频">2.5 short和int&mdash;来自编程范式(视频)</a></li>
           </ol>
         </li>
       </ol>
@@ -387,7 +387,7 @@
 <li>content
 {:toc}</li>
 </ul>
-<h2 id="cpp感想1---指针">cpp感想(1)&mdash;指针
+<h2 id="cpp感想1指针">cpp感想(1)&mdash;指针
 </h2><p>版本号: V1.2</p>
 <h3 id="1-第一版本感想">1 第一版本感想
 </h3><p>一开始认为只是一个<strong>存储地址</strong>的变量, 但是发现有些片面了</p>
@@ -400,8 +400,7 @@
 <h4 id="21-void指针">2.1 void指针
 </h4><blockquote>
 <p>​	void指针不是空指针, 而是可以没有约束( 协议 )的指针, 任何指针指都可以赋值给他, 但是不能用void指针进行操作, 要转换后才能进行操作
-​	因为void*可以接受任何类型指针，就是所谓的上转型（upcasting），将一个更具体的指针转换成一个类型更泛化的指针。编译器知道这种类型转换并不会带来风险。如果进行下转型（downcasting），就告诉编译器，我现在有一个类型更加泛化的指针，我知道此指针具体类型是什么，但是如果涉及引用就想要进行强制转换。</p>
-</blockquote>
+​	因为void*可以接受任何类型指针，就是所谓的上转型（upcasting），将一个更具体的指针转换成一个类型更泛化的指针。编译器知道这种类型转换并不会带来风险。如果进行下转型（downcasting），就告诉编译器，我现在有一个类型更加泛化的指针，我知道此指针具体类型是什么，但是如果涉及引用就想要进行强制转换。</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -414,9 +413,8 @@
 </div>
 </div><h4 id="22-malloc-函数">2.2 malloc 函数
 </h4><blockquote>
-<p>malloc 函数 返回的指针就是void * 类型, 也就是没有协议的类型</p>
-</blockquote>
-<h4 id="23-链表---来自数据结构">2.3 链表&mdash;来自数据结构
+<p>malloc 函数 返回的指针就是void * 类型, 也就是没有协议的类型</p></blockquote>
+<h4 id="23-链表来自数据结构">2.3 链表&mdash;来自数据结构
 </h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -436,7 +434,7 @@
 <li>Listnode 类型的变量可以有两个元素, 一个是数据域, 另一个是指针.这两个的大小和组织形式都是固定的, 例如, datatype为int时, 占据8个字节, 指针一般占据8个字节. 这就占据16个字节.</li>
 <li>Listnode 指针的协议就可以这么来描述: 大小为16个字节, 类内元素排列是 int ( 8 )+ 指针 ( 8 )</li>
 </ul>
-<h4 id="24-obj---来自sgigcc29">2.4 obj&mdash;来自SGIGCC2.9
+<h4 id="24-obj来自sgigcc29">2.4 obj&mdash;来自SGIGCC2.9
 </h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -499,7 +497,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="25-short和int---来自编程范式视频">2.5 short和int&mdash;来自编程范式(视频)
+</div><h4 id="25-short和int来自编程范式视频">2.5 short和int&mdash;来自编程范式(视频)
 </h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -602,7 +600,7 @@
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">

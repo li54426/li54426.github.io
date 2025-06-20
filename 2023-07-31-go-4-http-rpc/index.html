@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2023-07-31-go-4-http-rpc/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Go_4_HTTP_RPC_">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="Go_4_HTTP_RPC_">
 <meta property='og:description' content="[TOC]\nctrl + /打开专注模式\nHTTp 框架 超文本传输协议 请求行/状态行 方法名 URL 协议版本 请求头/响应头 请求体/响应体 1 2 3 4 5 6 POST /sis HTTP/1.1 Who: Alex Content-Type: text/plain Host: 127.0.0.1:8888 Content-Length: 28 Let&#39;s watch a movie together 问题与展望 HTTP1 队头阻塞, 传输效率低, 明文传输不安全 (头部太大) HTTP2 多路复用, 头部压缩, 二进制协议 QUIC 基于 UDP 实现, 解决队头阻塞加, 密减少握手次数, 支持快速启动 盖尔定律 一个切实可行的复杂系统势必是从一个切实可行的简单系统发展而来的。从头开始设计的复杂系统根本不切实可行，无法修修补补让它切实可行。你必须由一个切实可行的简单系统重新开始。\n">
 <meta property='og:url' content='https://li54426.github.io/2023-07-31-go-4-http-rpc/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -590,8 +590,8 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Reader</span> <span class="kd">interface</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 开始读的位置
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">Peek</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 开始读的位置</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Peek</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">Discard</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)(</span><span class="nx">discarded</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">Release</span><span class="p">()</span> <span class="kt">error</span> 
 </span></span><span class="line"><span class="cl">    <span class="nf">Size</span><span class="p">()</span> <span class="kt">int</span> 
@@ -1097,7 +1097,7 @@ User-Agent、 Content-Type、 Content-Length、 Connection、 Transfer-Encoding<
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">

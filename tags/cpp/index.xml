@@ -589,7 +589,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;3-进阶---stringstream-的使用&#34;&gt;3 进阶&amp;mdash;stringstream 的使用
+&lt;/div&gt;&lt;h3 id=&#34;3-进阶stringstream-的使用&#34;&gt;3 进阶&amp;mdash;stringstream 的使用
 &lt;/h3&gt;&lt;h4 id=&#34;31-输入方式为每行一个数组&#34;&gt;3.1 输入方式为每行一个数组
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;输入样例&lt;/p&gt;
@@ -2044,8 +2044,7 @@ STL规则告诉我们配置器定义与&amp;lt;memory&amp;gt;中,
 &lt;p&gt;两级结构, 第一级是  链表( free list )  第二级是内存池  内存池不够的话, 继续 malloc&lt;/p&gt;
 &lt;p&gt;其实 free list 可以和内存池相互转换,&lt;/p&gt;
 &lt;p&gt;当 free list 某个大小的结点不足时, 可以调用内存池中的内存&lt;/p&gt;
-&lt;p&gt;当内存池空的时候, 可以从free list中 调用 内存&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;当内存池空的时候, 可以从free list中 调用 内存&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -2851,7 +2850,7 @@ STL规则告诉我们配置器定义与&amp;lt;memory&amp;gt;中,
 &lt;li&gt;content
 {:toc}&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;cpp感想1---指针&#34;&gt;cpp感想(1)&amp;mdash;指针
+&lt;h2 id=&#34;cpp感想1指针&#34;&gt;cpp感想(1)&amp;mdash;指针
 &lt;/h2&gt;&lt;p&gt;版本号: V1.2&lt;/p&gt;
 &lt;h3 id=&#34;1-第一版本感想&#34;&gt;1 第一版本感想
 &lt;/h3&gt;&lt;p&gt;一开始认为只是一个&lt;strong&gt;存储地址&lt;/strong&gt;的变量, 但是发现有些片面了&lt;/p&gt;
@@ -2864,8 +2863,7 @@ STL规则告诉我们配置器定义与&amp;lt;memory&amp;gt;中,
 &lt;h4 id=&#34;21-void指针&#34;&gt;2.1 void指针
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;​	void指针不是空指针, 而是可以没有约束( 协议 )的指针, 任何指针指都可以赋值给他, 但是不能用void指针进行操作, 要转换后才能进行操作
-​	因为void*可以接受任何类型指针，就是所谓的上转型（upcasting），将一个更具体的指针转换成一个类型更泛化的指针。编译器知道这种类型转换并不会带来风险。如果进行下转型（downcasting），就告诉编译器，我现在有一个类型更加泛化的指针，我知道此指针具体类型是什么，但是如果涉及引用就想要进行强制转换。&lt;/p&gt;
-&lt;/blockquote&gt;
+​	因为void*可以接受任何类型指针，就是所谓的上转型（upcasting），将一个更具体的指针转换成一个类型更泛化的指针。编译器知道这种类型转换并不会带来风险。如果进行下转型（downcasting），就告诉编译器，我现在有一个类型更加泛化的指针，我知道此指针具体类型是什么，但是如果涉及引用就想要进行强制转换。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -2878,9 +2876,8 @@ STL规则告诉我们配置器定义与&amp;lt;memory&amp;gt;中,
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;22-malloc-函数&#34;&gt;2.2 malloc 函数
 &lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;malloc 函数 返回的指针就是void * 类型, 也就是没有协议的类型&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;23-链表---来自数据结构&#34;&gt;2.3 链表&amp;mdash;来自数据结构
+&lt;p&gt;malloc 函数 返回的指针就是void * 类型, 也就是没有协议的类型&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;23-链表来自数据结构&#34;&gt;2.3 链表&amp;mdash;来自数据结构
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -2900,7 +2897,7 @@ STL规则告诉我们配置器定义与&amp;lt;memory&amp;gt;中,
 &lt;li&gt;Listnode 类型的变量可以有两个元素, 一个是数据域, 另一个是指针.这两个的大小和组织形式都是固定的, 例如, datatype为int时, 占据8个字节, 指针一般占据8个字节. 这就占据16个字节.&lt;/li&gt;
 &lt;li&gt;Listnode 指针的协议就可以这么来描述: 大小为16个字节, 类内元素排列是 int ( 8 )+ 指针 ( 8 )&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;24-obj---来自sgigcc29&#34;&gt;2.4 obj&amp;mdash;来自SGIGCC2.9
+&lt;h4 id=&#34;24-obj来自sgigcc29&#34;&gt;2.4 obj&amp;mdash;来自SGIGCC2.9
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -2963,7 +2960,7 @@ STL规则告诉我们配置器定义与&amp;lt;memory&amp;gt;中,
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;*/&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;25-short和int---来自编程范式视频&#34;&gt;2.5 short和int&amp;mdash;来自编程范式(视频)
+&lt;/div&gt;&lt;h4 id=&#34;25-short和int来自编程范式视频&#34;&gt;2.5 short和int&amp;mdash;来自编程范式(视频)
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1

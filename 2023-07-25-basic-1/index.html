@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2023-07-25-basic-1/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="basic_1_算法基础知识">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="basic_1_算法基础知识">
 <meta property='og:description' content=" content {:toc} 基础知识 代码风格 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class Solution { public: void moveZeroes(vector&lt;int&gt;&amp; nums) { int slowIndex = 0; for (int fastIndex = 0; fastIndex &lt; nums.size(); fastIndex++) { if (nums[fastIndex] != 0) { nums[slowIndex++] = nums[fastIndex]; } } for (int i = slowIndex; i &lt; nums.size(); i++) { nums[i] = 0; } } }; ACM模式 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #include&lt;iostream&gt; #include&lt;vector&gt; using namespace std; int main() { int n; while (cin &gt;&gt; n) { vector&lt;int&gt; gym(n); vector&lt;int&gt; work(n); for (int i = 0; i &lt; n; i++) cin &gt;&gt; work[i]; for (int i = 0; i &lt; n; i++) cin &gt;&gt; gym[i]; int result = 0; // 处理逻辑 cout &lt;&lt; result &lt;&lt; endl; } return 0; } leetcode模式/ 核心代码模式 只关注核心逻辑, 培养算法思维 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class Solution { public: void moveZeroes(vector&lt;int&gt;&amp; nums) { int slowIndex = 0; for (int fastIndex = 0; fastIndex &lt; nums.size(); fastIndex++) { if (nums[fastIndex] != 0) { nums[slowIndex++] = nums[fastIndex]; } } for (int i = slowIndex; i &lt; nums.size(); i++) { nums[i] = 0; } } }; 究竟什么是时间复杂度 时间复杂度是一个函数，它定性描述该算法的运行时间。\n">
 <meta property='og:url' content='https://li54426.github.io/2023-07-25-basic-1/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -868,7 +868,7 @@
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">

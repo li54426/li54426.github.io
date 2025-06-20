@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Tue, 22 Oct 2024 12:42:14 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 20 Jun 2025 03:20:55 +0000</lastBuildDate><atom:link href="https://li54426.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>简历制作教训</title>
         <link>https://li54426.github.io/2023-09-10-resume/</link>
         <pubDate>Sun, 10 Sep 2023 19:19:59 +0000</pubDate>
@@ -56,8 +56,7 @@
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;项目名称：智能家居系统设计 - 项目描述：参与设计一个智能家居系统，包括家庭安防、智能控制等功能。 - 职责：担任软件工程师，负责系统的需求分析、系统设计和代码编写。 - 工作成果：成功完成系统的设计和开发工作，实现了远程监控、智能控制等功能。系统上线后，用户满意度提高了xx%，故障率降低了xx%。 3. 项目名称：数据分析与挖掘 - 项目描述：参与一个数据分析与挖掘项目，对大量的数据进行分析和挖掘，提取有价值的信息。 - 职责：担任数据分析师，负责数据清洗、特征提取和模型建立。 - 工作成果：成功完成数据分析和挖掘工作，提取出了关键指标和规律，并提供了有针对性的决策建议。项目完成后，公司的利润增长了xx%。 以上是我在简历中的项目经历，通过这些项目，我不仅提升了自己的技能和经验，也取得了一定的成绩和成就。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;4-职业技能--专业技能&#34;&gt;4 职业技能  (专业技能)
 &lt;/h3&gt;&lt;p&gt;【建议】 职业技能是简历中非常重要的一部分，它能够展示你的专业能力和技术水平。对于已有的职业技能，建议你在描述时要更加具体和有针对性，可以提供一些相关项目经验或成果，以突出你的实际应用能力。另外，可以考虑添加一些与职位要求相关的技能，以提高简历的匹配度。&lt;/p&gt;
 &lt;ul&gt;
@@ -80,7 +79,7 @@
         
         <guid>https://li54426.github.io/2023-07-29-latex/</guid>
         <description>&lt;h2 id=&#34;论文技巧latex使用简介&#34;&gt;论文技巧Latex使用简介:
-&lt;/h2&gt;&lt;h3 id=&#34;latex摘要----快速入门&#34;&gt;latex摘要&amp;mdash;-快速入门
+&lt;/h2&gt;&lt;h3 id=&#34;latex摘要-快速入门&#34;&gt;latex摘要&amp;mdash;-快速入门
 &lt;/h3&gt;&lt;p&gt;中文使用cjkutf8&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使用 % 进行注释&lt;/li&gt;
@@ -285,7 +284,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(\ref{key})
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;14-特殊的公式----规划&#34;&gt;1.4 特殊的公式&amp;mdash;-规划
+&lt;/div&gt;&lt;h4 id=&#34;14-特殊的公式-规划&#34;&gt;1.4 特殊的公式&amp;mdash;-规划
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -516,7 +515,7 @@ usepackage{graphics}
 \[Fig1\]&lt;p&gt; 为子图的标题；&lt;br&gt;
 \caption{Experimental results of the authors} 为总标题。&lt;/p&gt;
 &lt;h3 id=&#34;3引用-参考文献&#34;&gt;3.引用 (参考文献)
-&lt;/h3&gt;&lt;h4 id=&#34;bib-参考文献一键复制httpsgreasyforkorgzh-cnscripts455062-bib参考文献一键复制&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://greasyfork.org/zh-CN/scripts/455062-bib%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae%e4%b8%80%e9%94%ae%e5%a4%8d%e5%88%b6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h3&gt;&lt;h4 id=&#34;bib-参考文献一键复制&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://greasyfork.org/zh-CN/scripts/455062-bib%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae%e4%b8%80%e9%94%ae%e5%a4%8d%e5%88%b6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Bib 参考文献一键复制&lt;/a&gt;
 &lt;/h4&gt;&lt;p&gt;设置方法&lt;/p&gt;
 &lt;ul&gt;

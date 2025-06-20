@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://li54426.github.io/2023-07-30-slide-window/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="滑动窗口算法">
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="滑动窗口算法">
 <meta property='og:description' content=" content {:toc} 滑动窗口 O(n) 时间内解决 子串, 子数组问题\nright 表示待处理的节点 窗口其实就是 [left, right), 窗口大小是 left- right right 向右寻找可行解，left 向右寻找最优解 等价于枚举左端点 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #-----------------V1---------------- while right &lt; s.size(): # 处理s[right] ++right; while( shirink &amp;&amp; l&lt;r ): # 满足 题目 条件的在这里更新 updata res # 处理left ++left #-----------------V2---------------- while right &lt; s.size(): # 处理s[right] ++right; while(!shirink &amp;&amp; l&lt;r ): # 处理left ++left #不满足条件的在这里更新 updata res 满足不满足条件的意思是:\n">
 <meta property='og:url' content='https://li54426.github.io/2023-07-30-slide-window/'>
 <meta property='og:site_name' content='li54426 &#39;s Blog'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu15906844328442591646.jpg" width="300"
+                        <img src="/img/avatar_hu_85e72fb6d1fcc281.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -317,8 +317,8 @@
         <li>
           <ol>
             <li><a href="#滑动窗口">滑动窗口</a></li>
-            <li><a href="#满足题目条件---循环内更新">满足题目条件&mdash;循环内更新</a></li>
-            <li><a href="#不满足题目条件---循环外更新">不满足题目条件&mdash;循环外更新</a></li>
+            <li><a href="#满足题目条件循环内更新">满足题目条件&mdash;循环内更新</a></li>
+            <li><a href="#不满足题目条件循环外更新">不满足题目条件&mdash;循环外更新</a></li>
           </ol>
         </li>
       </ol>
@@ -445,7 +445,7 @@
 <li>随着 r++, 你所想要的目标(求和, 求积) 是怎么进行变化, 是向着你想要的目标走还是怎样</li>
 <li></li>
 </ul>
-<h4 id="满足题目条件---循环内更新">满足题目条件&mdash;循环内更新
+<h4 id="满足题目条件循环内更新">满足题目条件&mdash;循环内更新
 </h4><p><a class="link" href="https://leetcode.cn/problems/minimum-size-subarray-sum/"  target="_blank" rel="noopener"
     >209. 长度最小的子数组</a></p>
 <blockquote>
@@ -507,7 +507,7 @@
 </div><ul>
 <li>在本题中, 随着 r++, 目标和越来越大, 是向着你想要的目标走, 因此用的是 V1, 在循环内更新 结果</li>
 </ul>
-<h4 id="不满足题目条件---循环外更新">不满足题目条件&mdash;循环外更新
+<h4 id="不满足题目条件循环外更新">不满足题目条件&mdash;循环外更新
 </h4><p><a class="link" href="https://leetcode.cn/problems/subarray-product-less-than-k/"  target="_blank" rel="noopener"
     >713. 乘积小于 K 的子数组</a></p>
 <blockquote>
@@ -747,7 +747,7 @@
         
             2020 - 
         
-        2024 Example Person
+        2025 Example Person
     </section>
     
     <section class="powerby">
